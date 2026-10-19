@@ -1,275 +1,275 @@
 lessonContent["uz-Latn"] = {
-  "equipment": {
-    "version": 1,
-    "title": "Laboratoriya stolini tayyorla",
-    "goal": "Asosiy jihozlarni tanish va ish joyini xavfsiz tayyorlash tartibini tanlash.",
+  "properties": {
+    "version": 2,
+    "title": "Fizik xossalari turlicha boʻlgan moddalar bilan tanishish",
+    "goal": "12 ta namunani solishtirish va fizik xossalarini yozish.",
     "sections": [
       {
-        "title": "Avval topshiriq va xavfsizlik",
+        "title": "Kuzat va tavsifla",
         "paragraphs": [
-          "Ishni boshlashdan oldin topshiriqni oʻqi va oʻqituvchini tingla. Haqiqiy laboratoriyada faqat uning nazorati ostida ishla. Moddalarni tatib koʻrma, notanish moddalardan mustaqil foydalanma.",
-          "Ushbu oʻquv modelida ish oldidan himoya koʻzoynagi va xalat tanlanadi. Haqiqiy ish uchun himoya vositalari va qoidalarni oʻqituvchi belgilaydi. Virtual tajriba uning yoʻriqnomasini almashtirmaydi."
+          "Namunaning holati va rangini kuzatish mumkin. Belgilangan sharoitda modda qattiq, suyuq yoki gaz holatda boʻladi. Rang oddiy yorugʻlikda koʻriladi.",
+          "Belgilangan namunalarni solishtir. Rangning bir xilligi moddalarning bir xil ekanini isbotlamaydi. Moddalarni tatib koʻrma va notanish namunaning hidini bevosita nafas olib aniqlama."
         ]
       },
       {
-        "title": "Har bir jihozning vazifasi bor",
+        "title": "Xossalarni solishtir",
         "paragraphs": [
-          "Laboratoriya stakani suyuqlikni saqlash va aralashtirish uchun ishlatiladi. Probirkada oz miqdordagi modda bilan ishlanadi. Probirka yiqilmasligi uchun uni probirkalar shtativiga joylashtir.",
-          "Tayoqcha aralashtirish va quyishda suyuqlik oqimini yoʻnaltirish uchun kerak. Voronka suyuqlikni quyishga yordam beradi; mos filtr bilan filtrlashda ishlatiladi. Tayoqcha hajmni oʻlchamaydi."
+          "Eruvchanlik moddaning tanlangan erituvchi bilan belgilangan sharoitdagi xossasini ifodalaydi. Suyuqliklar uchun aralashuvchanlik haqida gapirish mumkin. Kristallar koʻrinmasligi modda yoʻqolganini anglatmaydi.",
+          "Zichlik massa va hajmni bogʻlaydi: ρ = m/V. Sonli qiymatga birlik va sharoit kerak. Qattiqlik qattiq namunalar uchun solishtiriladi; bu jadvalda suv va spirtga tanlangan usul qoʻllanmaydi."
         ]
       },
       {
-        "title": "Ish joyini barqaror tayyorla",
+        "title": "Jadvalni mazmunli toʻldir",
         "paragraphs": [
-          "Idishlarni belgilangan joylarga, probirkani esa shtativga qoʻy. Buyumlarni stol chetida qoldirma. Mustaqil buyumlarni turli tartibda qoʻyish mumkin, lekin probirka uchun avval tayanch kerak.",
-          "Bu kirish mashgʻulotida jihozlar bilan tanishamiz: moddalarni aralashtirmaymiz va reaksiya oʻtkazmaymiz. Kuzatishlarni yozgach, oʻqituvchi koʻrsatmasiga binoan joyni yigʻishtir. Modeldagi yigʻishtirish moddalarni toʻkish yoʻriqnomasi emas."
+          "Tuz, shakar, soda, mis kuporosi, metallar, suv, spirt, oltingugurt va yod uchun holat, rang, hid, zichlik, suvda eruvchanlik va qattiqlikni yoz. Ilovada hid haqiqiy sezgi emas, maʼlumot matni bilan beriladi.",
+          "Suyuqlanish va qaynash haroratlari kelishilgan maʼlumotnomadan olinadi. Namuna tarkibi, sharoit va manba alohida koʻrsatiladi. Oʻqituvchi tasdiqlamagan sonlar tekshirilgan javob deb berilmaydi."
         ]
       }
     ],
     "glossary": [
       {
-        "term": "Laboratoriya stakani",
-        "definition": "Suyuqlik uchun va aralashtirishda ishlatiladigan idish."
+        "term": "Agregat holat",
+        "definition": "Belgilangan sharoitdagi qattiq, suyuq yoki gaz holat."
       },
       {
-        "term": "Probirka",
-        "definition": "Oz miqdordagi moddalar bilan ishlash uchun idish."
+        "term": "Zichlik",
+        "definition": "Massaning hajmga nisbati: ρ = m/V."
       },
       {
-        "term": "Probirkalar shtativi",
-        "definition": "Probirkalarni ushlab turuvchi tayanch."
+        "term": "Eruvchanlik",
+        "definition": "Belgilangan sharoitda tanlangan erituvchi bilan eritma hosil qilish xossasi."
       },
       {
-        "term": "Aralashtirish tayoqchasi",
-        "definition": "Aralashtirish asbobi; oʻlchash asbobi emas."
+        "term": "Qattiqlik",
+        "definition": "Tanlangan taqqoslash usulida qattiq materialning tirnalishga qarshiligi."
       }
     ],
     "questions": [
       {
-        "id": "prepare",
-        "prompt": "Ishni boshlashdan oldin nima qilish kerak?",
-        "correct": "read",
+        "id": "hardness",
+        "prompt": "Bu jadvalda suvning qattiqligi qanday yoziladi?",
+        "correct": "na",
         "options": [
           {
-            "id": "guess",
-            "label": "Darhol moddalarni aralashtirish",
-            "feedback": "Avval topshiriq va qoidalarni bilib olish kerak. Erkin aralashtirish bu ishga kirmaydi."
+            "id": "zero",
+            "label": "Nol yoziladi",
+            "feedback": "Nol oʻlchangan qiymatni bildirardi. Bu usul suyuq suvga qoʻllanmaydi."
           },
           {
-            "id": "read",
-            "label": "Topshiriqni oʻqish va himoya vositalarini tayyorlash",
-            "feedback": "Toʻgʻri: avval qoidalarni bilamiz, keyin himoya vositalari va ish joyini tayyorlaymiz."
+            "id": "na",
+            "label": "Qoʻllanmaydi deb belgilanadi",
+            "feedback": "Toʻgʻri: usul qattiq materiallarni solishtiradi, suv esa suyuqlik."
           },
           {
-            "id": "taste",
-            "label": "Moddani tatib koʻrish",
-            "feedback": "Laboratoriyadagi moddalar tatib koʻrilmaydi. Avval topshiriqni oʻqi va himoya vositalarini tayyorla."
+            "id": "same",
+            "label": "Shishaning qattiqligi olinadi",
+            "feedback": "Shishaning qattiqligi suyuq suvning xossasi emas."
           }
         ]
       },
       {
-        "id": "support",
-        "prompt": "Probirka qayerda barqaror turadi?",
-        "correct": "rack",
+        "id": "density",
+        "prompt": "Zichlikni son bilan tavsiflash uchun nima kerak?",
+        "correct": "units",
         "options": [
           {
-            "id": "rack",
-            "label": "Probirkalar shtativida",
-            "feedback": "Toʻgʻri: shtativ probirkani ushlab, yiqilishining oldini olishga yordam beradi."
+            "id": "color",
+            "label": "Faqat rang",
+            "feedback": "Rang massa va hajmni bermaydi. Zichlik uchun birlik va sharoit kerak."
           },
           {
-            "id": "edge",
-            "label": "Stol chetida, tayanchsiz",
-            "feedback": "Probirka chetdan tushib ketishi mumkin. Unga probirkalar shtativi kerak."
+            "id": "smell",
+            "label": "Faqat hid",
+            "feedback": "Hid boshqa xossa. Zichlik massa va hajmga bogʻliq."
           },
           {
-            "id": "rod",
-            "label": "Aralashtirish tayoqchasi ustida",
-            "feedback": "Tayoqcha probirkani ushlab turmaydi. Buning uchun shtativ ishlatiladi."
+            "id": "units",
+            "label": "Qiymat, birlik va sharoit",
+            "feedback": "Toʻgʻri: birlik va sharoitsiz son noaniq boʻlishi mumkin."
           }
         ]
       }
     ]
   },
-  "dissolving": {
-    "version": 1,
-    "title": "Tuz suvda qanday eriydi?",
-    "goal": "Erishni kuzatish va eritmada suv hamda tuz borligini tushuntirish.",
+  "physical": {
+    "version": 2,
+    "title": "Fizik hodisalar",
+    "goal": "Suyuqlanish, erish va eritmadan tuzni qayta olishni izohlash.",
     "sections": [
       {
-        "title": "Moddalar va aralashma",
+        "title": "Parafin: suyuqlanish va sovish",
         "paragraphs": [
-          "Modelda aralashmalarsiz suv va osh tuzi boshlangʻich moddalar sifatida ishlatiladi. Kundalik suvda qoʻshimchalar boʻlishi mumkin, shuning uchun uni doimo sof modda deb boʻlmaydi.",
-          "Tuz suvda eriganda aralashma — eritma hosil boʻladi. Kristallar koʻrinmay qoladi, lekin tuz suvda qoladi."
+          "Parafin namunasi qizdirilganda qattiq holatdan suyuq holatga oʻtishi mumkin. Soviganda yana qotadi. Bu topshiriqda sham yonishi emas, holat oʻzgarishi oʻrganiladi.",
+          "Sham parafini aralashmadir, shuning uchun unga yagona universal suyuqlanish harorati berilmaydi. Virtual qizdirish boshqariladigan boʻladi; hozir topshiriq tavsifi berilgan."
         ]
       },
       {
-        "title": "Erish paytida nima oʻzgaradi?",
+        "title": "Tuz eritmada qoladi",
         "paragraphs": [
-          "Belgilangan tuz porsiyasi qoʻshilgach, kristallarni koʻrish mumkin. Erish davomida ular koʻrinmay qoladi. Aralashtirish odatda erishni tezlashtiradi, ammo tuz aralashtirmasdan ham erishi mumkin.",
-          "Kelajakdagi tajriba uchun suv hajmi, tuz miqdori va toʻliq erish sharoitlarini oʻqituvchi tanlaydi. Modelda vaqt va zarrachalar tasviri shartli. Bu darsda qizdirish va eruvchanlikning aniq hisobi oʻrganilmaydi."
+          "Tuz eriganda kristallar ajratib koʻrinmay qoladi, lekin tuz suvda qoladi. Eritma — aralashma. Aralashtirish erishga yordam beradi, yangi element yaratmaydi.",
+          "Eritmadan suv bugʻlanganda tuz kristallari yana koʻrinishi mumkin. Modelda erish va bugʻlatish yangi kimyoviy element yaratish emas, fizik hodisa sifatida qaraladi."
         ]
       },
       {
-        "title": "Kuzatganingni izohla",
+        "title": "Hid — maʼlumot xossasi",
         "paragraphs": [
-          "Tanlangan sharoitda bir jinsli aralashma hosil boʻladi: uning tarkibiy qismlarini oddiy koʻz bilan ajratib boʻlmaydi. Kristallar koʻrinmasligi tuz yoʻqligini isbotlamaydi.",
-          "Tuz yoʻqolmaydi va yangi kimyoviy element paydo boʻlmaydi. Bu oʻquv modelida yangi modda hosil boʻlishi koʻrsatilmaydi. Tuz borligini bilish uchun tatib koʻrma; oʻrgangan xossalar va kuzatishlardan foydalan."
+          "Uchinchi topshiriqda etil spirti, suyultirilgan sirka kislota eritmasi va efirning hid tavsiflari solishtiriladi. Brauzer hid uzatmaydi: faqat maʼlumot kartochkalari ishlatiladi.",
+          "Qaysi efir va namuna tarkibi nazarda tutilganini oʻqituvchi aniqlashtiradi. Uyda bugʻni nafasga olishni takrorlama, notanish moddani hidlama. Maʼlumot xossalarini solishtirishning oʻzi reaksiya emas."
         ]
       }
     ],
     "glossary": [
       {
-        "term": "Aralashma",
-        "definition": "Ikki yoki undan ortiq modda birga mavjud boʻlgan tizim."
+        "term": "Suyuqlanish",
+        "definition": "Qattiq holatdan suyuq holatga oʻtish."
       },
       {
-        "term": "Eritma",
-        "definition": "Tarkibiy qismlarini oddiy koʻz bilan ajratib boʻlmaydigan bir jinsli aralashma."
+        "term": "Qotish",
+        "definition": "Suyuq holatdan qattiq holatga oʻtish."
       },
       {
-        "term": "Erish",
-        "definition": "Eruvchi modda va erituvchi oʻzaro taʼsirida eritma hosil boʻlishi."
+        "term": "Bugʻlatish",
+        "definition": "Erigan moddani olish uchun erituvchini bugʻlanish orqali chiqarish."
       },
       {
-        "term": "Bir jinsli aralashma",
-        "definition": "Tarkibiy qismlari oddiy koʻz bilan ajratilmaydigan aralashma."
+        "term": "Fizik hodisa",
+        "definition": "Koʻrilayotgan jarayonda yangi moddalar hosil boʻlmaydigan oʻzgarish."
       }
     ],
     "questions": [
       {
-        "id": "composition",
-        "prompt": "Tayyorlangan tuz eritmasida nima bor?",
-        "correct": "both",
+        "id": "wax",
+        "prompt": "Parafin suyuqlanib soviganda nima oʻrganiladi?",
+        "correct": "state",
         "options": [
           {
-            "id": "only-water",
-            "label": "Faqat suv",
-            "feedback": "Suv bor, lekin erigan tuz ham eritmada qoladi."
+            "id": "state",
+            "label": "Agregat holatning oʻzgarishi",
+            "feedback": "Toʻgʻri: modelda parafin suyuqlanadi va yana qotadi."
+          },
+          {
+            "id": "burn",
+            "label": "Parafinning albatta yonishi",
+            "feedback": "Suyuqlanish va yonish boshqa jarayonlar. Bu yerda yonish maqsad emas."
           },
           {
             "id": "element",
-            "label": "Yangi kimyoviy element",
-            "feedback": "Erish yangi element yaratmaydi. Eritmada suv va tuz qoladi."
-          },
-          {
-            "id": "both",
-            "label": "Suv va erigan tuz",
-            "feedback": "Toʻgʻri: eritmada ikkala tarkibiy qism bor, u aralashmadir."
+            "label": "Yangi element yaratilishi",
+            "feedback": "Holat oʻzgarishi kimyoviy element yaratmaydi."
           }
         ]
       },
       {
-        "id": "disappear",
-        "prompt": "Kristallar koʻrinmayapti. Tuz yoʻqoldimi?",
-        "correct": "remains",
+        "id": "salt",
+        "prompt": "Modelda tuz eritmasidan suv chiqarilgach nima qoladi?",
+        "correct": "salt",
         "options": [
           {
-            "id": "gone",
-            "label": "Ha, tuz yoʻq boʻlib ketdi",
-            "feedback": "Kristallari koʻrinmasa ham, tuz eritmada qoladi."
+            "id": "nothing",
+            "label": "Hech narsa: tuz yoʻqoldi",
+            "feedback": "Tuz eriganda yoʻqolmagan. Koʻrinadigan kristallar yana hosil boʻlishi mumkin."
           },
           {
-            "id": "remains",
-            "label": "Yoʻq, tuz eritmada qoladi",
-            "feedback": "Toʻgʻri: kristallarning koʻrinmasligi tuz yoʻqligini anglatmaydi."
+            "id": "salt",
+            "label": "Tuz kristallari",
+            "feedback": "Toʻgʻri: suv chiqarilgach tuzni yana kuzatish mumkin."
           },
           {
-            "id": "gas",
-            "label": "Ha, barcha tuz gazga aylandi",
-            "feedback": "Bu ishda gaz hosil boʻlmaydi. Tuz suvda erigan holda qoladi."
+            "id": "metal",
+            "label": "Yangi metall",
+            "feedback": "Bu eritmani bugʻlatish tuzni metallga aylantirmaydi."
           }
         ]
       }
     ]
   },
-  "filtration": {
-    "version": 1,
-    "title": "Qumni suvdan qanday ajratish mumkin?",
-    "goal": "Filtrlashni tanlash, qoldiq va filtratni farqlash.",
+  "chemical": {
+    "version": 2,
+    "title": "Kimyoviy hodisalar",
+    "goal": "Kuzatishlarni yangi moddalar hosil boʻlishi bilan bogʻlash.",
     "sections": [
       {
-        "title": "Bir jinsli boʻlmagan aralashma",
+        "title": "Yonish va yangi moddalar",
         "paragraphs": [
-          "Qum va suv aralashmasida qum zarralarini ajratib koʻrish mumkin. Modelimizda qum suvda erimaydi. Bunday aralashma bir jinsli boʻlmagan aralashma deyiladi.",
-          "Bu erimaydigan zarralarni ajratish uchun tanlangan qogʻoz filtrdan filtrlash mos keladi. Erishdan farqli ravishda, bunda mavjud tarkibiy qismlarni ajratamiz."
+          "Ishda qogʻoz, spirt, gaz va gugurtchoʻp yonishi solishtiriladi. Yonish — yangi moddalar hosil boʻladigan kimyoviy oʻzgarish. Belgilar maʼlum jarayon bilan birga izohlanadi.",
+          "Faqat yorugʻlik yoki qizish reaksiyaning universal isboti emas. Aniq tenglamalar uchun gaz va yoqilgʻi tarkibi aniqlashtiriladi. Hozir yonish faol alanga emas, oʻquv matni bilan ifodalangan."
         ]
       },
       {
-        "title": "Tarkibiy qismlar qayerga oʻtadi?",
+        "title": "Misning havoda qizdirilishi",
         "paragraphs": [
-          "Voronka tutqichga mahkamlanadi, tagiga qabul qiluvchi idish qoʻyiladi, ichiga tayyorlangan filtr oʻrnatiladi. Haqiqiy ishda filtr tayyorlash va quyishni oʻqituvchi tushuntiradi.",
-          "Modelda aralashma filtrdan oʻtadi. Qum zarralari unda qoladi — bu qoldiq. Idishga oʻtgan suyuqlik filtrat deyiladi. Modelda ajralish tezligi va toʻliqligi soddalashtirilgan."
+          "Soddalashtirilgan modelda mis sirtida qora mis(II) oksidi qatlami hosil boʻladi. Dastlabki mis va yangi qatlam solishtiriladi. Bu parafin holatining oʻzgarishidan farq qiladi.",
+          "Model izohi: 2Cu + O₂ → 2CuO. Qizdirish va qatlamni shartli solishtirish jihozlar kelishilgach alohida virtual amallar boʻladi."
         ]
       },
       {
-        "title": "Filtr nimalarni bajarmaydi?",
+        "title": "Karbonat va xlorid kislota",
         "paragraphs": [
-          "Mos qogʻoz filtr tanlangan qum zarralarini ushlab qoladi, ammo erigan tuzni suvdan ajratmaydi. Tuz eritmasini shu usulda tuz va suvga ajratib boʻlmaydi.",
-          "Aralashmani ajratish yangi modda yaratmaydi. Qolgan qum reaksiyada hosil boʻlgan choʻkma emas. Filtrdan keyin tiniq koʻringan suv ham albatta ichishga yaroqli degani emas: oddiy filtrlash buni isbotlamaydi."
+          "Boʻr, marmar va ohaktosh karbonat tarkibli namunalar sifatida qaraladi. Tanlangan modelda xlorid kislota bilan taʼsirda karbonat angidrid ajraladi: CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂.",
+          "Gaz pufakchalar va suyuqlik ustidagi belgilangan sinov orqali kuzatiladi. Choʻp alangasining oʻchishi gaz tarkibining yagona isboti emas, maʼlum reagentlar bilan birga qaraladi. Haqiqiy namunalar aralashmalari va jarayon tezligi bilan farqlanishi mumkin."
         ]
       }
     ],
     "glossary": [
       {
-        "term": "Filtrlash",
-        "definition": "Aralashmani mos filtrdan oʻtkazib ajratish."
+        "term": "Kimyoviy hodisa",
+        "definition": "Yangi moddalar hosil boʻladigan jarayon."
       },
       {
-        "term": "Qoldiq",
-        "definition": "Filtrda ushlanib qolgan qism."
+        "term": "Misning oksidlanishi",
+        "definition": "Bu modelda misning kislorod bilan taʼsiridan oksid hosil boʻlishi."
       },
       {
-        "term": "Filtrat",
-        "definition": "Filtrdan oʻtgan suyuqlik."
+        "term": "Karbonat angidrid",
+        "definition": "Tanlangan kislota va karbonat modelida hosil boʻladigan CO₂."
       },
       {
-        "term": "Bir jinsli boʻlmagan aralashma",
-        "definition": "Tarkibiy qismlarini ajratib koʻrish mumkin boʻlgan aralashma."
+        "term": "Reaksiya tenglamasi",
+        "definition": "Formulalar va koeffitsiyentlar bilan kimyoviy oʻzgarishning shartli yozuvi."
       }
     ],
     "questions": [
       {
-        "id": "method",
-        "prompt": "Bu ishda qumni suvdan qanday ajratamiz?",
-        "correct": "filter",
+        "id": "copper",
+        "prompt": "Misni qizdirish modelidagi qora qatlam qanday izohlanadi?",
+        "correct": "oxide",
         "options": [
           {
-            "id": "filter",
-            "label": "Aralashmani mos filtrdan oʻtkazib",
-            "feedback": "Toʻgʻri: erimaydigan qum zarralari ushlanadi, suv esa filtrdan oʻtadi."
+            "id": "melt",
+            "label": "Mis faqat suyuqlandi",
+            "feedback": "Faqat holat oʻzgarishi yangi qatlamni izohlamaydi; modelda oksid hosil boʻladi."
           },
           {
-            "id": "stir",
-            "label": "Faqat aralashtirib",
-            "feedback": "Aralashtirishning oʻzi qumni ajratmaydi. Mos ajratish usuli — filtrlash."
+            "id": "oxide",
+            "label": "Mis(II) oksidi hosil boʻldi",
+            "feedback": "Toʻgʻri: yangi modda hosil boʻlishi oddiy suyuqlanishdan farq qiladi."
           },
           {
-            "id": "dissolve",
-            "label": "Aralashtirib qumni eritib",
-            "feedback": "Modelimizda qum erimaydi. Uning zarralarini filtr ushlab qolishi kerak."
+            "id": "salt",
+            "label": "Sirtda osh tuzi paydo boʻldi",
+            "feedback": "Berilgan modelda osh tuzi hosil qiluvchi jarayon yoʻq."
           }
         ]
       },
       {
-        "id": "salt-filter",
-        "prompt": "Bu qogʻoz filtr suvdagi erigan tuzni ajratadimi?",
-        "correct": "no",
+        "id": "gas",
+        "prompt": "Bu modelda kislota karbonatga taʼsir qilganda pufakchalar qanday izohlanadi?",
+        "correct": "co2",
         "options": [
           {
-            "id": "yes",
-            "label": "Ha, barcha tuzni ushlab qoladi",
-            "feedback": "Erigan tuz suv bilan bunday filtrdan oʻtadi. Filtr qum zarralari uchun tanlangan."
+            "id": "air",
+            "label": "Har qanday pufakcha doimo havoni isbotlaydi",
+            "feedback": "Faqat pufakcha modda tarkibini aniq bermaydi. Reagentlar va jarayonni hisobga ol."
           },
           {
-            "id": "drink",
-            "label": "Ha, suv albatta ichishga yaroqli boʻladi",
-            "feedback": "Bunday filtr erigan tuzni ajratmaydi va suv xavfsizligini kafolatlamaydi."
+            "id": "element",
+            "label": "Yangi kimyoviy element yaratildi",
+            "feedback": "Bu reaksiyada yangi kimyoviy element yaratilmaydi."
           },
           {
-            "id": "no",
-            "label": "Yoʻq, erigan tuz suv bilan oʻtadi",
-            "feedback": "Toʻgʻri: bu filtr erigan tuzni emas, qumni ajratadi."
+            "id": "co2",
+            "label": "Tanlangan reaksiyaga muvofiq CO₂ ajraladi",
+            "feedback": "Toʻgʻri: xulosa faqat pufakchaga emas, belgilangan reagentlar va reaksiyaga asoslangan."
           }
         ]
       }

@@ -9,4 +9,4 @@ for(const [lang,row] of Object.entries(shellRows)){
  if(row.length!==shellKeys.length)throw new Error(`Missing shell translations: ${lang}`);
  Object.assign(dictionaries[lang],Object.fromEntries(shellKeys.map((key,i)=>[key,row[i]])));
 }
-const topics=[{id:'equipment',title:'t1',description:'d1',art:'tube'},{id:'dissolving',title:'t2',description:'d2',art:'beaker'},{id:'filtration',title:'t3',description:'d3',art:'funnel'}];
+const topics=[{id:'properties',title:'t1',description:'d1',art:'tube'},{id:'physical',title:'t2',description:'d2',art:'beaker'},{id:'chemical',title:'t3',description:'d3',art:'tube'}];

@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "lesson_flows": 36,
+  "layout_checks": 252,
+  "languages": 4,
+  "table_rows": 12,
+  "fields_per_row": 8,
+  "new_equipment_designs": 7,
+  "checks": [
+    "new topic titles only",
+    "three parts, glossary and corrected quiz in all languages",
+    "all seven assignment descriptions retained",
+    "old settings migrate without old grades",
+    "old storage retained",
+    "draft cells, active sample and source survive reload/language change",
+    "table reset preserves lessons",
+    "escaped user-entered values",
+    "no practice completion or simulated heat/reaction",
+    "corrupt and blocked storage recover",
+    "narrow/landscape/enlarged text"
+  ],
+  "js_errors": [],
+  "limits": "Chromium emulation; numerical reference values, teacher/native-language review and virtual experiment mechanics pending"
+}

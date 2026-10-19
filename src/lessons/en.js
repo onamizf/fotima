@@ -1,275 +1,275 @@
 lessonContent["en"] = {
-  "equipment": {
-    "version": 1,
-    "title": "Prepare your laboratory bench",
-    "goal": "Recognise basic equipment and choose a safe order for preparing your workspace.",
+  "properties": {
+    "version": 2,
+    "title": "Exploring substances with different physical properties",
+    "goal": "Compare 12 samples and record their physical properties.",
     "sections": [
       {
-        "title": "Start with the task and safety",
+        "title": "Observe and describe",
         "paragraphs": [
-          "Read the task and listen to your teacher before starting. Work in a real laboratory only under their supervision. Never taste substances or use unfamiliar materials on your own.",
-          "In this learning model, select safety goggles and a lab coat before working. Your teacher determines the exact protective equipment and rules for a real activity. A virtual experiment does not replace their instructions."
+          "You can observe a sample’s state and colour. Under specified conditions a substance can be solid, liquid or gas. Examine colour under ordinary lighting.",
+          "Compare labelled samples. The same colour does not prove they are the same substance. Never taste substances or directly inhale an unknown sample to determine its odour."
         ]
       },
       {
-        "title": "Each item has a purpose",
+        "title": "Compare properties",
         "paragraphs": [
-          "A laboratory beaker holds liquids and is used for mixing. A test tube holds small amounts of a substance. Place test tubes in a test-tube rack to keep them from falling.",
-          "A stirring rod is used for stirring and guiding liquid when pouring. A funnel helps transfer liquids and, with a suitable filter, is used for filtration. A stirring rod does not measure volume."
+          "Solubility describes behaviour with a chosen solvent under specified conditions. For liquids, miscibility may be the relevant description. Crystals no longer being visible does not mean the substance has disappeared.",
+          "Density relates mass and volume: ρ = m/V. Numerical values need units and conditions. Hardness is compared for solid samples; the chosen hardness method does not apply to water and alcohol in this table."
         ]
       },
       {
-        "title": "Make the workspace stable",
+        "title": "Complete the table thoughtfully",
         "paragraphs": [
-          "Place equipment in the designated areas and the test tube in its rack. Keep items away from the edge of the bench. Independent items may be placed in different orders, but a test tube needs its support first.",
-          "This introductory activity explores equipment: it does not mix substances or perform a reaction. After recording observations, tidy up as your teacher instructs. The model cleanup is not a guide to disposing of substances."
+          "Record state, colour, odour, density, water solubility and hardness for salt, sugar, baking soda, copper sulfate, metals, water, alcohol, sulfur and iodine. Odour is shown as reference text, not a real sensation.",
+          "Use an agreed reference for melting and boiling temperatures. Record sample composition, conditions and source separately. Numerical data pending teacher review are not presented as verified answers."
         ]
       }
     ],
     "glossary": [
       {
-        "term": "Laboratory beaker",
-        "definition": "A vessel for holding liquids and mixing."
+        "term": "State of matter",
+        "definition": "Solid, liquid or gas under specified conditions."
       },
       {
-        "term": "Test tube",
-        "definition": "A vessel for working with small amounts of substances."
+        "term": "Density",
+        "definition": "Mass divided by volume: ρ = m/V."
       },
       {
-        "term": "Test-tube rack",
-        "definition": "A support that holds test tubes."
+        "term": "Solubility",
+        "definition": "The ability to form a solution with a chosen solvent under specified conditions."
       },
       {
-        "term": "Stirring rod",
-        "definition": "A tool for stirring, not for measuring."
+        "term": "Hardness",
+        "definition": "Resistance of a solid material to scratching in the chosen comparison method."
       }
     ],
     "questions": [
       {
-        "id": "prepare",
-        "prompt": "What should you do before starting?",
-        "correct": "read",
+        "id": "hardness",
+        "prompt": "How should water’s hardness be entered in this table?",
+        "correct": "na",
         "options": [
           {
-            "id": "guess",
-            "label": "Start mixing substances immediately",
-            "feedback": "First learn the task and the rules. Arbitrary mixing is not part of this activity."
+            "id": "zero",
+            "label": "Enter zero",
+            "feedback": "Zero would imply a measured value. This hardness method does not apply to liquid water."
           },
           {
-            "id": "read",
-            "label": "Read the task and prepare protective equipment",
-            "feedback": "Correct: learn the rules first, then prepare your protection and workspace."
+            "id": "na",
+            "label": "Mark it as not applicable",
+            "feedback": "Correct: this method compares solid materials, while water is liquid."
           },
           {
-            "id": "taste",
-            "label": "Taste the substance to identify it",
-            "feedback": "Never taste laboratory substances. Read the task and prepare protective equipment first."
+            "id": "same",
+            "label": "Use the hardness of glass",
+            "feedback": "The hardness of glass does not describe liquid water."
           }
         ]
       },
       {
-        "id": "support",
-        "prompt": "Where can a test tube be held securely?",
-        "correct": "rack",
+        "id": "density",
+        "prompt": "What is needed to describe density numerically?",
+        "correct": "units",
         "options": [
           {
-            "id": "rack",
-            "label": "In a test-tube rack",
-            "feedback": "Correct: the rack supports the tube and helps prevent it from falling."
+            "id": "color",
+            "label": "Only the colour",
+            "feedback": "Colour does not specify mass and volume. Density requires units and conditions."
           },
           {
-            "id": "edge",
-            "label": "At the edge of the bench without support",
-            "feedback": "A tube can fall from the edge. It needs a test-tube rack."
+            "id": "smell",
+            "label": "Only the odour",
+            "feedback": "Odour is a different property. Density concerns mass and volume."
           },
           {
-            "id": "rod",
-            "label": "On a stirring rod",
-            "feedback": "A stirring rod does not support a test tube. Use a rack."
+            "id": "units",
+            "label": "A value, units and conditions",
+            "feedback": "Correct: a value without units and conditions can be ambiguous."
           }
         ]
       }
     ]
   },
-  "dissolving": {
-    "version": 1,
-    "title": "How salt dissolves in water",
-    "goal": "Observe dissolving and explain that the solution contains water and salt.",
+  "physical": {
+    "version": 2,
+    "title": "Physical changes",
+    "goal": "Explain melting, dissolving and recovering salt from a solution.",
     "sections": [
       {
-        "title": "Substances and a mixture",
+        "title": "Paraffin: melting and cooling",
         "paragraphs": [
-          "The model uses water without impurities and table salt as its starting substances. Everyday water can contain impurities, so it should not automatically be described as a pure substance.",
-          "Dissolving salt in water produces a mixture called a solution. The crystals are no longer distinguishable, but the salt remains in the water."
+          "Heating can turn a paraffin sample from solid to liquid. It solidifies again on cooling. This task studies a change of state, not candle combustion.",
+          "Candle paraffin is a mixture, so it does not have one universal melting temperature. Virtual heating will be controlled; this stage provides the task description."
         ]
       },
       {
-        "title": "What changes during dissolving",
+        "title": "Salt remains in solution",
         "paragraphs": [
-          "After adding the specified portion of salt, you can see crystals. As they dissolve, they are no longer visible. Stirring usually speeds up dissolving, but salt can also dissolve without stirring.",
-          "For the future experiment, a teacher will select the water volume, salt portion and conditions for complete dissolving. Time and particle drawings are simplified. Heating and precise solubility calculations are outside this lesson."
+          "When salt dissolves, crystals are no longer distinguishable, but the salt remains in the water. A solution is a mixture. Stirring helps dissolving; it does not create an element.",
+          "Removing water by evaporation can make salt crystals visible again. In this model dissolving and evaporation are physical changes, not the creation of a new chemical element."
         ]
       },
       {
-        "title": "Explain what you observe",
+        "title": "Odour as a reference property",
         "paragraphs": [
-          "Under the chosen conditions, the result is a homogeneous mixture: its components cannot be distinguished with the unaided eye. Not seeing crystals does not prove there is no salt.",
-          "The salt does not disappear and no new chemical element is created. This learning model does not show a new substance forming. Never test for salt by tasting: use the properties and observations you have studied."
+          "The third task compares descriptions of ethanol, diluted acetic acid solution and ether. A browser cannot transmit odours: only reference cards will be used.",
+          "The particular ether and sample compositions need teacher clarification. Do not reproduce vapour inhalation at home or smell unknown substances. Comparing reference properties is not itself a reaction."
         ]
       }
     ],
     "glossary": [
       {
-        "term": "Mixture",
-        "definition": "A combination of two or more substances."
+        "term": "Melting",
+        "definition": "A change from solid to liquid."
       },
       {
-        "term": "Solution",
-        "definition": "A homogeneous mixture whose components cannot be distinguished with the unaided eye."
+        "term": "Solidification",
+        "definition": "A change from liquid to solid."
       },
       {
-        "term": "Dissolving",
-        "definition": "The formation of a solution through interaction between a solute and a solvent."
+        "term": "Evaporation to recover a solute",
+        "definition": "Removing solvent by evaporation to recover the dissolved substance."
       },
       {
-        "term": "Homogeneous mixture",
-        "definition": "A mixture whose components cannot be distinguished with the unaided eye."
+        "term": "Physical change",
+        "definition": "A change in which no new substances form in the process being considered."
       }
     ],
     "questions": [
       {
-        "id": "composition",
-        "prompt": "What does the salt solution contain?",
-        "correct": "both",
+        "id": "wax",
+        "prompt": "What is studied when paraffin melts and cools?",
+        "correct": "state",
         "options": [
           {
-            "id": "only-water",
-            "label": "Only water",
-            "feedback": "Water is present, but the dissolved salt remains too."
+            "id": "state",
+            "label": "A change of state",
+            "feedback": "Correct: in this model paraffin melts and solidifies again."
+          },
+          {
+            "id": "burn",
+            "label": "The necessary burning of paraffin",
+            "feedback": "Melting and burning are different processes. Burning is not the aim here."
           },
           {
             "id": "element",
-            "label": "A new chemical element",
-            "feedback": "Dissolving does not create a new element. Both water and salt remain."
-          },
-          {
-            "id": "both",
-            "label": "Water and dissolved salt",
-            "feedback": "Correct: the solution contains both components and is a mixture."
+            "label": "The creation of a new element",
+            "feedback": "Changing state does not create a chemical element."
           }
         ]
       },
       {
-        "id": "disappear",
-        "prompt": "The crystals are no longer visible. Has the salt disappeared?",
-        "correct": "remains",
+        "id": "salt",
+        "prompt": "What remains after removing the water from the salt solution in this model?",
+        "correct": "salt",
         "options": [
           {
-            "id": "gone",
-            "label": "Yes, the salt has ceased to exist",
-            "feedback": "The salt remains in the solution even though its crystals are no longer visible."
+            "id": "nothing",
+            "label": "Nothing: the salt disappeared",
+            "feedback": "Salt did not disappear when it dissolved. Visible crystals can form again."
           },
           {
-            "id": "remains",
-            "label": "No, the salt is still in the solution",
-            "feedback": "Correct: no visible crystals does not mean no salt."
+            "id": "salt",
+            "label": "Salt crystals",
+            "feedback": "Correct: salt can be observed again after removing water."
           },
           {
-            "id": "gas",
-            "label": "Yes, all the salt has become a gas",
-            "feedback": "This activity does not produce gas. The salt remains dissolved in water."
+            "id": "metal",
+            "label": "A new metal",
+            "feedback": "Evaporating this solution does not turn salt into a metal."
           }
         ]
       }
     ]
   },
-  "filtration": {
-    "version": 1,
-    "title": "How to separate sand from water",
-    "goal": "Choose filtration and distinguish residue from filtrate.",
+  "chemical": {
+    "version": 2,
+    "title": "Chemical changes",
+    "goal": "Connect observations with the formation of new substances.",
     "sections": [
       {
-        "title": "A heterogeneous mixture",
+        "title": "Burning and new substances",
         "paragraphs": [
-          "Sand particles can be distinguished in a mixture of sand and water. In this model the sand does not dissolve in water. This is a heterogeneous mixture.",
-          "Filtration through the chosen paper filter can separate these insoluble particles. Unlike dissolving, this separates components that are already present."
+          "This work compares burning paper, alcohol, gas and a match. Combustion is a chemical change involving the formation of new substances. Observations are considered together with the known process.",
+          "Light or heating alone is not universal proof of a reaction. Gas and fuel compositions need clarification before assigning specific equations. At this stage burning is described in text, with no functioning flame source."
         ]
       },
       {
-        "title": "Where the components go",
+        "title": "Copper heated in air",
         "paragraphs": [
-          "Secure the funnel in a holder, place a receiving vessel below it and fit a prepared filter into the funnel. Your teacher will explain how to prepare the filter and pour during a real activity.",
-          "In the model, the mixture passes through the filter. Sand stays on it as the residue. Liquid that passes into the vessel is the filtrate. Separation speed and completeness are simplified."
+          "The simplified model forms a black layer of copper(II) oxide on copper. Compare the original copper and the new surface layer. This differs from merely changing paraffin’s state.",
+          "The model is explained by 2Cu + O₂ → 2CuO. Heating and comparing the layer will be separate virtual actions after the equipment is agreed."
         ]
       },
       {
-        "title": "What the filter cannot do",
+        "title": "Carbonate and hydrochloric acid",
         "paragraphs": [
-          "The suitable paper filter retains the selected sand particles, but it does not remove dissolved salt from water. It cannot separate a salt solution into salt and water by this filtration.",
-          "Separating the mixture does not create a new substance. The retained sand is not a precipitate formed by a reaction. Even clear filtered water is not guaranteed safe to drink: ordinary filtration does not prove that."
+          "Chalk, marble and limestone are treated as samples containing a carbonate component. The chosen model releases carbon dioxide on reaction with hydrochloric acid: CaCO₃ + 2HCl → CaCl₂ + H₂O + CO₂.",
+          "Observe gas bubbles and the specified test above the liquid. A splint going out is considered with known reactants, not as unique proof of gas identity. Real samples can differ in impurities and reaction rate."
         ]
       }
     ],
     "glossary": [
       {
-        "term": "Filtration",
-        "definition": "Separating a mixture by passing it through a suitable filter."
+        "term": "Chemical change",
+        "definition": "A process in which new substances form."
       },
       {
-        "term": "Residue",
-        "definition": "Material retained on the filter."
+        "term": "Copper oxidation",
+        "definition": "In this model, copper reacts with oxygen to form an oxide."
       },
       {
-        "term": "Filtrate",
-        "definition": "Liquid that has passed through the filter."
+        "term": "Carbon dioxide",
+        "definition": "CO₂ formed in the selected acid–carbonate model."
       },
       {
-        "term": "Heterogeneous mixture",
-        "definition": "A mixture in which components can be distinguished."
+        "term": "Reaction equation",
+        "definition": "A representation of chemical change using formulas and coefficients."
       }
     ],
     "questions": [
       {
-        "id": "method",
-        "prompt": "How can you separate sand from water in this activity?",
-        "correct": "filter",
+        "id": "copper",
+        "prompt": "What explains the black layer in the copper-heating model?",
+        "correct": "oxide",
         "options": [
           {
-            "id": "filter",
-            "label": "Pass the mixture through a suitable filter",
-            "feedback": "Correct: insoluble sand particles are retained while water passes through."
+            "id": "melt",
+            "label": "The copper only melted",
+            "feedback": "A state change alone does not explain the new layer; the model forms an oxide."
           },
           {
-            "id": "stir",
-            "label": "Only stir the mixture",
-            "feedback": "Stirring alone does not separate the sand. A suitable separation method is filtration."
+            "id": "oxide",
+            "label": "Copper(II) oxide formed",
+            "feedback": "Correct: a new substance distinguishes the process from simple melting."
           },
           {
-            "id": "dissolve",
-            "label": "Dissolve the sand by stirring",
-            "feedback": "The sand does not dissolve in this model. Its particles must be retained by a filter."
+            "id": "salt",
+            "label": "Table salt appeared on the surface",
+            "feedback": "The specified model has no process producing table salt."
           }
         ]
       },
       {
-        "id": "salt-filter",
-        "prompt": "Will this paper filter remove dissolved salt from water?",
-        "correct": "no",
+        "id": "gas",
+        "prompt": "How are bubbles explained in this acid–carbonate model?",
+        "correct": "co2",
         "options": [
           {
-            "id": "yes",
-            "label": "Yes, it will retain all the salt",
-            "feedback": "Dissolved salt passes through this filter with the water. The filter is selected for sand particles."
+            "id": "air",
+            "label": "Any bubbles always prove that air is present",
+            "feedback": "Bubbles alone do not uniquely identify a substance. Consider the reactants and process."
           },
           {
-            "id": "drink",
-            "label": "Yes, and the water will definitely be drinkable",
-            "feedback": "This filter neither removes dissolved salt nor guarantees the safety of the water."
+            "id": "element",
+            "label": "A new chemical element was created",
+            "feedback": "This reaction does not create a new chemical element."
           },
           {
-            "id": "no",
-            "label": "No, dissolved salt will pass through with the water",
-            "feedback": "Correct: this filter separates sand, not dissolved salt."
+            "id": "co2",
+            "label": "CO₂ is released according to the selected reaction",
+            "feedback": "Correct: the conclusion uses the specified reactants and reaction, not bubbles alone."
           }
         ]
       }

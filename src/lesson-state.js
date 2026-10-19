@@ -10,7 +10,7 @@ for(const [language,row] of Object.entries(lessonUIRows)){
  Object.assign(dictionaries[language],Object.fromEntries(lessonUIKeys.map((key,i)=>[key,row[i]])));
  dictionaries[language].demo=dictionaries[language].lessonBanner;
 }
-function blankLesson(){return {version:1,step:0,visited:[],answers:{}};}
+function blankLesson(){return {version:2,step:0,visited:[],answers:{}};}
 function sanitiseLesson(value,topicId){
  const lesson=lessonContent.ru[topicId],clean=blankLesson();
  if(!value||value.version!==lesson.version)return clean;

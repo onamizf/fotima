@@ -1,27 +1,24 @@
-const STORAGE_KEY='fotima.chemistry7.shell.v1';
-const freshState=()=>({version:1,settings:{language:'ru',sound:false,reduceMotion:false},progress:{},drafts:{},lessons:{},equipment:{version:1,actions:[],selected:null},equipmentRecord:null});
+const STORAGE_KEY='fotima.chemistry7.curriculum.v2';
+const LEGACY_STORAGE_KEY='fotima.chemistry7.shell.v1';
+const freshState=()=>({version:2,settings:{language:'ru',sound:false,reduceMotion:false},progress:{},lessons:{},propertyTable:{},activeSample:'salt',tableSource:''});
 let storageAvailable=true;
 function readState(){
  const clean=freshState();
  try{
-  const raw=localStorage.getItem(STORAGE_KEY);if(!raw)return clean;
-  const value=JSON.parse(raw);if(value?.version!==1)return clean;
-  clean.equipment=cleanEquipmentSave(value.equipment);
-  const record=cleanEquipmentSave(value.equipmentRecord);
-  if(benchComplete(replayBench(record.actions).model))clean.equipmentRecord=record;
-  const settings=value.settings||{};
+  const raw=localStorage.getItem(STORAGE_KEY),value=raw?JSON.parse(raw):null;
+  const legacy=!raw?JSON.parse(localStorage.getItem(LEGACY_STORAGE_KEY)||'null'):null;
+  const settings=(value?.version===2?value.settings:legacy?.settings)||{};
   if(Object.hasOwn(dictionaries,settings.language))clean.settings.language=settings.language;
   for(const key of ['sound','reduceMotion'])if(typeof settings[key]==='boolean')clean.settings[key]=settings[key];
-  for(const {id} of topics){
-   if(value.lessons?.[id])clean.lessons[id]=sanitiseLesson(value.lessons[id],id);
-   if(['started','completed'].includes(value.progress?.[id]))clean.progress[id]=value.progress[id];
-   if(['beaker','water','rod'].includes(value.drafts?.[id]))clean.drafts[id]=value.drafts[id];
-  }
+  if(value?.version!==2)return clean;
+  for(const {id} of topics){if(value.lessons?.[id])clean.lessons[id]=sanitiseLesson(value.lessons[id],id);if(value.progress?.[id]==='started')clean.progress[id]='started';}
+  clean.propertyTable=sanitiseTable(value.propertyTable);
+  if(sampleIds.includes(value.activeSample))clean.activeSample=value.activeSample;
+  if(typeof value.tableSource==='string')clean.tableSource=value.tableSource.slice(0,600);
   return clean;
  }catch{return clean;}
 }
 let state=readState();
 function saveState(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));storageAvailable=true;}catch{storageAvailable=false;}}
-// Проверяем возможность записи, не удаляя другие данные сайта.
 saveState();
 window.addEventListener('storage',event=>{if(event.key===STORAGE_KEY){state=readState();render(false);}});
