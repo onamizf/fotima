@@ -1,4 +1,4 @@
-"""Approved replacement scope: learning screens, table draft and equipment designs only."""
+"""Approved replacement scope: learning screens, table draft and constrained qualitative investigation."""
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 import json,os
@@ -32,8 +32,8 @@ with sync_playwright() as p:
       page.locator(f'input[name="{question}"][value="{option}"]').check();page.locator(f'[data-check="{question}"]').click();assert group.locator('[data-correct=false]').count()==1
      page.locator(f'input[name="{question}"][value="{correct}"]').check();page.locator(f'[data-check="{question}"]').click();assert group.locator('[data-correct=true]').count()==1
     assert page.locator('.lesson-summary').count()==1;page.reload();assert page.locator('.lesson-summary').count()==1
-    page.locator('.lesson-summary a').click();page.locator('.resource-links').wait_for()
-    assert page.locator('.grid3 .card').count()==(1 if topic=='properties' else 3)
+    page.locator('.lesson-summary a').click();page.locator('.resource-links').first.wait_for()
+    assert page.locator('#benchSample' if topic=='properties' else '.grid3 .card').count()==(1 if topic=='properties' else 3)
     assert page.locator('[data-lab-select]').count()==0;assert page.locator('[data-action=complete]').count()==0
     page.goto(BASE+'#result/'+topic);assert page.locator('.seal').count()==0;flows+=1
    for screen in ['home','catalog','materials/properties','table/properties','settings']:
@@ -76,5 +76,5 @@ with sync_playwright() as p:
  # Keyboard operation of table choices and independent reset.
  page.goto(BASE+'#table/properties');page.set_viewport_size({'width':375,'height':900});page.locator('#card-salt-state').focus();page.keyboard.press('s');page.keyboard.press('Enter')
  assert not issues,issues
- report={'status':'passed','lesson_flows':flows,'layout_checks':layouts,'languages':4,'table_rows':12,'fields_per_row':8,'new_equipment_designs':7,'checks':['new topic titles only','three parts, glossary and corrected quiz in all languages','all seven assignment descriptions retained','old settings migrate without old grades','old storage retained','draft cells, active sample and source survive reload/language change','table reset preserves lessons','escaped user-entered values','no practice completion or simulated heat/reaction','corrupt and blocked storage recover','narrow/landscape/enlarged text'],'js_errors':issues,'limits':'Chromium emulation; numerical reference values, teacher/native-language review and virtual experiment mechanics pending'}
+ report={'status':'passed','lesson_flows':flows,'layout_checks':layouts,'languages':4,'table_rows':12,'fields_per_row':8,'new_equipment_designs':7,'checks':['new topic titles only','three parts, glossary and corrected quiz in all languages','all seven assignment descriptions retained','old settings migrate without old grades','old storage retained','draft cells, active sample and source survive reload/language change','table reset preserves lessons','escaped user-entered values','no practice completion or simulated heat/reaction','corrupt and blocked storage recover','narrow/landscape/enlarged text'],'js_errors':issues,'limits':'Chromium emulation; numerical reference values, teacher/native-language review and quantitative instruments and experiments 2–3 pending'}
  (ROOT/'artifacts'/'curriculum-validation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report,ensure_ascii=False,indent=2));browser.close()

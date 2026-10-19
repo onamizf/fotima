@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "sample_flows": 144,
+  "layout_checks": 724,
+  "languages": 4,
+  "samples": 12,
+  "checks": [
+    "theory gate",
+    "wrong action order rejected",
+    "five actions for each sample",
+    "incorrect explanation rejected and corrected",
+    "12 different sample states",
+    "reload preserves checked observations",
+    "undo invalidates checked status",
+    "confirmed reset preserves table and theory",
+    "explicit copy confirmation preserves other cells",
+    "keyboard Enter/Space",
+    "reduced motion",
+    "320px and enlarged text",
+    "corrupt records sanitised",
+    "storage denial warning"
+  ],
+  "js_errors": [],
+  "limits": "Qualitative draft, no quantitative measurements, no full laboratory credit; Chromium emulation only."
+}

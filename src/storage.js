@@ -1,6 +1,6 @@
 const STORAGE_KEY='fotima.chemistry7.curriculum.v2';
 const LEGACY_STORAGE_KEY='fotima.chemistry7.shell.v1';
-const freshState=()=>({version:2,settings:{language:'ru',sound:false,reduceMotion:false},progress:{},lessons:{},propertyTable:{},activeSample:'salt',tableSource:''});
+const freshState=()=>({version:2,settings:{language:'ru',sound:false,reduceMotion:false},progress:{},lessons:{},propertyTable:{},activeSample:'salt',tableSource:'',investigation:blankInvestigation()});
 let storageAvailable=true;
 function readState(){
  const clean=freshState();
@@ -13,6 +13,7 @@ function readState(){
   if(value?.version!==2)return clean;
   for(const {id} of topics){if(value.lessons?.[id])clean.lessons[id]=sanitiseLesson(value.lessons[id],id);if(value.progress?.[id]==='started')clean.progress[id]='started';}
   clean.propertyTable=sanitiseTable(value.propertyTable);
+  clean.investigation=sanitiseInvestigation(value.investigation);
   if(sampleIds.includes(value.activeSample))clean.activeSample=value.activeSample;
   if(typeof value.tableSource==='string')clean.tableSource=value.tableSource.slice(0,600);
   return clean;
