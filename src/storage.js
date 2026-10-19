@@ -1,11 +1,14 @@
 const STORAGE_KEY='fotima.chemistry7.shell.v1';
-const freshState=()=>({version:1,settings:{language:'ru',sound:false,reduceMotion:false},progress:{},drafts:{},lessons:{}});
+const freshState=()=>({version:1,settings:{language:'ru',sound:false,reduceMotion:false},progress:{},drafts:{},lessons:{},equipment:{version:1,actions:[],selected:null},equipmentRecord:null});
 let storageAvailable=true;
 function readState(){
  const clean=freshState();
  try{
   const raw=localStorage.getItem(STORAGE_KEY);if(!raw)return clean;
   const value=JSON.parse(raw);if(value?.version!==1)return clean;
+  clean.equipment=cleanEquipmentSave(value.equipment);
+  const record=cleanEquipmentSave(value.equipmentRecord);
+  if(benchComplete(replayBench(record.actions).model))clean.equipmentRecord=record;
   const settings=value.settings||{};
   if(Object.hasOwn(dictionaries,settings.language))clean.settings.language=settings.language;
   for(const key of ['sound','reduceMotion'])if(typeof settings[key]==='boolean')clean.settings[key]=settings[key];

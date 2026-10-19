@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "full_flows": 12,
+  "languages": 4,
+  "input_modes": [
+    "touch taps",
+    "mouse clicks",
+    "keyboard only",
+    "optional native drag-and-drop"
+  ],
+  "checks": [
+    "protection required",
+    "rack required before tube",
+    "invalid drop and wrong zone do not alter scene",
+    "independent item order",
+    "return and occupied rack",
+    "undo",
+    "wrong/correct explanation",
+    "unsubmitted changed answer cannot pass",
+    "cleanup required",
+    "reload and language preserve attempt",
+    "repeat keeps previous completion",
+    "reset confirmation and cancel",
+    "theory retained",
+    "320px/375px/tablet/desktop/landscape",
+    "reduced motion"
+  ],
+  "js_errors": [],
+  "limitations": "Chromium emulation; no physical-device or teacher validation"
+}

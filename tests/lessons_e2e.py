@@ -12,7 +12,7 @@ with sync_playwright() as p:
    context=browser.new_context(viewport={'width':width,'height':900});page=context.new_page();page.on('pageerror',lambda e:errors.append(str(e)))
    page.goto(BASE);page.locator('#language').select_option(language)
    for topic,answers in solutions.items():
-    page.goto(BASE+'#lab/'+topic);assert page.locator('[data-select]').count()==0 # No prerequisite bypass.
+    page.goto(BASE+'#lab/'+topic);assert page.locator('[data-select],[data-lab-select]').count()==0 # No prerequisite bypass.
     page.locator('main a.primary').click()
     assert page.locator('[data-step="3"]').is_disabled()
     for step in [0,1,2]:
@@ -22,7 +22,7 @@ with sync_playwright() as p:
      assert not page.evaluate('document.documentElement.scrollWidth>innerWidth+1'),(width,language,topic,step)
      layouts+=1
      if width in [375,1366] and step==1:
-      page.screenshot(path=str(ROOT/'artifacts'/f'stage4-{language}-{topic}-{width}.png'),full_page=True)
+      page.screenshot(path=str(ROOT/'artifacts'/f'stage5-theory-{language}-{topic}-{width}.png'),full_page=True)
     page.locator('[data-step="3"]').last.click()
     assert page.locator('.quiz-question').count()==2
     assert page.locator('.quiz-question button:disabled').count()==2
@@ -50,18 +50,18 @@ with sync_playwright() as p:
     changed='en' if language!='en' else 'uz-Cyrl'
     page.locator('#language').select_option(changed);assert page.locator('.lesson-summary').count()==1
     page.locator('#language').select_option(language)
-    if width in [375,1366] and topic=='dissolving':page.screenshot(path=str(ROOT/'artifacts'/f'stage4-quiz-{language}-{width}.png'),full_page=True)
-    page.locator('.lesson-summary a').click();page.locator('[data-select]').first.wait_for();assert page.locator('[data-select]').count()==3
+    if width in [375,1366] and topic=='dissolving':page.screenshot(path=str(ROOT/'artifacts'/f'stage5-theory-quiz-{language}-{width}.png'),full_page=True)
+    page.locator('.lesson-summary a').click();page.locator('[data-select],[data-lab-select]').first.wait_for();assert page.locator('[data-select],[data-lab-select]').count()==(5 if topic=='equipment' else 3)
     # Repeating only the questions retains reading, other topics and demo state.
     page.goto(BASE+'#theory/'+topic);page.locator('[data-action="resetQuiz"]').click()
     assert page.locator('.quiz-feedback').count()==0;assert page.evaluate(f'state.lessons["{topic}"].visited.length')==3
-    page.goto(BASE+'#lab/'+topic);assert page.locator('[data-select]').count()==0
+    page.goto(BASE+'#lab/'+topic);assert page.locator('[data-select],[data-lab-select]').count()==0
     flows+=1
    context.close()
  # Recover invalid stored lesson state rather than accepting a forged passed flag.
  context=browser.new_context();page=context.new_page();page.goto(BASE)
  page.evaluate("localStorage.setItem(STORAGE_KEY,JSON.stringify({version:1,lessons:{equipment:{version:99,step:3,visited:[0,1,2],passed:true,answers:{}}}}))")
- page.reload();page.goto(BASE+'#lab/equipment');assert page.locator('[data-select]').count()==0
+ page.reload();page.goto(BASE+'#lab/equipment');assert page.locator('[data-select],[data-lab-select]').count()==0
  # Narrow width and enlarged text on actual lessons, glossary and quiz.
  for width,scale in [(320,1),(375,2),(812,1)]:
   page.set_viewport_size({'width':width,'height':600})
@@ -78,4 +78,4 @@ with sync_playwright() as p:
  page.goto(BASE+'#theory/equipment');page.locator('input[value="read"]').focus();page.keyboard.press('Space');page.locator('[data-check="prepare"]').focus();page.keyboard.press('Enter');assert page.locator('[data-question="prepare"] [data-correct="true"]').count()==1
  assert not errors,errors
  report={'status':'passed','lesson_flows':flows,'option_checks':checked_options,'layout_checks':layouts,'languages':4,'lessons':3,'checks':['all incorrect answers explain and can be corrected','correct answers explained','reload preserves chapter, selected answer and feedback','language switch preserves lesson outcome','direct lab access requires theory','theory does not complete experience or grant achievements','retry clears questions without erasing reading','mismatched content version cannot pass','320px, tablet, desktop, landscape and enlarged text','keyboard select and submit'],'js_errors':errors,'limits':'Chromium emulation only; textbook/teacher/native-language review pending'}
- (ROOT/'artifacts'/'stage4-validation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report,ensure_ascii=False,indent=2));browser.close()
+ (ROOT/'artifacts'/'stage5-theory-validation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report,ensure_ascii=False,indent=2));browser.close()

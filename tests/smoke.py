@@ -9,7 +9,7 @@ with sync_playwright() as p:
  context=b.new_context();page=context.new_page();page.on('pageerror',lambda e:errors.append(str(e)))
  page.goto(BASE);page.evaluate('document.fonts.ready')
  assert page.locator('h1').inner_text()=='Химия начинается с твоего вопроса'
- for topic in ['equipment','dissolving','filtration']:
+ for topic in ['dissolving','filtration']:
   page.goto(BASE+'#catalog');page.locator(f'[data-topic={topic}] a').click();assert page.url.endswith('#theory/'+topic)
   for step in [1,2,3]:page.locator(f'[data-step="{step}"]').last.click()
   solutions={'equipment':{'prepare':'read','support':'rack'},'dissolving':{'composition':'both','disappear':'remains'},'filtration':{'method':'filter','salt-filter':'no'}}
@@ -20,7 +20,7 @@ with sync_playwright() as p:
   page.locator('[data-select=beaker]').click();page.reload();assert page.locator('[data-select=beaker]').get_attribute('aria-pressed')=='true'
   page.locator('[data-action=complete]').click();assert page.url.endswith('#result/'+topic)
   page.reload();assert page.locator('.seal').inner_text()=='✓'
- checks.append('all three distinct routes, draft and completion persist after reload')
+ checks.append('two remaining demo routes, draft and completion persist after reload; real equipment route covered by lab_e2e.py')
  page.goto(BASE+'#settings');page.locator('#sound').check();page.locator('#reduceMotion').check();page.locator('#language').select_option('uz-Cyrl');page.reload()
  assert page.locator('#sound').is_checked() and page.locator('#reduceMotion').is_checked()
  assert page.locator('html').get_attribute('lang')=='uz-Cyrl';assert page.locator('body').get_attribute('class')=='reduce-motion'
@@ -35,10 +35,10 @@ with sync_playwright() as p:
     assert not page.evaluate('document.documentElement.scrollWidth>innerWidth+1'),(width,lang,screen)
     assert page.locator('html').get_attribute('lang')==lang
     layouts+=1
-    if lang=='ru' and width in [375,768,1366] and screen=='lab/dissolving':page.screenshot(path=str(ROOT/'artifacts'/f'stage4-shell-{width}.png'),full_page=True)
+    if lang=='ru' and width in [375,768,1366] and screen=='lab/dissolving':page.screenshot(path=str(ROOT/'artifacts'/f'stage5-shell-{width}.png'),full_page=True)
  checks.append(f'{layouts} layouts without horizontal page overflow')
  # Topic state retained when changing language.
- page.goto(BASE+'#lab/equipment');page.locator('[data-select=rod]').click();page.locator('#language').select_option('ru');assert page.locator('[data-select=rod]').get_attribute('aria-pressed')=='true'
+ page.goto(BASE+'#lab/dissolving');page.locator('[data-select=rod]').click();page.locator('#language').select_option('ru');assert page.locator('[data-select=rod]').get_attribute('aria-pressed')=='true'
  # Browser history does not confuse topic identity.
  page.goto(BASE+'#theory/filtration');page.locator('main a.primary').click();page.go_back();assert page.url.endswith('#theory/filtration')
  checks.append('language changes preserve selection; browser Back preserves route')
@@ -54,4 +54,4 @@ with sync_playwright() as p:
  checks.append('blocked localStorage gives visible warning; navigation still works')
  assert not errors,errors
  report={'status':'passed','checks':checks,'js_errors':errors,'browser':'system Chromium, emulated sizes; no physical-device testing'}
- (ROOT/'artifacts'/'stage4-regression.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report,ensure_ascii=False,indent=2));b.close()
+ (ROOT/'artifacts'/'stage5-regression.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report,ensure_ascii=False,indent=2));b.close()
