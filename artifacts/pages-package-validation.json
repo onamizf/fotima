@@ -1,0 +1,34 @@
+{
+  "status": "passed",
+  "package_files": [
+    ".nojekyll",
+    "assets/Inter.ttf",
+    "assets/OFL.txt",
+    "index.html",
+    "src/app.js",
+    "src/content.js",
+    "src/curriculum/config.js",
+    "src/curriculum/equipment.js",
+    "src/curriculum/table.js",
+    "src/i18n.js",
+    "src/illustrations.js",
+    "src/lesson-state.js",
+    "src/lesson-view.js",
+    "src/lessons/en.js",
+    "src/lessons/ru.js",
+    "src/lessons/uz-Cyrl.js",
+    "src/lessons/uz-Latn.js",
+    "src/storage.js",
+    "src/styles.css"
+  ],
+  "base_path": "/fotima/",
+  "checks": [
+    "only browser files published",
+    "all scripts/styles/font return success",
+    "four languages and key routes under project subpath",
+    "reload retains table entry",
+    "non-empty output rejected"
+  ],
+  "js_errors": [],
+  "live_site": "not verified: GitHub Pages activation requires repository settings access"
+}
