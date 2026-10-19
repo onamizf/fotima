@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "lesson_flows": 36,
+  "option_checks": 216,
+  "layout_checks": 252,
+  "languages": 4,
+  "lessons": 3,
+  "checks": [
+    "all incorrect answers explain and can be corrected",
+    "correct answers explained",
+    "reload preserves chapter, selected answer and feedback",
+    "language switch preserves lesson outcome",
+    "direct lab access requires theory",
+    "theory does not complete experience or grant achievements",
+    "retry clears questions without erasing reading",
+    "mismatched content version cannot pass",
+    "320px, tablet, desktop, landscape and enlarged text",
+    "keyboard select and submit"
+  ],
+  "js_errors": [],
+  "limits": "Chromium emulation only; textbook/teacher/native-language review pending"
+}

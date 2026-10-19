@@ -1,5 +1,5 @@
 const STORAGE_KEY='fotima.chemistry7.shell.v1';
-const freshState=()=>({version:1,settings:{language:'ru',sound:false,reduceMotion:false},progress:{},drafts:{}});
+const freshState=()=>({version:1,settings:{language:'ru',sound:false,reduceMotion:false},progress:{},drafts:{},lessons:{}});
 let storageAvailable=true;
 function readState(){
  const clean=freshState();
@@ -10,6 +10,7 @@ function readState(){
   if(Object.hasOwn(dictionaries,settings.language))clean.settings.language=settings.language;
   for(const key of ['sound','reduceMotion'])if(typeof settings[key]==='boolean')clean.settings[key]=settings[key];
   for(const {id} of topics){
+   if(value.lessons?.[id])clean.lessons[id]=sanitiseLesson(value.lessons[id],id);
    if(['started','completed'].includes(value.progress?.[id]))clean.progress[id]=value.progress[id];
    if(['beaker','water','rod'].includes(value.drafts?.[id]))clean.drafts[id]=value.drafts[id];
   }

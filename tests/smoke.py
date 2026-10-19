@@ -1,4 +1,4 @@
-"""End-to-end checks of the stage 3 shell, not chemistry lessons."""
+"""Regression checks of the shell with stage 4 theory prerequisites."""
 from playwright.sync_api import sync_playwright
 from pathlib import Path
 import json
@@ -11,6 +11,10 @@ with sync_playwright() as p:
  assert page.locator('h1').inner_text()=='Химия начинается с твоего вопроса'
  for topic in ['equipment','dissolving','filtration']:
   page.goto(BASE+'#catalog');page.locator(f'[data-topic={topic}] a').click();assert page.url.endswith('#theory/'+topic)
+  for step in [1,2,3]:page.locator(f'[data-step="{step}"]').last.click()
+  solutions={'equipment':{'prepare':'read','support':'rack'},'dissolving':{'composition':'both','disappear':'remains'},'filtration':{'method':'filter','salt-filter':'no'}}
+  for q,answer in solutions[topic].items():
+   page.locator(f'input[name="{q}"][value="{answer}"]').check();page.locator(f'[data-check="{q}"]').click()
   page.locator('main a.primary').click();assert page.url.endswith('#lab/'+topic)
   assert page.locator('main button.primary').is_disabled()
   page.locator('[data-select=beaker]').click();page.reload();assert page.locator('[data-select=beaker]').get_attribute('aria-pressed')=='true'
@@ -31,7 +35,7 @@ with sync_playwright() as p:
     assert not page.evaluate('document.documentElement.scrollWidth>innerWidth+1'),(width,lang,screen)
     assert page.locator('html').get_attribute('lang')==lang
     layouts+=1
-    if lang=='ru' and width in [375,768,1366] and screen=='lab/dissolving':page.screenshot(path=str(ROOT/'artifacts'/f'stage3-{width}.png'),full_page=True)
+    if lang=='ru' and width in [375,768,1366] and screen=='lab/dissolving':page.screenshot(path=str(ROOT/'artifacts'/f'stage4-shell-{width}.png'),full_page=True)
  checks.append(f'{layouts} layouts without horizontal page overflow')
  # Topic state retained when changing language.
  page.goto(BASE+'#lab/equipment');page.locator('[data-select=rod]').click();page.locator('#language').select_option('ru');assert page.locator('[data-select=rod]').get_attribute('aria-pressed')=='true'
@@ -50,4 +54,4 @@ with sync_playwright() as p:
  checks.append('blocked localStorage gives visible warning; navigation still works')
  assert not errors,errors
  report={'status':'passed','checks':checks,'js_errors':errors,'browser':'system Chromium, emulated sizes; no physical-device testing'}
- (ROOT/'artifacts'/'stage3-validation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report,ensure_ascii=False,indent=2));b.close()
+ (ROOT/'artifacts'/'stage4-regression.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report,ensure_ascii=False,indent=2));b.close()

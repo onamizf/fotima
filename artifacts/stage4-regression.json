@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "checks": [
+    "all three distinct routes, draft and completion persist after reload",
+    "language, sound and reduced motion persist after reload",
+    "96 layouts without horizontal page overflow",
+    "language changes preserve selection; browser Back preserves route",
+    "confirmed reset clears settings/progress; direct result access cannot mark completed",
+    "corrupted and invalid stored data recover safely",
+    "blocked localStorage gives visible warning; navigation still works"
+  ],
+  "js_errors": [],
+  "browser": "system Chromium, emulated sizes; no physical-device testing"
+}
