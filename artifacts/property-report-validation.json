@@ -1,0 +1,27 @@
+{
+  "status": "passed",
+  "languages": 4,
+  "layouts": 28,
+  "downloads": 24,
+  "checks": [
+    "empty reports stay incomplete",
+    "salt and sulfur observations required",
+    "wrong comparison corrected",
+    "language/reload preserves text and answer",
+    "undo invalidates comparison",
+    "whitespace excluded from counts",
+    "confirmed observations separate from manual table",
+    "real HTML downloads and filenames",
+    "standalone document loads with no app scripts or remote resources",
+    "user text escaped on screen and in export",
+    "print stylesheet",
+    "320px and enlarged text",
+    "keyboard",
+    "old/corrupt report state",
+    "storage denial warning",
+    "table-only reset preserves report",
+    "global reset clears report"
+  ],
+  "js_errors": [],
+  "limits": "Reference values and free-text meaning are not graded; full laboratory credit remains unavailable; Chromium emulation only."
+}
