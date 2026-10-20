@@ -18,7 +18,7 @@ function render(moveFocus=true){t=dictionaries[state.settings.language];const cu
  if(['theory','lab'].includes(page)&&!state.progress[topic.id]){state.progress[topic.id]='started';saveState();}
  rememberLearningLocation(page,topic);
  const content={account,home,catalog,theory,lab,result,settings,progress:progressPage,table:propertiesTable,materials:equipmentSheet}[page](topic);
- document.getElementById('app').innerHTML=header(page,topic)+`<main id="main" tabindex="-1" class="wrap">${content}${page==='account'?'':`<p role="status" class="storage-note ${storageAvailable?'note':'warning'}">${storageAvailable?t.saved:t.storageError}</p>`}<footer class="footer">${t.grade} · ${t.demo}</footer></main>`;
+ document.getElementById('app').innerHTML=header(page,topic)+`<main id="main" tabindex="-1" class="wrap">${page==='account'?'':FotimaCloud.notice()}${content}${page==='account'?'':`<p role="status" class="storage-note ${storageAvailable?'note':'warning'}">${storageAvailable?t.saved:t.storageError}</p>`}<footer class="footer">${t.grade} · ${t.demo}</footer></main>`;
  document.querySelector('.skip').onclick=event=>{event.preventDefault();document.getElementById('main').focus();};
  document.getElementById('language').onchange=event=>{state.settings.language=event.target.value;saveState();render(false);document.getElementById('language').focus();};
  for(const key of ['sound','reduceMotion']){const el=document.getElementById(key);if(el)el.onchange=()=>{state.settings[key]=el.checked;saveState();render(false);document.getElementById(key).focus();};}

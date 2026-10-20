@@ -2,13 +2,23 @@
 window.FotimaCloud=(()=>{
  const ROOT_KEY='fotima.chemistry7.curriculum.v2',SESSION_KEY='fotima.auth.session.v1';
  const cfg=window.FOTIMA_CLOUD_CONFIG||{};
- let session=null,loaded=false,busy=false,mode='register',message='',status='',revision=0,ack='',dirty=false,conflict=false,timer=null,writing=false,loading=false,epoch=0,recovery=false;
+ let session=null,loaded=false,busy=false,mode='register',message='',status='',revision=0,ack='',dirty=false,conflict=false,timer=null,writing=false,loading=false,epoch=0,recovery=false,localOnly=false,failure=null;
  function configured(){
   if(cfg.enabled!==true)return false;
   if(!/^https:\/\/[a-z0-9-]+\.supabase\.co$/.test(cfg.url||''))return false;
   if((cfg.publishableKey||'').startsWith('sb_publishable_'))return true;
   try{return JSON.parse(atob(cfg.publishableKey.split('.')[1].replace(/-/g,'+').replace(/_/g,'/'))).role==='anon';}catch{return false;}
  }
+ function capture(error,stage){
+  const raw=String(error.code||'');
+  const code=/^[A-Za-z0-9_]{1,48}$/.test(raw)?raw:error.name==='AbortError'?'TIMEOUT':error.name==='TypeError'?'NETWORK':error.message==='response'?'BAD_RESPONSE':'CLIENT_ERROR';
+  const http=Number.isInteger(error.status)?error.status:null;
+  const kind=['PGRST205','42P01'].includes(code)?'missingTable':['PGRST202','42883'].includes(code)?'missingRoutine':code==='42703'?'schema':http===401?'expired':code==='42501'||http===403?'permissions':['TIMEOUT','NETWORK'].includes(code)?'network':'service';
+  failure={stage,http,code,kind};
+ }
+ function failureView(){if(!failure)return '';const u=cu();return `<details class="cloud-diagnostic" open><summary>${u.details}</summary><p>${u[failure.kind]||u.service}</p><code>${failure.stage}${failure.http?' · HTTP '+failure.http:''} · ${failure.code}</code></details>`;}
+ function canContinue(){return !!session&&!loaded&&!loading&&!!failure&&failure.kind!=='expired';}
+ function notice(){if(!session||(!localOnly&&!conflict&&!failure))return '';return `<aside class="warning cloud-local-note" role="status"><p>${localOnly?cu().localNotice:conflict?cu().conflict:cu()[status]||cu().offline}</p>${link(cu().accountSettings,'settings')}</aside>`;}
  function notify(){document.querySelectorAll('[data-cloud-status]').forEach(el=>el.textContent=cu()[status]||'');document.querySelectorAll('[data-cloud=load]').forEach(el=>el.disabled=loading||writing);document.querySelectorAll('[data-cloud=save]').forEach(el=>el.disabled=!loaded||conflict||loading||writing);}
  function storeSession(){sessionStorage.setItem(SESSION_KEY,JSON.stringify(session));}
  function metaKey(){return STORAGE_KEY+'.cloud';}
@@ -32,7 +42,8 @@ window.FotimaCloud=(()=>{
   return session.access_token;
  }
  function localChanged(){
-  if(!session||!loaded||loading||recovery)return;
+  if(!session||loading||recovery)return;
+  if(!loaded){if(localOnly){dirty=true;storeMeta();status='pendingLocal';notify();}return;}
   dirty=JSON.stringify(state)!==ack;storeMeta();
   if(!dirty)return;
   if(!conflict){status='pending';clearTimeout(timer);timer=setTimeout(()=>save(),900);}
@@ -45,7 +56,7 @@ window.FotimaCloud=(()=>{
   if(!verified?.id||!/^[a-f0-9-]{36}$/i.test(verified.id))throw new Error('identity');
   session={access_token:next.access_token,refresh_token:next.refresh_token,expires_at:next.expires_at||Date.now()/1000+next.expires_in,user:{id:verified.id,email:verified.email||''}};
   try{storeSession();}catch{session=null;throw new Error('storage');}
-  epoch++;loaded=false;conflict=false;clearTimeout(timer);
+  epoch++;loaded=false;conflict=false;localOnly=false;failure=null;clearTimeout(timer);
   STORAGE_KEY=sessionKey(session.user.id);state=readState();revision=0;dirty=false;ack=JSON.stringify(state);
   try{const meta=JSON.parse(localStorage.getItem(metaKey())||'null');if(Number.isInteger(meta?.revision)&&meta.revision>=0){revision=meta.revision;dirty=meta.dirty===true;}}catch{}
   status='busy';render(false);await load(false);
@@ -62,16 +73,16 @@ window.FotimaCloud=(()=>{
    const row=rows[0];if(row&&(!Number.isInteger(row.revision)||row.revision<1||row.payload?.version!==2))throw new Error('response');
    loading=false;
    if(wasDirty&&!force){
-    loaded=true;
+    loaded=true;localOnly=false;failure=null;
     if((row?.revision||0)!==priorRevision){conflict=true;status='conflict';render(false);return;}
     revision=row?.revision||0;ack='';status='pending';render(false);await save();return;
    }
    revision=row?.revision||0;
    state=row?readState(row.payload):state;
-   ack=JSON.stringify(state);dirty=false;conflict=false;loaded=true;status=row?'saved':'pending';storeMeta();
+   ack=JSON.stringify(state);dirty=false;conflict=false;loaded=true;localOnly=false;failure=null;status=row?'saved':'pending';storeMeta();
    saveState();render(false);
    if(!row){ack='';dirty=true;storeMeta();await save();}
-  }catch(error){if(ownEpoch===epoch){status=error.status===401?'expired':loaded?'offline':'loadError';notify();}}
+  }catch(error){if(ownEpoch===epoch){capture(error,'progress-read');status=error.status===401?'expired':loaded?'offline':'loadError';notify();}}
   finally{if(ownEpoch===epoch){loading=false;render(false);}}
  }
  async function save(){
@@ -83,19 +94,19 @@ window.FotimaCloud=(()=>{
    const access=await token();const next=await request('/rest/v1/rpc/save_lab_progress',{method:'POST',token:access,body:{p_payload:JSON.parse(snapshot),p_expected:revision}});
    if(ownEpoch!==epoch)return;
    if(!Number.isInteger(next)||next<1)throw new Error('response');
-   revision=next;ack=snapshot;dirty=JSON.stringify(state)!==ack;storeMeta();status=dirty?'pending':'saved';
-  }catch(error){if(ownEpoch===epoch){if(error.code==='40001'||error.status===409){conflict=true;status='conflict';}else status=error.status===401?'expired':'offline';}}
+   revision=next;ack=snapshot;failure=null;dirty=JSON.stringify(state)!==ack;storeMeta();status=dirty?'pending':'saved';
+  }catch(error){if(ownEpoch===epoch){capture(error,'progress-write');if(error.code==='40001'||error.status===409){conflict=true;status='conflict';}else status=error.status===401?'expired':'offline';}}
   finally{writing=false;notify();if(ownEpoch===epoch&&dirty&&!conflict&&status==='pending')timer=setTimeout(()=>save(),900);}
  }
  async function logout(){
   if(dirty&&!confirm(cu().logoutConfirm))return;
-  const access=session?.access_token;epoch++;clearTimeout(timer);session=null;loaded=false;loading=false;dirty=false;conflict=false;ack='';message='';status='';recovery=false;
+  const access=session?.access_token;epoch++;clearTimeout(timer);session=null;loaded=false;loading=false;dirty=false;conflict=false;ack='';message='';status='';recovery=false;localOnly=false;failure=null;
   try{sessionStorage.removeItem(SESSION_KEY);}catch{}
   STORAGE_KEY=ROOT_KEY;state=readState();location.hash='account';render(false);
   if(access)try{await request('/auth/v1/logout?scope=local',{method:'POST',token:access});}catch{}
  }
  function download(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='fotima-progress.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
- function profile(){const u=cu();return `<section class="panel cloud-profile"><h2>${u.account}</h2><p>${escapeHTML(session.user.email)}</p><p class="note" role="status" data-cloud-status>${u[status]||''}</p><div class="row"><button type="button" data-cloud="save" ${!loaded||conflict?'disabled':''}>${u.save}</button><button type="button" data-cloud="load" ${loading||writing?'disabled':''}>${u.load}</button><button type="button" data-cloud="download">${u.download}</button></div><details class="cloud-import"><summary>${u.localImport}</summary><p class="note">${u.importConfirm}</p><button type="button" data-cloud="import" ${!loaded||conflict?'disabled':''}>${u.localImport}</button></details><button type="button" class="textbtn" data-cloud="logout">${u.logout}</button></section>`;}
+ function profile(){const u=cu();return `<section class="panel cloud-profile"><h2>${u.account}</h2><p>${escapeHTML(session.user.email)}</p><p class="note" role="status" data-cloud-status>${u[status]||''}</p>${failureView()}${canContinue()?`<p><button type="button" class="primary" data-cloud="continue-local">${u.continueLocal}</button></p>`:''}<div class="row"><button type="button" data-cloud="save" ${!loaded||conflict?'disabled':''}>${u.save}</button><button type="button" data-cloud="load" ${loading||writing?'disabled':''}>${u.load}</button><button type="button" data-cloud="download">${u.download}</button></div><details class="cloud-import"><summary>${u.localImport}</summary><p class="note">${u.importConfirm}</p><button type="button" data-cloud="import" ${!loaded||conflict?'disabled':''}>${u.localImport}</button></details><button type="button" class="textbtn" data-cloud="logout">${u.logout}</button></section>`;}
  function view(){const u=cu();
   if(session&&!recovery)return profile();
   const passwordMode=recovery||mode!=='recover',signup=mode==='register'&&!recovery;
@@ -125,6 +136,7 @@ window.FotimaCloud=(()=>{
   document.querySelectorAll('[data-cloud]').forEach(el=>el.onclick=async()=>{
    const key=el.dataset.cloud;
    if(['register','login','recover'].includes(key)){mode=key;message='';render(false);return;}
+   if(key==='continue-local'&&canContinue()){localOnly=true;status='pendingLocal';location.hash='home';render(false);return;}
    if(key==='logout'){await logout();return;}
    if(key==='save'){await save();render(false);return;}
    if(key==='load'){await load(true);return;}
@@ -147,5 +159,5 @@ window.FotimaCloud=(()=>{
   }catch{session=null;loaded=false;message='expired';try{sessionStorage.removeItem(SESSION_KEY);}catch{}render(false);}
  }
  window.addEventListener('online',()=>{if(session&&loaded&&!conflict)save();});
- return {configured,view,bind,start,changed:localChanged,gate:()=>configured()&&(!session||!loaded||recovery||loading),signedIn:()=>!!session,profile};
+ return {configured,view,bind,start,changed:localChanged,gate:()=>configured()&&(!session||(!loaded&&!localOnly)||recovery||loading),signedIn:()=>!!session,profile,notice};
 })();

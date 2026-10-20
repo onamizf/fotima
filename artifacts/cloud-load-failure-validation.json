@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "backend": "Fault-injected mock Supabase; real database cause not yet verified",
+  "layouts": 16,
+  "checks": [
+    "authenticated progress-read failure reproduced",
+    "HTTP/code diagnostic without raw response or tokens",
+    "explicit per-user local continuation",
+    "no upload before loading base version",
+    "local work survives reload",
+    "unknown-base conflict preserves both versions",
+    "cloud replacement requires confirmation",
+    "403 permissions explanation",
+    "401 does not bypass login",
+    "four-language layouts"
+  ],
+  "page_errors": []
+}
