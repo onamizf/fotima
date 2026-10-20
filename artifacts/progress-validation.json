@@ -1,0 +1,31 @@
+{
+  "status": "passed",
+  "languages": 4,
+  "layout_checks": 96,
+  "badges": 5,
+  "learner_flows": [
+    "three theory quizzes",
+    "twelve observations and comparison",
+    "three physical tasks",
+    "eight chemical variants"
+  ],
+  "checks": [
+    "no award before its condition",
+    "one persistent award per criterion",
+    "all eight variant shortcuts preserve progress",
+    "active-source shortcut blocked with useful keyboard focus",
+    "resume keeps selected sample/variant and screen",
+    "unsupported lab resume returns to theory",
+    "catalog statuses distinguish reference review",
+    "filling reference fields never completes first laboratory",
+    "achievement history survives task reset",
+    "view/motion/language persistence",
+    "old v2 saved evidence migrates without loss",
+    "unknown/duplicate awards and resume data sanitised",
+    "confirmed full reset clears awards",
+    "storage failure visible",
+    "320px, landscape and enlarged text"
+  ],
+  "js_errors": [],
+  "limits": "Digital learning achievements, not official grades. Numerical references and expert review remain pending; Chromium emulation."
+}

@@ -30,7 +30,7 @@ with tempfile.TemporaryDirectory(prefix='fotima-pages-') as temp:
             assert page.evaluate("document.fonts.check('16px Inter')")
             for language in ['ru','uz-Latn','uz-Cyrl','en']:
                 page.locator('#language').select_option(language)
-                for route in ['catalog','theory/properties','table/properties','materials/properties','lab/physical','result/physical','lab/chemical','result/chemical']:
+                for route in ['catalog','theory/properties','table/properties','materials/properties','lab/physical','result/physical','lab/chemical','result/chemical','progress','settings']:
                     page.goto(base+'#'+route);assert page.locator('h1').count()==1
                     assert not page.evaluate('document.documentElement.scrollWidth>innerWidth+1')
             page.goto(base+'#table/properties');page.locator('#card-salt-state').select_option('solid');page.reload()

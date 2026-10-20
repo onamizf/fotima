@@ -18,6 +18,8 @@
     "src/curriculum/investigation.js",
     "src/curriculum/physical-i18n.js",
     "src/curriculum/physical.js",
+    "src/curriculum/progress-i18n.js",
+    "src/curriculum/progress.js",
     "src/curriculum/report-i18n.js",
     "src/curriculum/report.js",
     "src/curriculum/table.js",

@@ -1,6 +1,6 @@
 const STORAGE_KEY='fotima.chemistry7.curriculum.v2';
 const LEGACY_STORAGE_KEY='fotima.chemistry7.shell.v1';
-const freshState=()=>({version:2,settings:{language:'ru',sound:false,reduceMotion:false,viewMode:'3d'},progress:{},lessons:{},propertyTable:{},activeSample:'salt',tableSource:'',investigation:blankInvestigation(),propertyReport:blankReport(),physicalLab:blankPhysicalLab(),chemicalLab:blankChemicalLab()});
+const freshState=()=>({version:2,settings:{language:'ru',sound:false,reduceMotion:false,viewMode:'3d'},progress:{},lessons:{},propertyTable:{},activeSample:'salt',tableSource:'',investigation:blankInvestigation(),propertyReport:blankReport(),physicalLab:blankPhysicalLab(),chemicalLab:blankChemicalLab(),achievements:blankAchievements(),lastLocation:null});
 let storageAvailable=true;
 function readState(){
  const clean=freshState();
@@ -18,12 +18,14 @@ function readState(){
   clean.propertyReport=sanitiseReport(value.propertyReport);
   clean.physicalLab=sanitisePhysicalLab(value.physicalLab);
   clean.chemicalLab=sanitiseChemicalLab(value.chemicalLab);
+  clean.achievements=sanitiseAchievements(value.achievements);
+  clean.lastLocation=sanitiseLocation(value.lastLocation);
   if(sampleIds.includes(value.activeSample))clean.activeSample=value.activeSample;
   if(typeof value.tableSource==='string')clean.tableSource=value.tableSource.slice(0,600);
   return clean;
  }catch{return clean;}
 }
 let state=readState();
-function saveState(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));storageAvailable=true;}catch{storageAvailable=false;}}
+function saveState(){syncAchievements();try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));storageAvailable=true;}catch{storageAvailable=false;}}
 saveState();
 window.addEventListener('storage',event=>{if(event.key===STORAGE_KEY){state=readState();render(false);}});

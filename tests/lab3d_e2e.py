@@ -20,6 +20,8 @@ with sync_playwright() as p:
  assert q.evaluate("window.originalCanvas===document.querySelector('.lab3d-host canvas')")
  for step in ['stop','cool','solidify']:q.locator(f'[data-physical-step={step}]').click()
  assert not q.evaluate('lab3DInfo.model.liquid');assert not q.evaluate('lab3DInfo.model.heated')
+ q.goto(BASE+'#progress');assert q.locator('.lab3d-host canvas').count()==0
+ q.locator('.progress-resume a').click();assert q.evaluate("window.originalCanvas===document.querySelector('.lab3d-host canvas')");assert q.evaluate('lab3DInfo.model.task')=='wax'
  q.goto(BASE+'#lab/properties')
  for step in ['inspect','water','add','stir']:q.locator(f'[data-investigation={step}]').click()
  assert q.evaluate('lab3DInfo.model.mixed');assert q.evaluate('lab3DInfo.model.sample')=='salt'
