@@ -1,4 +1,5 @@
 applyCurriculumLabels();
+for(const [language,label] of Object.entries({ru:'Оборудование',en:'Equipment','uz-Latn':'Jihozlar','uz-Cyrl':'Жиҳозлар'}))dictionaries[language].equipmentTitle=label;
 for(const lang of Object.keys(investigationText)){dictionaries[lang].demo=chemicalText[lang].banner;dictionaries[lang].confirmReset=progressText[lang].resetAll;}
 let t=dictionaries[state.settings.language];
 function route(){const [page='home',id='properties']=location.hash.slice(1).split('/');return {page:['home','catalog','theory','lab','result','settings','table','materials','progress','account'].includes(page)?page:'home',topic:topics.find(topic=>topic.id===id)||topics[0]};}
@@ -47,6 +48,7 @@ function render(moveFocus=true){t=dictionaries[state.settings.language];const cu
  bindLevelUI();
  FotimaCloud.bind();
  Lab3D.mount();
+ SpecimenViewer.mount();
  if(moveFocus){document.getElementById('main').focus();window.scrollTo(0,0);}
 }
 window.addEventListener('hashchange',()=>{investigationFeedback=null;reportFeedback='';physicalFeedback=null;chemicalFeedback=null;render();});render(false);FotimaCloud.start();

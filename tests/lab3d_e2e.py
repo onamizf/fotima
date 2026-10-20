@@ -6,14 +6,15 @@ from playwright.sync_api import sync_playwright
 import json,os,hashlib
 ROOT=Path(__file__).resolve().parents[1];BASE=os.environ.get('LAB_TEST_BASE','http://127.0.0.1:8010/')
 errors=[];console_errors=[];network=[];layouts=0
-seed="""()=>{for(const [id,answers] of Object.entries({properties:{hardness:'na',density:'units'},physical:{wax:'state',salt:'salt'},chemical:{copper:'oxide',gas:'co2'}})){state.lessons[id]={version:2,step:3,visited:[0,1,2],answers:Object.fromEntries(Object.entries(answers).map(([key,selected])=>[key,{selected,checked:true}]))};}saveState();}"""
+snapshot=Path('/tmp/progress-demo-state.json');assert snapshot.exists(),'Run progress_e2e.py first for a genuinely earned learner fixture.'
+seed=json.loads(snapshot.read_text())
 with sync_playwright() as p:
  b=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader'])
- q=b.new_page(viewport={'width':1366,'height':950});q.on('pageerror',lambda e:errors.append(str(e)));q.on('console',lambda e:console_errors.append(e.text) if e.type=='error' else None);q.on('request',lambda r:network.append(r.url))
- q.goto(BASE);q.locator('[data-renderer=webgl]').wait_for();assert q.evaluate('lab3DInfo.ready');assert q.evaluate('lab3DInfo.triangles')>10000;assert q.evaluate('lab3DInfo.triangles')<150000
+ context=b.new_context(viewport={'width':1366,'height':950});context.route('**/src/cloud-config.js',lambda r:r.fulfill(content_type='application/javascript',body='window.FOTIMA_CLOUD_CONFIG={enabled:false};'))
+ q=context.new_page();q.on('pageerror',lambda e:errors.append(str(e)));q.on('console',lambda e:console_errors.append(e.text) if e.type=='error' else None);q.on('request',lambda r:network.append(r.url))
+ q.goto(BASE);q.evaluate('(s)=>{state=s;state.physicalLab=blankPhysicalLab();state.chemicalLab=blankChemicalLab();saveState()}',seed);q.goto(BASE+'#lab/physical');q.locator('[data-renderer=webgl]').wait_for();assert q.evaluate('lab3DInfo.ready');assert q.evaluate('lab3DInfo.triangles')>10000;assert q.evaluate('lab3DInfo.triangles')<150000
  assert q.evaluate('lab3DInfo.pixelRatio')<=1.5
- q.evaluate("window.originalCanvas=document.querySelector('.lab3d-host canvas')");q.evaluate(seed)
- q.goto(BASE+'#lab/physical')
+ q.evaluate("window.originalCanvas=document.querySelector('.lab3d-host canvas')")
  for step in ['setup','loadWax','heat']:q.locator(f'[data-physical-step={step}]').click()
  before=q.locator('.lab3d-host').screenshot();q.locator('[data-physical-step=melt]').click();after=q.locator('.lab3d-host').screenshot()
  assert hashlib.sha256(before).digest()!=hashlib.sha256(after).digest();assert q.evaluate('lab3DInfo.model.liquid')
@@ -21,11 +22,11 @@ with sync_playwright() as p:
  for step in ['stop','cool','solidify']:q.locator(f'[data-physical-step={step}]').click()
  assert not q.evaluate('lab3DInfo.model.liquid');assert not q.evaluate('lab3DInfo.model.heated')
  q.goto(BASE+'#progress');assert q.locator('.lab3d-host canvas').count()==0
- q.locator('.progress-resume a').click();assert q.evaluate("window.originalCanvas===document.querySelector('.lab3d-host canvas')");assert q.evaluate('lab3DInfo.model.task')=='wax'
- q.goto(BASE+'#lab/properties')
+ q.locator('.progress-resume a').click();q.locator('.lab3d-host canvas').wait_for();assert q.evaluate("window.originalCanvas===document.querySelector('.lab3d-host canvas')");assert q.evaluate('lab3DInfo.model.task')=='wax'
+ q.evaluate("state.activeSample='salt';state.investigation.records.salt=blankObservation();saveState()");q.goto(BASE+'#lab/properties')
  for step in ['inspect','water','add','stir']:q.locator(f'[data-investigation={step}]').click()
  assert q.evaluate('lab3DInfo.model.mixed');assert q.evaluate('lab3DInfo.model.sample')=='salt'
- q.goto(BASE+'#lab/chemical');q.locator('[data-chemical-group=copper]').click()
+ q.evaluate('(value)=>{state.physicalLab=value.physicalLab;state.investigation=value.investigation;state.propertyReport=value.propertyReport;saveState()}',seed);q.goto(BASE+'#lab/chemical');q.locator('[data-chemical-group=copper]').click()
  for step in ['setup','grip','heat']:q.locator(f'[data-chemical-step={step}]').click()
  before=q.locator('.lab3d-host').screenshot();q.locator('[data-chemical-step=blacken]').click();after=q.locator('.lab3d-host').screenshot();assert before!=after;assert q.evaluate('lab3DInfo.model.black')
  q.locator('.lab-viewport').screenshot(path=str(ROOT/'artifacts'/'lab3d-copper-desktop.png'))

@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "renderer": "Real WebGL through Chromium SwiftShader",
+  "specimens": 12,
+  "equipment": 7,
+  "unique_specimen_canvas_images": 12,
+  "layout_checks": 32,
+  "languages": 4,
+  "checks": [
+    "real selectable specimen and equipment geometry",
+    "one reused study canvas",
+    "camera and library selection never mark observations or answers complete",
+    "sample selection survives reload",
+    "explanation and glossary remain available",
+    "context loss and no-WebGL use real render fallback",
+    "all 19 WebP assets load"
+  ],
+  "page_errors": [],
+  "failed_resources": [],
+  "limits": "Illustrative macroscopic shapes, not atomic lattices or measured microscopy; not physical mobile GPU testing"
+}
