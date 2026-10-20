@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "backend": "mocked Supabase HTTP endpoints; no live auth or RLS claim",
+  "layouts": 16,
+  "checks": [
+    "confirmation email flow",
+    "wrong password",
+    "sign-in",
+    "cloud save and second-browser load",
+    "revision conflict without overwrite",
+    "explicit cloud reload",
+    "recovery email request",
+    "separate account caches",
+    "session restore and refresh",
+    "logout",
+    "four-language layouts",
+    "guest progress not silently imported",
+    "offline dirty copy preserved and retried",
+    "recovery callback removes URL tokens and updates password"
+  ],
+  "page_errors": []
+}
