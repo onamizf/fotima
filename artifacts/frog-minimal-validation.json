@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "languages": 4,
+  "layout_checks": 80,
+  "checks": [
+    "compact login without marketing column",
+    "privacy information available by disclosure",
+    "three sequential level tiles retained",
+    "original frog and local art load",
+    "no repeated banner or footer",
+    "320/375/768/1366px"
+  ],
+  "page_errors": [],
+  "failed_resources": []
+}

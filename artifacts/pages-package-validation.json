@@ -4,6 +4,10 @@
     ".nojekyll",
     "assets/Inter.ttf",
     "assets/OFL.txt",
+    "assets/levels/chemical.webp",
+    "assets/levels/physical.webp",
+    "assets/levels/properties.webp",
+    "assets/mascot/frog-scientist.webp",
     "assets/vendor/THREE-LICENSE.txt",
     "assets/vendor/THREE-PROVENANCE.json",
     "assets/vendor/three-0.160.1.min.js",
@@ -36,6 +40,7 @@
     "src/lessons/uz-Cyrl.js",
     "src/lessons/uz-Latn.js",
     "src/levels.js",
+    "src/shell.css",
     "src/storage.js",
     "src/styles.css",
     "src/visual/lab3d.js"
