@@ -1,0 +1,30 @@
+{
+  "status": "passed",
+  "task_flows": 36,
+  "layout_checks": 300,
+  "downloads": 24,
+  "languages": 4,
+  "checks": [
+    "theory gate and result prerequisite",
+    "global reset clears new state",
+    "invalid order rejected",
+    "three complete tasks",
+    "early stop and restart",
+    "task switching blocked while heating",
+    "wax liquid and solid scenes",
+    "salt dissolves and crystals reappear",
+    "unknown ether explicitly unspecified",
+    "incorrect matches and explanations corrected",
+    "cleanup required",
+    "undo stop never relights heat",
+    "all task states and conclusion survive reload/language",
+    "confirmed task reset preserves other tasks and first lab",
+    "incomplete report cannot claim pass",
+    "HTML downloads escape student text",
+    "320px, landscape, enlarged text",
+    "keyboard and reduced motion",
+    "corrupt/old data and blocked storage"
+  ],
+  "js_errors": [],
+  "limits": "Draft qualitative model; no exact temperatures/concentrations; unspecified ether and teaching content await review; Chromium emulation only."
+}

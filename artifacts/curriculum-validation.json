@@ -15,10 +15,10 @@
     "draft cells, active sample and source survive reload/language change",
     "table reset preserves lessons",
     "escaped user-entered values",
-    "no practice completion or simulated heat/reaction",
+    "theory alone does not complete practical work; chemical reactions remain inactive",
     "corrupt and blocked storage recover",
     "narrow/landscape/enlarged text"
   ],
   "js_errors": [],
-  "limits": "Chromium emulation; numerical reference values, teacher/native-language review and quantitative instruments and experiments 2–3 pending"
+  "limits": "Chromium emulation; numerical reference values, teacher/native-language review and quantitative instruments and chemical experiments pending"
 }

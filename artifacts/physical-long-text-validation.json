@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "filled_answer_layouts": 36,
+  "languages": 4,
+  "widths": [
+    320,
+    768,
+    1366
+  ],
+  "checks": [
+    "selected answers repeat in full wrapping text",
+    "all matching descriptions shown in full",
+    "incomplete work remains incomplete",
+    "global reset clears new state"
+  ]
+}
