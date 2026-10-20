@@ -26,6 +26,13 @@ with tempfile.TemporaryDirectory(prefix='fotima-pages-') as temp:
             page.on('pageerror',lambda e:errors.append(str(e)))
             page.on('response',lambda response:responses.append((response.url,response.status)))
             page.goto(base+'#catalog');page.evaluate('document.fonts.ready')
+            account_gate=page.evaluate('FotimaCloud.configured()')
+            if account_gate:
+                assert page.locator('#accountForm').count()==1
+                assert page.locator('[data-topic]').count()==0
+                # Separately exercise the packaged local-mode routes; account flows are in cloud_e2e.py.
+                page.route('**/src/cloud-config.js',lambda r:r.fulfill(content_type='application/javascript',body='window.FOTIMA_CLOUD_CONFIG={enabled:false};'))
+                page.reload()
             assert page.locator('[data-topic]').count()==3
             assert page.evaluate("document.fonts.check('16px Inter')")
             for language in ['ru','uz-Latn','uz-Cyrl','en']:
@@ -38,6 +45,6 @@ with tempfile.TemporaryDirectory(prefix='fotima-pages-') as temp:
             assert not errors,errors
             assert not [(url,status) for url,status in responses if status>=400],responses
             browser.close()
-        report={'status':'passed','package_files':files,'base_path':'/fotima/','checks':['only browser files published','all scripts/styles/font return success','four languages and key routes under project subpath','reload retains table entry','non-empty output rejected'],'js_errors':errors,'live_site':'not verified: GitHub Pages activation requires repository settings access'}
+        report={'status':'passed','package_files':files,'base_path':'/fotima/','checks':['only browser files published','all scripts/styles/font return success','configured account gate blocks anonymous catalog','four languages and local-mode routes under project subpath','reload retains table entry','non-empty output rejected'],'js_errors':errors,'live_site':'User confirmed earlier site availability; current publication and live Supabase not independently verified'}
         (ROOT/'artifacts'/'pages-package-validation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report,ensure_ascii=False,indent=2))
     finally:server.shutdown();server.server_close()

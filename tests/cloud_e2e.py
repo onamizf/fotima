@@ -38,7 +38,7 @@ def api(route):
  else:raise AssertionError(path)
  route.fulfill(status=status,content_type='application/json',body=json.dumps(data))
 def configure(ctx):
- ctx.route('**/src/cloud-config.js',lambda r:r.fulfill(content_type='application/javascript',body="window.FOTIMA_CLOUD_CONFIG={enabled:true,url:'https://rjllssgpppsdjkpjzdrx.supabase.co',publishableKey:'sb_publishable_test'};"))
+ if os.environ.get('CLOUD_USE_SITE_CONFIG')!='1':ctx.route('**/src/cloud-config.js',lambda r:r.fulfill(content_type='application/javascript',body="window.FOTIMA_CLOUD_CONFIG={enabled:true,url:'https://rjllssgpppsdjkpjzdrx.supabase.co',publishableKey:'sb_publishable_test'};"))
  ctx.route('https://*.supabase.co/**',api)
 def login(q,email):
  q.locator('[data-cloud="login"]').click();q.locator('[name=email]').fill(email);q.locator('[name=password]').fill('good-password');q.locator('#accountForm .primary').click()

@@ -43,10 +43,11 @@
   "checks": [
     "only browser files published",
     "all scripts/styles/font return success",
-    "four languages and key routes under project subpath",
+    "configured account gate blocks anonymous catalog",
+    "four languages and local-mode routes under project subpath",
     "reload retains table entry",
     "non-empty output rejected"
   ],
   "js_errors": [],
-  "live_site": "not verified: GitHub Pages activation requires repository settings access"
+  "live_site": "User confirmed earlier site availability; current publication and live Supabase not independently verified"
 }
