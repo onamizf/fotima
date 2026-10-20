@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "rendering": "Real WebGL through Chromium SwiftShader, not physical GPU measurement",
+  "lab_layout_checks": 48,
+  "languages": 4,
+  "checks": [
+    "map has locked and unlocked states",
+    "three laboratory workspaces",
+    "next-step button via keyboard runs the real action",
+    "next-step button via mouse builds the apparatus and loads wax",
+    "result exposes next-level action"
+  ],
+  "page_errors": [],
+  "snapshot": "Earned by the sequential real UI flow in progress_e2e.py; only target task reset for layout coverage"
+}

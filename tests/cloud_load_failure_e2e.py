@@ -32,25 +32,25 @@ with sync_playwright() as p:
  assert 'PRIVATE SERVER DETAILS' not in q.locator('body').inner_text()
  assert q.locator('[data-cloud=save]').is_disabled();assert len(writes)==0
  # A verified user may choose a local copy; anonymous visitors cannot.
- q.locator('[data-cloud=continue-local]').click();q.wait_for_selector('.mission-map');assert q.locator('.cloud-local-note').is_visible()
- q.evaluate("location.hash='theory/physical'");q.wait_for_selector('.lesson')
- assert q.evaluate("state.progress.physical")=='started'
+ q.locator('[data-cloud=continue-local]').click();q.wait_for_selector('.level-map');assert q.locator('.cloud-local-note').is_visible()
+ q.evaluate("location.hash='theory/properties'");q.wait_for_selector('.lesson')
+ assert q.evaluate("state.progress.properties")=='started'
  assert q.evaluate("JSON.parse(localStorage.getItem(STORAGE_KEY+'.cloud')).dirty")
  q.wait_for_timeout(1200);assert len(writes)==0,'unknown remote version must not be overwritten'
  # A reload keeps the local attempt and the same user cache, not the guest cache.
- q.reload();q.wait_for_selector('.cloud-diagnostic');assert q.evaluate("state.progress.physical")=='started'
+ q.reload();q.wait_for_selector('.cloud-diagnostic');assert q.evaluate("state.progress.properties")=='started'
  # A server-side version discovered later conflicts with the local unknown base; no automatic write.
  fault=None;row={'revision':8,'payload':{'version':2,'settings':{'language':'ru'},'progress':{'chemical':'started'}}}
  q.reload();q.wait_for_function('FotimaCloud.signedIn() && !FotimaCloud.gate()');q.evaluate("location.hash='account'");q.wait_for_function("document.querySelector('[data-cloud-status]')?.textContent.includes('На другом устройстве')")
- assert q.evaluate("state.progress.physical")=='started';assert len(writes)==0
+ assert q.evaluate("state.progress.properties")=='started';assert len(writes)==0
  assert row['payload']['progress']=={'chemical':'started'}
  # Explicit cloud reload can be cancelled, or accepted after offering local download.
- q.on('dialog',lambda d:d.dismiss());q.locator('[data-cloud=load]').click();assert q.evaluate("state.progress.physical")=='started'
+ q.on('dialog',lambda d:d.dismiss());q.locator('[data-cloud=load]').click();assert q.evaluate("state.progress.properties")=='started'
  accepted=ctx.new_page();accepted.on('dialog',lambda d:d.accept());accepted.goto(BASE);accepted.wait_for_selector('#accountForm')
  # Sessions are per tab; log in in the second tab. No dirty copy is silently discarded.
  accepted.locator('[data-cloud=login]').click();accepted.locator('[name=email]').fill('fault@example.test');accepted.locator('[name=password]').fill('good-password');accepted.locator('#accountForm .primary').click()
  accepted.wait_for_function('FotimaCloud.signedIn() && !FotimaCloud.gate()');accepted.evaluate("location.hash='account'");accepted.wait_for_function("document.querySelector('[data-cloud-status]')?.textContent.includes('На другом устройстве')")
- accepted.locator('[data-cloud=load]').click();accepted.wait_for_function("state.progress.chemical==='started' && state.progress.physical===undefined")
+ accepted.locator('[data-cloud=load]').click();accepted.wait_for_function("state.progress.chemical==='started' && state.progress.properties===undefined")
  # New account starts with no local progress. A permission failure must be explained.
  # Independent profile has no user's browser cache; same fake auth user suffices for a fresh cache.
  second=browser.new_context();configure(second);r=second.new_page();r.on('pageerror',lambda e:errors.append(str(e)))

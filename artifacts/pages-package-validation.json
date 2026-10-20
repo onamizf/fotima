@@ -35,6 +35,7 @@
     "src/lessons/ru.js",
     "src/lessons/uz-Cyrl.js",
     "src/lessons/uz-Latn.js",
+    "src/levels.js",
     "src/storage.js",
     "src/styles.css",
     "src/visual/lab3d.js"

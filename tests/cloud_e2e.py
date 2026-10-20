@@ -54,7 +54,7 @@ with sync_playwright() as p:
  q.wait_for_function("document.querySelector('#accountMessage').textContent.includes('Проверьте почту')");assert not q.evaluate('FotimaCloud.signedIn()')
  # Incorrect password has actionable feedback.
  q.locator('[name=email]').fill('first@example.test');q.locator('[name=password]').fill('wrong-password');q.locator('#accountForm .primary').click();q.wait_for_function("document.querySelector('#accountMessage').textContent.includes('Проверьте почту и пароль')")
- login(q,'first@example.test');q.wait_for_function("document.querySelector('.mission-map')!==null")
+ login(q,'first@example.test');q.wait_for_function("document.querySelector('.level-map')!==null")
  first=users['first@example.test'];second=users['second@example.test']
  assert q.evaluate('state.progress.chemical===undefined'), 'guest data must not silently enter the new account'
  q.evaluate("location.hash='theory/properties'");q.wait_for_selector('.lesson');account(q);q.locator('[data-cloud=save]').click()
