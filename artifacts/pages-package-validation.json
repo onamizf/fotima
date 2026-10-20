@@ -23,6 +23,7 @@
     "src/curriculum/report-i18n.js",
     "src/curriculum/report.js",
     "src/curriculum/table.js",
+    "src/game-ui.js",
     "src/i18n.js",
     "src/illustrations.js",
     "src/lesson-state.js",
