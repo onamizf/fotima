@@ -4,7 +4,7 @@ import json,os
 ROOT=Path(__file__).resolve().parents[1]
 BASE=os.environ.get('LAB_TEST_BASE','http://127.0.0.1:8010/')
 with sync_playwright() as p:
- b=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox']);q=b.new_page();q.goto(BASE)
+ b=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--disable-webgl']);q=b.new_page();q.goto(BASE)
  q.evaluate("state.lessons.physical={version:2,step:3,visited:[0,1,2],answers:{wax:{selected:'state',checked:true},salt:{selected:'salt',checked:true}}};saveState()")
  q.goto(BASE+'#lab/physical');count=0
  for width in [320,768,1366]:

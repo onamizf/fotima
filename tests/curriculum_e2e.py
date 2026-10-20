@@ -6,7 +6,7 @@ ROOT=Path(__file__).resolve().parents[1];BASE=os.environ.get('LAB_TEST_BASE','ht
 answers={'properties':{'hardness':'na','density':'units'},'physical':{'wax':'state','salt':'salt'},'chemical':{'copper':'oxide','gas':'co2'}}
 issues=[];layouts=0;flows=0
 with sync_playwright() as p:
- browser=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox'])
+ browser=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--disable-webgl'])
  # The old completed work never passes a new laboratory; preserve original data.
  context=browser.new_context();page=context.new_page();page.goto(BASE)
  legacy={'version':1,'settings':{'language':'en','sound':True,'reduceMotion':True},'progress':{'equipment':'completed','dissolving':'completed','filtration':'completed'},'lessons':{},'equipmentRecord':{'version':1,'actions':[]}}
@@ -33,7 +33,7 @@ with sync_playwright() as p:
      page.locator(f'input[name="{question}"][value="{correct}"]').check();page.locator(f'[data-check="{question}"]').click();assert group.locator('[data-correct=true]').count()==1
     assert page.locator('.lesson-summary').count()==1;page.reload();assert page.locator('.lesson-summary').count()==1
     page.locator('.lesson-summary a').click();page.locator('.resource-links').first.wait_for()
-    assert page.locator('#benchSample' if topic=='properties' else '.physical-tabs button' if topic=='physical' else '.grid3 .card').count()==(1 if topic=='properties' else 3)
+    assert page.locator('#benchSample' if topic=='properties' else '.physical-tabs button').count()==(1 if topic=='properties' else 3)
     assert page.locator('[data-lab-select]').count()==0;assert page.locator('[data-action=complete]').count()==0
     page.goto(BASE+'#result/'+topic);assert page.locator('.seal').count()==0;flows+=1
    for screen in ['home','catalog','materials/properties','table/properties','settings']:
@@ -76,5 +76,5 @@ with sync_playwright() as p:
  # Keyboard operation of table choices and independent reset.
  page.goto(BASE+'#table/properties');page.set_viewport_size({'width':375,'height':900});page.locator('#card-salt-state').focus();page.keyboard.press('s');page.keyboard.press('Enter')
  assert not issues,issues
- report={'status':'passed','lesson_flows':flows,'layout_checks':layouts,'languages':4,'table_rows':12,'fields_per_row':8,'new_equipment_designs':7,'checks':['new topic titles only','three parts, glossary and corrected quiz in all languages','all seven assignment descriptions retained','old settings migrate without old grades','old storage retained','draft cells, active sample and source survive reload/language change','table reset preserves lessons','escaped user-entered values','theory alone does not complete practical work; chemical reactions remain inactive','corrupt and blocked storage recover','narrow/landscape/enlarged text'],'js_errors':issues,'limits':'Chromium emulation; numerical reference values, teacher/native-language review and quantitative instruments and chemical experiments pending'}
+ report={'status':'passed','lesson_flows':flows,'layout_checks':layouts,'languages':4,'table_rows':12,'fields_per_row':8,'new_equipment_designs':7,'checks':['new topic titles only','three parts, glossary and corrected quiz in all languages','all seven assignment descriptions retained','old settings migrate without old grades','old storage retained','draft cells, active sample and source survive reload/language change','table reset preserves lessons','escaped user-entered values','theory alone does not complete practical work; each practical result requires its own actions','corrupt and blocked storage recover','narrow/landscape/enlarged text'],'js_errors':issues,'limits':'Chromium emulation; numerical reference values, teacher/native-language review and quantitative instruments and expert validation pending'}
  (ROOT/'artifacts'/'curriculum-validation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report,ensure_ascii=False,indent=2));browser.close()

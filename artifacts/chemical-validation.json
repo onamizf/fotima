@@ -1,0 +1,26 @@
+{
+  "status": "passed",
+  "variant_flows": 96,
+  "layout_checks": 720,
+  "downloads": 24,
+  "languages": 4,
+  "rendering": "schematic/WebGL unavailable path; actual WebGL tested separately",
+  "checks": [
+    "eight variants including four fuels and three carbonates",
+    "theory gate",
+    "wrong order rejected",
+    "early stop and retry for both copper cycles",
+    "no switch with active source",
+    "undo does not relight heat or splint",
+    "wrong observations and explanations corrected",
+    "cleanup required",
+    "persistence and translations",
+    "safe HTML reports and incomplete result",
+    "reset preserves previous laboratories",
+    "global reset clears new data",
+    "keyboard and long text",
+    "old/corrupt data and unavailable storage"
+  ],
+  "js_errors": [],
+  "limits": "Qualitative model and preliminary translations; gas/alcohol composition pending expert review."
+}

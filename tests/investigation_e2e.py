@@ -8,7 +8,7 @@ errors=[];flows=0;layouts=0
 # Seed only the already-tested theory prerequisite; all practical actions use UI.
 seed="""()=>{state.lessons.properties={version:2,step:3,visited:[0,1,2],answers:{hardness:{selected:'na',checked:true},density:{selected:'units',checked:true}}};saveState();}"""
 with sync_playwright() as p:
- browser=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox'])
+ browser=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--disable-webgl'])
  for width in [375,768,1366]:
   for lang in ['ru','uz-Latn','uz-Cyrl','en']:
    context=browser.new_context(viewport={'width':width,'height':1000},has_touch=width==375)

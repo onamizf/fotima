@@ -21,7 +21,7 @@ with tempfile.TemporaryDirectory(prefix='fotima-pages-') as temp:
     errors=[];responses=[]
     try:
         with sync_playwright() as p:
-            browser=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox'])
+            browser=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--disable-webgl'])
             page=browser.new_page(viewport={'width':375,'height':900})
             page.on('pageerror',lambda e:errors.append(str(e)))
             page.on('response',lambda response:responses.append((response.url,response.status)))
@@ -30,7 +30,7 @@ with tempfile.TemporaryDirectory(prefix='fotima-pages-') as temp:
             assert page.evaluate("document.fonts.check('16px Inter')")
             for language in ['ru','uz-Latn','uz-Cyrl','en']:
                 page.locator('#language').select_option(language)
-                for route in ['catalog','theory/properties','table/properties','materials/properties','lab/physical','result/physical']:
+                for route in ['catalog','theory/properties','table/properties','materials/properties','lab/physical','result/physical','lab/chemical','result/chemical']:
                     page.goto(base+'#'+route);assert page.locator('h1').count()==1
                     assert not page.evaluate('document.documentElement.scrollWidth>innerWidth+1')
             page.goto(base+'#table/properties');page.locator('#card-salt-state').select_option('solid');page.reload()

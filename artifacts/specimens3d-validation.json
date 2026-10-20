@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "webgl_specimens": 12,
+  "checks": [
+    "all twelve specimens render through actual WebGL after water test",
+    "liquids do not become solid particles in either rendering path",
+    "metal specimens use metallic plates",
+    "solubility states remain connected to actions"
+  ],
+  "js_errors": [],
+  "limits": "Software WebGL, not a physical measurement or mobile hardware benchmark."
+}

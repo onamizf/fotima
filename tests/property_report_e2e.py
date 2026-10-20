@@ -13,7 +13,7 @@ with tempfile.TemporaryDirectory(prefix='fotima-reports-') as tmp:
  server=ThreadingHTTPServer(('127.0.0.1',0),partial(Quiet,directory=tmp));threading.Thread(target=server.serve_forever,daemon=True).start()
  try:
   with sync_playwright() as p:
-   b=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox'])
+   b=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--disable-webgl'])
    for width in [375,768,1366]:
     for lang in ['ru','uz-Latn','uz-Cyrl','en']:
      c=b.new_context(viewport={'width':width,'height':1000},accept_downloads=True,has_touch=width==375);page=c.new_page();page.on('pageerror',lambda e:errors.append(str(e)));page.goto(BASE+'#result/properties')

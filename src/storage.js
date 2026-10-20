@@ -1,6 +1,6 @@
 const STORAGE_KEY='fotima.chemistry7.curriculum.v2';
 const LEGACY_STORAGE_KEY='fotima.chemistry7.shell.v1';
-const freshState=()=>({version:2,settings:{language:'ru',sound:false,reduceMotion:false},progress:{},lessons:{},propertyTable:{},activeSample:'salt',tableSource:'',investigation:blankInvestigation(),propertyReport:blankReport(),physicalLab:blankPhysicalLab()});
+const freshState=()=>({version:2,settings:{language:'ru',sound:false,reduceMotion:false,viewMode:'3d'},progress:{},lessons:{},propertyTable:{},activeSample:'salt',tableSource:'',investigation:blankInvestigation(),propertyReport:blankReport(),physicalLab:blankPhysicalLab(),chemicalLab:blankChemicalLab()});
 let storageAvailable=true;
 function readState(){
  const clean=freshState();
@@ -9,6 +9,7 @@ function readState(){
   const legacy=!raw?JSON.parse(localStorage.getItem(LEGACY_STORAGE_KEY)||'null'):null;
   const settings=(value?.version===2?value.settings:legacy?.settings)||{};
   if(Object.hasOwn(dictionaries,settings.language))clean.settings.language=settings.language;
+  if(['3d','2d'].includes(settings.viewMode))clean.settings.viewMode=settings.viewMode;
   for(const key of ['sound','reduceMotion'])if(typeof settings[key]==='boolean')clean.settings[key]=settings[key];
   if(value?.version!==2)return clean;
   for(const {id} of topics){if(value.lessons?.[id])clean.lessons[id]=sanitiseLesson(value.lessons[id],id);if(value.progress?.[id]==='started')clean.progress[id]='started';}
@@ -16,6 +17,7 @@ function readState(){
   clean.investigation=sanitiseInvestigation(value.investigation);
   clean.propertyReport=sanitiseReport(value.propertyReport);
   clean.physicalLab=sanitisePhysicalLab(value.physicalLab);
+  clean.chemicalLab=sanitiseChemicalLab(value.chemicalLab);
   if(sampleIds.includes(value.activeSample))clean.activeSample=value.activeSample;
   if(typeof value.tableSource==='string')clean.tableSource=value.tableSource.slice(0,600);
   return clean;
