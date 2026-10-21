@@ -4,7 +4,7 @@
   "checks": [
     "all twelve specimens render through actual WebGL after water test",
     "liquids do not become solid particles in either rendering path",
-    "metal specimens use metallic plates",
+    "metal specimens use distinct metallic geometry",
     "solubility states remain connected to actions"
   ],
   "js_errors": [],
