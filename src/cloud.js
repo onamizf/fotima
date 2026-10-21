@@ -159,5 +159,6 @@ window.FotimaCloud=(()=>{
   }catch{session=null;loaded=false;message='expired';try{sessionStorage.removeItem(SESSION_KEY);}catch{}render(false);}
  }
  window.addEventListener('online',()=>{if(session&&loaded&&!conflict)save();});
- return {configured,view,bind,start,changed:localChanged,gate:()=>configured()&&(!session||(!loaded&&!localOnly)||recovery||loading),signedIn:()=>!!session,profile,notice};
+ function prepareRegistration(){if(!session&&!recovery){mode='register';message='';}}
+ return {prepareRegistration,configured,view,bind,start,changed:localChanged,gate:()=>configured()&&(!session||(!loaded&&!localOnly)||recovery||loading),signedIn:()=>!!session,profile,notice};
 })();

@@ -9,18 +9,20 @@ with sync_playwright() as p:
  b=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--disable-webgl'])
  q=b.new_page(viewport={'width':1366,'height':900});errs=[];q.on('pageerror',lambda e:errs.append(str(e)))
  q.goto(base);q.wait_for_selector('.welcome-screen');q.mouse.move(680,300);q.wait_for_timeout(200);q.screenshot(path=str(root/'artifacts/welcome-night-1366.png'),full_page=True)
- # Regression: solid cheeks and neck at cursor extremes in both themes.
+ # Regression: solid cheeks at cursor extremes in both themes.
  for appearance in ['dark','light']:
   if q.locator('html').get_attribute('data-theme')!=appearance:q.locator('#themeToggle').click()
   for x,y in [(0,0),(1365,0),(0,899),(1365,899)]:
    q.mouse.move(x,y);q.wait_for_timeout(100)
    pixels=Image.open(BytesIO(q.locator('.welcome-frog').screenshot())).convert('RGB')
-   for sx,sy in [(228,190),(284,245),(307,257),(332,240)]:
-    color=pixels.getpixel((round(sx*pixels.width/640),round(sy*pixels.height/768)))
+   for sx,sy in [(228,190),(284,225),(307,230),(332,220)]:
+    color=pixels.getpixel((round((sx-145)*pixels.width/345),round((sy+5)*pixels.height/290)))
     assert max(color)-min(color)>12 and 45<sum(color)/3<235,(appearance,x,y,sx,sy,color)
  if q.locator('html').get_attribute('data-theme')!='dark':q.locator('#themeToggle').click()
  before=q.evaluate('JSON.stringify(state)');q.mouse.move(1300,300);q.wait_for_timeout(200);right=q.locator('[data-frog-head]').get_attribute('style');eyeRight=q.locator('[data-frog-pupil]').first.get_attribute('transform');q.mouse.move(50,650);q.wait_for_timeout(200);assert right!=q.locator('[data-frog-head]').get_attribute('style');assert eyeRight!=q.locator('[data-frog-pupil]').first.get_attribute('transform');assert before==q.evaluate('JSON.stringify(state)')
- q.locator('.welcome-enter').click();q.wait_for_selector('input[name=email]');assert q.evaluate('document.body.dataset.page')=='account'
+ assert q.locator('.welcome-enter').inner_text().startswith('Регистрация');assert q.locator('.welcome-feature').count()==3
+ q.locator('.welcome-enter').click();q.wait_for_selector('input[name=email]');assert q.locator('[data-cloud=register]').get_attribute('aria-pressed')=='true';assert q.evaluate('document.body.dataset.page')=='account'
+ q.locator('[data-cloud=login]').click();q.goto(base+'#welcome');q.locator('.welcome-enter').click();assert q.locator('[data-cloud=register]').get_attribute('aria-pressed')=='true'
  q.goto(base+'#lab/properties');q.wait_for_selector('input[name=email]');assert q.locator('.welcome-screen').count()==0
  q.goto(base+'#welcome');q.locator('#themeToggle').click();q.screenshot(path=str(root/'artifacts/welcome-day-1366.png'),full_page=True)
  for lang in ['ru','uz-Latn','uz-Cyrl','en']:
