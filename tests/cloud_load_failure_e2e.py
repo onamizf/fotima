@@ -26,9 +26,9 @@ def configure(ctx):
 with sync_playwright() as p:
  browser=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--disable-webgl'])
  ctx=browser.new_context();configure(ctx);q=ctx.new_page();q.on('pageerror',lambda e:errors.append(str(e)))
- q.goto(BASE);q.locator('[data-cloud=login]').click();q.locator('[name=email]').fill('fault@example.test');q.locator('[name=password]').fill('good-password');q.locator('#accountForm .primary').click()
+ q.goto(BASE+'#account');q.locator('[data-cloud=login]').click();q.locator('[name=email]').fill('fault@example.test');q.locator('[name=password]').fill('good-password');q.locator('#accountForm .primary').click()
  q.wait_for_selector('.cloud-diagnostic');assert q.evaluate('FotimaCloud.signedIn()');assert q.evaluate('FotimaCloud.gate()')
- assert q.locator('.cloud-diagnostic code').inner_text()=='progress-read · HTTP 404 · PGRST205'
+ q.locator('.cloud-diagnostic summary').click();assert q.locator('.cloud-diagnostic code').inner_text()=='progress-read · HTTP 404 · PGRST205'
  assert 'PRIVATE SERVER DETAILS' not in q.locator('body').inner_text()
  assert q.locator('[data-cloud=save]').is_disabled();assert len(writes)==0
  # A verified user may choose a local copy; anonymous visitors cannot.
@@ -41,21 +41,21 @@ with sync_playwright() as p:
  q.reload();q.wait_for_selector('.cloud-diagnostic');assert q.evaluate("state.progress.properties")=='started'
  # A server-side version discovered later conflicts with the local unknown base; no automatic write.
  fault=None;row={'revision':8,'payload':{'version':2,'settings':{'language':'ru'},'progress':{'chemical':'started'}}}
- q.reload();q.wait_for_function('FotimaCloud.signedIn() && !FotimaCloud.gate()');q.evaluate("location.hash='account'");q.wait_for_function("document.querySelector('[data-cloud-status]')?.textContent.includes('На другом устройстве')")
+ q.reload();q.wait_for_function('FotimaCloud.signedIn() && !FotimaCloud.gate()');q.evaluate("location.hash='account'");q.wait_for_function("document.querySelector('[data-cloud-status]')?.dataset.cloudState==='conflict'")
  assert q.evaluate("state.progress.properties")=='started';assert len(writes)==0
  assert row['payload']['progress']=={'chemical':'started'}
  # Explicit cloud reload can be cancelled, or accepted after offering local download.
  q.on('dialog',lambda d:d.dismiss());q.locator('[data-cloud=load]').click();assert q.evaluate("state.progress.properties")=='started'
- accepted=ctx.new_page();accepted.on('dialog',lambda d:d.accept());accepted.goto(BASE);accepted.wait_for_selector('#accountForm')
+ accepted=ctx.new_page();accepted.on('dialog',lambda d:d.accept());accepted.goto(BASE+'#account');accepted.wait_for_selector('#accountForm')
  # Sessions are per tab; log in in the second tab. No dirty copy is silently discarded.
  accepted.locator('[data-cloud=login]').click();accepted.locator('[name=email]').fill('fault@example.test');accepted.locator('[name=password]').fill('good-password');accepted.locator('#accountForm .primary').click()
- accepted.wait_for_function('FotimaCloud.signedIn() && !FotimaCloud.gate()');accepted.evaluate("location.hash='account'");accepted.wait_for_function("document.querySelector('[data-cloud-status]')?.textContent.includes('На другом устройстве')")
+ accepted.wait_for_function('FotimaCloud.signedIn() && !FotimaCloud.gate()');accepted.evaluate("location.hash='account'");accepted.wait_for_function("document.querySelector('[data-cloud-status]')?.dataset.cloudState==='conflict'")
  accepted.locator('[data-cloud=load]').click();accepted.wait_for_function("state.progress.chemical==='started' && state.progress.properties===undefined")
  # New account starts with no local progress. A permission failure must be explained.
  # Independent profile has no user's browser cache; same fake auth user suffices for a fresh cache.
  second=browser.new_context();configure(second);r=second.new_page();r.on('pageerror',lambda e:errors.append(str(e)))
- fault={'status':403,'code':'42501'};r.goto(BASE);r.locator('[data-cloud=login]').click();r.locator('[name=email]').fill('fault@example.test');r.locator('[name=password]').fill('good-password');r.locator('#accountForm .primary').click();r.wait_for_selector('.cloud-diagnostic')
- assert 'RLS' in r.locator('.cloud-diagnostic').inner_text();assert 'HTTP 403' in r.locator('.cloud-diagnostic code').inner_text()
+ fault={'status':403,'code':'42501'};r.goto(BASE+'#account');r.locator('[data-cloud=login]').click();r.locator('[name=email]').fill('fault@example.test');r.locator('[name=password]').fill('good-password');r.locator('#accountForm .primary').click();r.wait_for_selector('.cloud-diagnostic')
+ r.locator('.cloud-diagnostic summary').click();assert 'RLS' in r.locator('.cloud-diagnostic').inner_text();assert 'HTTP 403' in r.locator('.cloud-diagnostic code').inner_text()
  layouts=0
  for lang in ['ru','uz-Latn','uz-Cyrl','en']:
   r.select_option('#language',lang)

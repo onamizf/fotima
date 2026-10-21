@@ -46,6 +46,7 @@ def login(q,email):
  q.wait_for_function('FotimaCloud.signedIn() && !FotimaCloud.gate()');q.wait_for_timeout(150)
 def account(q):
  q.evaluate("location.hash='account'");q.wait_for_selector('.cloud-profile')
+ if not q.locator('.account-sync-tools').get_attribute('open'):q.locator('.account-sync-tools > summary').click()
 with sync_playwright() as p:
  browser=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--disable-webgl'])
  ctx=browser.new_context();configure(ctx);ctx.add_init_script("if(!localStorage.getItem('fotima.chemistry7.curriculum.v2'))localStorage.setItem('fotima.chemistry7.curriculum.v2',JSON.stringify({version:2,settings:{language:'ru'},progress:{chemical:'started'}}))");q=ctx.new_page();q.on('pageerror',lambda e:errors.append(str(e)))
@@ -59,13 +60,14 @@ with sync_playwright() as p:
  first=users['first@example.test'];second=users['second@example.test']
  assert q.evaluate('state.progress.chemical===undefined'), 'guest data must not silently enter the new account'
  q.evaluate("location.hash='theory/properties'");q.wait_for_selector('.lesson');account(q);q.locator('[data-cloud=save]').click()
- q.wait_for_function("document.querySelector('[data-cloud-status]').textContent.includes('сохранён')")
+ q.wait_for_function("document.querySelector('[data-cloud-status]').dataset.cloudState==='saved'")
  assert rows[first]['payload']['progress'].get('properties')=='started'
  # Cloud load into another browser and optimistic collision.
  ctx2=browser.new_context();configure(ctx2);r=ctx2.new_page();r.on('pageerror',lambda e:errors.append(str(e)));r.goto(BASE);login(r,'first@example.test')
  assert r.evaluate("state.progress.properties")=='started'
  q.select_option('#language','en');account(q);q.locator('[data-cloud=save]').click();q.wait_for_timeout(250)
- r.select_option('#language','uz-Latn');account(r);r.locator('[data-cloud=save]').click();r.wait_for_function("document.querySelector('[data-cloud-status]').textContent.includes('Boshqa qurilmada')")
+ r.select_option('#language','uz-Latn');account(r);r.locator('[data-cloud=save]').click();r.wait_for_function("document.querySelector('[data-cloud-status]').dataset.cloudState==='conflict'")
+ r.set_viewport_size({'width':1366,'height':900});r.screenshot(path=str(ROOT/'artifacts/account-conflict-1366.png'),full_page=True)
  assert rows[first]['payload']['settings']['language']=='en'
  r.on('dialog',lambda d:d.accept());r.locator('[data-cloud=load]').click();r.wait_for_function("state.settings.language==='en'")
  # Recovery request does not expose existence of an account.
@@ -73,9 +75,9 @@ with sync_playwright() as p:
  login(s,'second@example.test');assert s.evaluate('Object.keys(state.progress).length')==0
  assert second in rows
  # Offline writes survive reload without replacing the local dirty attempt.
- outage=True;s.select_option('#language','en');account(s);s.locator('[data-cloud=save]').click();s.wait_for_function("document.querySelector('[data-cloud-status]').textContent.includes('Cloud unavailable')")
+ outage=True;s.select_option('#language','en');account(s);s.locator('[data-cloud=save]').click();s.wait_for_function("document.querySelector('[data-cloud-status]').dataset.cloudState==='offline'")
  assert s.evaluate("JSON.parse(localStorage.getItem(STORAGE_KEY+'.cloud')).dirty")
- s.reload();s.wait_for_function("document.querySelector('[data-cloud-status]').textContent.includes('could not be loaded')")
+ s.reload();s.wait_for_function("document.querySelector('[data-cloud-status]').dataset.cloudState==='loadError'")
  assert s.evaluate("state.settings.language")=='en'
  outage=False
  s.on('dialog',lambda d:d.accept())

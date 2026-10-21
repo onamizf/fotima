@@ -16,6 +16,7 @@ with sync_playwright() as p:
   for key,value in solution.items():q.locator(f'input[name="{key}"][value="{value}"]').check();q.locator(f'[data-check="{key}"]').click()
   assert q.evaluate('(id)=>lessonPassed(id)',topic)
  # A map tile and a manually entered URL cannot complete or unlock a level.
+ assert q.evaluate('learnerLevelSnapshot().index')==0
  q.goto(BASE+'#catalog');assert q.locator('[data-level-state=locked]').count()==2
  for blocked in ['theory/physical','lab/physical','result/physical','theory/chemical','lab/chemical','result/chemical']:
   q.goto(BASE+'#'+blocked);assert q.locator('.level-locked-page').count()==1
@@ -33,7 +34,7 @@ with sync_playwright() as p:
  assert q.evaluate('state.achievements.earned')==['observer'];assert not q.evaluate('levelUnlocked("physical")')
  q.goto(BASE+'#result/properties');q.locator('[name=propertyComparison][value=reaction]').check();q.locator('[data-report=check]').click();assert not q.evaluate('state.achievements.earned.includes("comparer")')
  q.locator('[name=propertyComparison][value=different]').check();q.locator('[data-report=check]').click();assert q.evaluate('state.achievements.earned.includes("comparer")')
- assert q.locator('[data-level-complete=properties]').count()==1
+ assert q.locator('[data-level-complete=properties]').count()==1;assert q.evaluate('learnerLevelSnapshot().index')==1
  q.locator('[data-level-complete=properties] a').click();assert q.url.endswith('#theory/physical')
  learn('physical');assert not q.evaluate('levelUnlocked("chemical")')
  q.goto(BASE+'#lab/physical')
@@ -45,7 +46,7 @@ with sync_playwright() as p:
    for sample,value in [('ethanol','alcoholic'),('acid','vinegar'),('ether','unspecified')]:q.locator(f'[data-physical-match={sample}]').select_option(value)
   q.locator('[data-physical=check]').click()
  assert q.evaluate('state.achievements.earned.includes("physical")');assert not q.evaluate('state.achievements.earned.includes("chemical")')
- assert q.locator('[data-level-complete=physical]').count()==1
+ assert q.locator('[data-level-complete=physical]').count()==1;assert q.evaluate('learnerLevelSnapshot().index')==2
  q.locator('[data-level-complete=physical] a').click();assert q.url.endswith('#theory/chemical')
  learn('chemical');assert q.evaluate('state.achievements.earned.includes("reader")')
  q.goto(BASE+'#lab/chemical')
@@ -60,7 +61,7 @@ with sync_playwright() as p:
     q.locator('[data-chemical-step=stop]').click();q.locator('[data-chemical-step=ignite]').click()
   for field in ['observation','explanation']:q.locator(f'[data-chemical-answer={field}]').select_option(cfg[field+'s'][0])
   q.locator('[data-chemical=check]').click()
- assert q.evaluate('chemicalLabPassed()');assert q.evaluate('state.achievements.earned.length')==5
+ assert q.evaluate('learnerLevelSnapshot().allDone');assert q.evaluate('chemicalLabPassed()');assert q.evaluate('state.achievements.earned.length')==5
  # Re-saving and language changes do not duplicate awards.
  q.evaluate('saveState();saveState();saveState()');q.reload();assert q.evaluate('state.achievements.earned.length')==5
  q.goto(BASE+'#progress');assert q.locator('[data-achievement-state=earned]').count()==5

@@ -31,6 +31,7 @@
     "assets/vendor/THREE-PROVENANCE.json",
     "assets/vendor/three-0.160.1.min.js",
     "index.html",
+    "src/account-i18n.js",
     "src/app.js",
     "src/cloud-config.js",
     "src/cloud-i18n.js",
