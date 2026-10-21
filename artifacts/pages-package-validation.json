@@ -59,6 +59,7 @@
     "src/lessons/uz-Cyrl.js",
     "src/lessons/uz-Latn.js",
     "src/levels.js",
+    "src/profile-menu.js",
     "src/shell.css",
     "src/storage.js",
     "src/styles.css",

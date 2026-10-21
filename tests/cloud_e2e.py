@@ -94,7 +94,7 @@ with sync_playwright() as p:
  q.reload();q.wait_for_function('FotimaCloud.signedIn() && !FotimaCloud.gate()');assert q.evaluate('STORAGE_KEY').endswith(first)
  q.evaluate("let v=JSON.parse(sessionStorage.getItem('fotima.auth.session.v1'));v.expires_at=1;sessionStorage.setItem('fotima.auth.session.v1',JSON.stringify(v))")
  q.reload();q.wait_for_function('FotimaCloud.signedIn() && !FotimaCloud.gate()');assert any('refresh_token' in url for url in requests)
- account(q);q.locator('[data-cloud=logout]').click();q.wait_for_selector('#accountForm');assert q.evaluate('STORAGE_KEY')=='fotima.chemistry7.curriculum.v2'
+ account(q);q.locator('#profileToggle').click();q.locator('[data-profile-logout]').click();q.wait_for_selector('#accountForm');assert q.evaluate('STORAGE_KEY')=='fotima.chemistry7.curriculum.v2'
  # Four-language registration layouts; fresh contexts do not share sessions.
  layouts=0
  for lang in ['ru','uz-Latn','uz-Cyrl','en']:

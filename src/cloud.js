@@ -160,5 +160,5 @@ window.FotimaCloud=(()=>{
  }
  window.addEventListener('online',()=>{if(session&&loaded&&!conflict)save();});
  function prepareRegistration(){if(!session&&!recovery){mode='register';message='';}}
- return {prepareRegistration,configured,view,bind,start,changed:localChanged,gate:()=>configured()&&(!session||(!loaded&&!localOnly)||recovery||loading),signedIn:()=>!!session,profile,notice};
+ return {signOut:logout,prepareRegistration,configured,view,bind,start,changed:localChanged,gate:()=>configured()&&(!session||(!loaded&&!localOnly)||recovery||loading),signedIn:()=>!!session,profile,notice};
 })();
