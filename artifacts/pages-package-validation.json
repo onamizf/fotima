@@ -62,9 +62,11 @@
     "src/shell.css",
     "src/storage.js",
     "src/styles.css",
+    "src/theme.js",
     "src/visual/lab3d.js",
     "src/visual/specimen-models.js",
-    "src/visual/specimen-viewer.js"
+    "src/visual/specimen-viewer.js",
+    "src/welcome.js"
   ],
   "base_path": "/fotima/",
   "checks": [

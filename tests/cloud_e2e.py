@@ -41,6 +41,7 @@ def configure(ctx):
  if os.environ.get('CLOUD_USE_SITE_CONFIG')!='1':ctx.route('**/src/cloud-config.js',lambda r:r.fulfill(content_type='application/javascript',body="window.FOTIMA_CLOUD_CONFIG={enabled:true,url:'https://rjllssgpppsdjkpjzdrx.supabase.co',publishableKey:'sb_publishable_test'};"))
  ctx.route('https://*.supabase.co/**',api)
 def login(q,email):
+ if q.locator('.welcome-enter').count():q.locator('.welcome-enter').click()
  q.locator('[data-cloud="login"]').click();q.locator('[name=email]').fill(email);q.locator('[name=password]').fill('good-password');q.locator('#accountForm .primary').click()
  q.wait_for_function('FotimaCloud.signedIn() && !FotimaCloud.gate()');q.wait_for_timeout(150)
 def account(q):
@@ -48,7 +49,7 @@ def account(q):
 with sync_playwright() as p:
  browser=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--disable-webgl'])
  ctx=browser.new_context();configure(ctx);ctx.add_init_script("if(!localStorage.getItem('fotima.chemistry7.curriculum.v2'))localStorage.setItem('fotima.chemistry7.curriculum.v2',JSON.stringify({version:2,settings:{language:'ru'},progress:{chemical:'started'}}))");q=ctx.new_page();q.on('pageerror',lambda e:errors.append(str(e)))
- q.goto(BASE);q.wait_for_selector('#accountForm');assert q.locator('[data-cloud=register]').get_attribute('aria-pressed')=='true'
+ q.goto(BASE);q.wait_for_selector('.welcome-screen');q.locator('.welcome-enter').click();q.wait_for_selector('#accountForm');assert q.locator('[data-cloud=register]').get_attribute('aria-pressed')=='true'
  # Registration requires email confirmation, without falsely starting a session.
  q.locator('[name=email]').fill('first@example.test');q.locator('[name=password]').fill('good-password');q.locator('#accountForm .primary').click()
  q.wait_for_function("document.querySelector('#accountMessage').textContent.includes('Проверьте почту')");assert not q.evaluate('FotimaCloud.signedIn()')
@@ -68,7 +69,7 @@ with sync_playwright() as p:
  assert rows[first]['payload']['settings']['language']=='en'
  r.on('dialog',lambda d:d.accept());r.locator('[data-cloud=load]').click();r.wait_for_function("state.settings.language==='en'")
  # Recovery request does not expose existence of an account.
- ctx3=browser.new_context();configure(ctx3);s=ctx3.new_page();s.goto(BASE);s.locator('[data-cloud=recover]').click();s.locator('[name=email]').fill('first@example.test');s.locator('#accountForm .primary').click();s.wait_for_function("document.querySelector('#accountMessage').textContent.includes('Если аккаунт')")
+ ctx3=browser.new_context();configure(ctx3);s=ctx3.new_page();s.goto(BASE+'#account');s.locator('[data-cloud=recover]').click();s.locator('[name=email]').fill('first@example.test');s.locator('#accountForm .primary').click();s.wait_for_function("document.querySelector('#accountMessage').textContent.includes('Если аккаунт')")
  login(s,'second@example.test');assert s.evaluate('Object.keys(state.progress).length')==0
  assert second in rows
  # Offline writes survive reload without replacing the local dirty attempt.
