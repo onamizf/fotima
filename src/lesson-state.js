@@ -24,4 +24,4 @@ function sanitiseLesson(value,topicId){
  return clean;
 }
 function currentLesson(topicId){return state.lessons[topicId]||(state.lessons[topicId]=blankLesson());}
-function lessonPassed(topicId){const progress=state.lessons[topicId],lesson=lessonContent.ru[topicId];return !!progress&&progress.version===lesson.version&&progress.visited.length===3&&lesson.questions.every(q=>progress.answers[q.id]?.checked&&progress.answers[q.id].selected===q.correct);}
+function lessonPassed(topicId){if(window.CourseModel?.theoryRead(topicId))return true;const progress=state.lessons[topicId],lesson=lessonContent.ru[topicId];return !!progress&&progress.version===lesson.version&&progress.visited.length===3&&lesson.questions.every(q=>progress.answers[q.id]?.checked&&progress.answers[q.id].selected===q.correct);}

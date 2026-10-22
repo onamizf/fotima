@@ -6,5 +6,5 @@ const minimalText={
 };
 function mini(){return minimalText[state.settings.language]||minimalText.ru;}
 function frogImage(cls='',decorative=false){return `<img class="frog-mascot ${cls}" src="assets/mascot/frog-scientist.webp" width="640" height="768" alt="${decorative?'':mini().mascot}" decoding="async">`;}
-function gameHome(){return `<section class="minimal-home"><div class="minimal-welcome"><div><h1>${mini().subject} <span class="course-grade">7</span></h1></div>${frogImage('home-frog')}</div>${levelMap(false)}</section>`;}
+
 function appInformation(){return `<details class="app-information"><summary>${mini().info}</summary><p>${t.demo}</p><p>${pu().localNote}</p><p>${lg().firstNote}</p></details>`;}

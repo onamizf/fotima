@@ -57,18 +57,21 @@ python -m http.server 8037
 В другом терминале:
 
 ```bash
+export LAB_TEST_BASE=http://127.0.0.1:8037/
 node tests/validate_lessons.cjs
+node tests/validate_course.cjs
 python tests/local_auth_e2e.py
-python tests/dashboard_e2e.py
-python tests/release_cache_e2e.py
-LAB_TEST_BASE=http://127.0.0.1:8037/ python tests/progress_e2e.py
-python tests/routes_theme_e2e.py
-LAB_TEST_BASE=http://127.0.0.1:8037/ python tests/welcome_e2e.py
+python tests/welcome_e2e.py
+python tests/course_e2e.py
+python tests/course_daily_e2e.py
+python tests/course_layout_e2e.py
+python tests/course_controls_e2e.py
 python tests/blue_webgl_e2e.py
 python tests/site_package.py
+python tests/release_cache_e2e.py
 ```
 
-`progress_e2e.py` проходит реальные задания и сохраняет тестовый снимок в `/tmp/progress-demo-state.json`; он нужен двум последующим проверкам маршрутов/WebGL. Проверки используют Chromium; настоящие мобильные устройства, Firefox и Safari отдельно не проверялись. Сценарии прежнего email-входа находятся в `tests/legacy_supabase/` как архив, не как текущие проверки. Другие отчёты прежних этапов сохраняются для истории.
+`course_e2e.py` проходит действительные карточки, мини-тесты и 25 заданий; сохраняет `/tmp/course-demo-state.json` и `/tmp/progress-demo-state.json` для проверок раскладок, управления и WebGL. Веб-пакет проверяется в подпапке `/fotima/`, включая версии CSS/JS. Проверки выполняются в Chromium; реальные устройства, Firefox и Safari отдельно не испытаны. Скрипты `dashboard_e2e.py`, `routes_theme_e2e.py` и `progress_e2e.py` сохраняют проверки прежнего интерфейса трёх уровней; текущий интерфейс проверяют сценарии `course_*`. Сценарии email-входа находятся в `tests/legacy_supabase/`.
 
 ## Доимий онлайн ҳавола / GitHub Pages
 
@@ -83,3 +86,7 @@ python tests/site_package.py
 После входа открывается `#home`: поиск по данным уроков и веществ, сохранённое продолжение, быстрые разделы и рекомендации. Каталог остаётся на `#catalog`. Левая панель занимает всю высоту, на телефоне открывается бургером. Подробности и список изменённых файлов: [STUDENT_DASHBOARD.md](STUDENT_DASHBOARD.md).
 
 Выпуск 0.8.1: сборка добавляет версии по содержимому к CSS/JS и `version.json` для проверки опубликованного выпуска. Отдельная кнопка выхода убрана из боковой панели, выход остаётся в меню профиля.
+
+### Темы и игровые элементы — выпуск 0.9.0
+
+Каталог переименован в «Темы»: `#catalog` перенаправляет на `#topics`, каждая тема доступна по `#topic/{id}`. Обязательная вводная тема, 5 вопросов с порогом 4/5, XP, серия дней, 3 игры, коллекция, подсказки и новый прогресс описаны в [COURSE_TOPICS_RELEASE.md](COURSE_TOPICS_RELEASE.md). Темы смесей и атомов помечены «Скоро»; они не блокируют готовые лабораторные.

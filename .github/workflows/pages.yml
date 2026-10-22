@@ -10,6 +10,7 @@ on:
       - 'site.css'
       - 'script.js'
       - 'src/**'
+      - 'data/**'
       - 'assets/**'
       - 'tools/build_site.py'
       - '.github/workflows/pages.yml'

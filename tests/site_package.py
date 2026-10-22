@@ -14,7 +14,7 @@ with tempfile.TemporaryDirectory(prefix='fotima-pages-') as temp:
     for filename,digest in manifest['assets'].items():
         assert digest==hashlib.sha256((output/filename).read_bytes()).hexdigest()[:16]
         assert filename+'?v='+digest in entry
-    assert manifest['version']=='0.8.1'
+    assert manifest['version']=='0.9.0'
     assert not any(name.endswith('.md') or name.startswith(('tests/','artifacts/','design/','.git/','src/lab/')) for name in files)
     try:module.build(output)
     except ValueError:pass
@@ -35,11 +35,11 @@ with tempfile.TemporaryDirectory(prefix='fotima-pages-') as temp:
             account_gate=page.evaluate('FotimaCloud.configured()')
             if account_gate:
                 assert page.locator('#accountForm').count()==1
-                assert page.locator('[data-topic]').count()==0
+                assert page.locator('[data-course-topic]').count()==0
                 register_local(page,base,'Package Learner')
                 assert page.locator('.student-dashboard').count()==1
                 page.goto(base+'#catalog')
-            assert page.locator('[data-topic]').count()==3
+            assert page.locator('[data-course-topic]').count()==6
             assert page.evaluate("document.fonts.check('16px Inter')")
             for language in ['ru','uz-Latn','uz-Cyrl','en']:
                 page.locator('#language').select_option(language)
