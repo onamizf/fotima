@@ -8,8 +8,8 @@ with sync_playwright() as p:
  b=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--disable-webgl']);q=b.new_page(viewport={'width':1366,'height':900});errors=[];bad=[];hrefs=set()
  q.on('pageerror',lambda e:errors.append(str(e)));q.on('response',lambda r:bad.append((r.url,r.status)) if r.status>=400 else None)
  q.goto(BASE+'#welcome');q.evaluate('document.fonts.ready');q.emulate_media(reduced_motion='reduce');assert q.locator('.hero-title-block').bounding_box()['x']==48;assert q.locator('.hero-action').bounding_box()['x']+q.locator('.hero-action').bounding_box()['width']==1366-48
- q.locator('.hero-experiments').click();q.wait_for_selector('#accountForm');q.locator('[name=username]').fill('Route Learner');q.locator('[name=password]').fill('route-pass-1');q.locator('[name=repeat]').fill('route-pass-1');q.locator('.auth-submit').click();q.wait_for_url('**/#catalog')
- q.locator('.site-nav a[href="#contacts"]').click();q.wait_for_selector('.contact-page');assert q.title().startswith('Контакты');q.go_back();q.wait_for_selector('.level-map');q.go_forward();q.wait_for_selector('.contact-page');q.reload();q.wait_for_selector('.contact-page');assert q.locator('.site-nav [aria-current=page]').get_attribute('href')=='#contacts'
+ q.locator('.hero-experiments').click();q.wait_for_selector('#accountForm');q.locator('[name=username]').fill('Route Learner');q.locator('[name=password]').fill('route-pass-1');q.locator('[name=repeat]').fill('route-pass-1');q.locator('.auth-submit').click();q.wait_for_url('**/#home')
+ q.locator('.site-nav a[href="#contacts"]').click();q.wait_for_selector('.contact-page');assert q.title().startswith('Контакты');q.go_back();q.wait_for_selector('.student-dashboard');q.go_forward();q.wait_for_selector('.contact-page');q.reload();q.wait_for_selector('.contact-page');assert q.locator('.site-nav [aria-current=page]').get_attribute('href')=='#contacts'
  snapshot=json.loads(Path('/tmp/progress-demo-state.json').read_text());q.evaluate('(s)=>{state=readState(s);saveState();render(false)}',snapshot)
  routes=['welcome','home','catalog','account','settings','progress','contacts','notfound','unknown-page','lab/unknown-topic','table/properties','materials/properties']+[f'{page}/{topic}' for page in ['theory','lab','result'] for topic in ['properties','physical','chemical']]
  for route in routes:
@@ -37,7 +37,7 @@ with sync_playwright() as p:
  q.goto(BASE+'#lab/physical');q.screenshot(path=str(ROOT/'artifacts/blue-laboratory-1366.png'),full_page=True)
  q.goto(BASE+'#account');q.screenshot(path=str(ROOT/'artifacts/blue-account-1366.png'),full_page=True)
  q.set_viewport_size({'width':375,'height':900});q.goto(BASE+'#contacts');q.screenshot(path=str(ROOT/'artifacts/blue-contacts-375.png'),full_page=True)
- q.goto(BASE+'#register');q.locator('.header-logout').click();q.wait_for_selector('#accountForm');q.goto(BASE+'#register');q.screenshot(path=str(ROOT/'artifacts/nickname-register-375.png'),full_page=True)
+ q.goto(BASE+'#register');q.locator('#profileToggle').click();q.locator('.header-profile-popover [data-profile-logout]').click();q.wait_for_selector('#accountForm');q.goto(BASE+'#register');q.screenshot(path=str(ROOT/'artifacts/nickname-register-375.png'),full_page=True)
  q.locator('#navigationToggle').click();q.locator('#profileMenu a[href="#contacts"]').click();q.wait_for_selector('.contact-page');assert q.locator('#profileMenu[open]').count()==0
  q.goto(BASE+'#welcome');q.locator('.hero-burger').click();q.locator('.hero-nav a[href="#contacts"]').click();q.wait_for_selector('.contact-page')
  q.goto(BASE+'#no-such-route');assert '404' in q.title();assert q.locator('.notfound-page').count()==1

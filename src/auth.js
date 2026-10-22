@@ -35,7 +35,7 @@ window.LocalAuth=(()=>{
   }catch(error){user=previous.user;STORAGE_KEY=previous.key;state=previous.state;try{localStorage.removeItem(SESSION);}catch{}throw error;}
  }
  function passwordField(name,label,repeat=false){const u=cu();return `<div class="auth-field"><label for="auth-${name}">${label}</label><div class="auth-password"><input id="auth-${name}" name="${name}" type="password" minlength="8" autocomplete="${mode==='register'?'new-password':'current-password'}" required aria-describedby="error-${name}${repeat?'':' passwordCount'}"><button type="button" data-password-toggle="${name}" aria-label="${u.show}" aria-pressed="false"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></button></div>${repeat?'':'<small id="passwordCount">0 / 8 символов</small>'}<p class="auth-error" id="error-${name}" aria-live="polite"></p></div>`;}
- function profile(){const u=cu();return `<section class="panel cloud-profile local-profile"><header class="account-heading"><div><h2>${u.account}</h2><p>${escapeHTML(user.name)}</p></div><button type="button" data-auth-logout>${u.logout}</button></header>${learnerLevelCard()}<footer class="account-sync"><p role="status">${storageAvailable?u.saved:text.storage}</p><button type="button" data-auth-download>${u.download}</button></footer></section>`;}
+ function profile(){const u=cu();return `<section class="panel cloud-profile local-profile"><header class="account-heading"><div><h2>${u.account}</h2><p>${escapeHTML(user.name)}</p></div></header>${learnerLevelCard()}<footer class="account-sync"><p role="status">${storageAvailable?u.saved:text.storage}</p><button type="button" data-auth-download>${u.download}</button></footer></section>`;}
  function view(){if(user)return profile();const u=cu(),register=mode==='register';return `<section class="account-layout"><section class="account-card panel local-auth"><h1>${register?u.register:u.login}</h1><form id="accountForm" novalidate><div class="auth-field"><label for="auth-username">${u.name}</label><input id="auth-username" name="username" type="text" autocomplete="username" required minlength="3" aria-describedby="error-username" autocapitalize="none" spellcheck="false"><p class="auth-error" id="error-username" aria-live="polite"></p></div>${passwordField('password',u.password)}${register?passwordField('repeat',u.repeat,true):''}<button class="primary auth-submit" type="submit" disabled>${register?u.create:u.enter}</button><p id="accountMessage" class="auth-error" role="alert">${escapeHTML(message)}</p></form><a class="auth-switch" href="${register?'#login':'#register'}">${register?u.toLogin:u.toRegister}</a><p class="auth-local-note">${u.local}</p></section></section>`;}
  async function submit(event){
   event.preventDefault();if(busy)return;const form=event.currentTarget,values=readForm(form);if(!validateVisible?.(true))return;busy=true;message='';form.querySelector('[type=submit]').disabled=true;
@@ -52,7 +52,7 @@ window.LocalAuth=(()=>{
    }else{
     record=users().find(u=>u.canonical===canonical(values.name));const hash=await digest(values.password,record?.salt||'0'.repeat(64));if(!record||hash!==record.hash)throw Error('invalid');activate(record);
    }
-   message='';location.hash='catalog';render(false);
+   message='';location.hash='home';render(false);
   }catch(error){message=text[error.message]||text.storage;const target=form.querySelector(error.message==='taken'?'#error-username':'#accountMessage');if(target)target.textContent=message;}
   finally{busy=false;if(form.isConnected)validateVisible?.();}
  }
@@ -69,7 +69,7 @@ window.LocalAuth=(()=>{
   document.querySelectorAll('[data-auth-logout],[data-profile-logout]').forEach(button=>button.onclick=signOut);document.querySelectorAll('[data-auth-download]').forEach(button=>button.onclick=download);
  }
  function setMode(value){if(['register','login'].includes(value)&&value!==mode){mode=value;message='';}}
- function greeting(){return user?`<span class="user-greeting">${cu().hello}, ${escapeHTML(user.name)}!</span><button class="header-logout" type="button" data-auth-logout>${cu().logout}</button>`:'';}
+ function greeting(){return user?`<span class="user-greeting">${cu().hello}, ${escapeHTML(user.name)}!</span>`:'';}
  window.addEventListener('storage',event=>{if(event.key===SESSION){restore();render(false);}else if(event.key===USERS)validateVisible?.();});
  restore();
  return {view,bind,profile,signOut,changed:()=>{},notice:()=>'',configured:()=>true,gate:()=>!user,signedIn:()=>!!user,greeting,setMode,prepareRegistration:()=>setMode('register'),start:()=>{},mode:()=>mode,currentUser:()=>user?{...user}:null};

@@ -16,21 +16,21 @@ with sync_playwright() as p:
  name.fill('  Fotima  ');pw.fill('1234567');assert q.locator('#error-password').inner_text()=='Пароль должен содержать не менее 8 символов';assert q.locator('#passwordCount').inner_text()=='7 / 8 символов'
  pw.fill('safe-pass-1');repeat.fill('different');assert q.locator('#error-repeat').inner_text()=='Пароли не совпадают';assert q.locator('.auth-submit').is_disabled()
  repeat.fill('safe-pass-1');q.locator('[data-password-toggle=password]').click();assert pw.get_attribute('type')=='text';q.locator('[data-password-toggle=password]').click();assert pw.get_attribute('type')=='password'
- q.screenshot(path=str(ROOT/'artifacts/nickname-register-1366.png'),full_page=True);q.locator('.auth-submit').click();q.wait_for_url('**/#catalog')
+ q.screenshot(path=str(ROOT/'artifacts/nickname-register-1366.png'),full_page=True);q.locator('.auth-submit').click();q.wait_for_url('**/#home')
  assert q.locator('.user-greeting').inner_text()=='Привет, Fotima!';assert q.evaluate('LocalAuth.currentUser().name')=='Fotima'
  users=q.evaluate("JSON.parse(localStorage.getItem('fotima.local.accounts.v1')).users");first=users[0];assert first['hash']==hashlib.sha256((first['salt']+':safe-pass-1').encode()).hexdigest();assert 'password' not in first
  assert 'safe-pass-1' not in q.evaluate('JSON.stringify(localStorage)')
  first_key=q.evaluate('STORAGE_KEY');q.goto(BASE+'#table/properties');q.locator('[data-cell="salt.state"]:visible').select_option('solid');q.reload();assert q.locator('[data-cell="salt.state"]:visible').input_value()=='solid'
- q.goto(BASE+'#account');assert q.locator('input[type=email]').count()==0;q.locator('.header-logout').click();q.wait_for_url('**/#login')
+ q.goto(BASE+'#account');assert q.locator('input[type=email]').count()==0;q.locator('#profileToggle').click();q.locator('.header-profile-popover [data-profile-logout]').click();q.wait_for_url('**/#login')
  q.goto(BASE+'#register');name=q.locator('[name=username]');name.fill('fotima');assert q.locator('#error-username').inner_text()=='Такое имя уже занято — придумайте другое';assert q.locator('.auth-submit').is_disabled()
  register_local(q,BASE,'Учёный_2','safe-pass-1');assert q.evaluate('STORAGE_KEY')!=first_key;assert q.evaluate('state.propertyTable')=={}
  users=q.evaluate("JSON.parse(localStorage.getItem('fotima.local.accounts.v1')).users");assert users[0]['salt']!=users[1]['salt'];assert users[0]['hash']!=users[1]['hash']
- q.locator('.header-logout').click();q.wait_for_selector('#accountForm');q.locator('[name=username]').fill('fOTIMA');q.locator('[name=password]').fill('wrong-pass');q.locator('.auth-submit').click();q.wait_for_function("document.getElementById('accountMessage').textContent==='Неверное имя или пароль'")
- q.locator('[name=password]').fill('safe-pass-1');q.locator('.auth-submit').click();q.wait_for_url('**/#catalog');assert q.evaluate('STORAGE_KEY')==first_key;assert q.evaluate('state.propertyTable.salt.state')=='solid'
+ q.locator('#profileToggle').click();q.locator('.header-profile-popover [data-profile-logout]').click();q.wait_for_selector('#accountForm');q.locator('[name=username]').fill('fOTIMA');q.locator('[name=password]').fill('wrong-pass');q.locator('.auth-submit').click();q.wait_for_function("document.getElementById('accountMessage').textContent==='Неверное имя или пароль'")
+ q.locator('[name=password]').fill('safe-pass-1');q.locator('.auth-submit').click();q.wait_for_url('**/#home');assert q.evaluate('STORAGE_KEY')==first_key;assert q.evaluate('state.propertyTable.salt.state')=='solid'
  q.reload();assert q.evaluate('LocalAuth.signedIn()');assert q.locator('.user-greeting').inner_text()=='Привет, Fotima!'
  assert q.evaluate("localStorage.getItem('fotima.chemistry7.curriculum.v2.user.old-uid')")==old
  # A second tab sees logout and never keeps another user's private progress active.
- tab=ctx.new_page();tab.goto(BASE+'#account');assert tab.evaluate('LocalAuth.signedIn()');q.locator('.header-logout').click();tab.wait_for_function('!LocalAuth.signedIn()')
+ tab=ctx.new_page();tab.goto(BASE+'#account');assert tab.evaluate('LocalAuth.signedIn()');q.locator('#profileToggle').click();q.locator('.header-profile-popover [data-profile-logout]').click();tab.wait_for_function('!LocalAuth.signedIn()')
  # Concurrent case variants use one registry lock; one account is created.
  race=b.new_context();a=race.new_page();c=race.new_page();a.goto(BASE+'#register');c.goto(BASE+'#register')
  for page,value in [(a,'SameName'),(c,'samename')]:

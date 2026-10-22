@@ -59,6 +59,7 @@ python -m http.server 8037
 ```bash
 node tests/validate_lessons.cjs
 python tests/local_auth_e2e.py
+python tests/dashboard_e2e.py
 LAB_TEST_BASE=http://127.0.0.1:8037/ python tests/progress_e2e.py
 python tests/routes_theme_e2e.py
 LAB_TEST_BASE=http://127.0.0.1:8037/ python tests/welcome_e2e.py
@@ -75,3 +76,7 @@ python tests/site_package.py
 Адрес: `https://onamizf.github.io/fotima/`. Доступность сайта ранее подтверждена заказчиком. Новые изменения отправляются в main; завершение конкретного GitHub Pages deployment нужно проверять отдельно в Actions. Проверка локального пакета не является проверкой опубликованного сайта.
 
 Для упаковки: `python tools/build_site.py --output _site` в пустой выходной каталог. Для проверки публикационного пакета: `python tests/site_package.py`. В пакет входят только файлы, нужные браузеру; документация и ответы для преподавателя исключены.
+
+### Главная ученика
+
+После входа открывается `#home`: поиск по данным уроков и веществ, сохранённое продолжение, быстрые разделы и рекомендации. Каталог остаётся на `#catalog`. Левая панель занимает всю высоту, на телефоне открывается бургером. Подробности и список изменённых файлов: [STUDENT_DASHBOARD.md](STUDENT_DASHBOARD.md).

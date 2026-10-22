@@ -32,6 +32,8 @@ with tempfile.TemporaryDirectory(prefix='fotima-pages-') as temp:
                 assert page.locator('#accountForm').count()==1
                 assert page.locator('[data-topic]').count()==0
                 register_local(page,base,'Package Learner')
+                assert page.locator('.student-dashboard').count()==1
+                page.goto(base+'#catalog')
             assert page.locator('[data-topic]').count()==3
             assert page.evaluate("document.fonts.check('16px Inter')")
             for language in ['ru','uz-Latn','uz-Cyrl','en']:
