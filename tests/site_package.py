@@ -1,5 +1,5 @@
 """Check the real Pages payload under /fotima/, not just the repository root."""
-import importlib.util,json,tempfile,threading
+import importlib.util,json,tempfile,threading,hashlib
 from browser_auth import register_local
 from pathlib import Path
 from functools import partial
@@ -9,7 +9,12 @@ ROOT=Path(__file__).resolve().parents[1]
 spec=importlib.util.spec_from_file_location('build_site',ROOT/'tools/build_site.py');module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
 with tempfile.TemporaryDirectory(prefix='fotima-pages-') as temp:
     parent=Path(temp);output=parent/'fotima';files=module.build(output)
-    assert 'index.html' in files and '.nojekyll' in files
+    assert 'index.html' in files and '.nojekyll' in files and 'version.json' in files
+    manifest=json.loads((output/'version.json').read_text());entry=(output/'index.html').read_text()
+    for filename,digest in manifest['assets'].items():
+        assert digest==hashlib.sha256((output/filename).read_bytes()).hexdigest()[:16]
+        assert filename+'?v='+digest in entry
+    assert manifest['version']=='0.8.1'
     assert not any(name.endswith('.md') or name.startswith(('tests/','artifacts/','design/','.git/','src/lab/')) for name in files)
     try:module.build(output)
     except ValueError:pass

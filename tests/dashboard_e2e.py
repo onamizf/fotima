@@ -14,6 +14,8 @@ with sync_playwright() as p:
  assert q.locator('.brand').bounding_box()['x']==24
  assert q.locator('#language').bounding_box()['x']==1440-24-40
  assert q.locator('.header-logout').count()==0
+ assert q.locator('#profileMenu [data-profile-logout]').count()==0
+ assert q.locator('#headerProfile [data-profile-logout]').count()==1
  assert q.locator('#profileMenu').bounding_box()=={'x':0,'y':0,'width':80,'height':1000}
  assert q.locator('.topinner').evaluate('(el)=>Array.from(el.children).map(n=>n.className).join("|")').endswith('header-profile|header-language')
  assert 'Новый уровень открыт' not in q.locator('.dashboard-banner').inner_text()

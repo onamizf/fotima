@@ -60,6 +60,7 @@ python -m http.server 8037
 node tests/validate_lessons.cjs
 python tests/local_auth_e2e.py
 python tests/dashboard_e2e.py
+python tests/release_cache_e2e.py
 LAB_TEST_BASE=http://127.0.0.1:8037/ python tests/progress_e2e.py
 python tests/routes_theme_e2e.py
 LAB_TEST_BASE=http://127.0.0.1:8037/ python tests/welcome_e2e.py
@@ -80,3 +81,5 @@ python tests/site_package.py
 ### Главная ученика
 
 После входа открывается `#home`: поиск по данным уроков и веществ, сохранённое продолжение, быстрые разделы и рекомендации. Каталог остаётся на `#catalog`. Левая панель занимает всю высоту, на телефоне открывается бургером. Подробности и список изменённых файлов: [STUDENT_DASHBOARD.md](STUDENT_DASHBOARD.md).
+
+Выпуск 0.8.1: сборка добавляет версии по содержимому к CSS/JS и `version.json` для проверки опубликованного выпуска. Отдельная кнопка выхода убрана из боковой панели, выход остаётся в меню профиля.

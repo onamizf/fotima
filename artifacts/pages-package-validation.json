@@ -74,7 +74,8 @@
     "src/visual/lab3d.js",
     "src/visual/specimen-models.js",
     "src/visual/specimen-viewer.js",
-    "style.css"
+    "style.css",
+    "version.json"
   ],
   "base_path": "/fotima/",
   "checks": [
