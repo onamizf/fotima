@@ -3,6 +3,8 @@
   "package_files": [
     ".nojekyll",
     "assets/Inter.ttf",
+    "assets/InterTight-Black.ttf",
+    "assets/InterTight-OFL.txt",
     "assets/OFL.txt",
     "assets/equipment/cylinder.webp",
     "assets/equipment/dish.webp",
@@ -11,6 +13,7 @@
     "assets/equipment/scale.webp",
     "assets/equipment/stand.webp",
     "assets/equipment/tube.webp",
+    "assets/frog.png",
     "assets/levels/chemical.webp",
     "assets/levels/physical.webp",
     "assets/levels/properties.webp",
@@ -31,6 +34,7 @@
     "assets/vendor/THREE-PROVENANCE.json",
     "assets/vendor/three-0.160.1.min.js",
     "index.html",
+    "script.js",
     "src/account-i18n.js",
     "src/app.js",
     "src/cloud-config.js",
@@ -68,7 +72,7 @@
     "src/visual/lab3d.js",
     "src/visual/specimen-models.js",
     "src/visual/specimen-viewer.js",
-    "src/welcome.js"
+    "style.css"
   ],
   "base_path": "/fotima/",
   "checks": [

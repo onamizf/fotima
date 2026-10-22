@@ -7,7 +7,7 @@ function href(page,topic){return '#'+page+(topic?'/'+topic.id:'');}
 function link(text,page,topic,cls=''){return `<a class="${cls==='button'?'text-link':cls}" href="${href(page,topic)}">${text}</a>`;}
 function action(text,id,cls=''){return `<button type="button" class="${cls}" data-action="${id}">${text}</button>`;}
 function go(page,topic){location.hash=href(page,topic);}
-function header(page,topic){return `<a class="skip" href="#main">${pu().skipContent}</a><header class="topbar"><div class="topinner">${ProfileMenu.trigger()}<div class="brand"><a class="brand-link" href="#welcome" aria-label="${mini().subject} 7"><span class="brand-mark" aria-hidden="true">${frogImage('',true)}</span><span class="brand-title">${mini().subject} <span class="brand-grade">7</span></span></a></div><label><span class="visually-hidden">${t.language}</span><select id="language" aria-label="${t.language}">${[['ru','RU'],['uz-Latn','OʻZ'],['uz-Cyrl','ЎЗ'],['en','EN']].map(([value,label])=>`<option value="${value}" ${state.settings.language===value?'selected':''}>${label}</option>`).join('')}</select></label>${LabTheme.button(state.settings.language)}${ProfileMenu.view(page)}</div></header>`;}
+function header(page,topic){if(page==='welcome')return Hero.header();return `<a class="skip" href="#main">${pu().skipContent}</a><header class="topbar"><div class="topinner">${ProfileMenu.trigger()}<div class="brand"><a class="brand-link" href="#welcome" aria-label="${mini().subject} 7"><span class="brand-mark" aria-hidden="true">${frogImage('',true)}</span><span class="brand-title">${mini().subject} <span class="brand-grade">7</span></span></a></div><label><span class="visually-hidden">${t.language}</span><select id="language" aria-label="${t.language}">${[['ru','RU'],['uz-Latn','OʻZ'],['uz-Cyrl','ЎЗ'],['en','EN']].map(([value,label])=>`<option value="${value}" ${state.settings.language===value?'selected':''}>${label}</option>`).join('')}</select></label>${LabTheme.button(state.settings.language)}${ProfileMenu.view(page)}</div></header>`;}
 
 function home(){return gameHome();}
 function account(){return FotimaCloud.view();}
@@ -26,7 +26,7 @@ function render(moveFocus=true){t=dictionaries[state.settings.language];const cu
  document.getElementById('app').innerHTML=header(page,topic)+`<main id="main" tabindex="-1" class="wrap">${['account','welcome'].includes(page)?'':FotimaCloud.notice()}${content}<p role="status" class="storage-note ${storageAvailable?'visually-hidden':'warning'}">${storageAvailable?'':t.storageError}</p></main>`;
  document.querySelector('.skip').onclick=event=>{event.preventDefault();document.getElementById('main').focus();};
  LabTheme.bind(state.settings.language);
- document.getElementById('language').onchange=event=>{state.settings.language=event.target.value;saveState();render(false);document.getElementById('language').focus();};
+ const languageSelect=document.getElementById('language');if(languageSelect)languageSelect.onchange=event=>{state.settings.language=event.target.value;saveState();render(false);document.getElementById('language').focus();};
  for(const key of ['sound','reduceMotion']){const el=document.getElementById(key);if(el)el.onchange=()=>{state.settings[key]=el.checked;saveState();render(false);document.getElementById(key).focus();};}
  document.querySelectorAll('[data-action]').forEach(el=>el.onclick=()=>{
   switch(el.dataset.action){
