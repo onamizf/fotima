@@ -19,9 +19,9 @@ with sync_playwright() as p:
  assert q.evaluate("getComputedStyle(document.querySelector('h1')).fontSize")=='110px'
  assert re.fullmatch(r'\d{2}:\d{2}',q.locator('.hero-clock').inner_text())
  before=q.evaluate('JSON.stringify(state)');q.mouse.move(1900,100);q.wait_for_timeout(300);right=q.locator('[data-hero-actor]').get_attribute('style');q.mouse.move(20,950);q.wait_for_timeout(300);assert right!=q.locator('[data-hero-actor]').get_attribute('style');assert q.evaluate('JSON.stringify(state)')==before
- q.get_by_role('button',name='КОНТАКТЫ',exact=True).click();assert q.locator('.hero-contacts').is_visible();q.keyboard.press('Escape');q.wait_for_selector('.hero-contacts[open]',state='detached')
- q.locator('.welcome-enter').click();q.wait_for_selector('#accountForm');assert q.locator('[data-cloud=register]').get_attribute('aria-pressed')=='true'
- q.locator('[data-cloud=login]').click();q.goto(BASE+'#welcome');q.locator('.welcome-enter').click();q.wait_for_selector('#accountForm');assert q.locator('[data-cloud=register]').get_attribute('aria-pressed')=='true'
+ q.get_by_role('link',name='КОНТАКТЫ',exact=True).click();q.wait_for_selector('.contact-page');q.go_back();q.wait_for_selector('.entry-hero')
+ q.locator('.welcome-enter').click();q.wait_for_selector('#accountForm');assert q.url.endswith('#register');assert q.locator('[name=repeat]').count()==1
+ q.locator('.auth-switch').click();q.goto(BASE+'#welcome');q.locator('.welcome-enter').click();q.wait_for_selector('#accountForm');assert q.url.endswith('#register');assert q.locator('[name=repeat]').count()==1
  q.goto(BASE+'#welcome');q.locator('.hero-experiments').click();q.wait_for_selector('#accountForm')
  # Четыре языка и широкие/узкие сцены; текст и кнопка не обрезаются.
  for lang in ['ru','uz-Latn','uz-Cyrl','en']:

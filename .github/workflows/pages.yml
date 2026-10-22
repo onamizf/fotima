@@ -5,6 +5,10 @@ on:
     branches: [main]
     paths:
       - 'index.html'
+      - '404.html'
+      - 'style.css'
+      - 'site.css'
+      - 'script.js'
       - 'src/**'
       - 'assets/**'
       - 'tools/build_site.py'

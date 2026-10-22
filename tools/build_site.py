@@ -20,7 +20,7 @@ def build(output):
     if output==ROOT or output in ROOT.parents:
         raise ValueError('Output must not be the project root or its parent.')
     parser=Entrypoint();parser.feed((ROOT/'index.html').read_text())
-    files={'index.html',*parser.files}
+    files={'index.html','404.html',*parser.files}
     files.update(str(p.relative_to(ROOT)) for p in (ROOT/'assets').rglob('*') if p.is_file())
     for relative in sorted(files):
         path=ROOT/relative

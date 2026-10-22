@@ -2,6 +2,7 @@
   "status": "passed",
   "package_files": [
     ".nojekyll",
+    "404.html",
     "assets/Inter.ttf",
     "assets/InterTight-Black.ttf",
     "assets/InterTight-OFL.txt",
@@ -35,11 +36,10 @@
     "assets/vendor/three-0.160.1.min.js",
     "index.html",
     "script.js",
+    "site.css",
     "src/account-i18n.js",
     "src/app.js",
-    "src/cloud-config.js",
-    "src/cloud-i18n.js",
-    "src/cloud.js",
+    "src/auth.js",
     "src/content.js",
     "src/curriculum/chemical-i18n.js",
     "src/curriculum/chemical.js",
@@ -65,10 +65,10 @@
     "src/lessons/uz-Latn.js",
     "src/levels.js",
     "src/profile-menu.js",
+    "src/routes.js",
     "src/shell.css",
     "src/storage.js",
     "src/styles.css",
-    "src/theme.js",
     "src/visual/lab3d.js",
     "src/visual/specimen-models.js",
     "src/visual/specimen-viewer.js",
@@ -78,11 +78,11 @@
   "checks": [
     "only browser files published",
     "all scripts/styles/font return success",
-    "configured account gate blocks anonymous catalog",
-    "four languages and local-mode routes under project subpath",
+    "local account gate blocks anonymous catalog",
+    "four languages and authenticated routes under project subpath",
     "reload retains table entry",
     "non-empty output rejected"
   ],
   "js_errors": [],
-  "live_site": "User confirmed earlier site availability; current publication and live Supabase not independently verified"
+  "live_site": "Static package tested locally; deployment completion not independently verified"
 }

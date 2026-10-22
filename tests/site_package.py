@@ -1,5 +1,6 @@
 """Check the real Pages payload under /fotima/, not just the repository root."""
 import importlib.util,json,tempfile,threading
+from browser_auth import register_local
 from pathlib import Path
 from functools import partial
 from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
@@ -30,9 +31,7 @@ with tempfile.TemporaryDirectory(prefix='fotima-pages-') as temp:
             if account_gate:
                 assert page.locator('#accountForm').count()==1
                 assert page.locator('[data-topic]').count()==0
-                # Separately exercise the packaged local-mode routes; account flows are in cloud_e2e.py.
-                page.route('**/src/cloud-config.js',lambda r:r.fulfill(content_type='application/javascript',body='window.FOTIMA_CLOUD_CONFIG={enabled:false};'))
-                page.reload()
+                register_local(page,base,'Package Learner')
             assert page.locator('[data-topic]').count()==3
             assert page.evaluate("document.fonts.check('16px Inter')")
             for language in ['ru','uz-Latn','uz-Cyrl','en']:
@@ -42,9 +41,11 @@ with tempfile.TemporaryDirectory(prefix='fotima-pages-') as temp:
                     assert not page.evaluate('document.documentElement.scrollWidth>innerWidth+1')
             page.goto(base+'#table/properties');page.locator('#card-salt-state').select_option('solid');page.reload()
             assert page.locator('#card-salt-state').input_value()=='solid'
+            page.goto(base+'404.html');assert '404' in page.title();assert page.locator('#home').get_attribute('href')==base+'#welcome';assert 'radial-gradient' in page.evaluate('getComputedStyle(document.body).backgroundImage')
+            page.locator('#home').click();page.wait_for_selector('.entry-hero')
             assert not errors,errors
             assert not [(url,status) for url,status in responses if status>=400],responses
             browser.close()
-        report={'status':'passed','package_files':files,'base_path':'/fotima/','checks':['only browser files published','all scripts/styles/font return success','configured account gate blocks anonymous catalog','four languages and local-mode routes under project subpath','reload retains table entry','non-empty output rejected'],'js_errors':errors,'live_site':'User confirmed earlier site availability; current publication and live Supabase not independently verified'}
+        report={'status':'passed','package_files':files,'base_path':'/fotima/','checks':['only browser files published','all scripts/styles/font return success','local account gate blocks anonymous catalog','four languages and authenticated routes under project subpath','reload retains table entry','non-empty output rejected'],'js_errors':errors,'live_site':'Static package tested locally; deployment completion not independently verified'}
         (ROOT/'artifacts'/'pages-package-validation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report,ensure_ascii=False,indent=2))
     finally:server.shutdown();server.server_close()
