@@ -14,7 +14,7 @@ with tempfile.TemporaryDirectory(prefix='fotima-pages-') as temp:
     for filename,digest in manifest['assets'].items():
         assert digest==hashlib.sha256((output/filename).read_bytes()).hexdigest()[:16]
         assert filename+'?v='+digest in entry
-    assert manifest['version']=='0.9.0'
+    assert manifest['version']=='0.9.1'
     assert not any(name.endswith('.md') or name.startswith(('tests/','artifacts/','design/','.git/','src/lab/')) for name in files)
     try:module.build(output)
     except ValueError:pass

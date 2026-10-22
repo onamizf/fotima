@@ -1,0 +1,70 @@
+/* Информационное меню welcome: данные курса общие с учебным маршрутом. */
+const WelcomeInfo=(()=>{
+ const ids=['about','learning','topics','safety','contacts'];
+ const esc=value=>escapeHTML(String(value));
+ function ui(){
+  const language=state.settings.language;
+  if(language!=='uz-Cyrl')return WelcomeTranslations[language]||WelcomeTranslations.ru;
+  // Для узбекской кириллицы используем ту же транслитерацию, что и в курсе.
+  const convert=value=>typeof value==='string'?CourseModel.text({'uz-Latn':value}):Array.isArray(value)?value.map(convert):Object.fromEntries(Object.entries(value).map(([key,text])=>[key,convert(text)]));
+  return convert(WelcomeTranslations['uz-Latn']);
+ }
+ function stats(){return [CourseData.topics.length,CourseData.topics.reduce((n,t)=>n+t.steps.experiments.length,0),Object.keys(CourseData.games).length];}
+ function countLabel(index,n){const forms=ui().counts[index],language=state.settings.language,rule=new Intl.PluralRules(language==='ru'?'ru':language==='en'?'en':'uz').select(n);return forms[rule==='one'?0:rule==='few'?1:2];}
+ function stepIcon(index){const paths=['<circle cx="12" cy="7" r="4"/><path d="M4 22v-3a8 8 0 0 1 16 0v3Z"/>','<path d="M12 5c-3-3-7-3-10-1v16c3-2 7-2 10 1 3-3 7-3 10-1V4c-3-2-7-2-10 1Zm0 0v16"/>','<path d="M8 3h8m-6 0v7l-6 9q-1 2 2 2h12q3 0 2-2l-6-9V3M7 15h10"/>','<path d="m4 12 5 5L21 5"/>'];return `<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">${paths[index]}</svg>`;}
+ function steps(){return `<ol class="welcome-steps">${ui().steps.map((step,i)=>`<li><span class="welcome-step-icon" aria-hidden="true">${stepIcon(i)}</span><span>${esc(step)}</span></li>`).join('')}</ol>`;}
+ function topicDetail(topic){const u=ui();return `<span class="welcome-topic-icon" style="--topic-color:${topic.color}">${CourseUI.icon(topic.icon)}</span><h3>${esc(CourseModel.text(topic.title))}</h3><p>${esc(CourseModel.text(topic.description))}</p><p class="welcome-topic-count">${u.experiments}: <strong>${topic.steps.experiments.length}</strong>${!topic.steps.experiments.length?` · ${u.soon}`:''}</p>`;}
+ function panel(id){const u=ui();
+  if(id==='about')return `<p class="welcome-about">${u.about}</p><dl class="welcome-counts">${stats().map((n,i)=>`<div><dt>${countLabel(i,n)}</dt><dd data-welcome-count="${n}">${n}</dd></div>`).join('')}</dl><figure class="welcome-assistant"><img src="assets/frog.png" width="640" height="768" alt="" loading="lazy"><figcaption>${u.assistant}</figcaption></figure>`;
+  if(id==='learning')return `${steps()}<p class="welcome-xp">${u.xp}</p>`;
+  if(id==='topics')return `<div class="welcome-topic-browser"><ol class="welcome-topic-list">${CourseData.topics.map((t,i)=>`<li><button type="button" data-preview-topic="${t.id}" aria-pressed="${i===0}" aria-controls="welcomeTopicDetail"><span class="welcome-topic-icon" style="--topic-color:${t.color}">${CourseUI.icon(t.icon)}</span><span><small>${String(t.number).padStart(2,'0')}</small> ${esc(CourseModel.text(t.title))}${!t.steps.experiments.length?`<em>${u.soon}</em>`:''}</span></button></li>`).join('')}</ol><div class="welcome-topic-detail" id="welcomeTopicDetail" aria-live="polite">${topicDetail(CourseData.topics[0])}</div></div><a class="welcome-route-link" href="${LocalAuth.signedIn()?'#topics':'#login'}">${u.route}</a>`;
+  if(id==='safety')return `<h2>${u.why}</h2><ul class="welcome-benefits">${u.benefits.map((s,i)=>`<li><span aria-hidden="true">${['♧','↻','▣'][i]}</span>${s}</li>`).join('')}</ul><div class="welcome-rules"><h3>${u.rulesTitle}</h3><ol>${u.rules.map(s=>`<li>${s}</li>`).join('')}</ol></div>`;
+  const c=WelcomeConfig;
+  // Адреса редактируются только в config; разрешаем публичные почтовые/HTTPS-ссылки.
+  const email=/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(c.email)?c.email:'';
+  const telegram=/^https:\/\/(?:t\.me|telegram\.me)\/[\w]+\/?$/.test(c.telegram)?c.telegram:'';
+  return `<dl class="welcome-contacts">${[[u.author,c.author],[u.school,c.school||u.placeholder],[u.className,c.className],['Email',email||u.placeholder],['Telegram',telegram?telegram.replace('https://',''):u.placeholder]].map(([label,value])=>`<div><dt>${label}</dt><dd>${esc(value)}</dd></div>`).join('')}</dl>${email||telegram?`<a class="welcome-write" href="${email?'mailto:'+esc(email):esc(telegram)}">${u.write}</a>`:`<button type="button" class="welcome-write" data-contact-placeholder>${u.write}</button><p class="welcome-contact-status" role="status" hidden>${u.noContact}</p>`}<p class="welcome-project">${u.project}</p>`;
+ }
+ function header(){const u=ui(),signed=LocalAuth.signedIn(),name=CourseModel.displayName();return `<header class="hero-topbar"><div class="hero-clock-wrap"><time class="hero-clock" tabindex="0" aria-describedby="heroClockHint"></time><span id="heroClockHint" class="hero-clock-hint" role="tooltip"></span></div><button type="button" class="hero-burger" aria-expanded="false" aria-controls="heroNav" aria-label="${u.menuToggle}"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button><nav id="heroNav" class="hero-nav" aria-label="${u.navigation}"><span class="hero-menu-track" aria-hidden="true"><span class="hero-menu-line"></span></span>${ids.map((id,i)=>`<div class="hero-nav-item"><button type="button" id="welcomeTrigger-${id}" class="hero-menu-trigger" data-welcome-menu="${id}" aria-expanded="false" aria-controls="welcomePanel-${id}">${u.menu[i]}</button><section id="welcomePanel-${id}" class="hero-mega" aria-labelledby="welcomeTrigger-${id}" hidden>${panel(id)}</section></div>${i<ids.length-1?'<span class="hero-menu-separator" aria-hidden="true">/</span>':''}`).join('')}<a class="hero-account-link ${signed?'hero-account-avatar':''}" href="${signed?'#home':'#login'}">${signed?`<span aria-hidden="true">${esc([...name][0]||'●')}</span>${esc(name)}`:u.login}</a></nav></header>`;}
+ function extras(){const u=ui();return `<div class="hero-menu-shade" aria-hidden="true"></div><p class="hero-speech" role="status" hidden></p><a class="hero-learn-more" href="#welcome-how">${u.more}<span aria-hidden="true">↓</span></a>`;}
+ function below(start){const u=ui();return `<section class="welcome-how" id="welcome-how" aria-labelledby="welcomeHowTitle" tabindex="-1"><div class="welcome-how-inner"><h2 id="welcomeHowTitle">${u.how}</h2>${steps()}<p class="welcome-how-xp">${u.xp}</p><h2>${u.preview}</h2><div class="welcome-preview-grid">${CourseData.topics.filter(t=>t.ready).slice(0,3).map(t=>`<article style="--topic-color:${t.color}"><span class="welcome-topic-icon">${CourseUI.icon(t.icon)}</span><small>${String(t.number).padStart(2,'0')}</small><h3>${esc(CourseModel.text(t.title))}</h3><p>${esc(CourseModel.text(t.description))}</p><a href="${LocalAuth.signedIn()?'#topic/'+t.id:'#login'}">${u.openTopic} →</a></article>`).join('')}</div><button type="button" class="hero-start welcome-enter">${LocalAuth.signedIn()?u.continue:start}</button></div></section>`;}
+ function mount({signal,reduced,onPanelChange}){
+  const header=document.querySelector('.hero-topbar'),nav=header.querySelector('.hero-nav'),burger=header.querySelector('.hero-burger'),root=document.querySelector('.entry-hero'),shade=root.querySelector('.hero-menu-shade'),bubble=root.querySelector('.hero-speech'),line=nav.querySelector('.hero-menu-line');
+  const mobile=matchMedia('(max-width:1023px)'),hover=matchMedia('(hover:hover) and (pointer:fine)');
+  let active=null,closing,countFrame,resizeFrame;
+  // На телефоне реплика рядом с миниатюрой помощника остаётся видна внутри меню.
+  function moveSpeech(){if(mobile.matches)nav.prepend(bubble);else root.append(bubble);}
+  moveSpeech();
+  const listen=(el,type,fn,options={})=>el.addEventListener(type,fn,{...options,signal});
+  function underline(trigger){const box=trigger.getBoundingClientRect(),parent=nav.getBoundingClientRect();line.style.width=box.width+'px';line.style.transform=`translateX(${box.left-parent.left}px)`;line.classList.add('is-visible');}
+  function place(){if(!active)return;const trigger=nav.querySelector(`[data-welcome-menu="${active}"]`),panel=document.getElementById(`welcomePanel-${active}`);if(!mobile.matches){const box=trigger.getBoundingClientRect(),bar=header.getBoundingClientRect(),width=Math.min(560,innerWidth-32),left=Math.max(16,Math.min(innerWidth-width-16,box.left+box.width/2-width/2));panel.style.setProperty('--mega-left',left+'px');panel.style.setProperty('--mega-top',bar.bottom+'px');panel.style.setProperty('--mega-width',width+'px');panel.style.setProperty('--mega-arrow',Math.max(20,Math.min(width-20,box.left+box.width/2-left))+'px');trigger.style.setProperty('--arrow-top',bar.bottom+'px');trigger.style.setProperty('--arrow-left',(box.left+box.width/2)+'px');underline(trigger);}const box=panel.getBoundingClientRect();if(!mobile.matches){const width=Math.min(230,innerWidth-32),right=box.right+20,left=right+width<=innerWidth-16?right:Math.max(16,box.left-width-20);bubble.style.left=left+'px';bubble.style.top=Math.max(145,innerHeight*.23)+'px';bubble.style.right='auto';}else{bubble.style.left='';bubble.style.top='';bubble.style.right='';}onPanelChange({x:Math.max(-1,Math.min(1,(box.left+box.width/2)/innerWidth*2-1)),y:Math.max(-1,Math.min(1,(box.top+Math.min(box.height,180)/2)/innerHeight*2-1))});}
+  function counters(panel){cancelAnimationFrame(countFrame);const elements=[...panel.querySelectorAll('[data-welcome-count]')];if(!elements.length)return;if(reduced()){elements.forEach(e=>e.textContent=e.dataset.welcomeCount);return;}const start=performance.now();function tick(now){const progress=Math.min(1,(now-start)/650),ease=1-Math.pow(1-progress,3);elements.forEach(e=>e.textContent=Math.round(Number(e.dataset.welcomeCount)*ease));if(progress<1)countFrame=requestAnimationFrame(tick);}elements.forEach(e=>e.textContent='0');countFrame=requestAnimationFrame(tick);}
+  function close({restore=false}={}){clearTimeout(closing);if(!active)return;const trigger=nav.querySelector(`[data-welcome-menu="${active}"]`);trigger.setAttribute('aria-expanded','false');document.getElementById(`welcomePanel-${active}`).hidden=true;active=null;cancelAnimationFrame(countFrame);root.classList.remove('hero-menu-open');line.classList.remove('is-visible');bubble.hidden=true;onPanelChange(null);if(restore)trigger.focus();}
+  function open(id){clearTimeout(closing);if(active===id)return;cancelAnimationFrame(countFrame);for(const button of nav.querySelectorAll('[data-welcome-menu]')){const selected=button.dataset.welcomeMenu===id;button.setAttribute('aria-expanded',String(selected));document.getElementById(button.getAttribute('aria-controls')).hidden=!selected;}active=id;root.classList.add('hero-menu-open');bubble.innerHTML=`<img src="assets/frog.png" width="30" height="36" alt=""><span>${esc(ui().speech[ids.indexOf(id)])}</span>`;bubble.hidden=false;place();counters(document.getElementById(`welcomePanel-${id}`));}
+  function scheduleClose(){clearTimeout(closing);closing=setTimeout(()=>close(),200);}
+  function closeBurger({restore=false}={}){close();burger.setAttribute('aria-expanded','false');nav.classList.remove('is-open');if(restore)burger.focus();}
+  for(const trigger of nav.querySelectorAll('[data-welcome-menu]')){
+   const item=trigger.parentElement;
+   listen(trigger,'pointerenter',()=>{if(hover.matches&&!mobile.matches)open(trigger.dataset.welcomeMenu);});
+   listen(trigger,'click',()=>active===trigger.dataset.welcomeMenu?close():open(trigger.dataset.welcomeMenu));
+   listen(item,'pointerenter',()=>clearTimeout(closing));
+   listen(item,'pointerleave',()=>{if(hover.matches&&!mobile.matches)scheduleClose();});
+  }
+  listen(burger,'click',()=>{const show=burger.getAttribute('aria-expanded')!=='true';if(!show)closeBurger();else{burger.setAttribute('aria-expanded','true');nav.classList.add('is-open');}});
+  listen(document,'pointerdown',event=>{if(!nav.contains(event.target)&&!burger.contains(event.target)){close();if(mobile.matches)closeBurger();}});
+  listen(shade,'click',()=>close());
+  listen(document,'keydown',event=>{if(event.key!=='Escape')return;if(active){event.preventDefault();close({restore:true});}else if(nav.classList.contains('is-open')){event.preventDefault();closeBurger({restore:true});}});
+  listen(header,'focusout',event=>{if(event.relatedTarget&&!header.contains(event.relatedTarget))closeBurger();});
+  nav.querySelectorAll('a').forEach(link=>listen(link,'click',()=>closeBurger()));
+  nav.querySelectorAll('[data-preview-topic]').forEach(button=>{function preview(){nav.querySelectorAll('[data-preview-topic]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));document.getElementById('welcomeTopicDetail').innerHTML=topicDetail(CourseData.topics.find(t=>t.id===button.dataset.previewTopic));}listen(button,'pointerenter',()=>{if(hover.matches)preview();});listen(button,'focus',preview);listen(button,'click',preview);});
+  nav.querySelector('[data-contact-placeholder]')?.addEventListener('click',()=>{nav.querySelector('.welcome-contact-status').hidden=false;},{signal});
+  listen(window,'scroll',()=>{if(scrollY>header.offsetHeight)closeBurger();},{passive:true});
+  listen(window,'resize',()=>{cancelAnimationFrame(resizeFrame);resizeFrame=requestAnimationFrame(place);},{passive:true});
+  listen(mobile,'change',()=>{closeBurger();moveSpeech();});
+  // Плавный якорь не меняет hash: его обрабатывает маршрутизатор страниц.
+  listen(root.querySelector('.hero-learn-more'),'click',event=>{event.preventDefault();closeBurger();const section=document.getElementById('welcome-how');section.focus({preventScroll:true});section.scrollIntoView({behavior:reduced()?'instant':'smooth',block:'start'});});
+  signal.addEventListener('abort',()=>{clearTimeout(closing);cancelAnimationFrame(countFrame);cancelAnimationFrame(resizeFrame);},{once:true});
+  return {motionChanged(){if(active){const panel=document.getElementById(`welcomePanel-${active}`);counters(panel);place();}}};
+ }
+ return {ui,header,extras,below,mount};
+})();

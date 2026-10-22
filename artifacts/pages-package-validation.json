@@ -36,6 +36,7 @@
     "assets/vendor/THREE-PROVENANCE.json",
     "assets/vendor/three-0.160.1.min.js",
     "data/topics.js",
+    "data/welcome.js",
     "index.html",
     "script.js",
     "site.css",
@@ -80,6 +81,8 @@
     "src/visual/lab3d.js",
     "src/visual/specimen-models.js",
     "src/visual/specimen-viewer.js",
+    "src/welcome-info.css",
+    "src/welcome-info.js",
     "style.css",
     "version.json"
   ],

@@ -12,9 +12,9 @@ const CourseData={
    "icon": "shield",
    "color": "#1c8873",
    "description": {
-    "ru": "Техника безопасности и оборудование",
-    "uz-Latn": "Xavfsizlik va jihozlar",
-    "en": "Safety and equipment"
+    "ru": "Узнай назначение приборов и подготовь безопасное рабочее место.",
+    "uz-Latn": "Jihozlar vazifasini o‘rgan va xavfsiz ish joyini tayyorla.",
+    "en": "Discover lab equipment and prepare a safe workspace."
    },
    "ready": true,
    "steps": {
@@ -196,9 +196,9 @@ const CourseData={
    "icon": "flask",
    "color": "#df7624",
    "description": {
-    "ru": "Вещества и их свойства",
-    "uz-Latn": "Moddalar va ularning xossalari",
-    "en": "Substances and their properties"
+    "ru": "Сравни цвет, состояние и другие физические свойства образцов.",
+    "uz-Latn": "Namunalarning rangi, holati va boshqa fizik xossalarini solishtir.",
+    "en": "Compare the colour, state and other physical properties of samples."
    },
    "ready": true,
    "steps": {
@@ -455,9 +455,9 @@ const CourseData={
    "icon": "filter",
    "color": "#c68417",
    "description": {
-    "ru": "Чистые вещества и смеси",
-    "uz-Latn": "Sof moddalar va aralashmalar",
-    "en": "Pure substances and mixtures"
+    "ru": "Узнай, как устроены смеси и как разделять их компоненты.",
+    "uz-Latn": "Aralashmalar tuzilishi va ularni ajratish usullarini o‘rgan.",
+    "en": "Explore mixtures and ways to separate their components."
    },
    "ready": false,
    "steps": {
@@ -499,9 +499,9 @@ const CourseData={
    "icon": "flame",
    "color": "#c74851",
    "description": {
-    "ru": "Физические явления",
-    "uz-Latn": "Fizik hodisalar",
-    "en": "Physical changes"
+    "ru": "Наблюдай плавление, испарение и растворение без образования новых веществ.",
+    "uz-Latn": "Yangi moddalar hosil bo‘lmasdan erish, bug‘lanish va eruvchanlikni kuzat.",
+    "en": "Observe melting, evaporation and dissolving without forming new substances."
    },
    "ready": true,
    "steps": {
@@ -676,9 +676,9 @@ const CourseData={
    "icon": "atom",
    "color": "#b83c83",
    "description": {
-    "ru": "Химические явления и признаки реакций",
-    "uz-Latn": "Kimyoviy hodisalar va reaksiya belgilari",
-    "en": "Chemical changes and signs of reactions"
+    "ru": "Исследуй признаки реакций: изменение цвета, выделение газа и тепла.",
+    "uz-Latn": "Reaksiya belgilarini o‘rgan: rang o‘zgarishi, gaz va issiqlik ajralishi.",
+    "en": "Explore reaction signs: colour changes, gas and heat."
    },
    "ready": true,
    "steps": {
@@ -890,9 +890,9 @@ const CourseData={
    "icon": "molecule",
    "color": "#6d50bc",
    "description": {
-    "ru": "Атомы, молекулы и химические элементы",
-    "uz-Latn": "Atomlar, molekulalar va kimyoviy elementlar",
-    "en": "Atoms, molecules and chemical elements"
+    "ru": "Познакомься с атомами, молекулами и химическими элементами.",
+    "uz-Latn": "Atomlar, molekulalar va kimyoviy elementlar bilan tanish.",
+    "en": "Meet atoms, molecules and chemical elements."
    },
    "ready": false,
    "steps": {

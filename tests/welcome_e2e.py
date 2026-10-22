@@ -19,24 +19,24 @@ with sync_playwright() as p:
  assert q.evaluate("getComputedStyle(document.querySelector('h1')).fontSize")=='110px'
  assert re.fullmatch(r'\d{2}:\d{2}',q.locator('.hero-clock').inner_text())
  before=q.evaluate('JSON.stringify(state)');q.mouse.move(1900,100);q.wait_for_timeout(300);right=q.locator('[data-hero-actor]').get_attribute('style');q.mouse.move(20,950);q.wait_for_timeout(300);assert right!=q.locator('[data-hero-actor]').get_attribute('style');assert q.evaluate('JSON.stringify(state)')==before
- q.get_by_role('link',name='КОНТАКТЫ',exact=True).click();q.wait_for_selector('.contact-page');q.go_back();q.wait_for_selector('.entry-hero')
- q.locator('.welcome-enter').click();q.wait_for_selector('#accountForm');assert q.url.endswith('#register');assert q.locator('[name=repeat]').count()==1
- q.locator('.auth-switch').click();q.goto(BASE+'#welcome');q.locator('.welcome-enter').click();q.wait_for_selector('#accountForm');assert q.url.endswith('#register');assert q.locator('[name=repeat]').count()==1
- q.goto(BASE+'#welcome');q.locator('.hero-experiments').click();q.wait_for_selector('#accountForm')
+ q.locator('[data-welcome-menu=contacts]').hover();q.wait_for_selector('#welcomePanel-contacts:visible');q.keyboard.press('Escape')
+ q.locator('.entry-hero .welcome-enter').click();q.wait_for_selector('#accountForm');assert q.url.endswith('#register');assert q.locator('[name=repeat]').count()==1
+ q.locator('.auth-switch').click();q.goto(BASE+'#welcome');q.locator('.entry-hero .welcome-enter').click();q.wait_for_selector('#accountForm');assert q.url.endswith('#register');assert q.locator('[name=repeat]').count()==1
+ q.goto(BASE+'#welcome');q.locator('[data-welcome-menu=topics]').hover();q.locator('.welcome-route-link').click();q.wait_for_selector('#accountForm');assert q.url.endswith('#login')
  # Четыре языка и широкие/узкие сцены; текст и кнопка не обрезаются.
  for lang in ['ru','uz-Latn','uz-Cyrl','en']:
   q.goto(BASE+'#account');q.select_option('#language',lang);q.goto(BASE+'#welcome')
   for w,h in [(1920,1080),(1366,768),(1024,768),(768,1024),(375,812),(320,700)]:
    q.set_viewport_size({'width':w,'height':h});assert q.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),(lang,w,h)
-   assert q.locator('.welcome-enter').is_visible();assert 'undefined' not in q.locator('main').inner_text()
+   assert q.locator('.entry-hero .welcome-enter').is_visible();assert 'undefined' not in q.locator('main').inner_text()
  q.goto(BASE+'#account');q.select_option('#language','ru');q.goto(BASE+'#welcome');q.set_viewport_size({'width':375,'height':812})
- q.locator('.hero-burger').click();assert q.locator('.hero-experiments').is_visible();q.keyboard.press('Escape');assert q.locator('.hero-burger').get_attribute('aria-expanded')=='false'
+ q.locator('.hero-burger').click();assert q.locator('[data-welcome-menu=topics]').is_visible();q.keyboard.press('Escape');assert q.locator('.hero-burger').get_attribute('aria-expanded')=='false'
  q.emulate_media(reduced_motion='reduce');q.mouse.move(300,400);q.wait_for_timeout(100);assert not q.locator('[data-hero-actor]').get_attribute('style')
  assert q.evaluate("getComputedStyle(document.querySelector('.hero-breathe')).animationName")=='none'
  # Часы в местном часовом поясе обновляются ровно на следующей минуте.
  clock_ctx=b.new_context(timezone_id='Asia/Tashkent',reduced_motion='reduce');clock=clock_ctx.new_page();clock.clock.install(time=datetime(2026,10,22,5,37,0,tzinfo=timezone.utc));clock.goto(BASE)
- assert clock.locator('.hero-clock').inner_text()=='10:37';clock.clock.fast_forward(60020);assert clock.locator('.hero-clock').inner_text()=='10:38';clock_ctx.close()
+ assert clock.locator('.hero-clock').inner_text()=='10:37';assert 'Доброе утро!' in clock.locator('#heroClockHint').text_content();clock.clock.fast_forward(60020);assert clock.locator('.hero-clock').inner_text()=='10:38';clock_ctx.close()
  # На сенсорном экране персонаж покачивается сам, при reduced motion останавливается.
  mobile=b.new_context(viewport={'width':390,'height':844},is_mobile=True,has_touch=True);r=mobile.new_page();r.goto(BASE);r.wait_for_timeout(200);a=r.locator('[data-hero-actor]').get_attribute('style');r.wait_for_timeout(350);assert a!=r.locator('[data-hero-actor]').get_attribute('style');r.emulate_media(reduced_motion='reduce');r.wait_for_function("getComputedStyle(document.querySelector('[data-hero-actor]')).transform==='none'");mobile.close()
  assert not errors,errors;assert not bad,bad;b.close()
-print('Passed: 24 layouts, transparent local PNG and Inter Tight, live minute clock, lerp tracking, touch sway, reduced motion, burger/contacts, protected registration route, no learning-state mutation')
+print('Passed: 24 layouts, transparent local PNG and Inter Tight, live minute clock, lerp tracking, touch sway, reduced motion, burger/info panels, protected registration route, no learning-state mutation')
