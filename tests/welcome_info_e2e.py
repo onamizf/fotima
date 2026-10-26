@@ -19,7 +19,7 @@ with sync_playwright() as p:
  q.locator('[data-welcome-menu=about]').hover();q.wait_for_timeout(100)
  # Уход к панели укладывается в задержку закрытия; числа действительно анимируются.
  assert q.locator('#welcomePanel-about').is_visible()
- assert q.locator('[data-welcome-count]').all_text_contents()!=['6','25','3']
+ assert q.locator('[data-welcome-count]').all_text_contents()!=q.evaluate('[CourseData.topics.length,CourseData.topics.reduce((n,t)=>n+t.steps.experiments.length,0),Object.keys(CourseData.games).length].map(String)')
  q.locator('#welcomePanel-about').hover();q.wait_for_timeout(700)
  expected=q.evaluate('[CourseData.topics.length,CourseData.topics.reduce((n,t)=>n+t.steps.experiments.length,0),Object.keys(CourseData.games).length].map(String)')
  assert q.locator('[data-welcome-count]').all_text_contents()==expected

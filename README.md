@@ -60,14 +60,13 @@ python -m http.server 8037
 export LAB_TEST_BASE=http://127.0.0.1:8037/
 node tests/validate_lessons.cjs
 node tests/validate_course.cjs
+node tests/validate_intro.cjs
 python tests/local_auth_e2e.py
 python tests/welcome_e2e.py
 python tests/welcome_info_e2e.py
-python tests/course_e2e.py
-python tests/course_daily_e2e.py
-python tests/course_layout_e2e.py
-python tests/course_controls_e2e.py
-python tests/blue_webgl_e2e.py
+python tests/intro_e2e.py
+python tests/intro_visual_e2e.py
+python tests/intro_migration_touch_e2e.py
 python tests/site_package.py
 python tests/release_cache_e2e.py
 ```
@@ -95,3 +94,7 @@ python tests/release_cache_e2e.py
 ### Информационное меню welcome — выпуск 0.9.1
 
 Композиция hero сохранена. Пять панелей с данными курса, меню-аккордеон, подсказки помощника и блок «Как это работает» описаны в [WELCOME_INFO_RELEASE.md](WELCOME_INFO_RELEASE.md). Гость начинает с регистрации, после входа открывается `#home`; вошедший видит «Продолжить». Контакты настраиваются в `WelcomeConfig` в `data/welcome.js`.
+
+### Введение в химию — выпуск 1.0.0
+
+Тема `#topic/intro`: 13 интерактивных заданий в работах 1.1–1.3, самооценка и закрепление; после зачёта открывается `#topic/states`. Старые лабораторные и их сохранения остаются доступны. Все новые тексты и сцены свои; PDF использован для структуры. [Подробности, источник и список файлов](INTRO_CHAPTER_RELEASE.md). Сценарии `course_*` и `blue_webgl_e2e.py` сохраняют проверки прежней карты шести тем; актуальная вводная глава проверяется `intro_*`. Для `intro_visual_e2e.py` и `intro_migration_touch_e2e.py` сначала нужен реальный проход `intro_e2e.py`, который сохраняет `/tmp/intro-complete-state.json`.

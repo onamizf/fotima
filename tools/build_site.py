@@ -40,6 +40,7 @@ def build(output):
     entrypoint,parser,versions=versioned_entrypoint((ROOT/'index.html').read_text())
     files={'index.html','404.html',*parser.files}
     files.update(str(p.relative_to(ROOT)) for p in (ROOT/'assets').rglob('*') if p.is_file())
+    files.update(str(p.relative_to(ROOT)) for p in (ROOT/'scenes').glob('*.js') if p.is_file())
     for relative in sorted(files):
         path=ROOT/relative
         if not path.resolve().is_relative_to(ROOT) or not path.is_file():
