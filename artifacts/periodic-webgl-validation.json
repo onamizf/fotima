@@ -1,0 +1,290 @@
+{
+  "status": "passed",
+  "renderer": "Chromium SwiftShader WebGL",
+  "models": [
+    {
+      "symbol": "H",
+      "mode": "atom",
+      "atoms": null,
+      "triangles": 268
+    },
+    {
+      "symbol": "H",
+      "mode": "simple",
+      "atoms": 2,
+      "triangles": 920
+    },
+    {
+      "symbol": "H",
+      "mode": "compound",
+      "atoms": 3,
+      "triangles": 1400
+    },
+    {
+      "symbol": "N",
+      "mode": "atom",
+      "atoms": null,
+      "triangles": 3052
+    },
+    {
+      "symbol": "N",
+      "mode": "simple",
+      "atoms": 2,
+      "triangles": 1000
+    },
+    {
+      "symbol": "N",
+      "mode": "compound",
+      "atoms": 4,
+      "triangles": 1880
+    },
+    {
+      "symbol": "O",
+      "mode": "atom",
+      "atoms": null,
+      "triangles": 3488
+    },
+    {
+      "symbol": "O",
+      "mode": "simple",
+      "atoms": 2,
+      "triangles": 960
+    },
+    {
+      "symbol": "O",
+      "mode": "compound",
+      "atoms": 3,
+      "triangles": 1400
+    },
+    {
+      "symbol": "S",
+      "mode": "atom",
+      "atoms": null,
+      "triangles": 6976
+    },
+    {
+      "symbol": "S",
+      "mode": "simple",
+      "atoms": 8,
+      "triangles": 3840
+    },
+    {
+      "symbol": "S",
+      "mode": "compound",
+      "atoms": 3,
+      "triangles": 1480
+    },
+    {
+      "symbol": "P",
+      "mode": "atom",
+      "atoms": null,
+      "triangles": 6708
+    },
+    {
+      "symbol": "P",
+      "mode": "simple",
+      "atoms": 4,
+      "triangles": 2000
+    },
+    {
+      "symbol": "P",
+      "mode": "compound",
+      "atoms": 8,
+      "triangles": 3520
+    },
+    {
+      "symbol": "C",
+      "mode": "atom",
+      "atoms": null,
+      "triangles": 2616
+    },
+    {
+      "symbol": "C",
+      "mode": "simple",
+      "atoms": 26,
+      "triangles": 12640
+    },
+    {
+      "symbol": "C",
+      "mode": "compound",
+      "atoms": 3,
+      "triangles": 1480
+    },
+    {
+      "symbol": "Si",
+      "mode": "atom",
+      "atoms": null,
+      "triangles": 6104
+    },
+    {
+      "symbol": "Si",
+      "mode": "simple",
+      "atoms": 64,
+      "triangles": 31600
+    },
+    {
+      "symbol": "Si",
+      "mode": "compound",
+      "atoms": 150,
+      "triangles": 72880
+    },
+    {
+      "symbol": "Na",
+      "mode": "atom",
+      "atoms": null,
+      "triangles": 4964
+    },
+    {
+      "symbol": "Na",
+      "mode": "simple",
+      "atoms": 9,
+      "triangles": 4280
+    },
+    {
+      "symbol": "Na",
+      "mode": "compound",
+      "atoms": 64,
+      "triangles": 28160
+    },
+    {
+      "symbol": "Ca",
+      "mode": "atom",
+      "atoms": null,
+      "triangles": 8720
+    },
+    {
+      "symbol": "Ca",
+      "mode": "simple",
+      "atoms": 14,
+      "triangles": 7600
+    },
+    {
+      "symbol": "Ca",
+      "mode": "compound",
+      "atoms": 5,
+      "triangles": 2320
+    },
+    {
+      "symbol": "Mg",
+      "mode": "atom",
+      "atoms": null,
+      "triangles": 5232
+    },
+    {
+      "symbol": "Mg",
+      "mode": "simple",
+      "atoms": 27,
+      "triangles": 15480
+    },
+    {
+      "symbol": "Mg",
+      "mode": "compound",
+      "atoms": 64,
+      "triangles": 28160
+    },
+    {
+      "symbol": "Fe",
+      "mode": "atom",
+      "atoms": null,
+      "triangles": 12008
+    },
+    {
+      "symbol": "Fe",
+      "mode": "simple",
+      "atoms": 9,
+      "triangles": 4280
+    },
+    {
+      "symbol": "Fe",
+      "mode": "compound",
+      "atoms": 5,
+      "triangles": 2200
+    },
+    {
+      "symbol": "Ge",
+      "mode": "atom",
+      "atoms": null,
+      "triangles": 15632
+    },
+    {
+      "symbol": "Ge",
+      "mode": "simple",
+      "atoms": 64,
+      "triangles": 31600
+    },
+    {
+      "symbol": "Ge",
+      "mode": "compound",
+      "atoms": 5,
+      "triangles": 2360
+    },
+    {
+      "symbol": "Kr",
+      "mode": "atom",
+      "atoms": null,
+      "triangles": 17712
+    },
+    {
+      "symbol": "Kr",
+      "mode": "simple",
+      "atoms": 1,
+      "triangles": 440
+    },
+    {
+      "symbol": "Kr",
+      "mode": "compound",
+      "atoms": 3,
+      "triangles": 1400
+    },
+    {
+      "symbol": "Br",
+      "mode": "atom",
+      "atoms": null,
+      "triangles": 16772
+    },
+    {
+      "symbol": "Br",
+      "mode": "simple",
+      "atoms": 2,
+      "triangles": 920
+    },
+    {
+      "symbol": "Br",
+      "mode": "compound",
+      "atoms": 2,
+      "triangles": 920
+    },
+    {
+      "symbol": "Al",
+      "mode": "atom",
+      "atoms": null,
+      "triangles": 5836
+    },
+    {
+      "symbol": "Al",
+      "mode": "simple",
+      "atoms": 14,
+      "triangles": 7600
+    },
+    {
+      "symbol": "Al",
+      "mode": "compound",
+      "atoms": 5,
+      "triangles": 2200
+    },
+    {
+      "symbol": "Og",
+      "mode": "atom",
+      "atoms": null,
+      "triangles": 61192
+    }
+  ],
+  "checks": [
+    "protons/neutrons/electrons for Ge-74",
+    "model atom counts and both carbon forms",
+    "one canvas and lazy disposal",
+    "zoom/reset and reduced motion",
+    "context loss gives SVG fallback"
+  ],
+  "js_errors": []
+}

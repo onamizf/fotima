@@ -1,0 +1,17 @@
+{
+  "status": "passed",
+  "elements": 118,
+  "study_profiles": 36,
+  "checks": [
+    "search in three languages and atomic number",
+    "long/short layout, four color schemes, legend and series links",
+    "keyboard, element hash, F5 and history",
+    "SVG fallback and lazy local scenes",
+    "quiz, collection and once-only XP",
+    "all three badges through actual element visits",
+    "ten-second find game and random roulette",
+    "four languages at five widths, sticky modal close",
+    "unknown route and separate learner progress"
+  ],
+  "js_errors": []
+}

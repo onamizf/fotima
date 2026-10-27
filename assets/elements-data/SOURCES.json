@@ -1,0 +1,17 @@
+{
+  "retrieved": "2026-10-27",
+  "facts": "https://github.com/Bowserinator/Periodic-Table-JSON",
+  "discoveryYears": "https://github.com/andrejewski/periodic-table",
+  "atomicWeights": "https://ciaaw.org/abridged-atomic-weights.htm",
+  "factsSHA256": "05e478cb1192c5bbfad8d9600fd3b4c7902c0966ad5d0408bfcc4d5092424c0d",
+  "yearsSHA256": "7e3ec553bfa58e960b4a3cf595393870a4a1b93b2c78e8cebe9a37a62bcf09b1",
+  "license": "CC BY-SA 3.0 for adapted data; ISC for discovery-year source",
+  "conventions": [
+    "Conventional abridged atomic weights, rounded to three decimals; uncertainty digits are not appended.",
+    "Brackets contain a representative isotope mass number, not a standard atomic weight.",
+    "Lu/Lr group 3 convention; other f-series elements have no assigned group 1–18.",
+    "Unknown/predicted bulk properties of At, Fr and Z>=99 are not presented as measured.",
+    "Gas densities are reference values near 0 °C, 1 atm, not at 20 °C.",
+    "Carbon has no normal boiling/melting point at 1 atm; helium does not solidify at 1 atm."
+  ]
+}
