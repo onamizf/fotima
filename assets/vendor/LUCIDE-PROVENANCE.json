@@ -1,0 +1,30 @@
+{
+  "version": "0.468.0",
+  "source": "https://raw.githubusercontent.com/lucide-icons/lucide/0.468.0/",
+  "icons": {
+    "search": "9322d964b61cf729b3a81210568d5a97eaf4a1f3239f25a056fda3013bf35611",
+    "shield-check": "8d4fcdbde5bba4abb1a2f6fe53e37ceb6343a1d5449a9d88f6f97c1971d26c4e",
+    "flask-conical": "a2ce857c159bef4c128a6d9f0b6dcbd6504ecf1a2a670ee220efd14fd032b561",
+    "atom": "9ac2f48402368cb4e4db5c59371698a86f35598c8b8076411bfdfdd63550ffd8",
+    "filter": "769ad333052a63cacbd71ba1332b986dcee546ea5a53018acb9b8408a4fbe0fd",
+    "flame": "ae5e1d963ac52efe1b1aeb3bc569d6a42abf768416c2646f8c29a82b7b593002",
+    "network": "626be730feea1e5ea7539fbf78b4a3fcb927ce5d7dc43364f2216908672ac792",
+    "book-open": "a5eb669f66989fdbc003b1689ebc93769b3b9d680f840573f2a3ac268756f894",
+    "table-2": "d7590e0427ef0c993cea6d4d3892445e60d5f6c221222e288e6325dabb6b95ac",
+    "clipboard-check": "e2bac86a6b24caa0d7d0dcc2719ec6b7870ec5eef2d21afae498d8cb5eefda96",
+    "gamepad-2": "b0671de7afbebdafc4d655d867d9851947170b906fb187e749410039df867509",
+    "arrow-right": "288397fdb73bb4f783cf9eabb726ff47357df1d4e3f1201dd748090579f108b9",
+    "lock-keyhole": "fc0b8b7590d1d9e9bb0112c5c2e15a78ade0bfeca6d6f8c79fbbe149236d74be",
+    "check": "7f33acc9a77a61659531044525fc008edebe215bf4dcf1c789c8674ad3277db0",
+    "circle": "3a991bd47beaf9874fba6fdf87bbba442970a89b5e6aa391558bc8b0a00a0513",
+    "circle-dot": "f3815b15d3bdc275069119ac26e7d5a52b4e57ee36d3751a809c1c371ee85ae2",
+    "clock-3": "21007df4799ad0c90e1833e35abc4fab1a7efe19f8bf7b63bbb61dd63360c405",
+    "timer": "6771297be65225d462c930865b6f9ee1617aa453885be4c8116a7512a77ac2b6",
+    "trophy": "62c8e95c90781814bfb95672d0b10136e84767ac6b7dccf0ed25457045c4f0e7",
+    "sparkles": "cc8061ee31c43138e081522260d2ddd35465dfb2a4435fddd3d9857952d7231e",
+    "star": "c59da86b889569387db28e69ad00a89f96af22863ad9eea9aa12c4876a14338c",
+    "chart-no-axes-column": "4276b34a07295ac22ebb09687bdec9cb9683547bf8d56969166e19a6a13fbdd7",
+    "ellipsis": "4f495cc72013ffdfec677f03b33a150f7b4dd741979283fd6853a09024bca112"
+  },
+  "licenseSHA256": "1e7290b35280a048667bbf0ebabac1c7fd52a75300e8b2946ac165715997f2bc"
+}

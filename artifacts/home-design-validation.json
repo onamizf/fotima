@@ -1,0 +1,157 @@
+{
+  "status": "passed",
+  "checks": [
+    "read-only view/snapshot and unchanged XP",
+    "dynamic current/daily experiment IDs",
+    "working filters and existing routes",
+    "seven bento cards with one primary maximum",
+    "four/two/one columns plus expanded sidebar",
+    "four locales and seven widths, no overflow or clipped actions",
+    "search overlay at mobile and desktop",
+    "helper visible on other pages, reduced motion"
+  ],
+  "layouts": [
+    {
+      "language": "ru",
+      "width": 320,
+      "columns": 1
+    },
+    {
+      "language": "ru",
+      "width": 375,
+      "columns": 1
+    },
+    {
+      "language": "ru",
+      "width": 390,
+      "columns": 1
+    },
+    {
+      "language": "ru",
+      "width": 768,
+      "columns": 2
+    },
+    {
+      "language": "ru",
+      "width": 1024,
+      "columns": 2
+    },
+    {
+      "language": "ru",
+      "width": 1200,
+      "columns": 4
+    },
+    {
+      "language": "ru",
+      "width": 1440,
+      "columns": 4
+    },
+    {
+      "language": "uz-Latn",
+      "width": 320,
+      "columns": 1
+    },
+    {
+      "language": "uz-Latn",
+      "width": 375,
+      "columns": 1
+    },
+    {
+      "language": "uz-Latn",
+      "width": 390,
+      "columns": 1
+    },
+    {
+      "language": "uz-Latn",
+      "width": 768,
+      "columns": 2
+    },
+    {
+      "language": "uz-Latn",
+      "width": 1024,
+      "columns": 2
+    },
+    {
+      "language": "uz-Latn",
+      "width": 1200,
+      "columns": 4
+    },
+    {
+      "language": "uz-Latn",
+      "width": 1440,
+      "columns": 4
+    },
+    {
+      "language": "uz-Cyrl",
+      "width": 320,
+      "columns": 1
+    },
+    {
+      "language": "uz-Cyrl",
+      "width": 375,
+      "columns": 1
+    },
+    {
+      "language": "uz-Cyrl",
+      "width": 390,
+      "columns": 1
+    },
+    {
+      "language": "uz-Cyrl",
+      "width": 768,
+      "columns": 2
+    },
+    {
+      "language": "uz-Cyrl",
+      "width": 1024,
+      "columns": 2
+    },
+    {
+      "language": "uz-Cyrl",
+      "width": 1200,
+      "columns": 4
+    },
+    {
+      "language": "uz-Cyrl",
+      "width": 1440,
+      "columns": 4
+    },
+    {
+      "language": "en",
+      "width": 320,
+      "columns": 1
+    },
+    {
+      "language": "en",
+      "width": 375,
+      "columns": 1
+    },
+    {
+      "language": "en",
+      "width": 390,
+      "columns": 1
+    },
+    {
+      "language": "en",
+      "width": 768,
+      "columns": 2
+    },
+    {
+      "language": "en",
+      "width": 1024,
+      "columns": 2
+    },
+    {
+      "language": "en",
+      "width": 1200,
+      "columns": 4
+    },
+    {
+      "language": "en",
+      "width": 1440,
+      "columns": 4
+    }
+  ],
+  "heading_issues": [],
+  "js_errors": []
+}

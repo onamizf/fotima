@@ -14,3 +14,7 @@
 `data/elements.js` адаптирует фактический набор **Bowserinator/Periodic-Table-JSON**, лицензия **CC BY-SA 3.0**: https://github.com/Bowserinator/Periodic-Table-JSON . Адаптированный набор данных распространяется на тех же условиях. Годы открытия дополнены из **andrejewski/periodic-table**, **ISC**: https://github.com/andrejewski/periodic-table . Лицензионные файлы из источников, атрибуция, ссылки и SHA-256 полученных исходников: `assets/elements-data/LICENSE.txt` и `assets/elements-data/SOURCES.json` (включены и в веб-пакет).
 
 Адаптация: исключена запись 119, добавлены имена RU/UZ/EN, школьные объяснения и применения, исправлены атомные веса, свойства переведены в °C, расчётные/неизвестные объёмные данные исключены, задана конвенция группы 3 Lu/Lr, добавлены типы собственных моделей и изотопы для схем ядра. Подробности: [PERIODIC_TABLE_RELEASE.md](PERIODIC_TABLE_RELEASE.md). Лицензия набора данных не заменяет лицензии Three.js, шрифта или остального кода проекта.
+
+## Иконки Lucide 0.468.0
+
+Локальная выборка из 23 SVG в `data/home-icons.js`: https://github.com/lucide-icons/lucide/tree/0.468.0/icons . Лицензия ISC (включая атрибуцию Feather/Cole Bemis) сохранена в `assets/vendor/LUCIDE-LICENSE.txt`; исходные URL, версия и SHA-256 — в `assets/vendor/LUCIDE-PROVENANCE.json`. SVG встроены в интерфейс без CDN; размер и stroke-width 1.75 задаются общим помощником.

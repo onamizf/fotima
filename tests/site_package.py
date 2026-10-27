@@ -14,7 +14,7 @@ with tempfile.TemporaryDirectory(prefix='fotima-pages-') as temp:
     for filename,digest in manifest['assets'].items():
         assert digest==hashlib.sha256((output/filename).read_bytes()).hexdigest()[:16]
         assert filename+'?v='+digest in entry
-    assert manifest['version']=='1.2.0'
+    assert manifest['version']=='1.3.0'
     assert not any(name.endswith('.md') or name.startswith(('tests/','artifacts/','design/','.git/','src/lab/')) for name in files)
     try:module.build(output)
     except ValueError:pass
@@ -38,6 +38,8 @@ with tempfile.TemporaryDirectory(prefix='fotima-pages-') as temp:
                 assert page.locator('[data-course-topic]').count()==0
                 register_local(page,base,'Package Learner')
                 assert page.locator('.student-dashboard').count()==1
+                assert page.locator('.home-bento-card').count()==7
+                assert page.locator('.dashboard-banner').count()==0
                 page.goto(base+'#catalog')
             assert page.locator('[data-course-topic]').count()==7
             assert page.evaluate("document.fonts.check('16px Inter')")
@@ -54,9 +56,10 @@ with tempfile.TemporaryDirectory(prefix='fotima-pages-') as temp:
             assert all(name in files for name in ['scenes/core.js','scenes/safety.js','scenes/equipment.js','scenes/bunsen.js','scenes/evaporation.js','scenes/fallback.js'])
             page.goto(base+'#resources/periodic/Ge');page.wait_for_function('window.periodic3DInfo?.ready');assert page.locator('.reference-symbol').inner_text()=='Ge';assert page.evaluate('window.periodic3DInfo.renderer')=='svg';page.reload();page.wait_for_selector('.periodic-detail-dialog[open]');assert page.locator('[data-element]').count()==118
             assert all(name in files for name in ['data/elements.js','data/periodic-i18n.js','src/periodic-model.js','src/periodic.js','src/periodic.css','scenes/periodic.js','assets/elements-data/LICENSE.txt'])
+            assert all(name in files for name in ['data/home-icons.js','data/home-design.js','src/home-design.css','assets/vendor/LUCIDE-LICENSE.txt'])
             assert not errors,errors
             assert not [(url,status) for url,status in responses if status>=400],responses
             browser.close()
-        report={'status':'passed','package_files':files,'base_path':'/fotima/','checks':['only browser files published','all scripts/styles/font return success','local account gate blocks anonymous catalog','four languages and authenticated routes under project subpath','reload retains table entry','intro lazy modules and SVG fallback load under /fotima/','118-element periodic deep link/F5 and lazy SVG module under /fotima/','non-empty output rejected'],'js_errors':errors,'live_site':'Static package tested locally; deployment completion not independently verified'}
+        report={'status':'passed','package_files':files,'base_path':'/fotima/','checks':['only browser files published','all scripts/styles/font return success','local account gate blocks anonymous catalog','four languages and authenticated routes under project subpath','reload retains table entry','intro lazy modules and SVG fallback load under /fotima/','118-element periodic deep link/F5 and lazy SVG module under /fotima/','minimal home and local Lucide subset included','non-empty output rejected'],'js_errors':errors,'live_site':'Static package tested locally; deployment completion not independently verified'}
         (ROOT/'artifacts'/'pages-package-validation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2));print(json.dumps(report,ensure_ascii=False,indent=2))
     finally:server.shutdown();server.server_close()

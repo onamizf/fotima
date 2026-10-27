@@ -2,7 +2,7 @@
   "status": "passed",
   "checks": [
     "grouped search, show all, bold matches, locks, keyboard and overlay hit-testing",
-    "two intact equal-height resume cards and labeled scrolling shortcuts",
+    "minimal hero, topic strip and seven bento cards with intact actions",
     "44px header controls in bell/language/profile order",
     "one panel at a time, language keyboard/instant save/toast",
     "per-user persistent notices, read/delete and preferences",
