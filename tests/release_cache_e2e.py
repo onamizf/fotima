@@ -29,13 +29,13 @@ with tempfile.TemporaryDirectory(prefix='fotima-cached-release-') as temp:
    q.goto(base+'#table/properties');q.locator('[data-cell="salt.state"]:visible').select_option('solid')
    account=q.evaluate('LocalAuth.currentUser().id');q.locator('#navigationToggle').click();oldbox=q.locator('#profileMenu').bounding_box();assert oldbox['y']>0 and oldbox['height']<812
    active['root']=new
-   q.goto(base+'?v=1.3.0#home');q.wait_for_selector('.student-dashboard');
+   q.goto(base+'?v=1.4.0#home');q.wait_for_selector('.student-dashboard');
    if q.locator('#earnedDialog[open]').count():q.locator('#earnedDialog button').click()
    assert q.evaluate('state.course.legacy');assert q.evaluate('CourseModel.theoryRead("properties")');assert q.evaluate('CourseModel.unlocked("properties")');q.emulate_media(reduced_motion='reduce');assert q.evaluate('LocalAuth.currentUser().id')==account;assert q.evaluate('state.propertyTable.salt.state')=='solid'
-   assert q.locator('.header-logout').count()==0;q.locator('#navigationToggle').click();box=q.locator('#profileMenu').bounding_box();assert box['x']==0 and box['y']==0 and box['height']==812,box;assert q.locator('#profileMenu [data-profile-logout]').count()==0
+   assert q.locator('.header-logout').count()==0;q.locator('#navigationToggle').click();box=q.locator('#profileMenu').bounding_box();assert box['x']==0 and box['y']==72 and box['height']==740 and abs(box['width']-407*.85)<1,box;assert q.locator('#profileMenu [data-profile-logout]').count()==0
    q.screenshot(path=str(ROOT/'artifacts/sidebar-full-height-407.png'));q.keyboard.press('Escape');q.screenshot(path=str(ROOT/'artifacts/home-release-407.png'),full_page=True)
    q.locator('#profileToggle').click();assert q.locator('.header-profile-popover [data-profile-logout]').is_visible()
-   assert q.locator('meta[name=application-version]').get_attribute('content')=='1.3.0'
+   assert q.locator('meta[name=application-version]').get_attribute('content')=='1.4.0'
    assert q.evaluate('document.documentElement.scrollWidth<=innerWidth+1');assert not errors,errors;b.close()
  finally:server.shutdown();server.server_close()
-print('Passed: reproduced old floating sidebar; new versioned release bypasses cached JS/CSS, opens home, removes standalone logout and fills viewport; account/progress retained')
+print('Passed: reproduced old floating sidebar; new versioned release bypasses cached JS/CSS, opens home, removes standalone logout and fits below the header; account/progress retained')

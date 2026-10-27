@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "checks": [
+    "normal entry/width animations",
+    "real swipe left over link without navigation",
+    "outside backdrop closes and allows reopening",
+    "Tab loop, nested menu Escape and restored focus",
+    "reduced motion closes immediately",
+    "mobile/desktop resize retains saved desktop preference",
+    "no learner-state mutations"
+  ],
+  "js_errors": []
+}

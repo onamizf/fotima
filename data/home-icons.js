@@ -1,6 +1,16 @@
 /* Lucide 0.468.0, ISC. Локальная выборка SVG; атрибуция в assets/vendor/LUCIDE-LICENSE.txt. */
 const HomeIcon=(()=>{
  const paths={
+  "house":"<path d=\"M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8\" />\n  <path d=\"M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z\" />\n",
+  "layout-grid":"<rect width=\"7\" height=\"7\" x=\"3\" y=\"3\" rx=\"1\" />\n  <rect width=\"7\" height=\"7\" x=\"14\" y=\"3\" rx=\"1\" />\n  <rect width=\"7\" height=\"7\" x=\"14\" y=\"14\" rx=\"1\" />\n  <rect width=\"7\" height=\"7\" x=\"3\" y=\"14\" rx=\"1\" />\n",
+  "info":"<circle cx=\"12\" cy=\"12\" r=\"10\" />\n  <path d=\"M12 16v-4\" />\n  <path d=\"M12 8h.01\" />\n",
+  "settings-2":"<path d=\"M20 7h-9\" />\n  <path d=\"M14 17H5\" />\n  <circle cx=\"17\" cy=\"17\" r=\"3\" />\n  <circle cx=\"7\" cy=\"7\" r=\"3\" />\n",
+  "user-round":"<circle cx=\"12\" cy=\"8\" r=\"5\" />\n  <path d=\"M20 21a8 8 0 0 0-16 0\" />\n",
+  "chevron-left":"<path d=\"m15 18-6-6 6-6\" />\n",
+  "x":"<path d=\"M18 6 6 18\" />\n  <path d=\"m6 6 12 12\" />\n",
+  "plus":"<path d=\"M5 12h14\" />\n  <path d=\"M12 5v14\" />\n",
+  "menu":"<line x1=\"4\" x2=\"20\" y1=\"12\" y2=\"12\" />\n  <line x1=\"4\" x2=\"20\" y1=\"6\" y2=\"6\" />\n  <line x1=\"4\" x2=\"20\" y1=\"18\" y2=\"18\" />\n",
+  "log-out":"<path d=\"M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4\" />\n  <polyline points=\"16 17 21 12 16 7\" />\n  <line x1=\"21\" x2=\"9\" y1=\"12\" y2=\"12\" />\n",
   "ellipsis":"<circle cx=\"12\" cy=\"12\" r=\"1\" />\n  <circle cx=\"19\" cy=\"12\" r=\"1\" />\n  <circle cx=\"5\" cy=\"12\" r=\"1\" />\n",
   "search": "<circle cx=\"11\" cy=\"11\" r=\"8\" />\n  <path d=\"m21 21-4.3-4.3\" />\n",
   "shield-check": "<path d=\"M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z\" />\n  <path d=\"m9 12 2 2 4-4\" />\n",

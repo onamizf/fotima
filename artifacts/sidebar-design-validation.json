@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "checks": [
+    "same seven navigation routes and start destination",
+    "76/264px below 72px header, no duplicate logo/arrows",
+    "grouped links, actual progress/badges and 1.75 Lucide icons",
+    "preference survives F5 and routes without changing learner state",
+    "XP card updates after partial periodic navigation",
+    "compact tooltip and top-layer account popup",
+    "keyboard menu, outside panel coordination and sign-out",
+    "four languages, six sizes, short viewport nav scroll",
+    "mobile 85% drawer, nested Escape and accessible profile"
+  ],
+  "js_errors": []
+}
