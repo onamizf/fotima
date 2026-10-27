@@ -14,7 +14,7 @@ with tempfile.TemporaryDirectory(prefix='fotima-pages-') as temp:
     for filename,digest in manifest['assets'].items():
         assert digest==hashlib.sha256((output/filename).read_bytes()).hexdigest()[:16]
         assert filename+'?v='+digest in entry
-    assert manifest['version']=='1.1.0'
+    assert manifest['version']=='1.2.0'
     assert not any(name.endswith('.md') or name.startswith(('tests/','artifacts/','design/','.git/','src/lab/')) for name in files)
     try:module.build(output)
     except ValueError:pass
@@ -45,7 +45,7 @@ with tempfile.TemporaryDirectory(prefix='fotima-pages-') as temp:
                 page.locator('#language').select_option(language)
                 for route in ['catalog','theory/properties','table/properties','materials/properties','lab/physical','result/physical','lab/chemical','result/chemical','progress','settings']:
                     page.goto(base+'#'+route);assert page.locator('h1').count()==1
-                    assert not page.evaluate('document.documentElement.scrollWidth>innerWidth+1')
+                    assert not page.evaluate('document.documentElement.scrollWidth>innerWidth+1'),(language,route,page.evaluate('document.documentElement.scrollWidth'))
             page.goto(base+'#table/properties');page.locator('#card-salt-state').select_option('solid');page.reload()
             assert page.locator('#card-salt-state').input_value()=='solid'
             page.goto(base+'404.html');assert '404' in page.title();assert page.locator('#home').get_attribute('href')==base+'#welcome';assert 'radial-gradient' in page.evaluate('getComputedStyle(document.body).backgroundImage')

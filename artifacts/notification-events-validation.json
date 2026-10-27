@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "checks": [
+    "topic/badge/rank from checked chapter evidence",
+    "no duplicate events on F5",
+    "streak events on successive Tashkent days",
+    "today/yesterday/earlier groups",
+    "real touch swipe deletes without following link",
+    "settings footer destination and independent sound preference",
+    "persistent read-all, normal animations and reduced motion"
+  ],
+  "js_errors": []
+}

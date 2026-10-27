@@ -1,0 +1,15 @@
+{
+  "status": "passed",
+  "checks": [
+    "grouped search, show all, bold matches, locks, keyboard and overlay hit-testing",
+    "two intact equal-height resume cards and labeled scrolling shortcuts",
+    "44px header controls in bell/language/profile order",
+    "one panel at a time, language keyboard/instant save/toast",
+    "per-user persistent notices, read/delete and preferences",
+    "topic/rank changes from checked intro completion when fixture available",
+    "four languages at six widths, three bottom sheets",
+    "periodic integration, unchanged XP rewards and account isolation"
+  ],
+  "intro_completion_fixture": true,
+  "js_errors": []
+}

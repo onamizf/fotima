@@ -1,6 +1,6 @@
 let STORAGE_KEY='fotima.chemistry7.curriculum.v2';
 const LEGACY_STORAGE_KEY='fotima.chemistry7.shell.v1';
-const freshState=()=>({version:2,settings:{language:'ru',sound:false,reduceMotion:false,viewMode:'3d',helper:true,largeText:false},progress:{},lessons:{},propertyTable:{},activeSample:'salt',tableSource:'',investigation:blankInvestigation(),propertyReport:blankReport(),physicalLab:blankPhysicalLab(),chemicalLab:blankChemicalLab(),achievements:blankAchievements(),lastLocation:null,course:CourseModel.blank(),intro:IntroModel.blank(),periodic:PeriodicModel.blank(),game:CourseGame.blank()});
+const freshState=()=>({version:2,settings:{language:'ru',sound:false,reduceMotion:false,viewMode:'3d',helper:true,largeText:false},progress:{},lessons:{},propertyTable:{},activeSample:'salt',tableSource:'',investigation:blankInvestigation(),propertyReport:blankReport(),physicalLab:blankPhysicalLab(),chemicalLab:blankChemicalLab(),achievements:blankAchievements(),lastLocation:null,course:CourseModel.blank(),intro:IntroModel.blank(),periodic:PeriodicModel.blank(),notifications:StudentNotices.blank(),game:CourseGame.blank()});
 let storageAvailable=true;
 function readState(input){
  const clean=freshState();
@@ -15,6 +15,7 @@ function readState(input){
   for(const {id} of topics){if(value.lessons?.[id])clean.lessons[id]=sanitiseLesson(value.lessons[id],id);if(value.progress?.[id]==='started')clean.progress[id]='started';}
   clean.intro=IntroModel.sanitize(value.intro);
   clean.periodic=PeriodicModel.sanitize(value.periodic);
+  clean.notifications=StudentNotices.sanitize(value.notifications);
   clean.course=CourseModel.sanitize(value.course,value);
   clean.game=CourseGame.sanitize(value.game);
   if(!value.course){clean.course.legacy=Object.values(clean.lessons).some(l=>l.visited.length>0);clean.course.preservedAccess=['properties','physical','chemical'].filter(id=>value.progress?.[id]==='started'||clean.lessons[id]?.visited.length>0);}

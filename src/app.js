@@ -7,7 +7,7 @@ function href(page,topic){return '#'+page+(topic?'/'+topic.id:'');}
 function link(text,page,topic,cls=''){return `<a class="${cls==='button'?'text-link':cls}" href="${href(page,topic)}">${text}</a>`;}
 function action(text,id,cls=''){return `<button type="button" class="${cls}" data-action="${id}">${text}</button>`;}
 function go(page,topic){location.hash=href(page,topic);}
-function header(page,topic){if(page==='welcome')return Hero.header();return `<a class="skip" href="#main">${pu().skipContent}</a><header class="topbar"><div class="topinner"><div class="brand"><a class="brand-link" href="${LocalAuth.signedIn()?'#home':'#welcome'}" aria-label="${mini().subject} 7"><span class="brand-mark" aria-hidden="true">${frogImage('',true)}</span><span class="brand-title">${mini().subject} <span class="brand-grade">7</span></span></a></div>${ProfileMenu.trigger()}${LocalAuth.signedIn()?'':SiteRoutes.menu(page)}${LocalAuth.greeting()}${CourseGame.header()}${ProfileMenu.notifications()}${ProfileMenu.view(page)}${ProfileMenu.language()}</div></header>`;}
+function header(page,topic){if(page==='welcome')return Hero.header();return `<a class="skip" href="#main">${pu().skipContent}</a><header class="topbar"><div class="topinner"><div class="brand"><a class="brand-link" href="${LocalAuth.signedIn()?'#home':'#welcome'}" aria-label="${mini().subject} 7"><span class="brand-mark" aria-hidden="true">${frogImage('',true)}</span><span class="brand-title">${mini().subject} <span class="brand-grade">7</span></span></a></div>${ProfileMenu.trigger()}${LocalAuth.signedIn()?'':SiteRoutes.menu(page)}${LocalAuth.greeting()}${CourseGame.header()}${ProfileMenu.notifications()}${ProfileMenu.language()}${ProfileMenu.view(page)}</div></header>`;}
 
 function home(){return Dashboard.view();}
 function account(){return FotimaCloud.view();}
@@ -56,7 +56,7 @@ function render(moveFocus=true){PeriodicPage.dispose();IntroUI.dispose();t=dicti
  CourseUI.mount();
  document.querySelectorAll('[data-open-experiment]').forEach(button=>button.onclick=()=>CourseModel.openExperiment(button.dataset.openExperiment));
  Dashboard.mount();
- CourseGame.mount();PeriodicPage.mount();
+ CourseGame.mount();PeriodicPage.mount();StudentHeader.mount();
  if(moveFocus){document.getElementById('main').focus();window.scrollTo({top:0,behavior:'instant'});}
 }
 window.addEventListener('hashchange',()=>{if(PeriodicPage.handleRoute())return;investigationFeedback=null;reportFeedback='';physicalFeedback=null;chemicalFeedback=null;render();});render(false);FotimaCloud.start();

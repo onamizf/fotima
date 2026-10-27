@@ -5,13 +5,13 @@ const ProfileMenu=(()=>{
  function icon(id){return `<svg viewBox="0 0 24 24" width="21" height="21" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths[id]}</svg>`;}
  function view(page){const text=words[state.settings.language]||words.ru,signed=LocalAuth.signedIn(),home=signed?'home':'welcome',name=LocalAuth.currentUser()?.name||'',initial=escapeHTML(Array.from(name)[0]?.toUpperCase()||'');
   const items=[[home,text.home,'home'],['topics',Dashboard.ui().experiments,'levels'],['games',CourseModel.ui('games'),'gamepad'],['collection',CourseModel.ui('collection'),'flask'],['progress',mini().progress,'progress'],['contacts',Dashboard.ui().contacts,'info'],['settings',t.settings,'settings']],accountLabel=signed?cu().account:cu().signIn;
-  return `<details class="header-profile" id="headerProfile"><summary id="profileToggle" class="profile-toggle" aria-label="${text.profile}" title="${text.profile}">${signed?initial:icon('user')}</summary><div class="header-profile-popover"><a href="#account">${cu().account}</a><a href="#settings">${t.settings}</a>${signed?`<button type="button" data-profile-logout>${cu().logout}</button>`:`<a href="#login">${cu().login}</a>`}</div></details>
+  return `${StudentHeader.profile()}
   <dialog id="profileMenu" class="profile-menu" aria-labelledby="profileMenuTitle" data-compact="true"><div class="profile-menu-heading"><a href="#${home}" id="profileMenuTitle" class="profile-menu-label">${mini().subject} <span class="brand-grade">7</span></a><button type="button" data-profile-compact aria-label="${text.expand}" title="${text.expand}">${icon('chevron')}</button><button type="button" class="profile-menu-close" data-profile-close aria-label="${text.close}" title="${text.close}">${icon('close')}</button></div>
   <a class="sidebar-start" href="#topics" title="${Dashboard.ui().start}"><span aria-hidden="true">+</span><span class="profile-menu-label">${Dashboard.ui().start}</span></a>
   <nav aria-label="${text.menu}">${items.map(([id,label,glyph])=>`<a href="#${id}" title="${label}" ${id===page||id==='topics'&&['theory','lab','result','materials','table','resources'].includes(page)?'aria-current="page"':''}>${icon(glyph)}<span class="profile-menu-label">${label}</span><span class="profile-menu-arrow" aria-hidden="true">›</span></a>`).join('')}</nav>
   <footer class="sidebar-bottom"><a class="profile-menu-account" href="#account" title="${accountLabel}" ${page==='account'?'aria-current="page"':''}>${icon('user')}<span class="profile-menu-label">${accountLabel}</span></a></footer></dialog>`;
  }
- function language(){return `<label class="header-language"><span class="visually-hidden">${t.language}</span><select id="language" aria-label="${t.language}">${[['ru','RU'],['uz-Latn','UZ'],['en','EN'],['uz-Cyrl','ЎЗ']].map(([value,label])=>`<option value="${value}" ${state.settings.language===value?'selected':''}>${label}</option>`).join('')}</select></label>`;}
+ function language(){return StudentHeader.language();}
  function trigger(){const text=words[state.settings.language]||words.ru;return `<button type="button" id="navigationToggle" class="navigation-toggle" aria-label="${text.menu}" title="${text.menu}" aria-haspopup="dialog" aria-controls="profileMenu" aria-expanded="false"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>`;}
  let compact=true,controller;
  function mount(){controller?.abort();controller=new AbortController();const {signal}=controller,toggle=document.getElementById('navigationToggle'),dialog=document.getElementById('profileMenu');if(!toggle||!dialog){delete document.body.dataset.sidebar;return;}const text=words[state.settings.language]||words.ru,desktop=matchMedia('(min-width:768px)');let navigating=false,changingLayout=false;
@@ -26,9 +26,8 @@ const ProfileMenu=(()=>{
   dialog.querySelectorAll('a').forEach(link=>link.onclick=()=>{if(!desktop.matches){navigating=true;dialog.close();}});
   collapse.onclick=()=>setCompact(dialog.dataset.compact!=='true');
   document.querySelectorAll('[data-profile-logout]').forEach(button=>button.onclick=()=>LocalAuth.signOut());
-  const profile=document.getElementById('headerProfile');document.addEventListener('click',event=>{if(profile&&!profile.contains(event.target))profile.open=false;},{signal});document.addEventListener('keydown',event=>{if(event.key==='Escape'&&profile?.open){profile.open=false;profile.querySelector('summary').focus();}},{signal});
   desktop.addEventListener('change',layout,{signal});layout();
  }
- function notifications(){return `<button type="button" class="header-notifications" data-notifications aria-label="${Dashboard.ui().notifications}" title="${Dashboard.ui().notifications}"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 10a7 7 0 0 1 14 0v5l2 3H3l2-3Zm4 11h6"/></svg></button>`;}
+ function notifications(){return StudentHeader.notifications();}
  return {view,trigger,mount,language,notifications};
 })();
