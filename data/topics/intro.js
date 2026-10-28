@@ -1,6 +1,6 @@
 /* Структура главы 1; все формулировки и изображения проекта самостоятельные. */
 const IntroData={
- "version": 1,
+ "version": 2,
  "title": {
   "ru": "Введение в химию",
   "uz-Latn": "Kimyo faniga kirish",
@@ -835,7 +835,7 @@ const IntroData={
    "letter": "B"
   },
   {
-   "id": "danger-d",
+   "id": "danger-c",
    "work": "safety",
    "type": "danger",
    "title": {
@@ -843,10 +843,10 @@ const IntroData={
     "uz-Latn": "Burun probirkaga yaqin",
     "en": "Nose against a test tube"
    },
-   "letter": "D"
+   "letter": "C"
   },
   {
-   "id": "danger-e",
+   "id": "danger-d",
    "work": "safety",
    "type": "danger",
    "title": {
@@ -854,7 +854,7 @@ const IntroData={
     "uz-Latn": "Yuz qaynagan stakan ustida",
     "en": "Face above a boiling beaker"
    },
-   "letter": "E"
+   "letter": "D"
   },
   {
    "id": "signs",
@@ -1039,8 +1039,8 @@ const IntroData={
    "correctAction": 2
   },
   {
-   "id": "danger-d",
-   "letter": "D",
+   "id": "danger-c",
+   "letter": "C",
    "title": {
     "ru": "Нос у пробирки",
     "uz-Latn": "Burun probirkaga yaqin",
@@ -1084,8 +1084,8 @@ const IntroData={
    "correctAction": 0
   },
   {
-   "id": "danger-e",
-   "letter": "E",
+   "id": "danger-d",
+   "letter": "D",
    "title": {
     "ru": "Лицо над кипящим стаканом",
     "uz-Latn": "Yuz qaynagan stakan ustida",
@@ -1662,6 +1662,22 @@ const IntroData={
   "use": "Structure and learning goals only; original wording and illustrations."
  }
 };
+/* Canonical IDs are language-independent; textbook letters are presentation data. */
+const SafetySituations=(()=>{
+ const ids=['danger-a','danger-b','danger-c','danger-d'];
+ const copy={ru:{letters:['A','B','C','D'],heading:'Практическая работа 1.1 · Ситуация {letter} из 4',situation:'СИТУАЦИЯ {letter}',previous:'← Ситуация {letter}',next:'Ситуация {letter} →'},'uz-Latn':{letters:['A','B','D','E'],heading:'1.1-amaliy ish · 4 vaziyatdan {letter} vaziyat',situation:'{letter} VAZIYAT',previous:'← {letter} vaziyat',next:'{letter} vaziyat →'},'uz-Cyrl':{letters:['A','B','D','E'],heading:'1.1-амалий иш · 4 вазиятдан {letter} вазият',situation:'{letter} ВАЗИЯТ',previous:'← {letter} вазият',next:'{letter} вазият →'},en:{letters:['A','B','C','D'],heading:'Practical work 1.1 · Situation {letter} of 4',situation:'SITUATION {letter}',previous:'← Situation {letter}',next:'Situation {letter} →'}};
+ const text=lang=>copy[lang]||copy.ru;
+ const letter=(id,lang)=>text(lang).letters[ids.indexOf(id)]||'';
+ function navigation(lang,done=()=>false){return ids.map(id=>({id,label:letter(id,lang),done:done(id)}));}
+ function decorate(scenario){const index=ids.indexOf(scenario.id);for(const [lang,t] of Object.entries(scenario.copy)){const c=text(lang),format=(key,i)=>c[key].replace('{letter}',c.letters[i]);t.heading=format('heading',index);t.situation=format('situation',index);if(index>0)t.previous=format('previous',index-1);if(index<ids.length-1)t.next=format('next',index+1);}return scenario;}
+ const oldId=id=>id==='danger-d'?'danger-c':id==='danger-e'?'danger-d':id;
+ const oldExperiment=id=>id==='intro-danger-d'?'intro-danger-c':id==='intro-danger-e'?'intro-danger-d':id;
+ function migrateIntro(value){if(value?.version!==1)return value;return {...value,version:2,task:oldId(value.task),rows:Object.fromEntries(Object.entries(value.rows||{}).map(([id,row])=>[oldId(id),row]))};}
+ function migrateSave(value){if(value?.intro?.version!==1)return value;const out={...value,intro:migrateIntro(value.intro)};if(value.game){const g=value.game;out.game={...g,rewards:Object.fromEntries(Object.entries(g.rewards||{}).map(([key,date])=>[key.startsWith('exp:')?'exp:'+oldExperiment(key.slice(4)):key,date])),daily:Object.fromEntries(Object.entries(g.daily||{}).map(([day,id])=>[day,oldExperiment(id)]))};}return out;}
+ return {ids,copy,letter,navigation,decorate,migrateIntro,migrateSave};
+})();
+for(const task of [...IntroData.tasks,...IntroData.dangers])if(SafetySituations.ids.includes(task.id))task.letter=Object.fromEntries(Object.keys(SafetySituations.copy).map(lang=>[lang,SafetySituations.letter(task.id,lang)]));
+
 for(const part of IntroData.parts)part.purpose=IntroData.functions.find(f=>f.id===part.id)?.text||(part.id==='base'?{ru:'Обеспечивает устойчивость прибора.','uz-Latn':'Jihozning barqaror turishini ta’minlaydi.',en:'Keeps the burner stable.'}:{ru:'Проводит газ к горелке.','uz-Latn':'Gazni gorelkaga yetkazadi.',en:'Carries gas to the burner.'});
 IntroData.symbols={irritant:{ru:'Восклицательный знак','uz-Latn':'Undov belgisi',en:'Exclamation mark'},explosive:{ru:'Взрыв','uz-Latn':'Portlash',en:'Exploding bomb'},corrosive:{ru:'Капли на руке и поверхности','uz-Latn':'Qo‘l va yuzaga tomchilar',en:'Drops on a hand and surface'},toxic:{ru:'Череп','uz-Latn':'Bosh suyagi',en:'Skull'},flammable:{ru:'Пламя','uz-Latn':'Alanga',en:'Flame'}};
 /* Ответы и критерии урока находятся в данных, а не в модулях отрисовки. */

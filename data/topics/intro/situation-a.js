@@ -75,8 +75,6 @@ const SituationA={
   "copy": {
     "ru": {
       "title": "Распущенные волосы в лаборатории",
-      "heading": "Практическая работа 1.1 · Ситуация A из 4",
-      "situation": "СИТУАЦИЯ A",
       "watch": "Смотри внимательно, что произойдёт…",
       "loading": "Загружаем сцену…",
       "loadError": "Кадры сцены недоступны. Проверь подключение и попробуй ещё раз.",
@@ -101,7 +99,6 @@ const SituationA={
       "wrong": "Не совсем. Прочитай объяснение и попробуй ещё раз.",
       "multiHint": "Выбери все безопасные действия.",
       "replay": "↺ Посмотреть ещё раз",
-      "next": "Ситуация B →",
       "reward": "+20 XP",
       "whatTitle": "① Что случилось",
       "what": "Распущенная коса попала в стакан с веществом. Оно осталось на волосах и могло попасть на кожу.",
@@ -163,8 +160,6 @@ const SituationA={
     },
     "uz-Latn": {
       "title": "Laboratoriyada yig‘ilmagan soch",
-      "heading": "1.1-amaliy ish · 4 vaziyatdan A vaziyat",
-      "situation": "A VAZIYAT",
       "watch": "Nima bo‘lishini diqqat bilan kuzat…",
       "loading": "Sahna yuklanmoqda…",
       "loadError": "Sahna rasmlari ochilmadi. Ulanishni tekshirib, qayta urinib ko‘r.",
@@ -189,7 +184,6 @@ const SituationA={
       "wrong": "Hali to‘g‘ri emas. Izohni o‘qib, qayta urin.",
       "multiHint": "Barcha xavfsiz harakatlarni tanla.",
       "replay": "↺ Yana ko‘rish",
-      "next": "B vaziyat →",
       "reward": "+20 XP",
       "whatTitle": "① Nima bo‘ldi",
       "what": "Yig‘ilmagan o‘rim stakandagi moddaga tushdi. Modda sochda qolib, teriga tegishi mumkin.",
@@ -251,8 +245,6 @@ const SituationA={
     },
     "uz-Cyrl": {
       "title": "Laboratoriyada yig‘ilmagan soch",
-      "heading": "1.1-amaliy ish · 4 vaziyatdan A vaziyat",
-      "situation": "A VAZIYAT",
       "watch": "Nima bo‘lishini diqqat bilan kuzat…",
       "loading": "Sahna yuklanmoqda…",
       "loadError": "Sahna rasmlari ochilmadi. Ulanishni tekshirib, qayta urinib ko‘r.",
@@ -277,7 +269,6 @@ const SituationA={
       "wrong": "Hali to‘g‘ri emas. Izohni o‘qib, qayta urin.",
       "multiHint": "Barcha xavfsiz harakatlarni tanla.",
       "replay": "↺ Yana ko‘rish",
-      "next": "B vaziyat →",
       "reward": "+20 XP",
       "whatTitle": "① Nima bo‘ldi",
       "what": "Yig‘ilmagan o‘rim stakandagi moddaga tushdi. Modda sochda qolib, teriga tegishi mumkin.",
@@ -339,8 +330,6 @@ const SituationA={
     },
     "en": {
       "title": "Loose hair in the laboratory",
-      "heading": "Practical work 1.1 · Situation A of 4",
-      "situation": "SITUATION A",
       "watch": "Watch carefully to see what happens…",
       "loading": "Loading the scene…",
       "loadError": "Scene images are unavailable. Check your connection and try again.",
@@ -365,7 +354,6 @@ const SituationA={
       "wrong": "Not quite. Read the explanation and try again.",
       "multiHint": "Select all safe actions.",
       "replay": "↺ Watch again",
-      "next": "Situation B →",
       "reward": "+20 XP",
       "whatTitle": "① What happened",
       "what": "A loose braid fell into a beaker. The substance stayed on the hair and could reach the skin.",
@@ -437,3 +425,5 @@ const SituationA={
  danger.danger=[0,1,2].map(i=>Object.fromEntries(Object.entries(SituationA.copy).map(([lang,c])=>[lang,c.risks[i]])));
  danger.actions=[2,0,3].map(i=>Object.fromEntries(Object.entries(SituationA.copy).map(([lang,c])=>[lang,c.actions[i]])));
 }
+
+SafetySituations.decorate(SituationA);

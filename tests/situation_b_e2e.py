@@ -21,7 +21,7 @@ with sync_playwright() as p:
  for i in [0,1,2,4]:q.locator('[data-safe-action="'+str(i)+'"]').check()
  q.locator('[data-sp=check]').click();assert not q.evaluate("IntroModel.done('danger-b')");q.locator('[data-safe-action="4"]').uncheck();q.locator('[data-safe-action="3"]').check();before=q.evaluate('CourseGame.xp()');q.locator('[data-sp=check]').click();assert q.evaluate("IntroModel.done('danger-b')");assert q.evaluate('CourseGame.xp()')>=before+20;assert q.locator('.sp-goggles-flight').count()==1
  after=q.evaluate('CourseGame.xp()');q.reload();q.wait_for_selector('.sp-loader',state='hidden');assert q.locator('.sp-scene').get_attribute('data-stage')=='4';assert q.locator('.sp-explanation section').count()==5;assert q.evaluate('CourseGame.xp()')==after
- q.locator('[data-sp=previous]').click();assert q.evaluate('IntroModel.data().task')=='danger-a';assert q.locator('.sp-explanation').is_visible();q.locator('[data-sp=next]').click();q.locator('[data-sp=next]').click();assert q.evaluate('IntroModel.data().task')=='danger-d'
+ q.locator('[data-sp=previous]').click();assert q.evaluate('IntroModel.data().task')=='danger-a';assert q.locator('.sp-explanation').is_visible();q.locator('[data-sp=next]').click();q.locator('[data-sp=next]').click();assert q.evaluate('IntroModel.data().task')=='danger-c'
  # Check completed B in every locale and at phone width.
  for lang in ['ru','uz-Latn','uz-Cyrl','en']:
   q.evaluate('(lang)=>{state.settings.language=lang;IntroModel.openTask("danger-b");render(false)}',lang);q.wait_for_selector('.sp-loader',state='hidden');assert 'undefined' not in q.locator('.scene-player').inner_text();assert q.locator('[data-sp=previous]').is_visible()
@@ -38,4 +38,4 @@ with sync_playwright() as p:
  assert q.evaluate('IntroModel.done("danger-b")');assert q.evaluate('CourseGame.xp()')==after
  # Reduced motion has no zoom, droplets, flash, shake or flying icon.
  q.emulate_media(reduced_motion='reduce');q.locator('[data-stage="2"]').click();q.clock.run_for(200);assert q.locator('.sp-camera').evaluate('(e)=>e.style.transform')=='scale(1)';assert q.locator('.sp-flash').evaluate('(e)=>getComputedStyle(e).opacity')=='0'
- assert not errors,errors;b.close();print('PASS: B stages, two errors, wrong/multiple answers, saved proof, navigation A/B/D, XP once, locales, phone, debug move/resize/copy and reduced motion'+' (all actual frames)')
+ assert not errors,errors;b.close();print('PASS: B stages, two errors, wrong/multiple answers, saved proof, navigation A/B/C, XP once, locales, phone, debug move/resize/copy and reduced motion'+' (all actual frames)')

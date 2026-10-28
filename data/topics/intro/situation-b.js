@@ -1,7 +1,6 @@
 /* Situation B. Zones are calibrated against the question frame; debug mode exports edits. */
 const SituationB={
   "id": "danger-b",
-  "letter": "B",
   "previous": "danger-a",
   "frames": [
     "assets/lab/1-1/b-1-start.webp",
@@ -128,8 +127,6 @@ const SituationB={
   "copy": {
     "ru": {
       "title": "Нагревание без защитных очков",
-      "heading": "Практическая работа 1.1 · Ситуация B из 4",
-      "situation": "СИТУАЦИЯ B",
       "q1": "Нажми на сцене, что здесь не так",
       "found": "Найдено {n} / {total}",
       "gogglesLabel": "Очки не надеты",
@@ -137,8 +134,6 @@ const SituationB={
       "hint": "Проверь, где очки Тимура и как он держит пробирку…",
       "q2": "Чем это опасно?",
       "q3": "Как нужно нагревать пробирку?",
-      "previous": "← Ситуация A",
-      "next": "Ситуация D →",
       "stop": "Ой! А где твои очки? 😱",
       "praise": "Глаза в безопасности! 👍",
       "what": "Жидкость перегрелась и выплеснулась к лицу. Глаза Тимура не были защищены очками.",
@@ -204,8 +199,6 @@ const SituationB={
     },
     "uz-Latn": {
       "title": "Himoya ko‘zoynagisiz isitish",
-      "heading": "1.1-amaliy ish · 4 vaziyatdan B vaziyat",
-      "situation": "B VAZIYAT",
       "q1": "Sahnada nima noto‘g‘ri ekanini tanla",
       "found": "Topildi: {n} / {total}",
       "gogglesLabel": "Ko‘zoynak taqilmagan",
@@ -213,8 +206,6 @@ const SituationB={
       "hint": "Temurning ko‘zoynagi qayerda va u probirkani qanday ushlab turibdi?",
       "q2": "Bu nimasi bilan xavfli?",
       "q3": "Probirkani qanday isitish kerak?",
-      "previous": "← A vaziyat",
-      "next": "D vaziyat →",
       "stop": "Voy! Ko‘zoynaging qani? 😱",
       "praise": "Ko‘zlar himoyalangan! 👍",
       "what": "Suyuqlik ortiqcha qizib, yuz tomon sachradi. Temurning ko‘zlari ko‘zoynak bilan himoyalanmagan edi.",
@@ -280,8 +271,6 @@ const SituationB={
     },
     "uz-Cyrl": {
       "title": "Ҳимоя кўзойнагисиз иситиш",
-      "heading": "1.1-амалий иш · 4 вазиятдан B вазият",
-      "situation": "B ВАЗИЯТ",
       "q1": "Саҳнада нима нотўғри эканини танла",
       "found": "Топилди: {n} / {total}",
       "gogglesLabel": "Кўзойнак тақилмаган",
@@ -289,8 +278,6 @@ const SituationB={
       "hint": "Темурнинг кўзойнаги қаерда ва у пробиркани қандай ушлаб турибди?",
       "q2": "Бу нимаси билан хавфли?",
       "q3": "Пробиркани қандай иситиш керак?",
-      "previous": "← A вазият",
-      "next": "D вазият →",
       "stop": "Вой! Кўзойнагинг қани? 😱",
       "praise": "Кўзлар ҳимояланган! 👍",
       "what": "Суюқлик ортиқча қизиб, юз томон сачради. Темурнинг кўзлари кўзойнак билан ҳимояланмаган эди.",
@@ -356,8 +343,6 @@ const SituationB={
     },
     "en": {
       "title": "Heating without safety goggles",
-      "heading": "Practical work 1.1 · Situation B of 4",
-      "situation": "SITUATION B",
       "q1": "Select what is wrong in the scene",
       "found": "Found {n} / {total}",
       "gogglesLabel": "Goggles are not being worn",
@@ -365,8 +350,6 @@ const SituationB={
       "hint": "Check where Timur’s goggles are and how he holds the tube…",
       "q2": "Why is this dangerous?",
       "q3": "How should a test tube be heated?",
-      "previous": "← Situation A",
-      "next": "Situation D →",
       "stop": "Oops! Where are your goggles? 😱",
       "praise": "Eyes protected! 👍",
       "what": "The liquid overheated and splashed towards Timur’s face. His eyes were not protected by goggles.",
@@ -443,3 +426,5 @@ for(const lang of Object.keys(SituationB.copy))SituationB.copy[lang]={...Situati
  danger.danger=[1,0,2].map(i=>Object.fromEntries(Object.entries(SituationB.copy).map(([lang,c])=>[lang,c.risks[i]])));
  danger.actions=[4,5,0].map(i=>Object.fromEntries(Object.entries(SituationB.copy).map(([lang,c])=>[lang,c.actions[i]])));
 }
+
+SafetySituations.decorate(SituationB);

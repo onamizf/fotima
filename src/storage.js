@@ -5,7 +5,8 @@ let storageAvailable=true;
 function readState(input){
  const clean=freshState();
  try{
-  const raw=input!==undefined?JSON.stringify(input):localStorage.getItem(STORAGE_KEY),value=raw?JSON.parse(raw):null;
+  const raw=input!==undefined?JSON.stringify(input):localStorage.getItem(STORAGE_KEY);
+  const value=SafetySituations.migrateSave(raw?JSON.parse(raw):null);
   const legacy=!raw?JSON.parse(localStorage.getItem(LEGACY_STORAGE_KEY)||'null'):null;
   const settings=(value?.version===2?value.settings:legacy?.settings)||{};
   if(Object.hasOwn(dictionaries,settings.language))clean.settings.language=settings.language;
