@@ -38,9 +38,9 @@ with sync_playwright() as p:
    q.locator('[data-order-id="'+str(target)+'"][data-order-move="-1"]').click()
  for i in [0,1]:q.locator('[data-safe-action="'+str(i)+'"]').check()
  q.locator('[data-sp=check]').click();assert q.evaluate("IntroModel.done('danger-c')");q.locator('[data-sp=next]').click()
- data=q.evaluate('IntroData.dangers')
- for d in data[3:]:
-  q.locator('[name=intro-danger][value="'+str(d['correctDanger'])+'"]').check();q.locator('[name=intro-precaution][value="'+str(d['correctAction'])+'"]').check();check();assert q.evaluate('(id)=>IntroModel.done(id)',d['id']);nxt()
+ q.wait_for_selector('.sp-loader',state='hidden');q.locator('[data-sp=skip]').click();q.locator('[data-hotspot=face-near-beaker]').click();q.locator('[data-risk="0"]').click()
+ for i in [0,1,2,3]:q.locator('[data-safe-action="'+str(i)+'"]').check()
+ q.locator('[data-sp=check]').click();assert q.evaluate("IntroModel.done('danger-d')");q.locator('[data-sp=next]').click();q.wait_for_selector('.safety-summary');assert q.locator('.safety-summary-card').count()==4;q.locator('[data-safety-next]').click()
  print('Hazards passed',flush=True)
  for id in ['irritant','explosive','corrosive','toxic','flammable']:drop(id,id)
  check();assert q.evaluate("IntroModel.done('signs')");nxt();start_work()

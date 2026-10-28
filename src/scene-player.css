@@ -106,3 +106,35 @@ body .intro-root .scene-player .sp-order-grip { cursor:grab; touch-action:none; 
 .sp-forbidden legend { font-size:16px; font-weight:700; }
 .sp-panel .sp-image-note { font-size:12px; margin-top:12px; color:#4d637b; }
 @media(max-width:599px) { .sp-order-list>li { flex-wrap:wrap; } .sp-order-buttons { margin-left:auto; } }
+.sp-heat { position:absolute; z-index:2; overflow:hidden; pointer-events:none; }
+.sp-heat svg { display:block; width:100%; height:100%; }
+.sp-steam-burst { position:absolute; z-index:5; pointer-events:none; opacity:0; background:radial-gradient(ellipse,#fff 0%,#fffffff0 25%,#ffffff00 72%); border-radius:50%; }
+.sp-risk-explanation { padding:12px; background:#eef5ff; color:#25466c; border-radius:12px; }
+.sp-camera>canvas { z-index:3; }
+.safety-summary { position:relative; overflow:hidden; background:#fff; color:#0b1e4a; padding:28px; border-radius:24px; scroll-margin-top:90px; }
+.safety-summary-nav { display:flex; flex-wrap:wrap; align-items:center; gap:8px; margin-bottom:24px; }
+.safety-summary-nav span { display:inline-flex; align-items:center; min-height:32px; padding:4px 12px; border-radius:999px; background:#dcfce7; color:#166534; font-size:13px; font-weight:700; }
+.safety-summary-nav [aria-current=step] { background:#1f6bff; color:#fff; }
+.safety-summary-cards { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:16px; }
+body .intro-root .safety-summary .safety-summary-card { position:relative; display:flex; flex-direction:column; gap:12px; min-width:0; padding:0 0 16px; overflow:hidden; border:1px solid #c9daff!important; background:#f6f9ff!important; color:#0b1e4a!important; border-radius:16px!important; text-transform:none; box-shadow:none; text-align:left; }
+.safety-summary-card>img { width:100%; height:auto; aspect-ratio:1376/768; object-fit:cover; }
+.safety-summary-card>strong { padding:0 14px; font:600 14px/1.45 Inter,Arial,sans-serif; }
+.safety-summary-letter { position:absolute; left:10px; top:10px; width:28px; height:28px; display:grid; place-items:center; background:#1f6bff; color:#fff; border-radius:50%; font-size:14px; }
+.safety-summary-metrics { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; align-items:center; margin:28px 0; background:#f0f5ff; padding:20px; border-radius:16px; }
+.safety-summary-metrics p { margin:0; font-size:16px; line-height:1.5; font-weight:600; }
+.safety-summary-metrics strong { display:block; font-size:30px; color:#1f6bff; }
+.safety-summary-metrics progress { width:100%; height:8px; accent-color:#22c55e; }
+.safety-summary-badge { display:flex; align-items:center; justify-content:center; gap:16px; padding:20px; border-radius:16px; background:#eefbf3; }
+.safety-summary-badge img { flex-shrink:0; width:64px; height:64px; object-fit:contain; }
+body .intro-root .safety-summary .safety-summary-badge h2 { margin:0; font-size:23px; color:#166534; font-weight:700; text-transform:none; letter-spacing:normal; }
+.safety-summary-frog { display:flex; align-items:center; justify-content:center; gap:16px; margin:24px 0; }
+.safety-summary-frog img { width:72px; height:auto; }
+.safety-summary-frog p { max-width:460px; line-height:1.6; font-size:15px; }
+body .intro-root .safety-summary .safety-summary-next { min-height:48px; padding:12px 22px; border:0!important; border-radius:999px!important; background:#1f6bff!important; color:#fff!important; text-transform:none; font:700 15px/1.4 Inter,Arial,sans-serif; }
+body .intro-root .safety-summary .safety-summary-retry { min-height:44px; padding:10px 18px; border:1px solid #1f6bff!important; background:#f0f5ff!important; color:#1f6bff!important; text-transform:none; font-size:14px; }
+.safety-summary-note { font-size:12px; line-height:1.5; color:#5b6b8c; }
+.intro-task-one-complete { color:#166534; font-weight:600; }
+body .intro-root [data-task-one-complete=true] { border-color:#22c55e!important; }
+.safety-summary button:focus-visible { outline:3px solid #1f6bff!important; outline-offset:3px; }
+@media(max-width:767px) { .safety-summary { padding:18px; }.safety-summary-cards { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }.safety-summary-card>strong { font-size:12px; padding:0 10px; }.safety-summary-metrics { grid-template-columns:1fr; gap:14px; padding:16px; }.safety-summary-badge { padding:16px; gap:12px; }body .intro-root .safety-summary .safety-summary-badge h2 { font-size:19px; }.safety-summary-next { width:100%; }.safety-summary-frog { gap:10px; } }
+@media(prefers-reduced-motion:reduce) { .safety-summary * { animation:none!important; transition:none!important; } }

@@ -5,13 +5,14 @@ const IntroModel=(()=>{
  const labels=IntroData.rules.labels;
  const safeTube=IntroData.rules.safeTube;
  const equal=(a,b)=>JSON.stringify(a)===JSON.stringify(b);
- const empty=()=>({version:2,active:'map',work:'safety',task:taskIds[0],rows:{},self:{ratings:[],plan:'',saved:false,proof:null},quiz:{answers:[],order:[],swipes:[],research:{},attempts:[],demoDone:false}});
+ const empty=()=>({version:2,active:'map',work:'safety',task:taskIds[0],rows:{},safetyRetry:[],self:{ratings:[],plan:'',saved:false,proof:null},quiz:{answers:[],order:[],swipes:[],research:{},attempts:[],demoDone:false}});
  function scrub(value,depth=0){if(depth>6)return null;if(typeof value==='string')return value.slice(0,800);if(typeof value==='number')return Number.isFinite(value)?Math.max(-10000,Math.min(10000,value)):0;if(typeof value==='boolean'||value===null)return value;if(Array.isArray(value))return value.slice(0,80).map(v=>scrub(v,depth+1));if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).filter(([k])=>!['__proto__','constructor','prototype'].includes(k)).slice(0,80).map(([k,v])=>[k,scrub(v,depth+1)]));return null;}
  function defaults(){return {gas:0,air:0,flame:false,match:false,near:false,phase:0,leak:false,gasDelay:0,light:true,xray:false,exploded:false,run:false,elapsed:0,cooling:0,temp:20,progress:0,flip:false,goggles:false,holder:72,angle:45,direction:'away',heatPoint:15,movement:0,sweep:0,stationary:0,overheat:0,boiled:false,cracked:false};}
  function validTask(id,r){const a=r?.answers||{},e=r?.evidence||{},m=r?.matches||{};
   if(id==='danger-a'&&e.sceneA&&!(e.sceneHotspot===true&&e.sceneRisk===0&&equal(e.sceneActions,[0,1])))return false;
   if(id==='danger-b'&&e.sceneB&&!(Array.isArray(e.sceneHotspots)&&equal([...e.sceneHotspots].sort(),['goggles','tube'])&&e.sceneRisk===0&&equal(e.sceneActions,[0,1,2,3])))return false;
   if(id==='danger-c'&&e.sceneC&&!(equal(e.sceneHotspots,['vapour'])&&e.sceneRisk===0&&equal(e.sceneOrder,[0,1,2,3])&&equal(e.sceneActions,[0,1])))return false;
+  if(id==='danger-d'&&e.sceneD&&!(equal(e.sceneHotspots,['face-near-beaker'])&&e.sceneRisk===0&&equal(e.sceneActions,[0,1,2,3])))return false;
   if(id.startsWith('danger-')){const d=IntroData.dangers.find(d=>d.id===id);return a.danger===d.correctDanger&&a.precaution===d.correctAction;}
   if(id==='signs')return IntroData.signs.every(s=>m[s.id]===s.id);
   if(id==='museum')return mainEquipment.every(id=>Array.isArray(r.visited)&&r.visited.includes(id)&&a[id]===id)&&['neck','body','bottom'].every(id=>m[id]===id);
@@ -26,7 +27,7 @@ const IntroModel=(()=>{
  function selfComplete(){const s=state.intro?.self;return !!s&&(s.proof?selfValid(s.proof):s.saved&&selfValid(s));}
  function selfValid(value){return Array.isArray(value.ratings)&&value.ratings.length===5&&value.ratings.every(v=>['yes','unsure','no'].includes(v))&&(value.ratings.every(v=>v==='yes')||typeof value.plan==='string'&&value.plan.trim().length>0);}
  function score(attempt){let correct=IntroData.quiz.reduce((n,q,i)=>n+Number(attempt.answers?.[i]===q.correct),0);correct+=Number(equal(attempt.order,[0,1,2,3,4,5]));correct+=IntroData.swipes.reduce((n,q,i)=>n+Number(attempt.swipes?.[i]===q.answer),0);for(const [key,value] of Object.entries(IntroData.rules.research))correct+=Number(attempt.research?.[key]===value);return {correct,total:14,percent:Math.floor(correct/14*100)};}
- function sanitize(value){const out=empty();value=SafetySituations.migrateIntro(value);if(value?.version!==2)return out;const input=scrub(value);if(['map','brief','task','self','quiz'].includes(input.active))out.active=input.active;if(IntroData.works.some(w=>w.id===input.work))out.work=input.work;if(taskIds.includes(input.task))out.task=input.task;
+ function sanitize(value){const out=empty();value=SafetySituations.migrateIntro(value);if(value?.version!==2)return out;const input=scrub(value);if(['map','brief','task','self','quiz','safety-summary'].includes(input.active))out.active=input.active;if(IntroData.works.some(w=>w.id===input.work))out.work=input.work;if(taskIds.includes(input.task))out.task=input.task;out.safetyRetry=Array.isArray(input.safetyRetry)?[...new Set(input.safetyRetry.filter(id=>SafetySituations.ids.includes(id)))]:[];
   for(const id of taskIds){const r=input.rows?.[id];if(!r||typeof r!=='object'||Array.isArray(r))continue;const row={answers:r.answers&&typeof r.answers==='object'?r.answers:{},matches:r.matches&&typeof r.matches==='object'?r.matches:{},evidence:r.evidence&&typeof r.evidence==='object'?r.evidence:{},visited:Array.isArray(r.visited)?r.visited.filter(x=>mainEquipment.includes(x)):[],order:Array.isArray(r.order)?r.order.filter(x=>assembly.includes(x)):[],checked:r.checked===true,sim:{...defaults(),...(r.sim&&typeof r.sim==='object'?r.sim:{})}};row.sim.gas=0;row.sim.flame=false;row.sim.run=false;row.sim.match=false;row.sim.near=false;row.sim.gasDelay=0;if(id==='ignition'&&row.sim.phase!==5){row.sim.phase=0;row.evidence.sequence=[];}row.proof=r.proof&&typeof r.proof==='object'?r.proof:null;row.checked=row.checked&&validTask(id,row.proof||row);out.rows[id]=row;}
   if(input.self){out.self={ratings:Array.isArray(input.self.ratings)?input.self.ratings.slice(0,5).map(v=>['yes','unsure','no'].includes(v)?v:null):[],plan:typeof input.self.plan==='string'?input.self.plan.slice(0,600):'',saved:input.self.saved===true};out.self.saved=out.self.saved&&selfValid(out.self);out.self.proof=input.self.proof&&selfValid(input.self.proof)?input.self.proof:out.self.saved?{ratings:[...out.self.ratings],plan:out.self.plan}:null;}
   const q=input.quiz;if(q&&typeof q==='object'){out.quiz={answers:Array.isArray(q.answers)?q.answers.slice(0,4):[],order:Array.isArray(q.order)?q.order.slice(0,6):[],swipes:Array.isArray(q.swipes)?q.swipes.slice(0,5):[],research:q.research&&typeof q.research==='object'?q.research:{},demoDone:q.demoDone===true,attempts:Array.isArray(q.attempts)?q.attempts.filter(a=>a&&a.demoDone===true).slice(-50):[]};}
@@ -37,6 +38,15 @@ const IntroModel=(()=>{
  const sim=()=>row().sim;
  function done(id){const r=state.intro?.rows?.[id];return !!r?.checked&&validTask(id,r.proof||r);}
  function unlockedTask(id){const i=taskIds.indexOf(id);return i>=0&&taskIds.slice(0,i).every(done);}
+ function safetyComplete(){return SafetySituations.ids.every(done);}
+ function safetySummary(){const counts={'danger-a':1,'danger-b':2,'danger-c':1,'danger-d':1};let found=0,attempts=0,correct=0,legacy=0;const errors=[];
+  for(const id of SafetySituations.ids){if(!done(id))continue;const r=row(id),e=(r.proof||r).evidence||{},s=e.sceneStats,base=counts[id]+2,valid=s&&Number.isFinite(s.attempts)&&Number.isFinite(s.correct)&&Number.isFinite(s.found)&&s.attempts>=base&&s.correct>=0&&s.correct<=s.attempts;
+   const a=valid?Math.min(10000,Math.floor(s.attempts)):base,c=valid?Math.min(a,Math.floor(s.correct)):base;attempts+=a;correct+=c;found+=valid?Math.max(0,Math.min(counts[id],Math.floor(s.found))):counts[id];if(!valid)legacy++;if(c<a)errors.push(id);
+  }
+  return {complete:safetyComplete(),found,total:5,attempts,correct,accuracy:attempts?Math.round(correct/attempts*100):0,errors,legacy};
+ }
+ function openSafetySummary(){if(!safetyComplete())return false;pause();const d=data();d.active='safety-summary';d.work='safety';return true;}
+
  function workDone(id){return IntroData.tasks.filter(t=>t.work===id).every(t=>done(t.id));}
  function stepOpen(index){return IntroData.works.slice(0,Math.min(index,3)).every(w=>workDone(w.id))&&(index<4||selfComplete());}
  function check(id=data().task){const r=row(id);if(!unlockedTask(id)||!validTask(id,r))return false;r.checked=true;r.proof=JSON.parse(JSON.stringify({answers:r.answers,matches:r.matches,evidence:r.evidence,visited:r.visited,order:r.order}));return true;}
@@ -100,5 +110,5 @@ const IntroModel=(()=>{
   return event;
  }
  function submitQuiz(){const d=data(),q=d.quiz;if(!stepOpen(4)||!q.demoDone||q.answers.length!==4||Array.from({length:4},(_,i)=>q.answers[i]).some((n,i)=>!Number.isInteger(n)||n<0||n>=IntroData.quiz[i].options.length)||q.order.length!==6||q.order.some(n=>!Number.isInteger(n)||n<0||n>5)||new Set(q.order).size!==6||q.swipes.length!==5||q.swipes.some(v=>!['yellow','blue'].includes(v))||Object.keys(q.research).length!==4)return false;const a={answers:[...q.answers],order:[...q.order],swipes:[...q.swipes],research:{...q.research},demoDone:true};q.attempts.push(a);q.attempts=q.attempts.slice(-50);return score(a);}
- return {blank:empty,sanitize,data,row,sim,done,check,validTask,unlockedTask,workDone,stepOpen,bestPercent,passed,progress,openTask,recordAnswer,match,assemble,visit,pause,action,setControl,advance,tubeSafe,submitQuiz,score,selfComplete,assembly,labels,mainEquipment};
+ return {safetyComplete,safetySummary,openSafetySummary,blank:empty,sanitize,data,row,sim,done,check,validTask,unlockedTask,workDone,stepOpen,bestPercent,passed,progress,openTask,recordAnswer,match,assemble,visit,pause,action,setControl,advance,tubeSafe,submitQuiz,score,selfComplete,assembly,labels,mainEquipment};
 })();
