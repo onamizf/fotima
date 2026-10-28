@@ -9,6 +9,7 @@ const IntroModel=(()=>{
  function scrub(value,depth=0){if(depth>6)return null;if(typeof value==='string')return value.slice(0,800);if(typeof value==='number')return Number.isFinite(value)?Math.max(-10000,Math.min(10000,value)):0;if(typeof value==='boolean'||value===null)return value;if(Array.isArray(value))return value.slice(0,80).map(v=>scrub(v,depth+1));if(value&&typeof value==='object')return Object.fromEntries(Object.entries(value).filter(([k])=>!['__proto__','constructor','prototype'].includes(k)).slice(0,80).map(([k,v])=>[k,scrub(v,depth+1)]));return null;}
  function defaults(){return {gas:0,air:0,flame:false,match:false,near:false,phase:0,leak:false,gasDelay:0,light:true,xray:false,exploded:false,run:false,elapsed:0,cooling:0,temp:20,progress:0,flip:false,goggles:false,holder:72,angle:45,direction:'away',heatPoint:15,movement:0,sweep:0,stationary:0,overheat:0,boiled:false,cracked:false};}
  function validTask(id,r){const a=r?.answers||{},e=r?.evidence||{},m=r?.matches||{};
+  if(id==='danger-a'&&e.sceneA&&!(e.sceneHotspot===true&&e.sceneRisk===0&&equal(e.sceneActions,[0,1])))return false;
   if(id.startsWith('danger-')){const d=IntroData.dangers.find(d=>d.id===id);return a.danger===d.correctDanger&&a.precaution===d.correctAction;}
   if(id==='signs')return IntroData.signs.every(s=>m[s.id]===s.id);
   if(id==='museum')return mainEquipment.every(id=>Array.isArray(r.visited)&&r.visited.includes(id)&&a[id]===id)&&['neck','body','bottom'].every(id=>m[id]===id);
@@ -99,3 +100,4 @@ const IntroModel=(()=>{
  function submitQuiz(){const d=data(),q=d.quiz;if(!stepOpen(4)||!q.demoDone||q.answers.length!==4||Array.from({length:4},(_,i)=>q.answers[i]).some((n,i)=>!Number.isInteger(n)||n<0||n>=IntroData.quiz[i].options.length)||q.order.length!==6||q.order.some(n=>!Number.isInteger(n)||n<0||n>5)||new Set(q.order).size!==6||q.swipes.length!==5||q.swipes.some(v=>!['yellow','blue'].includes(v))||Object.keys(q.research).length!==4)return false;const a={answers:[...q.answers],order:[...q.order],swipes:[...q.swipes],research:{...q.research},demoDone:true};q.attempts.push(a);q.attempts=q.attempts.slice(-50);return score(a);}
  return {blank:empty,sanitize,data,row,sim,done,check,validTask,unlockedTask,workDone,stepOpen,bestPercent,passed,progress,openTask,recordAnswer,match,assemble,visit,pause,action,setControl,advance,tubeSafe,submitQuiz,score,selfComplete,assembly,labels,mainEquipment};
 })();
+

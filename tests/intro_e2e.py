@@ -10,7 +10,7 @@ with sync_playwright() as p:
  q.add_locator_handler(q.locator('#earnedDialog[open]'),lambda d:d.locator('button').click())
  q.clock.install();register_local(q,BASE,'Chapter Learner');q.goto(BASE+'#topic/intro');q.wait_for_selector('.intro-root')
  assert q.locator('.intro-road>li').count()==5;assert q.locator('[data-intro-step="1"]').first.is_disabled();assert not q.evaluate("CourseModel.unlocked('states')")
- q.locator('.intro-road [data-intro-step="0"]').click();q.locator('[data-intro-begin]').click();q.wait_for_function('window.introSceneInfo?.ready')
+ q.locator('.intro-road [data-intro-step="0"]').click();q.locator('[data-intro-begin]').click();q.wait_for_selector('.sp-loader',state='hidden')
  def check():q.locator('[data-intro-action=check]').click()
  def nxt():q.locator('[data-intro-action=next]').click()
  def start_work():q.locator('[data-intro-begin]').click();q.wait_for_selector('#introTaskPanel')
@@ -20,11 +20,14 @@ with sync_playwright() as p:
   el=q.locator('[data-intro-control="'+key+'"]');el.evaluate('(e,v)=>{e.value=v;e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}));}',str(value))
  def select(key,value):q.locator('[data-intro-answer="'+key+'"]').select_option(value)
  def wait_model(seconds):q.clock.run_for(int(seconds*1000))
- # Every hazard has two choices; the next task stays closed after a wrong attempt.
+ # Situation A now uses a scene hotspot and two question steps.
+ q.locator('[data-sp=skip]').click();assert not q.evaluate("IntroModel.done('danger-a')")
+ q.locator('.sp-hotspot').click();q.locator('[data-risk="0"]').click()
+ for i in [0,1]:q.locator('[data-safe-action="'+str(i)+'"]').check()
+ q.locator('[data-sp=check]').click();assert q.evaluate("IntroModel.done('danger-a')")
+ q.locator('[data-sp=next]').click()
  data=q.evaluate('IntroData.dangers')
- for i,d in enumerate(data):
-  if i==0:
-   q.locator('[name=intro-danger][value="1"]').check();check();assert not q.evaluate("IntroModel.done('danger-a')")
+ for d in data[1:]:
   q.locator('[name=intro-danger][value="'+str(d['correctDanger'])+'"]').check();q.locator('[name=intro-precaution][value="'+str(d['correctAction'])+'"]').check();check();assert q.evaluate('(id)=>IntroModel.done(id)',d['id']);nxt()
  print('Hazards passed',flush=True)
  for id in ['irritant','explosive','corrosive','toxic','flammable']:drop(id,id)
@@ -79,3 +82,4 @@ with sync_playwright() as p:
  assert not errors,errors;assert not bad,bad
  snapshot=q.evaluate('Object.fromEntries(Object.entries(localStorage))');Path('/tmp/intro-complete-state.json').write_text(json.dumps(snapshot,ensure_ascii=False));b.close()
 print('Passed: all 13 tasks, order gates, wrong attempts, actual heating/gas timers, mandatory goggles, cracking/overheat guards, self-assessment, 14-part review, XP/badge once, F5/proof replay preservation and next topic')
+
