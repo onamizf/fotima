@@ -1,0 +1,100 @@
+/* Набор 134×134 используется без подложек и растяжения. Размер задаёт только Icon(). */
+img.site-icon {
+  display:inline-block; flex:none; width:var(--icon-size)!important; height:var(--icon-size)!important;
+  min-width:var(--icon-size); max-width:none!important; aspect-ratio:1; object-fit:contain;
+  vertical-align:middle; border:0!important; border-radius:22%!important; background:none!important;
+  filter:drop-shadow(0 4px 10px rgba(11,30,74,.18));
+  transition:transform .2s,filter .2s,opacity .2s; user-select:none; pointer-events:none;
+}
+svg.home-icon { width:20px!important; height:20px!important; flex:none; stroke:#1E2A4A; stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+.icon-stack { position:relative; display:inline-flex; flex:none; align-items:center; justify-content:center; width:var(--icon-size); height:var(--icon-size); vertical-align:middle; }
+.icon-is-locked>.site-icon { filter:grayscale(.6) opacity(.6) drop-shadow(0 4px 10px rgba(11,30,74,.18)); }
+.icon-lock { position:absolute; bottom:-3px; right:-3px; width:22px; height:22px; display:grid; place-items:center; border-radius:7px; background:#fff; box-shadow:0 2px 5px #0b1e4a25; }
+.icon-lock svg.home-icon { width:16px!important; height:16px!important; }
+.service-icon-tile { display:inline-grid; place-items:center; flex:none; width:var(--icon-size); height:var(--icon-size); border-radius:22%; background:#EEF1F7; box-shadow:0 0 10px rgba(80,140,255,.35); transition:transform .2s; }
+@media(hover:hover) {
+ :is(a,button,[role=option]):hover>.site-icon,
+ :is(a,button,[role=option]):hover>.icon-stack:not(.icon-is-locked)>.site-icon,
+ :is(a,button,[role=option]):hover>:is(.topic-tile-icon,.notice-icon,.search-result-icon,.welcome-topic-icon,.shortcut-orb)>.site-icon,
+ :is(a,button,[role=option]):hover>:is(.topic-tile-icon,.search-result-icon)>.icon-stack:not(.icon-is-locked)>.site-icon {
+   transform:translateY(-2px) scale(1.04); filter:drop-shadow(0 6px 14px rgba(11,30,74,.28));
+ }
+ :is(a,button):hover>.service-icon-tile { transform:translateY(-2px) scale(1.04); }
+}
+/* Убираем прежние круги/цветные плашки под готовыми PNG-плитками. */
+:is(.topic-tile-icon,.home-icon-badge,.shortcut-orb,.welcome-topic-icon,.theory-card-icon,.topic-emblem,.notice-icon,.search-result-icon,.daily-mark,.welcome-step-icon) {
+ background:none!important; border:0!important; box-shadow:none!important; border-radius:0;
+}
+.topic-emblem { width:96px; height:96px; }
+.theory-card-icon { width:56px; height:56px; }
+body[data-page=home] .minimal-home .home-topic-tile { height:164px; min-height:164px; }
+.home-topic-tile .topic-tile-icon { width:56px; height:56px; }
+body[data-page=home] .minimal-home .home-topic-tile.is-locked { opacity:1; }
+.home-icon-badge { width:44px; height:44px; }
+.home-next-topic>.icon-stack { margin-bottom:4px; }
+.home-stat-metrics>div { grid-template-rows:24px 25px auto; }
+body[data-page=home] .minimal-home .dashboard-search>.site-icon { margin-left:14px; }
+.dashboard-search>.site-icon { margin-left:14px; }
+.search-result-icon { width:36px!important; height:36px!important; }
+.search-group h3 { display:flex; align-items:center; gap:8px; }
+.search-empty>.site-icon { flex:none; }
+.shortcut-orb { width:56px; height:56px; }
+.shortcut.locked .shortcut-orb>.site-icon { filter:grayscale(.6) opacity(.6) drop-shadow(0 4px 10px rgba(11,30,74,.18)); }
+.welcome-topic-icon,.welcome-preview-grid .welcome-topic-icon { width:56px; height:56px; }
+.welcome-step-icon { width:40px; height:40px; }
+.welcome-topic-list button { min-height:72px; }
+.welcome-xp .site-icon,.welcome-how-xp .site-icon { margin-right:6px; }
+/* Навигация: расширенный режим 32 px, узкая полоска 40 px. */
+body:not([data-page=welcome]) #profileMenu.minimal-sidebar .sidebar-link { grid-template-columns:32px minmax(0,1fr) auto; padding:0 8px; gap:10px; }
+#profileMenu.minimal-sidebar .sidebar-link>.site-icon { opacity:.85; }
+#profileMenu.minimal-sidebar .sidebar-link[aria-current=page]>.site-icon { opacity:1; }
+body:not([data-page=welcome]) #profileMenu.minimal-sidebar[data-compact=true] .sidebar-link { grid-template-columns:40px 0 0; padding:0; gap:0; }
+#profileMenu.minimal-sidebar[data-compact=true] :is(.sidebar-link,.sidebar-start)>.site-icon,
+#profileMenu.minimal-sidebar[data-compact=true] .sidebar-link>.service-icon-tile { --icon-size:40px!important; }
+body:not([data-page=welcome]) #profileMenu.minimal-sidebar .sidebar-start { padding:0 8px; gap:10px; }
+body:not([data-page=welcome]) #profileMenu.minimal-sidebar[data-compact=true] .sidebar-start { padding:0; }
+#profileMenu.minimal-sidebar .sidebar-streak { display:flex; align-items:center; gap:6px; }
+.sidebar-progress-meta :is(span,small) { display:flex; align-items:center; gap:6px; }
+/* Шапка и всплывающие окна. Кнопка сохраняет область касания 44×44. */
+.topinner #notificationsToggle { border:0!important; background:transparent!important; box-shadow:none!important; padding:4px!important; }
+.header-notifications.is-ringing>.site-icon { animation:notification-ring .6s ease-in-out; transform-origin:50% 10%; }
+.language-chevron { display:inline-flex; align-items:center; }
+.language-chevron>.home-icon { transform:rotate(-90deg); width:14px!important; height:14px!important; }
+.header-profile-popover :is(a,button) { display:flex; align-items:center; gap:10px; }
+.notice-icon { width:36px; height:36px; }
+.header-xp b { display:inline-flex; align-items:center; gap:4px; }
+.header-rank-badge { background:none!important; border:0!important; box-shadow:none!important; }
+#gameToast { display:flex; align-items:center; gap:8px; }
+/* Маршрут и страницы тем: та же иконка из данных, без замен замком/номером. */
+.course-station .station-circle,.course-station:nth-child(even) .station-circle { width:72px; height:72px; background:none; border:0; box-shadow:none; animation:none; }
+.intro-heading>div:first-of-type { flex:1; min-width:0; }
+.intro-heading>.site-icon { margin-right:0; }
+.course-tabs button,.course-tabs a { display:inline-flex; align-items:center; justify-content:center; gap:6px; }
+.experiment-tile { display:inline-flex; margin-bottom:10px; }
+.course-experiment-card p .site-icon { margin-right:4px; }
+.course-progress-list>a { grid-template-columns:36px minmax(0,1fr) 150px 60px; }
+.course-progress :is(h1,h2),.course-awards h1,.quick-challenge h1 { overflow-wrap:anywhere; }
+.game-badge.unearned>span { filter:none; }
+.game-badge.unearned>span>.site-icon { filter:grayscale(.6) opacity(.6) drop-shadow(0 4px 10px rgba(11,30,74,.18)); }
+.mini-game-catalog a>span,.game-sort-card>span { background:none!important; border:0!important; }
+.periodic-play button { display:inline-flex; align-items:center; justify-content:center; gap:8px; }
+.periodic-search { display:flex; align-items:center; gap:8px; }
+.periodic-search input { min-width:0; flex:1; }
+@media(max-width:767px) {
+ .course-progress-list>a { grid-template-columns:36px minmax(0,1fr) 45px; }
+ .course-station .station-circle,.course-station:nth-child(even) .station-circle { width:72px; height:72px; }
+ .course-station { padding-left:88px; }
+ .intro-heading>.site-icon { align-self:flex-start; }
+ .intro-heading>div:first-of-type { flex-basis:calc(100% - 112px); }
+ .periodic-play { flex-wrap:wrap; }
+}
+@media(prefers-reduced-motion:reduce) {
+ img.site-icon,.service-icon-tile { animation:none!important; transition:none!important; transform:none!important; }
+}
+body.reduce-motion img.site-icon,body.reduce-motion .service-icon-tile { animation:none!important; transition:none!important; transform:none!important; }
+.progress-stats-icon { display:inline-flex; margin-bottom:8px; }
+@media(max-width:767px) {
+ .course-station:nth-child(even) { padding-left:88px; }
+}
+/* Плитка 44 px не перекрывает заголовок bento даже при длинном переводе. */
+.home-next-experience>.home-overline,.home-challenge>.home-overline { min-height:36px; padding-right:48px; display:flex; align-items:center; }

@@ -75,7 +75,7 @@ with sync_playwright() as p:
  # Rechecking and replaying cannot award the same XP twice or erase checked proof.
  q.evaluate("IntroModel.openTask('race');saveState();location.hash='#topic/intro';render(false)");q.locator('[data-intro-action=heat]').click();q.goto(BASE+'#progress');q.wait_for_selector('.course-progress');assert q.evaluate("IntroModel.done('race')");assert q.evaluate('CourseGame.xp()')==xp;assert q.locator('.intro-self-progress').is_visible()
  q.goto(BASE+'#topic/intro');q.evaluate("IntroModel.data().active='quiz';render(false)");q.wait_for_selector('.intro-quiz-result');q.screenshot(path=str(ROOT/'artifacts/intro-completed-1440.png'))
- q.locator('a[href="#topic/states"]').click();q.wait_for_selector('[data-course-id=states]');assert 'АГРЕГАТНЫЕ' in q.locator('h1').inner_text()
+ q.locator('main a[href="#topic/states"]').click();q.wait_for_selector('[data-course-id=states]');assert 'АГРЕГАТНЫЕ' in q.locator('h1').inner_text()
  assert not errors,errors;assert not bad,bad
  snapshot=q.evaluate('Object.fromEntries(Object.entries(localStorage))');Path('/tmp/intro-complete-state.json').write_text(json.dumps(snapshot,ensure_ascii=False));b.close()
 print('Passed: all 13 tasks, order gates, wrong attempts, actual heating/gas timers, mandatory goggles, cracking/overheat guards, self-assessment, 14-part review, XP/badge once, F5/proof replay preservation and next topic')

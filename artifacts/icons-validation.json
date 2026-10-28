@@ -1,0 +1,251 @@
+{
+  "status": "passed",
+  "pages": [
+    {
+      "page": "home compact",
+      "icons": 38
+    },
+    {
+      "page": "search empty",
+      "icons": 39
+    },
+    {
+      "page": "search",
+      "icons": 47
+    },
+    {
+      "page": "notifications",
+      "icons": 47
+    },
+    {
+      "page": "topics",
+      "icons": 25
+    },
+    {
+      "page": "topic/intro",
+      "icons": 19
+    },
+    {
+      "page": "topic/states",
+      "icons": 18
+    },
+    {
+      "page": "topic/properties",
+      "icons": 18
+    },
+    {
+      "page": "topic/mixtures",
+      "icons": 18
+    },
+    {
+      "page": "topic/physical",
+      "icons": 18
+    },
+    {
+      "page": "topic/chemical",
+      "icons": 18
+    },
+    {
+      "page": "topic/atoms",
+      "icons": 18
+    },
+    {
+      "page": "topic/properties",
+      "icons": 25
+    },
+    {
+      "page": "lab/properties",
+      "icons": 22
+    },
+    {
+      "page": "topic/physical",
+      "icons": 25
+    },
+    {
+      "page": "lab/physical",
+      "icons": 22
+    },
+    {
+      "page": "topic/chemical",
+      "icons": 25
+    },
+    {
+      "page": "lab/chemical",
+      "icons": 22
+    },
+    {
+      "page": "resources/periodic",
+      "icons": 24
+    },
+    {
+      "page": "resources/glossary",
+      "icons": 21
+    },
+    {
+      "page": "resources/tests",
+      "icons": 31
+    },
+    {
+      "page": "resources/more",
+      "icons": 34
+    },
+    {
+      "page": "games",
+      "icons": 24
+    },
+    {
+      "page": "games/mixtures",
+      "icons": 21
+    },
+    {
+      "page": "games/changes",
+      "icons": 21
+    },
+    {
+      "page": "games/safety",
+      "icons": 21
+    },
+    {
+      "page": "collection",
+      "icons": 21
+    },
+    {
+      "page": "progress",
+      "icons": 34
+    },
+    {
+      "page": "awards",
+      "icons": 33
+    },
+    {
+      "page": "settings",
+      "icons": 21
+    },
+    {
+      "page": "account",
+      "icons": 22
+    },
+    {
+      "page": "challenge",
+      "icons": 21
+    },
+    {
+      "page": "contacts",
+      "icons": 20
+    },
+    {
+      "page": "ru home 320",
+      "icons": 42
+    },
+    {
+      "page": "ru home 390",
+      "icons": 42
+    },
+    {
+      "page": "ru home 768",
+      "icons": 42
+    },
+    {
+      "page": "ru home 1024",
+      "icons": 42
+    },
+    {
+      "page": "ru home 1440",
+      "icons": 42
+    },
+    {
+      "page": "uz-Latn home 320",
+      "icons": 42
+    },
+    {
+      "page": "uz-Latn home 390",
+      "icons": 42
+    },
+    {
+      "page": "uz-Latn home 768",
+      "icons": 42
+    },
+    {
+      "page": "uz-Latn home 1024",
+      "icons": 42
+    },
+    {
+      "page": "uz-Latn home 1440",
+      "icons": 42
+    },
+    {
+      "page": "uz-Cyrl home 320",
+      "icons": 42
+    },
+    {
+      "page": "uz-Cyrl home 390",
+      "icons": 42
+    },
+    {
+      "page": "uz-Cyrl home 768",
+      "icons": 42
+    },
+    {
+      "page": "uz-Cyrl home 1024",
+      "icons": 42
+    },
+    {
+      "page": "uz-Cyrl home 1440",
+      "icons": 42
+    },
+    {
+      "page": "en home 320",
+      "icons": 42
+    },
+    {
+      "page": "en home 390",
+      "icons": 42
+    },
+    {
+      "page": "en home 768",
+      "icons": 42
+    },
+    {
+      "page": "en home 1024",
+      "icons": 42
+    },
+    {
+      "page": "en home 1440",
+      "icons": 42
+    },
+    {
+      "page": "mobile notifications",
+      "icons": 41
+    },
+    {
+      "page": "mobile route",
+      "icons": 28
+    },
+    {
+      "page": "welcome",
+      "icons": 20
+    },
+    {
+      "page": "welcome topics",
+      "icons": 20
+    },
+    {
+      "page": "welcome learning",
+      "icons": 20
+    }
+  ],
+  "checks": [
+    "all PNGs square, local, 134x134, decorative and not draggable",
+    "actual seven navigation routes preserved",
+    "seven topic identities across cards/search/map/headers/notices",
+    "role sizes: 20/32/36/40/44/56/72/96",
+    "no old fire/star/trophy/medal emoji in rendered UI",
+    "search empty state, notification icons and mobile drawer",
+    "existing labs, games, periodic, collection, progress, settings and account",
+    "real per-element XP reward remains +2 only once",
+    "read-only view and reduced motion",
+    "four locales, five widths"
+  ],
+  "errors": [],
+  "bad_responses": []
+}
