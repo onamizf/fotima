@@ -1,6 +1,7 @@
 /* Lucide 0.468.0, ISC. Локальная выборка SVG; атрибуция в assets/vendor/LUCIDE-LICENSE.txt. */
 const HomeIcon=(()=>{
  const paths={
+  "chevron-down":"\n  <path d=\"m6 9 6 6 6-6\" />\n",
   "monitor":"\n  <rect width=\"20\" height=\"14\" x=\"2\" y=\"3\" rx=\"2\" />\n  <line x1=\"8\" x2=\"16\" y1=\"21\" y2=\"21\" />\n  <line x1=\"12\" x2=\"12\" y1=\"17\" y2=\"21\" />\n",
   "rotate-ccw":"\n  <path d=\"M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8\" />\n  <path d=\"M3 3v5h5\" />\n",
   eye:'<path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/>',

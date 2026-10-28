@@ -14,8 +14,8 @@ with tempfile.TemporaryDirectory(prefix='fotima-pages-') as temp:
     for filename,digest in manifest['assets'].items():
         assert digest==hashlib.sha256((output/filename).read_bytes()).hexdigest()[:16]
         assert filename+'?v='+digest in entry
-    assert manifest['version']=='1.5.0'
-    assert all(name in files for name in ['src/icons.js','src/icons.css'])
+    assert manifest['version']=='1.6.0'
+    assert all(name in files for name in ['src/icons.js','src/icons.css','src/dropdown.js','src/dropdown.css','data/periodic-colors.js'])
     assert len([name for name in files if name.startswith('assets/icons/') and name.endswith('.png')])==28
     assert not any(name.endswith('.md') or name.startswith(('tests/','artifacts/','design/','.git/','src/lab/')) for name in files)
     try:module.build(output)

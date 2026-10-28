@@ -7,3 +7,48 @@ body:not([data-page=welcome]) dialog.periodic-detail-dialog{position:fixed;inset
 @media(max-width:1100px){.periodic-detail-body{grid-template-columns:1fr}.periodic-reference-stage{max-width:590px}.periodic-info-panel{margin:0 18px 18px;max-height:none}.periodic-shells-row{grid-template-columns:190px minmax(0,1fr)}.periodic-shells{width:190px}.periodic-uses{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:767px){.periodic-heading{gap:18px}.periodic-heading h1{font-size:30px!important}.periodic-play{width:100%}.periodic-play button{font-size:10px;padding:10px 14px}.periodic-tools{grid-template-columns:1fr 1fr;gap:12px}.periodic-search{grid-column:1/-1}.periodic-tools select{font-size:11px;padding:10px}.periodic-legend button{font-size:9px;min-height:36px;padding:7px 10px}.periodic-board-shell{padding:18px 8px 28px}.periodic-board,.periodic-grid-new{min-width:935px}.periodic-grid-new{grid-template-columns:22px repeat(18,minmax(44px,1fr));grid-auto-rows:54px;gap:5px}.periodic-grid-new.layout-short{grid-template-columns:22px 22px repeat(7,minmax(55px,1fr)) repeat(3,minmax(40px,.55fr));min-width:740px;grid-auto-rows:54px}.periodic-board:has(.layout-short){min-width:740px}.element-number,.element-mass,.element-name{display:none}.periodic-page .element-tile{padding:5px!important;min-height:44px!important}.element-symbol{font-size:23px}.periodic-group{font-size:12px}.periodic-group span{font-size:8px}.periodic-fseries{grid-template-columns:100px minmax(0,1fr);gap:8px}.periodic-fseries-grid{grid-template-columns:repeat(15,minmax(37px,1fr));grid-template-rows:54px;gap:5px}.periodic-series-label{font-size:10px}.periodic-range{font-size:9px}.periodic-page .element-tile:hover{transform:none!important}body:not([data-page=welcome]) dialog.periodic-detail-dialog{padding:0}.periodic-detail-shell{border:0;border-radius:0;min-height:100dvh}.periodic-detail-nav{top:0;padding:14px 16px;gap:8px;font-size:12px}.periodic-detail-nav>div{gap:6px}.periodic-detail-nav button{width:40px;min-height:44px}.periodic-reference-stage{min-height:0;padding:24px 18px 28px;display:flex;flex-direction:column;gap:24px}.periodic-reference-card{width:220px;height:280px;margin:0 auto}.reference-symbol{font-size:96px}.reference-number{font-size:27px}.periodic-reference-card .reference-name{font-size:24px!important}.periodic-callout-lines{display:none}.periodic-callouts{display:grid;grid-template-columns:1fr 1fr;gap:8px}.periodic-callout{position:static;max-width:none!important;font-size:10px;padding:9px 10px}.periodic-callouts .callout-block{grid-column:1/-1;justify-self:center}.periodic-info-panel{margin:0;border-radius:24px 24px 0 0;padding:24px 18px;overflow:visible;max-height:none}.periodic-shells-row{grid-template-columns:115px minmax(0,1fr);gap:12px}.periodic-shells{width:115px}.periodic-shells-row p{font-size:12px!important}.periodic-uses{grid-template-columns:1fr 1fr}.periodic-uses article{padding:14px}.periodic-numbers dd{font-size:15px}.periodic-xp{top:80px;right:14px;padding:8px 12px;font-size:12px}.periodic-model-view{height:270px}.periodic-fact{padding:12px;gap:10px}.periodic-game-banner strong{font-size:20px}.periodic-game-banner p{font-size:12px}.periodic-game-banner{padding:12px}.periodic-detail-nav>span{max-width:45%;overflow-wrap:anywhere}}
 @media(prefers-reduced-motion:reduce){.periodic-page *,.periodic-detail-dialog *{animation:none!important;transition:none!important}.periodic-board,.periodic-page .element-tile{transform:none!important;will-change:auto}.periodic-callout-lines path{stroke-dashoffset:0}.periodic-info-panel{opacity:1}.periodic-callout{opacity:1}}.reduce-motion .periodic-page *,.reduce-motion .periodic-detail-dialog *{animation:none!important;transition:none!important}.reduce-motion .periodic-board,.reduce-motion .element-tile{transform:none!important}.reduce-motion .periodic-callout-lines path{stroke-dashoffset:0}
+/* Выбор по любой палитре и поиск используют один контрастный режим. */
+body:not([data-page=welcome]) .periodic-page .periodic-legend button {
+ background:#FFFFFF!important; color:#0B1E4A!important; border:1.5px solid #FFFFFF!important;
+ border-radius:999px!important; text-transform:none!important; box-shadow:none!important;
+ font:500 13px/1.3 Inter,Arial,sans-serif; padding:9px 14px; min-height:40px;
+}
+.periodic-legend i { background:var(--chip-color); width:12px; height:12px; }
+body:not([data-page=welcome]) .periodic-page .periodic-legend button[aria-pressed=true] {
+ background:var(--chip-color,#FFD34D)!important; color:#0B1E4A!important; font-weight:750; border-color:#FFFFFFB3!important;
+ box-shadow:0 3px 10px #05145028!important;
+}
+.periodic-legend button:focus-visible { outline:2px solid #FFD34D!important; outline-offset:3px; }
+.periodic-page .element-tile {
+ transition:background-color .35s ease,border-color .35s ease,color .35s ease,box-shadow .35s ease,transform .35s ease;
+ transition-delay:var(--filter-delay,0ms); opacity:1!important;
+}
+.periodic-page .element-tile.el--match {
+ background:var(--tile-color)!important; border:1.5px solid #FFFFFFB3!important; color:#0B1E4A!important;
+ box-shadow:0 8px 20px rgba(5,20,80,.35),0 0 18px color-mix(in srgb,var(--tile-color) 50%,transparent)!important;
+ transform:translateY(-3px) translateZ(14px); filter:none!important;
+}
+.periodic-page .element-tile.el--dim {
+ background:rgba(255,255,255,.10)!important; border:1px solid rgba(255,255,255,.18)!important;
+ color:rgba(255,255,255,.35)!important; box-shadow:none!important; opacity:1!important; filter:none!important;
+ transform:translateZ(0); outline:0;
+}
+.periodic-page .element-tile.el--dim:is(:hover,:focus-visible) {
+ color:rgba(255,255,255,.8)!important; background:rgba(255,255,255,.16)!important; box-shadow:none!important;
+}
+.periodic-page .element-tile.el--dim:focus-visible { outline:2px solid white; outline-offset:2px; }
+.element-tile.el--dim .element-check { background:transparent; color:inherit; }
+.periodic-search-status { min-height:20px; margin:16px 0 4px; font:600 13px/1.5 Inter,Arial,sans-serif; }
+.periodic-page label.periodic-search { position:relative; display:block; height:48px; }
+.periodic-search>.site-icon { position:absolute; left:16px; top:14px; z-index:1; }
+body:not([data-page=welcome]) .periodic-tools .periodic-search input {
+ display:block; width:100%; height:48px; min-height:48px; padding:0 18px 0 48px; border:1.5px solid #D6E2FF!important;
+ border-radius:999px!important; background:#FFFFFF; color:#0B1E4A; font:500 15px Inter,Arial,sans-serif;
+}
+.periodic-search input:focus-visible { outline:2px solid #FFD34D!important; outline-offset:2px; box-shadow:0 0 0 4px rgba(255,211,77,.35); }
+@media(prefers-reduced-motion:reduce) { .periodic-page .element-tile { transition:none!important; transition-delay:0ms!important; } }
+.reduce-motion .periodic-page .element-tile { transition:none!important; transition-delay:0ms!important; }
+.periodic-page .element-tile:is(:hover,:focus-visible) { transition-delay:0ms; }
+/* Чипсы не наследуют тёмный контур старых переключателей. Клавиатурный фокус остаётся видимым. */
+body:not([data-page=welcome]) .periodic-page .periodic-legend button:not(:focus-visible) { outline:none!important; }
+body:not([data-page=welcome]) .periodic-page .periodic-legend button:focus-visible { outline:2px solid #FFD34D!important; outline-offset:3px; }

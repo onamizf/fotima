@@ -56,7 +56,7 @@ function render(moveFocus=true){PeriodicPage.dispose();IntroUI.dispose();t=dicti
  CourseUI.mount();
  document.querySelectorAll('[data-open-experiment]').forEach(button=>button.onclick=()=>CourseModel.openExperiment(button.dataset.openExperiment));
  Dashboard.mount();
- CourseGame.mount();PeriodicPage.mount();StudentHeader.mount();
+ CourseGame.mount();PeriodicPage.mount();StudentHeader.mount();Dropdown.mount();
  if(moveFocus){document.getElementById('main').focus();window.scrollTo({top:0,behavior:'instant'});}
 }
 window.addEventListener('hashchange',()=>{if(PeriodicPage.handleRoute())return;investigationFeedback=null;reportFeedback='';physicalFeedback=null;chemicalFeedback=null;render();});render(false);FotimaCloud.start();

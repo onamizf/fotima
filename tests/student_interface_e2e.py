@@ -9,7 +9,7 @@ with sync_playwright() as p:
  q.on('pageerror',lambda e:errors.append(str(e)));q.on('response',lambda r:bad.append((r.url,r.status)) if r.status>=400 else None);q.on('request',lambda r:requests.append(r.url));register_local(q,BASE,'Фотима');q.add_locator_handler(q.locator('#earnedDialog[open]'),lambda d:d.locator('button').click());q.wait_for_timeout(300)
  def one_panel(id):
   assert q.locator('.header-panel:visible').count()==1;assert q.locator('#'+id).is_visible()
- buttons=['#notificationsToggle','#languageToggle','#profileToggle'];boxes=[q.locator(s).bounding_box() for s in buttons];assert all(v['width']==44 and v['height']==44 for v in boxes);assert boxes[0]['x']<boxes[1]['x']<boxes[2]['x'];assert boxes[1]['x']-boxes[0]['x']==56;assert boxes[2]['x']==1440-24-44
+ buttons=['#notificationsToggle','#languageToggle','#profileToggle'];boxes=[q.locator(s).bounding_box() for s in buttons];assert all(v['width']==44 and v['height']==44 for i,v in enumerate(boxes) if i!=1);assert boxes[1]['width']==148 and boxes[1]['height']==48;assert boxes[0]['x']<boxes[1]['x']<boxes[2]['x'];assert boxes[1]['x']-boxes[0]['x']==56;assert boxes[2]['x']==1440-24-44
  assert q.locator('.header-rank-badge').is_hidden();assert q.evaluate('state.notifications.items.length')==2;assert q.locator('.notice-count').inner_text()=='2';xp=q.evaluate('CourseGame.xp()')
  assert q.locator('.dashboard-banner').count()==0;assert q.locator('.home-bento-card').count()==7;assert q.locator('.home-progress-ring strong').inner_text()=='0%';assert q.locator('.home-step-list li').count()==3
  assert q.locator('.home-hero .dashboard-awards').count()==0;assert q.locator('#frogAssistant').is_hidden();assert q.locator('.streak-pill').count()==0
@@ -38,7 +38,7 @@ with sync_playwright() as p:
   q.goto(BASE+'#home');q.locator('#language').select_option(language)
   for width in [320,375,390,768,1024,1440]:
    q.set_viewport_size({'width':width,'height':900});assert q.evaluate('document.documentElement.scrollWidth<=innerWidth+1'),(language,width)
-   for toggle,panel in [('#notificationsToggle','#notificationsPanel'),('#languageToggle','#languagePanel'),('#profileToggle','#profilePanel')]:
+   for toggle,panel in [('#notificationsToggle','#notificationsPanel'),('#languageToggle','#languagePanel-popover'),('#profileToggle','#profilePanel')]:
     q.locator(toggle).click();box=q.locator(panel).bounding_box();assert box['x']>=-1 and box['x']+box['width']<=width+1,(language,width,panel,box)
     if width<768:assert box['x']==0 and box['width']==width and abs(box['y']+box['height']-900)<2
     q.keyboard.press('Escape')

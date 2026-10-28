@@ -1,7 +1,7 @@
 /* Scientific/data invariants and layout integrity; no browser or production account. */
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
 const c=vm.createContext({state:{settings:{language:'ru'}},CourseModel:{text:v=>v['uz-Latn']},LocalAuth:{signedIn:()=>false}});
-for(const f of ['data/topics.js','data/topics/intro.js','data/elements.js','data/periodic-i18n.js','src/periodic-model.js'])vm.runInContext(fs.readFileSync(f,'utf8'),c);
+for(const f of ['data/topics.js','data/topics/intro.js','data/elements.js','data/periodic-i18n.js','data/periodic-colors.js','src/periodic-model.js'])vm.runInContext(fs.readFileSync(f,'utf8'),c);
 vm.runInContext('globalThis.m=PeriodicModel;globalThis.d=ElementsData;globalThis.labels=PeriodicLabels;',c);const {m,d,labels}=c;
 assert.equal(d.elements.length,118);assert.equal(new Set(d.elements.map(e=>e.symbol)).size,118);
 assert(d.elements.filter(e=>e.study).length>=30);

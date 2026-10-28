@@ -1,0 +1,131 @@
+{
+  "status": "passed",
+  "groups": [
+    {
+      "mode": "blocks",
+      "group": "s",
+      "count": 14
+    },
+    {
+      "mode": "blocks",
+      "group": "p",
+      "count": 36
+    },
+    {
+      "mode": "blocks",
+      "group": "d",
+      "count": 40
+    },
+    {
+      "mode": "blocks",
+      "group": "f",
+      "count": 28
+    },
+    {
+      "mode": "categories",
+      "group": "alkali",
+      "count": 6
+    },
+    {
+      "mode": "categories",
+      "group": "alkaline",
+      "count": 6
+    },
+    {
+      "mode": "categories",
+      "group": "transition",
+      "count": 35
+    },
+    {
+      "mode": "categories",
+      "group": "post",
+      "count": 9
+    },
+    {
+      "mode": "categories",
+      "group": "metalloid",
+      "count": 6
+    },
+    {
+      "mode": "categories",
+      "group": "nonmetal",
+      "count": 7
+    },
+    {
+      "mode": "categories",
+      "group": "halogen",
+      "count": 5
+    },
+    {
+      "mode": "categories",
+      "group": "noble",
+      "count": 7
+    },
+    {
+      "mode": "categories",
+      "group": "lanthanide",
+      "count": 15
+    },
+    {
+      "mode": "categories",
+      "group": "actinide",
+      "count": 15
+    },
+    {
+      "mode": "categories",
+      "group": "unknown",
+      "count": 7
+    },
+    {
+      "mode": "metals",
+      "group": "metal",
+      "count": 79
+    },
+    {
+      "mode": "metals",
+      "group": "nonmetal",
+      "count": 18
+    },
+    {
+      "mode": "metals",
+      "group": "metalloid",
+      "count": 6
+    },
+    {
+      "mode": "metals",
+      "group": "unknown",
+      "count": 15
+    },
+    {
+      "mode": "states",
+      "group": "gas",
+      "count": 11
+    },
+    {
+      "mode": "states",
+      "group": "liquid",
+      "count": 2
+    },
+    {
+      "mode": "states",
+      "group": "solid",
+      "count": 83
+    },
+    {
+      "mode": "states",
+      "group": "unknown",
+      "count": 22
+    }
+  ],
+  "checks": [
+    "23 groups in four modes",
+    "multi-selection union and text-search intersection",
+    "solid matching tiles and colour-only dimming",
+    "all reset/toggle and actual dim-tile clicks",
+    "original Ge detail/mass/FLIP and once-only reward",
+    "unchanged element dataset",
+    "four languages and five widths",
+    "atomic-number stagger, hover and reduced motion"
+  ],
+  "js_errors": []
+}

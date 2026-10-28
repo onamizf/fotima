@@ -17,4 +17,4 @@
 
 ## Иконки Lucide 0.468.0
 
-Локальная выборка из 36 SVG в `data/home-icons.js`: https://github.com/lucide-icons/lucide/tree/0.468.0/icons . Лицензия ISC (включая атрибуцию Feather/Cole Bemis) сохранена в `assets/vendor/LUCIDE-LICENSE.txt`; исходные URL, версия и SHA-256 — в `assets/vendor/LUCIDE-PROVENANCE.json`. SVG главной и бокового меню встроены в интерфейс без CDN; размер и stroke-width 1.75 задаются общим помощником.
+Локальная выборка из 37 SVG в `data/home-icons.js`: https://github.com/lucide-icons/lucide/tree/0.468.0/icons . Лицензия ISC (включая атрибуцию Feather/Cole Bemis) сохранена в `assets/vendor/LUCIDE-LICENSE.txt`; исходные URL, версия и SHA-256 — в `assets/vendor/LUCIDE-PROVENANCE.json`. Служебные SVG встроены в интерфейс без CDN; размеры и stroke-width 2 задаются общим помощником Icon.

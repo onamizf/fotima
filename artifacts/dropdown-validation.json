@@ -1,0 +1,129 @@
+{
+  "status": "passed",
+  "pages": [
+    {
+      "page": "periodic",
+      "dropdowns": 3
+    },
+    {
+      "page": "settings",
+      "dropdowns": 2
+    },
+    {
+      "page": "lab/properties",
+      "dropdowns": 6
+    },
+    {
+      "page": "lab/physical",
+      "dropdowns": 3
+    },
+    {
+      "page": "lab/chemical",
+      "dropdowns": 4
+    },
+    {
+      "page": "table/properties",
+      "dropdowns": 54
+    },
+    {
+      "page": "topic/intro",
+      "dropdowns": 1
+    },
+    {
+      "page": "topic/states",
+      "dropdowns": 1
+    },
+    {
+      "page": "ru 320",
+      "dropdowns": 3
+    },
+    {
+      "page": "ru 390",
+      "dropdowns": 3
+    },
+    {
+      "page": "ru 768",
+      "dropdowns": 3
+    },
+    {
+      "page": "ru 1024",
+      "dropdowns": 3
+    },
+    {
+      "page": "ru 1440",
+      "dropdowns": 3
+    },
+    {
+      "page": "uz-Latn 320",
+      "dropdowns": 3
+    },
+    {
+      "page": "uz-Latn 390",
+      "dropdowns": 3
+    },
+    {
+      "page": "uz-Latn 768",
+      "dropdowns": 3
+    },
+    {
+      "page": "uz-Latn 1024",
+      "dropdowns": 3
+    },
+    {
+      "page": "uz-Latn 1440",
+      "dropdowns": 3
+    },
+    {
+      "page": "uz-Cyrl 320",
+      "dropdowns": 3
+    },
+    {
+      "page": "uz-Cyrl 390",
+      "dropdowns": 3
+    },
+    {
+      "page": "uz-Cyrl 768",
+      "dropdowns": 3
+    },
+    {
+      "page": "uz-Cyrl 1024",
+      "dropdowns": 3
+    },
+    {
+      "page": "uz-Cyrl 1440",
+      "dropdowns": 3
+    },
+    {
+      "page": "en 320",
+      "dropdowns": 3
+    },
+    {
+      "page": "en 390",
+      "dropdowns": 3
+    },
+    {
+      "page": "en 768",
+      "dropdowns": 3
+    },
+    {
+      "page": "en 1024",
+      "dropdowns": 3
+    },
+    {
+      "page": "en 1440",
+      "dropdowns": 3
+    }
+  ],
+  "checks": [
+    "no exposed native selects; one common combobox/listbox",
+    "48px oval triggers, 42px options and readable colours",
+    "keyboard, outside click, switch, Tab and Escape",
+    "automatic upward positioning",
+    "language and table answer persistence/F5",
+    "original settings and lab controls",
+    "dropdown inside native element dialog",
+    "four languages and five widths",
+    "mobile bottom sheet and reduced motion"
+  ],
+  "js_errors": []
+}
