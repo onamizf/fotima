@@ -5,3 +5,12 @@ const HomeCopy={
  en:{morning:'Good morning',day:'Good afternoon',evening:'Good evening',night:'Good night',topics:'Course topics',allTopics:'All topics',tools:'Tools',lab:'Your laboratory',continue:'Continue',stage:'Topic {n} · {stage}',nextExperience:'Next experiment',soon:'Coming soon',available:'Available',finished:'All available topics completed',daily:'Daily experiment',fact:'Daily fact',challenge:'Quick challenge',challengeTime:'3 questions · 60 sec',result:'Result: {n}/3',noResult:'Result: —',nextRank:'{n} XP to “{rank}”',topRank:'Highest rank',rank:'Rank',minutes:'~5 min',start:'Start',achievements:'My achievements'}
 };
 const HomeText=(key,params={})=>CourseModel.text(Object.fromEntries(Object.entries(HomeCopy).map(([lang,copy])=>[lang,copy[key]||key]))).replace(/\{(\w+)\}/g,(_,k)=>params[k]??'');
+
+/* Search presentation copy and the rotating daily example pool. */
+const HomeSearchCopy={
+ ru:{placeholder:'Найди вещество, опыт или тему…',find:'Найти',clear:'Очистить поиск',examples:'Например:',show:'Показать:',prefix:'Найди: ',words:['вода','медный купорос','фильтрование','кислород','знаки опасности','соль','железо','сера','раствор','смесь','медь','водород']},
+ 'uz-Latn':{placeholder:'Modda, tajriba yoki mavzuni top…',find:'Topish',clear:'Qidiruvni tozalash',examples:'Masalan:',show:'Ko‘rsatish:',prefix:'Top: ',words:['suv','mis kuporosi','filtrlash','kislorod','xavf belgilari','tuz','temir','oltingugurt','eritma','aralashma','mis','vodorod']},
+ 'uz-Cyrl':{placeholder:'Модда, тажриба ёки мавзуни топ…',find:'Топиш',clear:'Қидирувни тозалаш',examples:'Масалан:',show:'Кўрсатиш:',prefix:'Топ: ',words:['сув','мис купороси','фильтрлаш','кислород','хавф белгилари','туз','темир','олтингугурт','эритма','аралашма','мис','водород']},
+ en:{placeholder:'Find a substance, experiment or topic…',find:'Find',clear:'Clear search',examples:'For example:',show:'Show:',prefix:'Find: ',words:['water','copper sulfate','filtration','oxygen','hazard signs','salt','iron','sulfur','solution','mixture','copper','hydrogen']}
+};
+const HomeSearchText=()=>HomeSearchCopy[state.settings.language]||HomeSearchCopy.ru;

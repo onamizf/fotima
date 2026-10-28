@@ -197,3 +197,53 @@ body[data-page=home] .minimal-home .home-challenge h3 { font-size:18px!important
 .reduce-motion .minimal-home .home-bento-card:hover,.reduce-motion .minimal-home .home-topic-tile:hover { transform:none!important; }
 
 .home-empty-filter { color:#fff; font-size:14px; padding:16px 0; }
+
+/* Contrasting hero search and progress filters. */
+body[data-page=home] .minimal-home .home-hero-copy { min-width:0; }
+body[data-page=home] .minimal-home .dashboard-search { box-sizing:border-box; width:100%; max-width:720px; height:60px; margin:0; border:2px solid #1F6BFF; border-radius:999px; background:#fff; box-shadow:0 8px 24px rgba(31,107,255,.18); transition:box-shadow .2s,border-width .2s; }
+body[data-page=home] .minimal-home .dashboard-search:hover { box-shadow:0 10px 28px rgba(31,107,255,.24); }
+body[data-page=home] .minimal-home .dashboard-search:focus-within { border-width:2.5px; outline:none; box-shadow:0 0 0 5px rgba(31,107,255,.15),0 10px 28px rgba(31,107,255,.25); }
+body[data-page=home] .minimal-home .home-search-icon { display:grid; place-items:center; flex:0 0 40px; height:40px; margin-left:8px; border-radius:50%; background:#1F6BFF; color:#fff; }
+body[data-page=home] .minimal-home .home-search-icon .site-icon { width:18px; height:18px; }
+body[data-page=home] .minimal-home .dashboard-search input { font:500 16px Inter,Arial,sans-serif; padding:0 12px; border-radius:999px; color:#0B1E4A; outline:none; box-shadow:none; }
+body[data-page=home] .minimal-home .dashboard-search input::placeholder { color:#5B6B8C; opacity:1; }
+body[data-page=home] .minimal-home .dashboard-search input::-webkit-search-cancel-button { display:none; }
+body[data-page=home] .minimal-home .dashboard-search button { display:inline-flex; align-items:center; justify-content:center; flex-shrink:0; min-height:0; border:0!important; text-transform:none!important; cursor:pointer; transition:background .2s; }
+body[data-page=home] .minimal-home .dashboard-search .home-search-clear { width:28px; height:32px; padding:0; background:transparent!important; color:#5B6B8C!important; font:400 18px Arial,sans-serif; box-shadow:none!important; }
+body[data-page=home] .minimal-home .dashboard-search .home-search-clear[hidden] { display:none; }
+body[data-page=home] .minimal-home .home-search-key { padding:3px 7px; margin:0 8px 0 2px; border-radius:6px; background:#F0F5FF; color:#5B6B8C; font:500 13px Inter,Arial,sans-serif; }
+body[data-page=home] .minimal-home .dashboard-search .home-search-submit { height:44px; padding:0 22px; margin-right:6px; border-radius:999px!important; background:#1F6BFF!important; color:#fff!important; font:700 15px Inter,Arial,sans-serif; box-shadow:none!important; }
+body[data-page=home] .minimal-home .dashboard-search .home-search-submit:hover { background:#1557E0!important; }
+.home-search-submit span+span { display:none; }
+body[data-page=home] .minimal-home .home-search-examples { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 12px; margin-top:12px; color:#5B6B8C; font:500 13px Inter,Arial,sans-serif; position:relative; z-index:3; }
+body[data-page=home] .minimal-home .home-search-examples button { min-height:24px; padding:0; border:0!important; border-radius:0!important; background:transparent!important; color:#1F6BFF!important; font:inherit; text-transform:none!important; text-decoration:underline dotted; text-underline-offset:4px; box-shadow:none!important; cursor:pointer; }
+body[data-page=home] .minimal-home .learning-filters { gap:10px; align-items:center; margin-top:16px; }
+.home-filter-label { flex-shrink:0; color:#5B6B8C; font:600 13px Inter,Arial,sans-serif; }
+body[data-page=home] .minimal-home .learning-filters button { display:inline-flex; align-items:center; gap:8px; flex-shrink:0; height:38px; min-height:38px; padding:0 16px; border:1px solid #C9DAFF!important; background:#EAF1FF!important; color:#0B1E4A!important; font:600 14px Inter,Arial,sans-serif; transition:background .2s,border-color .2s,color .2s,box-shadow .2s; }
+body[data-page=home] .minimal-home .learning-filters button:hover { background:#DCE8FF!important; border-color:#1F6BFF!important; }
+body[data-page=home] .minimal-home .learning-filters [aria-pressed=true] { background:#1F6BFF!important; color:#fff!important; border-color:#1F6BFF!important; box-shadow:0 4px 12px rgba(31,107,255,.3)!important; }
+.home-filter-icon { display:inline-flex; color:inherit; }
+body[data-page=home] .minimal-home .home-filter-icon .site-icon { width:16px; height:16px; color:inherit; }
+.home-filter-count { display:grid; place-items:center; min-width:22px; height:22px; padding:0 3px; box-sizing:border-box; border-radius:50%; background:#fff; color:#0B1E4A; font-size:12px; }
+[aria-pressed=true] .home-filter-count { color:#1F6BFF; }
+body[data-page=home] .minimal-home .learning-filters button:focus-visible,
+body[data-page=home] .minimal-home .home-search-examples button:focus-visible,
+body[data-page=home] .minimal-home .dashboard-search button:focus-visible { outline:2px solid #1F6BFF!important; outline-offset:3px; }
+@media(max-width:767px) {
+ body[data-page=home] .minimal-home .dashboard-search { height:54px; }
+ body[data-page=home] .minimal-home .dashboard-search input { font-size:16px!important; padding:0 8px!important; }
+ body[data-page=home] .minimal-home .home-search-key { display:none; }
+ body[data-page=home] .minimal-home .dashboard-search .home-search-submit { width:38px; height:38px; padding:0; font-size:22px; }
+ .home-search-submit span:first-child { display:none; }
+ .home-search-submit span+span { display:inline; }
+ body[data-page=home] .minimal-home .learning-filters { flex-wrap:nowrap; overflow-x:auto; padding:6px 4px 12px; margin-left:-4px; margin-right:-4px; scrollbar-width:thin; }
+}
+@media(prefers-reduced-motion:reduce) {
+ body[data-page=home] .minimal-home .dashboard-search,
+ body[data-page=home] .minimal-home .dashboard-search button,
+ body[data-page=home] .minimal-home .learning-filters button { transition:none; }
+}
+body[data-page=home] .minimal-home .home-search-icon svg,
+body[data-page=home] .minimal-home .home-filter-icon svg { stroke:currentColor; }
+body[data-page=home] .minimal-home .home-search-icon svg { width:18px!important; height:18px!important; }
+body[data-page=home] .minimal-home .home-filter-icon svg { width:16px!important; height:16px!important; }
