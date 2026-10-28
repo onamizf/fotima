@@ -1,4 +1,4 @@
-/* Situation D and Task 1 summary copy. E is displayed in Uzbek through the shared labels. */
+/* Scene presentation data; learning rules and canonical IDs remain unchanged. */
 const SituationD={
   "id": "danger-d",
   "previous": "danger-c",
@@ -125,49 +125,37 @@ const SituationD={
         2,
         3
       ]
-    }
+    },
+    "presentation": "frog-bubble"
   },
   "copy": {
     "ru": {
       "title": "Лицо над кипящей жидкостью",
-      "q1": "Азиз в очках. Что тогда здесь опасно? Нажми на сцене",
-      "hotspotLabel": "Лицо слишком близко к кипящей воде",
-      "hint": "Посмотри на лицо Азиза и горячий пар над стаканом…",
-      "inspect": "Очки надеты, но нужно найти другую опасность.",
-      "q2": "Чем это опасно?",
-      "q3": "Как правильно наблюдать за нагреванием?",
-      "riskExplanation": "Очки защищают глаза. Лицо, шея и руки остаются открытыми — держи их подальше от пара и брызг.",
+      "watch": "Смотри внимательно, что произойдёт…",
+      "loading": "Загружаем сцену…",
+      "loadError": "Кадры сцены недоступны. Проверь подключение и попробуй ещё раз.",
+      "retry": "Повторить загрузку",
+      "play": "Продолжить",
+      "pause": "Пауза",
+      "restart": "Сначала",
+      "skip": "Пропустить анимацию",
+      "sound": "Звук",
+      "timeline": "Этапы сцены",
+      "danger": "⚠ ОПАСНО",
+      "safe": "✔ ПРАВИЛЬНО",
       "stop": "Горячо! Не наклоняйся над кипящим! 🥵",
       "praise": "Наблюдаем сбоку и на расстоянии! 👀",
-      "next": "Итоги →",
-      "summaryNav": "Итоги",
-      "distanceLabel": "≈ 50 см",
-      "distanceNote": "Учебная схема: безопасное расстояние уточняй у учителя.",
-      "what": "Азиз наклонился слишком близко к стакану. Горячий пар и брызги попали ему в лицо, а очки запотели.",
-      "why": [
-        "У открытого стакана пар обычно около 100 °C. Конденсируясь на коже, он отдаёт много тепла и может сильно обжечь.",
-        "При бурном кипении горячая вода может выплеснуться.",
-        "Запотевшие очки мешают видеть: можно задеть горелку или горячую посуду."
-      ],
-      "bad": [
-        "Наклоняться над нагреваемой посудой.",
-        "Смотреть в стакан сверху.",
-        "Трогать горячий стакан или треножник руками."
-      ],
-      "good": [
-        "Стоять прямо и держать безопасное расстояние.",
-        "Наблюдать сбоку, а не сверху.",
-        "Дождаться остывания посуды; перемещать её только подходящим держателем или прихваткой по указанию учителя."
-      ],
-      "helpTitle": "⑤ Если обжёгся",
-      "help": "Сразу скажи учителю. Охлаждай место ожога прохладной проточной водой 10–15 минут. Не прикладывай лёд и не мажь ожог; дальнейшую помощь организует взрослый.",
-      "subtitles": [
-        "Азиз хочет рассмотреть пузырьки поближе…",
-        "Вода закипает, пар идёт прямо в лицо!",
-        "Горячий пар и брызги! Отойди от стакана!",
-        "Даже в очках нельзя наклоняться над кипящей водой",
-        "Наблюдай сбоку и держись подальше от горячего"
-      ],
+      "hint": "Посмотри на лицо Азиза и горячий пар над стаканом…",
+      "hotspot": "Опасная зона: волосы и первый стакан",
+      "q1": "Азиз в очках. Что тогда здесь опасно? Нажми на сцене",
+      "q2": "Чем это опасно?",
+      "q3": "Как правильно наблюдать за нагреванием?",
+      "check": "Проверить",
+      "correct": "✓ Верно!",
+      "wrong": "Не совсем. Прочитай объяснение и попробуй ещё раз.",
+      "multiHint": "Выбери все безопасные действия.",
+      "replay": "↺ Посмотреть ещё раз",
+      "reward": "+20 XP",
       "alts": [
         "Азиз в очках наклонился лицом к стакану на треножнике над горелкой",
         "Вода бурно кипит, пар идёт к лицу Азиза, очки запотевают",
@@ -200,6 +188,14 @@ const SituationD={
         "Так ты приблизишь лицо к пару. Отойди и позови учителя.",
         "Чем ближе лицо к кипящей воде, тем выше риск ожога."
       ],
+      "heading": "Практическая работа 1.1 · Ситуация D из 4",
+      "situation": "СИТУАЦИЯ D",
+      "next": "Итоги →",
+      "hotspotLabel": "Лицо слишком близко к кипящей воде",
+      "inspect": "Очки надеты, но нужно найти другую опасность.",
+      "riskExplanation": "Очки защищают глаза. Лицо, шея и руки остаются открытыми — держи их подальше от пара и брызг.",
+      "summaryNav": "Итоги",
+      "distanceLabel": "≈ 50 см",
       "summaryTitle": "Задание 1 пройдено!",
       "summaryFound": "Найдено ошибок: {n} из {total}",
       "summaryAccuracy": "Правильных ответов: {n}%",
@@ -217,48 +213,36 @@ const SituationD={
       ],
       "summaryLegacy": "Для ранних прохождений учтены сохранённые верные ответы.",
       "taskOneComplete": "Задание 1 · Техника безопасности ✓",
-      "summaryProgress": "Все четыре ситуации завершены"
+      "summaryProgress": "Все четыре ситуации завершены",
+      "previous": "← Ситуация C"
     },
     "uz-Latn": {
       "title": "Qaynayotgan suyuqlik ustiga egilish",
-      "q1": "Aziz ko‘zoynakda. Yana nima xavfli? Sahnada tanla",
-      "hotspotLabel": "Yuz qaynayotgan suvga juda yaqin",
-      "hint": "Azizning yuzi va stakan ustidagi issiq bug‘ga qara…",
-      "inspect": "Ko‘zoynak taqilgan, lekin yana bir xavf bor.",
-      "q2": "Bu nimasi bilan xavfli?",
-      "q3": "Isitishni qanday kuzatish kerak?",
-      "riskExplanation": "Ko‘zoynak ko‘zlarni himoya qiladi. Yuz, bo‘yin va qo‘llar ochiq: ularni bug‘ va tomchilardan uzoq tut.",
+      "watch": "Nima bo‘lishini diqqat bilan kuzat…",
+      "loading": "Sahna yuklanmoqda…",
+      "loadError": "Sahna rasmlari ochilmadi. Ulanishni tekshirib, qayta urinib ko‘r.",
+      "retry": "Qayta yuklash",
+      "play": "Davom ettirish",
+      "pause": "Pauza",
+      "restart": "Boshidan",
+      "skip": "Animatsiyani o‘tkazib yuborish",
+      "sound": "Ovoz",
+      "timeline": "Sahna bosqichlari",
+      "danger": "⚠ XAVFLI",
+      "safe": "✔ TO‘G‘RI",
       "stop": "Issiq! Qaynayotgan idish ustiga egilma! 🥵",
       "praise": "Yon tomondan va uzoqroqdan kuzatamiz! 👀",
-      "next": "Yakunlar →",
-      "summaryNav": "Yakunlar",
-      "distanceLabel": "≈ 50 sm",
-      "distanceNote": "O‘quv chizmasi: xavfsiz masofani o‘qituvchidan so‘ra.",
-      "what": "Aziz stakanga juda yaqin egildi. Issiq bug‘ va tomchilar uning yuziga tegdi, ko‘zoynagi terlab qoldi.",
-      "why": [
-        "Ochiq stakan ustida bug‘ odatda 100 °C atrofida bo‘ladi. Terida kondensatsiyalanib, ko‘p issiqlik ajratadi va kuchli kuydirishi mumkin.",
-        "Kuchli qaynaganda issiq suv sachrashi mumkin.",
-        "Terlagan ko‘zoynak ko‘rishga xalaqit beradi: gorelka yoki issiq idishni turtib yuborish mumkin."
-      ],
-      "bad": [
-        "Qizdirilayotgan idish ustiga egilish.",
-        "Qaynayotgan stakanga tepadan qarash.",
-        "Issiq stakan yoki uchoyoqni qo‘l bilan ushlash."
-      ],
-      "good": [
-        "Tik tur va xavfsiz masofani saqla.",
-        "Tepadan emas, yon tomondan kuzat.",
-        "Idish sovishini kut; uni faqat o‘qituvchi ko‘rsatmasi bilan mos tutqich yoki issiqqa chidamli ushlagichda ko‘chir."
-      ],
-      "helpTitle": "⑤ Kuyib qolsang",
-      "help": "Darhol o‘qituvchiga ayt. Kuygan joyni 10–15 daqiqa salqin oqar suvda sovit. Muz qo‘yma va krem surma; keyingi yordamni kattalar tashkil etadi.",
-      "subtitles": [
-        "Aziz pufakchalarni yaqinroqdan ko‘rmoqchi…",
-        "Suv qaynadi, bug‘ to‘g‘ri yuzga kelyapti!",
-        "Issiq bug‘ va tomchilar! Stakandan uzoqlash!",
-        "Ko‘zoynakda ham qaynayotgan suv ustiga egilma",
-        "Yon tomondan kuzat va issiq idishdan uzoq tur"
-      ],
+      "hint": "Azizning yuzi va stakan ustidagi issiq bug‘ga qara…",
+      "hotspot": "Xavfli joy: soch va birinchi stakan",
+      "q1": "Aziz ko‘zoynakda. Yana nima xavfli? Sahnada tanla",
+      "q2": "Bu nimasi bilan xavfli?",
+      "q3": "Isitishni qanday kuzatish kerak?",
+      "check": "Tekshirish",
+      "correct": "✓ To‘g‘ri!",
+      "wrong": "Hali to‘g‘ri emas. Izohni o‘qib, qayta urin.",
+      "multiHint": "Barcha xavfsiz harakatlarni tanla.",
+      "replay": "↺ Yana ko‘rish",
+      "reward": "+20 XP",
       "alts": [
         "Aziz ko‘zoynakda, lekin gorelka ustidagi uchoyoqda turgan stakanga egilgan",
         "Suv kuchli qaynayapti, bug‘ Azizning yuziga tegib, ko‘zoynagi terlayapti",
@@ -291,6 +275,14 @@ const SituationD={
         "Puflaganda yuz bug‘ga yaqinlashadi. Uzoqlash va o‘qituvchiga ayt.",
         "Yuz qaynayotgan suvga qanchalik yaqin bo‘lsa, kuyish xavfi shunchalik katta."
       ],
+      "heading": "1.1-amaliy ish · 4 vaziyatdan E vaziyat",
+      "situation": "E VAZIYAT",
+      "next": "Yakunlar →",
+      "hotspotLabel": "Yuz qaynayotgan suvga juda yaqin",
+      "inspect": "Ko‘zoynak taqilgan, lekin yana bir xavf bor.",
+      "riskExplanation": "Ko‘zoynak ko‘zlarni himoya qiladi. Yuz, bo‘yin va qo‘llar ochiq: ularni bug‘ va tomchilardan uzoq tut.",
+      "summaryNav": "Yakunlar",
+      "distanceLabel": "≈ 50 sm",
       "summaryTitle": "1-topshiriq bajarildi!",
       "summaryFound": "Topilgan xavflar: {n} / {total}",
       "summaryAccuracy": "To‘g‘ri javoblar: {n}%",
@@ -308,48 +300,36 @@ const SituationD={
       ],
       "summaryLegacy": "Avvalgi bajarishlar uchun saqlangan to‘g‘ri javoblar hisobga olindi.",
       "taskOneComplete": "1-topshiriq · Xavfsizlik texnikasi ✓",
-      "summaryProgress": "To‘rtta vaziyat bajarildi"
+      "summaryProgress": "To‘rtta vaziyat bajarildi",
+      "previous": "← D vaziyat"
     },
     "uz-Cyrl": {
       "title": "Қайнаётган суюқлик устига эгилиш",
-      "q1": "Азиз кўзойнакда. Яна нима хавфли? Саҳнада танла",
-      "hotspotLabel": "Юз қайнаётган сувга жуда яқин",
-      "hint": "Азизнинг юзи ва стакан устидаги иссиқ буғга қара…",
-      "inspect": "Кўзойнак тақилган, лекин яна бир хавф бор.",
-      "q2": "Бу нимаси билан хавфли?",
-      "q3": "Иситишни қандай кузатиш керак?",
-      "riskExplanation": "Кўзойнак кўзларни ҳимоя қилади. Юз, бўйин ва қўллар очиқ: уларни буғ ва томчилардан узоқ тут.",
+      "watch": "Nima bo‘lishini diqqat bilan kuzat…",
+      "loading": "Sahna yuklanmoqda…",
+      "loadError": "Sahna rasmlari ochilmadi. Ulanishni tekshirib, qayta urinib ko‘r.",
+      "retry": "Qayta yuklash",
+      "play": "Davom ettirish",
+      "pause": "Pauza",
+      "restart": "Boshidan",
+      "skip": "Animatsiyani o‘tkazib yuborish",
+      "sound": "Ovoz",
+      "timeline": "Sahna bosqichlari",
+      "danger": "⚠ XAVFLI",
+      "safe": "✔ TO‘G‘RI",
       "stop": "Иссиқ! Қайнаётган идиш устига эгилма! 🥵",
       "praise": "Ён томондан ва узоқроқдан кузатамиз! 👀",
-      "next": "Якунлар →",
-      "summaryNav": "Якунлар",
-      "distanceLabel": "≈ 50 см",
-      "distanceNote": "Ўқув чизмаси: хавфсиз масофани ўқитувчидан сўра.",
-      "what": "Азиз стаканга жуда яқин эгилди. Иссиқ буғ ва томчилар унинг юзига тегди, кўзойнаги терлаб қолди.",
-      "why": [
-        "Очиқ стакан устида буғ одатда 100 °C атрофида бўлади. Терида конденсацияланиб, кўп иссиқлик ажратади ва кучли куйдириши мумкин.",
-        "Кучли қайнаганда иссиқ сув сачраши мумкин.",
-        "Терлаган кўзойнак кўришга халақит беради: горелка ёки иссиқ идишни туртиб юбориш мумкин."
-      ],
-      "bad": [
-        "Қиздирилаётган идиш устига эгилиш.",
-        "Қайнаётган стаканга тепадан қараш.",
-        "Иссиқ стакан ёки учоёқни қўл билан ушлаш."
-      ],
-      "good": [
-        "Тик тур ва хавфсиз масофани сақла.",
-        "Тепадан эмас, ён томондан кузат.",
-        "Идиш совишини кут; уни фақат ўқитувчи кўрсатмаси билан мос тутқич ёки иссиққа чидамли ушлагичда кўчир."
-      ],
-      "helpTitle": "⑤ Куйиб қолсанг",
-      "help": "Дарҳол ўқитувчига айт. Куйган жойни 10–15 дақиқа салқин оқар сувда совит. Муз қўйма ва крем сурма; кейинги ёрдамни катталар ташкил этади.",
-      "subtitles": [
-        "Азиз пуфакчаларни яқинроқдан кўрмоқчи…",
-        "Сув қайнади, буғ тўғри юзга келяпти!",
-        "Иссиқ буғ ва томчилар! Стакандан узоқлаш!",
-        "Кўзойнакда ҳам қайнаётган сув устига эгилма",
-        "Ён томондан кузат ва иссиқ идишдан узоқ тур"
-      ],
+      "hint": "Азизнинг юзи ва стакан устидаги иссиқ буғга қара…",
+      "hotspot": "Xavfli joy: soch va birinchi stakan",
+      "q1": "Азиз кўзойнакда. Яна нима хавфли? Саҳнада танла",
+      "q2": "Бу нимаси билан хавфли?",
+      "q3": "Иситишни қандай кузатиш керак?",
+      "check": "Tekshirish",
+      "correct": "✓ To‘g‘ri!",
+      "wrong": "Hali to‘g‘ri emas. Izohni o‘qib, qayta urin.",
+      "multiHint": "Barcha xavfsiz harakatlarni tanla.",
+      "replay": "↺ Yana ko‘rish",
+      "reward": "+20 XP",
       "alts": [
         "Азиз кўзойнакда, лекин горелка устидаги учоёқда турган стаканга эгилган",
         "Сув кучли қайнаяпти, буғ Азизнинг юзига тегиб, кўзойнаги терлаяпти",
@@ -382,6 +362,14 @@ const SituationD={
         "Пуфлаганда юз буғга яқинлашади. Узоқлаш ва ўқитувчига айт.",
         "Юз қайнаётган сувга қанчалик яқин бўлса, куйиш хавфи шунчалик катта."
       ],
+      "heading": "1.1-амалий иш · 4 вазиятдан E вазият",
+      "situation": "E ВАЗИЯТ",
+      "next": "Якунлар →",
+      "hotspotLabel": "Юз қайнаётган сувга жуда яқин",
+      "inspect": "Кўзойнак тақилган, лекин яна бир хавф бор.",
+      "riskExplanation": "Кўзойнак кўзларни ҳимоя қилади. Юз, бўйин ва қўллар очиқ: уларни буғ ва томчилардан узоқ тут.",
+      "summaryNav": "Якунлар",
+      "distanceLabel": "≈ 50 см",
       "summaryTitle": "1-топшириқ бажарилди!",
       "summaryFound": "Топилган хавфлар: {n} / {total}",
       "summaryAccuracy": "Тўғри жавоблар: {n}%",
@@ -399,48 +387,36 @@ const SituationD={
       ],
       "summaryLegacy": "Аввалги бажаришлар учун сақланган тўғри жавоблар ҳисобга олинди.",
       "taskOneComplete": "1-топшириқ · Хавфсизлик техникаси ✓",
-      "summaryProgress": "Тўртта вазият бажарилди"
+      "summaryProgress": "Тўртта вазият бажарилди",
+      "previous": "← D вазият"
     },
     "en": {
       "title": "Leaning over boiling liquid",
-      "q1": "Aziz is wearing goggles. What is still dangerous? Select it in the scene",
-      "hotspotLabel": "Face too close to boiling water",
-      "hint": "Look at Aziz’s face and the hot steam above the beaker…",
-      "inspect": "He has goggles on, but there is another danger.",
-      "q2": "Why is this dangerous?",
-      "q3": "How should heating be observed?",
-      "riskExplanation": "Goggles protect the eyes. The face, neck and hands are still exposed: keep them away from steam and splashes.",
+      "watch": "Watch carefully to see what happens…",
+      "loading": "Loading the scene…",
+      "loadError": "Scene images are unavailable. Check your connection and try again.",
+      "retry": "Try again",
+      "play": "Play",
+      "pause": "Pause",
+      "restart": "Restart",
+      "skip": "Skip animation",
+      "sound": "Sound",
+      "timeline": "Scene stages",
+      "danger": "⚠ DANGER",
+      "safe": "✔ SAFE",
       "stop": "Hot! Never lean over boiling liquid! 🥵",
       "praise": "Watch from the side and keep your distance! 👀",
-      "next": "Results →",
-      "summaryNav": "Results",
-      "distanceLabel": "≈ 50 cm",
-      "distanceNote": "Learning diagram: ask your teacher about a safe working distance.",
-      "what": "Aziz leaned too close to the beaker. Hot steam and splashes reached his face, and his goggles fogged up.",
-      "why": [
-        "Above an open beaker, steam is usually around 100 °C. When it condenses on skin it releases a lot of heat and can cause serious burns.",
-        "Vigorous boiling can make hot water splash out.",
-        "Fogged goggles make it hard to see: you could knock the burner or hot glassware."
-      ],
-      "bad": [
-        "Lean over glassware being heated.",
-        "Look down into a boiling beaker.",
-        "Touch a hot beaker or tripod with bare hands."
-      ],
-      "good": [
-        "Stand upright at a safe distance.",
-        "Observe from the side, not from above.",
-        "Let glassware cool; move it only with a suitable holder or heatproof grip as your teacher directs."
-      ],
-      "helpTitle": "⑤ If you get a burn",
-      "help": "Tell your teacher immediately. Cool the burn under cool running water for 10–15 minutes. Do not use ice or apply creams; an adult should arrange further help.",
-      "subtitles": [
-        "Aziz wants a closer look at the bubbles…",
-        "The water boils and steam goes straight towards his face!",
-        "Hot steam and splashes! Move away from the beaker!",
-        "Even with goggles, never lean over boiling water",
-        "Observe from the side and stay away from hot glassware"
-      ],
+      "hint": "Look at Aziz’s face and the hot steam above the beaker…",
+      "hotspot": "Danger zone: hair and first beaker",
+      "q1": "Aziz is wearing goggles. What is still dangerous? Select it in the scene",
+      "q2": "Why is this dangerous?",
+      "q3": "How should heating be observed?",
+      "check": "Check",
+      "correct": "✓ Correct!",
+      "wrong": "Not quite. Read the explanation and try again.",
+      "multiHint": "Select all safe actions.",
+      "replay": "↺ Watch again",
+      "reward": "+20 XP",
       "alts": [
         "Aziz wears goggles but leans towards a beaker on a tripod above a burner",
         "Water boils vigorously; steam reaches Aziz’s face and fogs his goggles",
@@ -473,6 +449,14 @@ const SituationD={
         "Blowing brings your face nearer to the steam. Move away and tell your teacher.",
         "A face closer to boiling water is at greater risk of burns."
       ],
+      "heading": "Practical work 1.1 · Situation D of 4",
+      "situation": "SITUATION D",
+      "next": "Results →",
+      "hotspotLabel": "Face too close to boiling water",
+      "inspect": "He has goggles on, but there is another danger.",
+      "riskExplanation": "Goggles protect the eyes. The face, neck and hands are still exposed: keep them away from steam and splashes.",
+      "summaryNav": "Results",
+      "distanceLabel": "≈ 50 cm",
       "summaryTitle": "Task 1 completed!",
       "summaryFound": "Hazards found: {n} of {total}",
       "summaryAccuracy": "Correct answers: {n}%",
@@ -490,15 +474,214 @@ const SituationD={
       ],
       "summaryLegacy": "Earlier completions use the saved correct answers.",
       "taskOneComplete": "Task 1 · Laboratory safety ✓",
-      "summaryProgress": "All four situations completed"
+      "summaryProgress": "All four situations completed",
+      "previous": "← Situation C"
     }
+  },
+  "dangerZone": {
+    "x": 37,
+    "y": 25,
+    "w": 27,
+    "h": 33
+  },
+  "focusZone": {
+    "x": 37,
+    "y": 22,
+    "w": 28,
+    "h": 48
+  },
+  "frogLines": {
+    "ru": [
+      "Азиз хочет рассмотреть пузырьки поближе… Смотри внимательно, что произойдёт…",
+      "Вода закипает, пар идёт прямо в лицо!",
+      "Горячий пар и брызги! Отойди от стакана! Азиз наклонился слишком близко к стакану. Горячий пар и брызги попали ему в лицо, а очки запотели.",
+      "Азиз в очках. Что тогда здесь опасно? Нажми на сцене",
+      "Наблюдаем сбоку и на расстоянии! 👀"
+    ],
+    "uz-Latn": [
+      "Aziz pufakchalarni yaqinroqdan ko‘rmoqchi… Nima bo‘lishini diqqat bilan kuzat…",
+      "Suv qaynadi, bug‘ to‘g‘ri yuzga kelyapti!",
+      "Issiq bug‘ va tomchilar! Stakandan uzoqlash! Aziz stakanga juda yaqin egildi. Issiq bug‘ va tomchilar uning yuziga tegdi, ko‘zoynagi terlab qoldi.",
+      "Aziz ko‘zoynakda. Yana nima xavfli? Sahnada tanla",
+      "Yon tomondan va uzoqroqdan kuzatamiz! 👀"
+    ],
+    "uz-Cyrl": [
+      "Азиз пуфакчаларни яқинроқдан кўрмоқчи… Nima bo‘lishini diqqat bilan kuzat…",
+      "Сув қайнади, буғ тўғри юзга келяпти!",
+      "Иссиқ буғ ва томчилар! Стакандан узоқлаш! Азиз стаканга жуда яқин эгилди. Иссиқ буғ ва томчилар унинг юзига тегди, кўзойнаги терлаб қолди.",
+      "Азиз кўзойнакда. Яна нима хавфли? Саҳнада танла",
+      "Ён томондан ва узоқроқдан кузатамиз! 👀"
+    ],
+    "en": [
+      "Aziz wants a closer look at the bubbles… Watch carefully to see what happens…",
+      "The water boils and steam goes straight towards his face!",
+      "Hot steam and splashes! Move away from the beaker! Aziz leaned too close to the beaker. Hot steam and splashes reached his face, and his goggles fogged up.",
+      "Aziz is wearing goggles. What is still dangerous? Select it in the scene",
+      "Watch from the side and keep your distance! 👀"
+    ]
+  },
+  "explanation": {
+    "ru": [
+      {
+        "kind": "what",
+        "title": "① Что случилось",
+        "body": "Азиз наклонился слишком близко к стакану. Горячий пар и брызги попали ему в лицо, а очки запотели."
+      },
+      {
+        "kind": "why",
+        "title": "② Почему это опасно",
+        "body": [
+          "У открытого стакана пар обычно около 100 °C. Конденсируясь на коже, он отдаёт много тепла и может сильно обжечь.",
+          "При бурном кипении горячая вода может выплеснуться.",
+          "Запотевшие очки мешают видеть: можно задеть горелку или горячую посуду."
+        ]
+      },
+      {
+        "kind": "bad",
+        "title": "③ ❌ Так делать нельзя",
+        "body": [
+          "Наклоняться над нагреваемой посудой.",
+          "Смотреть в стакан сверху.",
+          "Трогать горячий стакан или треножник руками."
+        ]
+      },
+      {
+        "kind": "good",
+        "title": "④ ✅ Как надо",
+        "body": [
+          "Стоять прямо и держать безопасное расстояние.",
+          "Наблюдать сбоку, а не сверху.",
+          "Дождаться остывания посуды; перемещать её только подходящим держателем или прихваткой по указанию учителя."
+        ],
+        "note": "Учебная схема: безопасное расстояние уточняй у учителя."
+      },
+      {
+        "kind": "help",
+        "title": "⑤ Если обжёгся",
+        "body": "Сразу скажи учителю. Охлаждай место ожога прохладной проточной водой 10–15 минут. Не прикладывай лёд и не мажь ожог; дальнейшую помощь организует взрослый."
+      }
+    ],
+    "uz-Latn": [
+      {
+        "kind": "what",
+        "title": "① Nima bo‘ldi",
+        "body": "Aziz stakanga juda yaqin egildi. Issiq bug‘ va tomchilar uning yuziga tegdi, ko‘zoynagi terlab qoldi."
+      },
+      {
+        "kind": "why",
+        "title": "② Nega xavfli",
+        "body": [
+          "Ochiq stakan ustida bug‘ odatda 100 °C atrofida bo‘ladi. Terida kondensatsiyalanib, ko‘p issiqlik ajratadi va kuchli kuydirishi mumkin.",
+          "Kuchli qaynaganda issiq suv sachrashi mumkin.",
+          "Terlagan ko‘zoynak ko‘rishga xalaqit beradi: gorelka yoki issiq idishni turtib yuborish mumkin."
+        ]
+      },
+      {
+        "kind": "bad",
+        "title": "③ ❌ Bunday qilma",
+        "body": [
+          "Qizdirilayotgan idish ustiga egilish.",
+          "Qaynayotgan stakanga tepadan qarash.",
+          "Issiq stakan yoki uchoyoqni qo‘l bilan ushlash."
+        ]
+      },
+      {
+        "kind": "good",
+        "title": "④ ✅ To‘g‘ri yo‘l",
+        "body": [
+          "Tik tur va xavfsiz masofani saqla.",
+          "Tepadan emas, yon tomondan kuzat.",
+          "Idish sovishini kut; uni faqat o‘qituvchi ko‘rsatmasi bilan mos tutqich yoki issiqqa chidamli ushlagichda ko‘chir."
+        ],
+        "note": "O‘quv chizmasi: xavfsiz masofani o‘qituvchidan so‘ra."
+      },
+      {
+        "kind": "help",
+        "title": "⑤ Kuyib qolsang",
+        "body": "Darhol o‘qituvchiga ayt. Kuygan joyni 10–15 daqiqa salqin oqar suvda sovit. Muz qo‘yma va krem surma; keyingi yordamni kattalar tashkil etadi."
+      }
+    ],
+    "uz-Cyrl": [
+      {
+        "kind": "what",
+        "title": "① Nima bo‘ldi",
+        "body": "Азиз стаканга жуда яқин эгилди. Иссиқ буғ ва томчилар унинг юзига тегди, кўзойнаги терлаб қолди."
+      },
+      {
+        "kind": "why",
+        "title": "② Nega xavfli",
+        "body": [
+          "Очиқ стакан устида буғ одатда 100 °C атрофида бўлади. Терида конденсацияланиб, кўп иссиқлик ажратади ва кучли куйдириши мумкин.",
+          "Кучли қайнаганда иссиқ сув сачраши мумкин.",
+          "Терлаган кўзойнак кўришга халақит беради: горелка ёки иссиқ идишни туртиб юбориш мумкин."
+        ]
+      },
+      {
+        "kind": "bad",
+        "title": "③ ❌ Bunday qilma",
+        "body": [
+          "Қиздирилаётган идиш устига эгилиш.",
+          "Қайнаётган стаканга тепадан қараш.",
+          "Иссиқ стакан ёки учоёқни қўл билан ушлаш."
+        ]
+      },
+      {
+        "kind": "good",
+        "title": "④ ✅ To‘g‘ri yo‘l",
+        "body": [
+          "Тик тур ва хавфсиз масофани сақла.",
+          "Тепадан эмас, ён томондан кузат.",
+          "Идиш совишини кут; уни фақат ўқитувчи кўрсатмаси билан мос тутқич ёки иссиққа чидамли ушлагичда кўчир."
+        ],
+        "note": "Ўқув чизмаси: хавфсиз масофани ўқитувчидан сўра."
+      },
+      {
+        "kind": "help",
+        "title": "⑤ Куйиб қолсанг",
+        "body": "Дарҳол ўқитувчига айт. Куйган жойни 10–15 дақиқа салқин оқар сувда совит. Муз қўйма ва крем сурма; кейинги ёрдамни катталар ташкил этади."
+      }
+    ],
+    "en": [
+      {
+        "kind": "what",
+        "title": "① What happened",
+        "body": "Aziz leaned too close to the beaker. Hot steam and splashes reached his face, and his goggles fogged up."
+      },
+      {
+        "kind": "why",
+        "title": "② Why it is dangerous",
+        "body": [
+          "Above an open beaker, steam is usually around 100 °C. When it condenses on skin it releases a lot of heat and can cause serious burns.",
+          "Vigorous boiling can make hot water splash out.",
+          "Fogged goggles make it hard to see: you could knock the burner or hot glassware."
+        ]
+      },
+      {
+        "kind": "bad",
+        "title": "③ ❌ Never do this",
+        "body": [
+          "Lean over glassware being heated.",
+          "Look down into a boiling beaker.",
+          "Touch a hot beaker or tripod with bare hands."
+        ]
+      },
+      {
+        "kind": "good",
+        "title": "④ ✅ Work safely",
+        "body": [
+          "Stand upright at a safe distance.",
+          "Observe from the side, not from above.",
+          "Let glassware cool; move it only with a suitable holder or heatproof grip as your teacher directs."
+        ],
+        "note": "Learning diagram: ask your teacher about a safe working distance."
+      },
+      {
+        "kind": "help",
+        "title": "⑤ If you get a burn",
+        "body": "Tell your teacher immediately. Cool the burn under cool running water for 10–15 minutes. Do not use ice or apply creams; an adult should arrange further help."
+      }
+    ]
   }
 };
-for(const lang of Object.keys(SituationD.copy))SituationD.copy[lang]={...SituationA.copy[lang],...SituationD.copy[lang]};
 SafetySituations.decorate(SituationD);
-{
- const title=Object.fromEntries(Object.entries(SituationD.copy).map(([lang,c])=>[lang,c.title]));
- IntroData.tasks.find(t=>t.id===SituationD.id).title=title;
- IntroData.dangers.find(d=>d.id===SituationD.id).title=title;
- CourseData.topics.find(t=>t.id==='intro').steps.experiments.find(e=>e.key===SituationD.id).title=title;
-}
+{const title=Object.fromEntries(Object.entries(SituationD.copy).map(([lang,c])=>[lang,c.title]));IntroData.tasks.find(t=>t.id===SituationD.id).title=title;IntroData.dangers.find(d=>d.id===SituationD.id).title=title;CourseData.topics.find(t=>t.id==='intro').steps.experiments.find(e=>e.key===SituationD.id).title=title;}

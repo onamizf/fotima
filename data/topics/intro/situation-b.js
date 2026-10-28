@@ -1,4 +1,4 @@
-/* Situation B. Zones are calibrated against the question frame; debug mode exports edits. */
+/* Scene presentation data; learning rules and canonical IDs remain unchanged. */
 const SituationB={
   "id": "danger-b",
   "previous": "danger-a",
@@ -122,47 +122,37 @@ const SituationB={
         2,
         3
       ]
-    }
+    },
+    "presentation": "frog-bubble"
   },
   "copy": {
     "ru": {
       "title": "Нагревание без защитных очков",
-      "q1": "Нажми на сцене, что здесь не так",
-      "found": "Найдено {n} / {total}",
-      "gogglesLabel": "Очки не надеты",
-      "tubeLabel": "Пробирка без держателя и направлена на себя",
-      "hint": "Проверь, где очки Тимура и как он держит пробирку…",
-      "q2": "Чем это опасно?",
-      "q3": "Как нужно нагревать пробирку?",
+      "watch": "Смотри внимательно, что произойдёт…",
+      "loading": "Загружаем сцену…",
+      "loadError": "Кадры сцены недоступны. Проверь подключение и попробуй ещё раз.",
+      "retry": "Повторить загрузку",
+      "play": "Продолжить",
+      "pause": "Пауза",
+      "restart": "Сначала",
+      "skip": "Пропустить анимацию",
+      "sound": "Звук",
+      "timeline": "Этапы сцены",
+      "danger": "⚠ ОПАСНО",
+      "safe": "✔ ПРАВИЛЬНО",
       "stop": "Ой! А где твои очки? 😱",
       "praise": "Глаза в безопасности! 👍",
-      "what": "Жидкость перегрелась и выплеснулась к лицу. Глаза Тимура не были защищены очками.",
-      "why": [
-        "Горячая жидкость и пар могут обжечь лицо.",
-        "Капли реактива могут повредить глаза и зрение.",
-        "Горячее стекло обжигает пальцы."
-      ],
-      "bad": [
-        "Нагревать без защитных очков.",
-        "Держать нагреваемую пробирку пальцами.",
-        "Направлять отверстие на себя или соседа.",
-        "Наклоняться над нагреваемой посудой."
-      ],
-      "good": [
-        "Надеть очки до начала работы и не снимать до конца.",
-        "Закрепить держатель на верхней трети пробирки.",
-        "Наклонить примерно на 45°, отверстие направить от людей.",
-        "Сначала равномерно прогреть всю пробирку, затем нагревать жидкость, плавно перемещая пробирку."
-      ],
-      "helpTitle": "⑤ Если всё-таки попало в глаза",
-      "help": "Сразу скажи учителю. Немедленно промывай глаза проточной водой не меньше 15 минут; нужна медицинская помощь. Не три глаза.",
-      "subtitles": [
-        "Тимур нагревает пробирку с раствором…",
-        "Жидкость закипает всё сильнее…",
-        "Жидкость выплеснулась к лицу. Останови нагревание!",
-        "Найди две ошибки и помоги Тимуру",
-        "Очки надеты, пробирка в держателе и направлена от людей"
-      ],
+      "hint": "Проверь, где очки Тимура и как он держит пробирку…",
+      "hotspot": "Опасная зона: волосы и первый стакан",
+      "q1": "Нажми на сцене, что здесь не так",
+      "q2": "Чем это опасно?",
+      "q3": "Как нужно нагревать пробирку?",
+      "check": "Проверить",
+      "correct": "✓ Верно!",
+      "wrong": "Не совсем. Прочитай объяснение и попробуй ещё раз.",
+      "multiHint": "Выбери все безопасные действия.",
+      "replay": "↺ Посмотреть ещё раз",
+      "reward": "+20 XP",
       "alts": [
         "Тимур без очков нагревает пробирку, держа её пальцами; очки лежат на столе",
         "Жидкость в пробирке бурно кипит, над отверстием пар",
@@ -195,46 +185,42 @@ const SituationB={
         "Из отверстия могут вылететь горячая жидкость и пар. Не заглядывай внутрь.",
         "Неподвижное нагревание одного места повышает риск перегрева и выброса жидкости."
       ],
-      "inspect": "Внимательно осмотри сцену. Нужно отметить две ошибки."
+      "heading": "Практическая работа 1.1 · Ситуация B из 4",
+      "situation": "СИТУАЦИЯ B",
+      "next": "Ситуация C →",
+      "found": "Найдено {n} / {total}",
+      "gogglesLabel": "Очки не надеты",
+      "tubeLabel": "Пробирка без держателя и направлена на себя",
+      "inspect": "Внимательно осмотри сцену. Нужно отметить две ошибки.",
+      "previous": "← Ситуация A"
     },
     "uz-Latn": {
       "title": "Himoya ko‘zoynagisiz isitish",
-      "q1": "Sahnada nima noto‘g‘ri ekanini tanla",
-      "found": "Topildi: {n} / {total}",
-      "gogglesLabel": "Ko‘zoynak taqilmagan",
-      "tubeLabel": "Probirka tutqichsiz, og‘zi o‘ziga qaratilgan",
-      "hint": "Temurning ko‘zoynagi qayerda va u probirkani qanday ushlab turibdi?",
-      "q2": "Bu nimasi bilan xavfli?",
-      "q3": "Probirkani qanday isitish kerak?",
+      "watch": "Nima bo‘lishini diqqat bilan kuzat…",
+      "loading": "Sahna yuklanmoqda…",
+      "loadError": "Sahna rasmlari ochilmadi. Ulanishni tekshirib, qayta urinib ko‘r.",
+      "retry": "Qayta yuklash",
+      "play": "Davom ettirish",
+      "pause": "Pauza",
+      "restart": "Boshidan",
+      "skip": "Animatsiyani o‘tkazib yuborish",
+      "sound": "Ovoz",
+      "timeline": "Sahna bosqichlari",
+      "danger": "⚠ XAVFLI",
+      "safe": "✔ TO‘G‘RI",
       "stop": "Voy! Ko‘zoynaging qani? 😱",
       "praise": "Ko‘zlar himoyalangan! 👍",
-      "what": "Suyuqlik ortiqcha qizib, yuz tomon sachradi. Temurning ko‘zlari ko‘zoynak bilan himoyalanmagan edi.",
-      "why": [
-        "Issiq suyuqlik va bug‘ yuzni kuydirishi mumkin.",
-        "Reaktiv tomchilari ko‘zga zarar yetkazib, ko‘rishni buzishi mumkin.",
-        "Issiq shisha barmoqlarni kuydiradi."
-      ],
-      "bad": [
-        "Himoya ko‘zoynagisiz isitish.",
-        "Qizdirilayotgan probirkani barmoqlar bilan ushlash.",
-        "Probirka og‘zini o‘ziga yoki yonidagiga qaratish.",
-        "Qizdirilayotgan idish ustiga egilish."
-      ],
-      "good": [
-        "Ko‘zoynakni ish boshida taqib, oxirigacha yechma.",
-        "Tutqichni probirkaning yuqori uchdan bir qismiga mahkamla.",
-        "Taxminan 45° qiyalat, og‘zini odamlardan nariga qarat.",
-        "Avval butun probirkani bir tekis isit, keyin uni sekin harakatlantirib suyuqlikni qizdir."
-      ],
-      "helpTitle": "⑤ Ko‘zga sachrasa",
-      "help": "Darhol o‘qituvchiga ayt. Ko‘zni darhol kamida 15 daqiqa oqar suvda yuv va tibbiy yordam ol. Ko‘zni ishqalama.",
-      "subtitles": [
-        "Temur eritmani probirkada qizdiryapti…",
-        "Suyuqlik tobora kuchliroq qaynayapti…",
-        "Suyuqlik yuz tomon sachradi. Isitishni to‘xtat!",
-        "Ikki xatoni top va Temurga yordam ber",
-        "Ko‘zoynak taqilgan, probirka tutqichda va odamlardan nariga qaratilgan"
-      ],
+      "hint": "Temurning ko‘zoynagi qayerda va u probirkani qanday ushlab turibdi?",
+      "hotspot": "Xavfli joy: soch va birinchi stakan",
+      "q1": "Sahnada nima noto‘g‘ri ekanini tanla",
+      "q2": "Bu nimasi bilan xavfli?",
+      "q3": "Probirkani qanday isitish kerak?",
+      "check": "Tekshirish",
+      "correct": "✓ To‘g‘ri!",
+      "wrong": "Hali to‘g‘ri emas. Izohni o‘qib, qayta urin.",
+      "multiHint": "Barcha xavfsiz harakatlarni tanla.",
+      "replay": "↺ Yana ko‘rish",
+      "reward": "+20 XP",
       "alts": [
         "Temur ko‘zoynaksiz probirkani barmoqlari bilan qizdiryapti; ko‘zoynak stolda",
         "Probirkadagi suyuqlik kuchli qaynayapti, og‘zidan bug‘ chiqyapti",
@@ -267,46 +253,42 @@ const SituationB={
         "Og‘zidan issiq suyuqlik va bug‘ otilishi mumkin. Ichiga qarama.",
         "Bir joyni qimirlatmay isitish ortiqcha qizish va sachrash xavfini oshiradi."
       ],
-      "inspect": "Sahnani diqqat bilan ko‘r. Ikkita xatoni belgilash kerak."
+      "heading": "1.1-amaliy ish · 4 vaziyatdan B vaziyat",
+      "situation": "B VAZIYAT",
+      "next": "D vaziyat →",
+      "found": "Topildi: {n} / {total}",
+      "gogglesLabel": "Ko‘zoynak taqilmagan",
+      "tubeLabel": "Probirka tutqichsiz, og‘zi o‘ziga qaratilgan",
+      "inspect": "Sahnani diqqat bilan ko‘r. Ikkita xatoni belgilash kerak.",
+      "previous": "← A vaziyat"
     },
     "uz-Cyrl": {
       "title": "Ҳимоя кўзойнагисиз иситиш",
-      "q1": "Саҳнада нима нотўғри эканини танла",
-      "found": "Топилди: {n} / {total}",
-      "gogglesLabel": "Кўзойнак тақилмаган",
-      "tubeLabel": "Пробирка тутқичсиз, оғзи ўзига қаратилган",
-      "hint": "Темурнинг кўзойнаги қаерда ва у пробиркани қандай ушлаб турибди?",
-      "q2": "Бу нимаси билан хавфли?",
-      "q3": "Пробиркани қандай иситиш керак?",
+      "watch": "Nima bo‘lishini diqqat bilan kuzat…",
+      "loading": "Sahna yuklanmoqda…",
+      "loadError": "Sahna rasmlari ochilmadi. Ulanishni tekshirib, qayta urinib ko‘r.",
+      "retry": "Qayta yuklash",
+      "play": "Davom ettirish",
+      "pause": "Pauza",
+      "restart": "Boshidan",
+      "skip": "Animatsiyani o‘tkazib yuborish",
+      "sound": "Ovoz",
+      "timeline": "Sahna bosqichlari",
+      "danger": "⚠ XAVFLI",
+      "safe": "✔ TO‘G‘RI",
       "stop": "Вой! Кўзойнагинг қани? 😱",
       "praise": "Кўзлар ҳимояланган! 👍",
-      "what": "Суюқлик ортиқча қизиб, юз томон сачради. Темурнинг кўзлари кўзойнак билан ҳимояланмаган эди.",
-      "why": [
-        "Иссиқ суюқлик ва буғ юзни куйдириши мумкин.",
-        "Реактив томчилари кўзга зарар етказиб, кўришни бузиши мумкин.",
-        "Иссиқ шиша бармоқларни куйдиради."
-      ],
-      "bad": [
-        "Ҳимоя кўзойнагисиз иситиш.",
-        "Қиздирилаётган пробиркани бармоқлар билан ушлаш.",
-        "Пробирка оғзини ўзига ёки ёнидагига қаратиш.",
-        "Қиздирилаётган идиш устига эгилиш."
-      ],
-      "good": [
-        "Кўзойнакни иш бошида тақиб, охиригача ечма.",
-        "Тутқични пробирканинг юқори учдан бир қисмига маҳкамла.",
-        "Тахминан 45° қиялат, оғзини одамлардан нарига қарат.",
-        "Аввал бутун пробиркани бир текис исит, кейин уни секин ҳаракатлантириб суюқликни қиздир."
-      ],
-      "helpTitle": "⑤ Кўзга сачраса",
-      "help": "Дарҳол ўқитувчига айт. Кўзни дарҳол камида 15 дақиқа оқар сувда юв ва тиббий ёрдам ол. Кўзни ишқалама.",
-      "subtitles": [
-        "Темур эритмани пробиркада қиздиряпти…",
-        "Суюқлик тобора кучлироқ қайнаяпти…",
-        "Суюқлик юз томон сачради. Иситишни тўхтат!",
-        "Икки хатони топ ва Темурга ёрдам бер",
-        "Кўзойнак тақилган, пробирка тутқичда ва одамлардан нарига қаратилган"
-      ],
+      "hint": "Темурнинг кўзойнаги қаерда ва у пробиркани қандай ушлаб турибди?",
+      "hotspot": "Xavfli joy: soch va birinchi stakan",
+      "q1": "Саҳнада нима нотўғри эканини танла",
+      "q2": "Бу нимаси билан хавфли?",
+      "q3": "Пробиркани қандай иситиш керак?",
+      "check": "Tekshirish",
+      "correct": "✓ To‘g‘ri!",
+      "wrong": "Hali to‘g‘ri emas. Izohni o‘qib, qayta urin.",
+      "multiHint": "Barcha xavfsiz harakatlarni tanla.",
+      "replay": "↺ Yana ko‘rish",
+      "reward": "+20 XP",
       "alts": [
         "Темур кўзойнаксиз пробиркани бармоқлари билан қиздиряпти; кўзойнак столда",
         "Пробиркадаги суюқлик кучли қайнаяпти, оғзидан буғ чиқяпти",
@@ -339,46 +321,42 @@ const SituationB={
         "Оғзидан иссиқ суюқлик ва буғ отилиши мумкин. Ичига қарама.",
         "Бир жойни қимирлатмай иситиш ортиқча қизиш ва сачраш хавфини оширади."
       ],
-      "inspect": "Саҳнани диққат билан кўр. Иккита хатони белгилаш керак."
+      "heading": "1.1-амалий иш · 4 вазиятдан B вазият",
+      "situation": "B ВАЗИЯТ",
+      "next": "D вазият →",
+      "found": "Топилди: {n} / {total}",
+      "gogglesLabel": "Кўзойнак тақилмаган",
+      "tubeLabel": "Пробирка тутқичсиз, оғзи ўзига қаратилган",
+      "inspect": "Саҳнани диққат билан кўр. Иккита хатони белгилаш керак.",
+      "previous": "← A вазият"
     },
     "en": {
       "title": "Heating without safety goggles",
-      "q1": "Select what is wrong in the scene",
-      "found": "Found {n} / {total}",
-      "gogglesLabel": "Goggles are not being worn",
-      "tubeLabel": "No holder; the tube points towards the learner",
-      "hint": "Check where Timur’s goggles are and how he holds the tube…",
-      "q2": "Why is this dangerous?",
-      "q3": "How should a test tube be heated?",
+      "watch": "Watch carefully to see what happens…",
+      "loading": "Loading the scene…",
+      "loadError": "Scene images are unavailable. Check your connection and try again.",
+      "retry": "Try again",
+      "play": "Play",
+      "pause": "Pause",
+      "restart": "Restart",
+      "skip": "Skip animation",
+      "sound": "Sound",
+      "timeline": "Scene stages",
+      "danger": "⚠ DANGER",
+      "safe": "✔ SAFE",
       "stop": "Oops! Where are your goggles? 😱",
       "praise": "Eyes protected! 👍",
-      "what": "The liquid overheated and splashed towards Timur’s face. His eyes were not protected by goggles.",
-      "why": [
-        "Hot liquid and vapour can burn the face.",
-        "Chemical splashes can injure the eyes and damage sight.",
-        "Hot glass can burn fingers."
-      ],
-      "bad": [
-        "Heat without safety goggles.",
-        "Hold a heated tube with bare fingers.",
-        "Point the opening at yourself or a neighbour.",
-        "Lean over glassware being heated."
-      ],
-      "good": [
-        "Put goggles on before starting and keep them on throughout.",
-        "Attach the holder to the upper third of the tube.",
-        "Tilt the tube about 45° and point its opening away from people.",
-        "Warm the whole tube evenly first, then heat the liquid while moving the tube gently."
-      ],
-      "helpTitle": "⑤ If a splash reaches the eyes",
-      "help": "Tell your teacher immediately. Start rinsing with running water at once for at least 15 minutes and get medical help. Do not rub your eyes.",
-      "subtitles": [
-        "Timur is heating a solution in a test tube…",
-        "The liquid boils more and more vigorously…",
-        "Liquid splashes towards his face. Stop heating!",
-        "Find two mistakes and help Timur",
-        "Goggles on, tube in a holder and pointed away from people"
-      ],
+      "hint": "Check where Timur’s goggles are and how he holds the tube…",
+      "hotspot": "Danger zone: hair and first beaker",
+      "q1": "Select what is wrong in the scene",
+      "q2": "Why is this dangerous?",
+      "q3": "How should a test tube be heated?",
+      "check": "Check",
+      "correct": "✓ Correct!",
+      "wrong": "Not quite. Read the explanation and try again.",
+      "multiHint": "Select all safe actions.",
+      "replay": "↺ Watch again",
+      "reward": "+20 XP",
       "alts": [
         "Timur heats a test tube with his fingers; his goggles are on the bench",
         "Liquid boils vigorously in the tube, with vapour above its opening",
@@ -411,20 +389,226 @@ const SituationB={
         "Hot liquid and vapour can escape from the opening. Never look inside.",
         "Heating one spot without moving the tube can overheat the liquid and make it splash out."
       ],
-      "inspect": "Look closely at the scene. Mark both mistakes."
+      "heading": "Practical work 1.1 · Situation B of 4",
+      "situation": "SITUATION B",
+      "next": "Situation C →",
+      "found": "Found {n} / {total}",
+      "gogglesLabel": "Goggles are not being worn",
+      "tubeLabel": "No holder; the tube points towards the learner",
+      "inspect": "Look closely at the scene. Mark both mistakes.",
+      "previous": "← Situation A"
     }
   },
-  "helperPlacement": "top-right"
+  "helperPlacement": "top-right",
+  "dangerZone": {
+    "x": 45,
+    "y": 20,
+    "w": 29,
+    "h": 52
+  },
+  "focusZone": {
+    "x": 44,
+    "y": 18,
+    "w": 31,
+    "h": 55
+  },
+  "frogLines": {
+    "ru": [
+      "Тимур нагревает пробирку с раствором… Смотри внимательно, что произойдёт…",
+      "Жидкость закипает всё сильнее…",
+      "Жидкость выплеснулась к лицу. Останови нагревание! Жидкость перегрелась и выплеснулась к лицу. Глаза Тимура не были защищены очками.",
+      "Нажми на сцене, что здесь не так",
+      "Глаза в безопасности! 👍"
+    ],
+    "uz-Latn": [
+      "Temur eritmani probirkada qizdiryapti… Nima bo‘lishini diqqat bilan kuzat…",
+      "Suyuqlik tobora kuchliroq qaynayapti…",
+      "Suyuqlik yuz tomon sachradi. Isitishni to‘xtat! Suyuqlik ortiqcha qizib, yuz tomon sachradi. Temurning ko‘zlari ko‘zoynak bilan himoyalanmagan edi.",
+      "Sahnada nima noto‘g‘ri ekanini tanla",
+      "Ko‘zlar himoyalangan! 👍"
+    ],
+    "uz-Cyrl": [
+      "Темур эритмани пробиркада қиздиряпти… Nima bo‘lishini diqqat bilan kuzat…",
+      "Суюқлик тобора кучлироқ қайнаяпти…",
+      "Суюқлик юз томон сачради. Иситишни тўхтат! Суюқлик ортиқча қизиб, юз томон сачради. Темурнинг кўзлари кўзойнак билан ҳимояланмаган эди.",
+      "Саҳнада нима нотўғри эканини танла",
+      "Кўзлар ҳимояланган! 👍"
+    ],
+    "en": [
+      "Timur is heating a solution in a test tube… Watch carefully to see what happens…",
+      "The liquid boils more and more vigorously…",
+      "Liquid splashes towards his face. Stop heating! The liquid overheated and splashed towards Timur’s face. His eyes were not protected by goggles.",
+      "Select what is wrong in the scene",
+      "Eyes protected! 👍"
+    ]
+  },
+  "explanation": {
+    "ru": [
+      {
+        "kind": "what",
+        "title": "① Что случилось",
+        "body": "Жидкость перегрелась и выплеснулась к лицу. Глаза Тимура не были защищены очками."
+      },
+      {
+        "kind": "why",
+        "title": "② Почему это опасно",
+        "body": [
+          "Горячая жидкость и пар могут обжечь лицо.",
+          "Капли реактива могут повредить глаза и зрение.",
+          "Горячее стекло обжигает пальцы."
+        ]
+      },
+      {
+        "kind": "bad",
+        "title": "③ ❌ Так делать нельзя",
+        "body": [
+          "Нагревать без защитных очков.",
+          "Держать нагреваемую пробирку пальцами.",
+          "Направлять отверстие на себя или соседа.",
+          "Наклоняться над нагреваемой посудой."
+        ]
+      },
+      {
+        "kind": "good",
+        "title": "④ ✅ Как надо",
+        "body": [
+          "Надеть очки до начала работы и не снимать до конца.",
+          "Закрепить держатель на верхней трети пробирки.",
+          "Наклонить примерно на 45°, отверстие направить от людей.",
+          "Сначала равномерно прогреть всю пробирку, затем нагревать жидкость, плавно перемещая пробирку."
+        ]
+      },
+      {
+        "kind": "help",
+        "title": "⑤ Если всё-таки попало в глаза",
+        "body": "Сразу скажи учителю. Немедленно промывай глаза проточной водой не меньше 15 минут; нужна медицинская помощь. Не три глаза."
+      }
+    ],
+    "uz-Latn": [
+      {
+        "kind": "what",
+        "title": "① Nima bo‘ldi",
+        "body": "Suyuqlik ortiqcha qizib, yuz tomon sachradi. Temurning ko‘zlari ko‘zoynak bilan himoyalanmagan edi."
+      },
+      {
+        "kind": "why",
+        "title": "② Nega xavfli",
+        "body": [
+          "Issiq suyuqlik va bug‘ yuzni kuydirishi mumkin.",
+          "Reaktiv tomchilari ko‘zga zarar yetkazib, ko‘rishni buzishi mumkin.",
+          "Issiq shisha barmoqlarni kuydiradi."
+        ]
+      },
+      {
+        "kind": "bad",
+        "title": "③ ❌ Bunday qilma",
+        "body": [
+          "Himoya ko‘zoynagisiz isitish.",
+          "Qizdirilayotgan probirkani barmoqlar bilan ushlash.",
+          "Probirka og‘zini o‘ziga yoki yonidagiga qaratish.",
+          "Qizdirilayotgan idish ustiga egilish."
+        ]
+      },
+      {
+        "kind": "good",
+        "title": "④ ✅ To‘g‘ri yo‘l",
+        "body": [
+          "Ko‘zoynakni ish boshida taqib, oxirigacha yechma.",
+          "Tutqichni probirkaning yuqori uchdan bir qismiga mahkamla.",
+          "Taxminan 45° qiyalat, og‘zini odamlardan nariga qarat.",
+          "Avval butun probirkani bir tekis isit, keyin uni sekin harakatlantirib suyuqlikni qizdir."
+        ]
+      },
+      {
+        "kind": "help",
+        "title": "⑤ Ko‘zga sachrasa",
+        "body": "Darhol o‘qituvchiga ayt. Ko‘zni darhol kamida 15 daqiqa oqar suvda yuv va tibbiy yordam ol. Ko‘zni ishqalama."
+      }
+    ],
+    "uz-Cyrl": [
+      {
+        "kind": "what",
+        "title": "① Nima bo‘ldi",
+        "body": "Суюқлик ортиқча қизиб, юз томон сачради. Темурнинг кўзлари кўзойнак билан ҳимояланмаган эди."
+      },
+      {
+        "kind": "why",
+        "title": "② Nega xavfli",
+        "body": [
+          "Иссиқ суюқлик ва буғ юзни куйдириши мумкин.",
+          "Реактив томчилари кўзга зарар етказиб, кўришни бузиши мумкин.",
+          "Иссиқ шиша бармоқларни куйдиради."
+        ]
+      },
+      {
+        "kind": "bad",
+        "title": "③ ❌ Bunday qilma",
+        "body": [
+          "Ҳимоя кўзойнагисиз иситиш.",
+          "Қиздирилаётган пробиркани бармоқлар билан ушлаш.",
+          "Пробирка оғзини ўзига ёки ёнидагига қаратиш.",
+          "Қиздирилаётган идиш устига эгилиш."
+        ]
+      },
+      {
+        "kind": "good",
+        "title": "④ ✅ To‘g‘ri yo‘l",
+        "body": [
+          "Кўзойнакни иш бошида тақиб, охиригача ечма.",
+          "Тутқични пробирканинг юқори учдан бир қисмига маҳкамла.",
+          "Тахминан 45° қиялат, оғзини одамлардан нарига қарат.",
+          "Аввал бутун пробиркани бир текис исит, кейин уни секин ҳаракатлантириб суюқликни қиздир."
+        ]
+      },
+      {
+        "kind": "help",
+        "title": "⑤ Кўзга сачраса",
+        "body": "Дарҳол ўқитувчига айт. Кўзни дарҳол камида 15 дақиқа оқар сувда юв ва тиббий ёрдам ол. Кўзни ишқалама."
+      }
+    ],
+    "en": [
+      {
+        "kind": "what",
+        "title": "① What happened",
+        "body": "The liquid overheated and splashed towards Timur’s face. His eyes were not protected by goggles."
+      },
+      {
+        "kind": "why",
+        "title": "② Why it is dangerous",
+        "body": [
+          "Hot liquid and vapour can burn the face.",
+          "Chemical splashes can injure the eyes and damage sight.",
+          "Hot glass can burn fingers."
+        ]
+      },
+      {
+        "kind": "bad",
+        "title": "③ ❌ Never do this",
+        "body": [
+          "Heat without safety goggles.",
+          "Hold a heated tube with bare fingers.",
+          "Point the opening at yourself or a neighbour.",
+          "Lean over glassware being heated."
+        ]
+      },
+      {
+        "kind": "good",
+        "title": "④ ✅ Work safely",
+        "body": [
+          "Put goggles on before starting and keep them on throughout.",
+          "Attach the holder to the upper third of the tube.",
+          "Tilt the tube about 45° and point its opening away from people.",
+          "Warm the whole tube evenly first, then heat the liquid while moving the tube gently."
+        ]
+      },
+      {
+        "kind": "help",
+        "title": "⑤ If a splash reaches the eyes",
+        "body": "Tell your teacher immediately. Start rinsing with running water at once for at least 15 minutes and get medical help. Do not rub your eyes."
+      }
+    ]
+  }
 };
-for(const lang of Object.keys(SituationB.copy))SituationB.copy[lang]={...SituationA.copy[lang],...SituationB.copy[lang]};
-{
- const localized=key=>Object.fromEntries(Object.entries(SituationB.copy).map(([lang,c])=>[lang,c[key]]));
- IntroData.tasks.find(t=>t.id===SituationB.id).title=localized('title');
- const danger=IntroData.dangers.find(d=>d.id===SituationB.id);danger.title=localized('title');
- CourseData.topics.find(t=>t.id==='intro').steps.experiments.find(e=>e.key===SituationB.id).title=localized('title');
- // Preserve the existing answer indices so checked legacy records remain valid.
- danger.danger=[1,0,2].map(i=>Object.fromEntries(Object.entries(SituationB.copy).map(([lang,c])=>[lang,c.risks[i]])));
- danger.actions=[4,5,0].map(i=>Object.fromEntries(Object.entries(SituationB.copy).map(([lang,c])=>[lang,c.actions[i]])));
-}
-
 SafetySituations.decorate(SituationB);
+{const title=Object.fromEntries(Object.entries(SituationB.copy).map(([lang,c])=>[lang,c.title]));IntroData.tasks.find(t=>t.id===SituationB.id).title=title;IntroData.dangers.find(d=>d.id===SituationB.id).title=title;CourseData.topics.find(t=>t.id==='intro').steps.experiments.find(e=>e.key===SituationB.id).title=title;}
+{const d=IntroData.dangers.find(d=>d.id===SituationB.id);d.danger=[1,0,2].map(i=>Object.fromEntries(Object.entries(SituationB.copy).map(([lang,t])=>[lang,t.risks[i]])));d.actions=[4,5,0].map(i=>Object.fromEntries(Object.entries(SituationB.copy).map(([lang,t])=>[lang,t.actions[i]])));}

@@ -1,4 +1,4 @@
-/* Situation A: timings, image coordinates, questions and localized teaching copy. */
+/* Scene presentation data; learning rules and canonical IDs remain unchanged. */
 const SituationA={
   "id": "danger-a",
   "frames": [
@@ -70,7 +70,8 @@ const SituationA={
         0,
         1
       ]
-    }
+    },
+    "presentation": "frog-bubble"
   },
   "copy": {
     "ru": {
@@ -100,35 +101,6 @@ const SituationA={
       "multiHint": "Выбери все безопасные действия.",
       "replay": "↺ Посмотреть ещё раз",
       "reward": "+20 XP",
-      "whatTitle": "① Что случилось",
-      "what": "Распущенная коса попала в стакан с веществом. Оно осталось на волосах и могло попасть на кожу.",
-      "whyTitle": "② Почему это опасно",
-      "why": [
-        "Возможен ожог кожи головы и лица.",
-        "Волосы удерживают вещество: оно может попасть на руки.",
-        "Рядом с горелкой волосы могут загореться."
-      ],
-      "badTitle": "③ ❌ Так делать нельзя",
-      "bad": [
-        "Работать с распущенными волосами.",
-        "Наклоняться низко над посудой.",
-        "Трогать волосы руками во время опыта."
-      ],
-      "goodTitle": "④ ✅ Как надо",
-      "good": [
-        "Собрать волосы резинкой.",
-        "Надеть защитные очки и халат.",
-        "Стоять прямо, на безопасном расстоянии."
-      ],
-      "helpTitle": "⑤ Если всё-таки случилось",
-      "help": "Сразу остановись и скажи учителю. Под его руководством промой волосы и кожу большим количеством воды.",
-      "subtitles": [
-        "Лейла начинает опыт… но косы у неё распущены",
-        "Коса опустилась прямо в стакан!",
-        "В стакане появились пена и пар. Останови опыт!",
-        "Найди опасность и помоги Лейле",
-        "Волосы собраны — можно работать безопасно"
-      ],
       "alts": [
         "Лейла с распущенными косами начинает опыт",
         "Левая коса Лейлы попала в первый стакан",
@@ -156,7 +128,10 @@ const SituationA={
         "Держи лицо и волосы подальше от посуды.",
         "Косы могут снова упасть вперёд. Закрепи их резинкой.",
         "Спешка повышает риск ошибки. Сначала устрани опасность."
-      ]
+      ],
+      "heading": "Практическая работа 1.1 · Ситуация A из 4",
+      "situation": "СИТУАЦИЯ A",
+      "next": "Ситуация B →"
     },
     "uz-Latn": {
       "title": "Laboratoriyada yig‘ilmagan soch",
@@ -185,35 +160,6 @@ const SituationA={
       "multiHint": "Barcha xavfsiz harakatlarni tanla.",
       "replay": "↺ Yana ko‘rish",
       "reward": "+20 XP",
-      "whatTitle": "① Nima bo‘ldi",
-      "what": "Yig‘ilmagan o‘rim stakandagi moddaga tushdi. Modda sochda qolib, teriga tegishi mumkin.",
-      "whyTitle": "② Nega xavfli",
-      "why": [
-        "Bosh terisi va yuz kuyishi mumkin.",
-        "Sochdagi modda qo‘llarga o‘tishi mumkin.",
-        "Gorelka yonida soch yonishi mumkin."
-      ],
-      "badTitle": "③ ❌ Bunday qilma",
-      "bad": [
-        "Sochni yig‘masdan ishlama.",
-        "Idishlar ustiga past egilma.",
-        "Tajriba vaqtida sochingga tegma."
-      ],
-      "goodTitle": "④ ✅ To‘g‘ri yo‘l",
-      "good": [
-        "Sochni rezinka bilan yig‘.",
-        "Himoya ko‘zoynagi va xalat kiy.",
-        "Tik tur, xavfsiz masofani saqla."
-      ],
-      "helpTitle": "⑤ Agar shunday bo‘lsa",
-      "help": "Darhol to‘xta va o‘qituvchiga ayt. Uning ko‘rsatmasi bilan soch va terini ko‘p suvda yuv.",
-      "subtitles": [
-        "Laylo tajriba boshlayapti… ammo sochi yig‘ilmagan",
-        "O‘rim to‘g‘ri stakanga tushdi!",
-        "Stakanda ko‘pik va bug‘ paydo bo‘ldi. To‘xta!",
-        "Xavfni top va Layloga yordam ber",
-        "Soch yig‘ildi — endi xavfsiz ishlash mumkin"
-      ],
       "alts": [
         "Laylo yig‘ilmagan o‘rimlar bilan tajriba boshlayapti",
         "Layloning chap o‘rimi birinchi stakanga tushdi",
@@ -241,7 +187,10 @@ const SituationA={
         "Yuz va sochni idishlardan uzoq tut.",
         "O‘rim yana oldinga tushishi mumkin. Rezinka ishlat.",
         "Shoshilish xatolarni ko‘paytiradi. Avval xavfni yo‘qot."
-      ]
+      ],
+      "heading": "1.1-amaliy ish · 4 vaziyatdan A vaziyat",
+      "situation": "A VAZIYAT",
+      "next": "B vaziyat →"
     },
     "uz-Cyrl": {
       "title": "Laboratoriyada yig‘ilmagan soch",
@@ -270,35 +219,6 @@ const SituationA={
       "multiHint": "Barcha xavfsiz harakatlarni tanla.",
       "replay": "↺ Yana ko‘rish",
       "reward": "+20 XP",
-      "whatTitle": "① Nima bo‘ldi",
-      "what": "Yig‘ilmagan o‘rim stakandagi moddaga tushdi. Modda sochda qolib, teriga tegishi mumkin.",
-      "whyTitle": "② Nega xavfli",
-      "why": [
-        "Bosh terisi va yuz kuyishi mumkin.",
-        "Sochdagi modda qo‘llarga o‘tishi mumkin.",
-        "Gorelka yonida soch yonishi mumkin."
-      ],
-      "badTitle": "③ ❌ Bunday qilma",
-      "bad": [
-        "Sochni yig‘masdan ishlama.",
-        "Idishlar ustiga past egilma.",
-        "Tajriba vaqtida sochingga tegma."
-      ],
-      "goodTitle": "④ ✅ To‘g‘ri yo‘l",
-      "good": [
-        "Sochni rezinka bilan yig‘.",
-        "Himoya ko‘zoynagi va xalat kiy.",
-        "Tik tur, xavfsiz masofani saqla."
-      ],
-      "helpTitle": "⑤ Agar shunday bo‘lsa",
-      "help": "Darhol to‘xta va o‘qituvchiga ayt. Uning ko‘rsatmasi bilan soch va terini ko‘p suvda yuv.",
-      "subtitles": [
-        "Laylo tajriba boshlayapti… ammo sochi yig‘ilmagan",
-        "O‘rim to‘g‘ri stakanga tushdi!",
-        "Stakanda ko‘pik va bug‘ paydo bo‘ldi. To‘xta!",
-        "Xavfni top va Layloga yordam ber",
-        "Soch yig‘ildi — endi xavfsiz ishlash mumkin"
-      ],
       "alts": [
         "Laylo yig‘ilmagan o‘rimlar bilan tajriba boshlayapti",
         "Layloning chap o‘rimi birinchi stakanga tushdi",
@@ -326,7 +246,10 @@ const SituationA={
         "Yuz va sochni idishlardan uzoq tut.",
         "O‘rim yana oldinga tushishi mumkin. Rezinka ishlat.",
         "Shoshilish xatolarni ko‘paytiradi. Avval xavfni yo‘qot."
-      ]
+      ],
+      "heading": "1.1-амалий иш · 4 вазиятдан A вазият",
+      "situation": "A ВАЗИЯТ",
+      "next": "B вазият →"
     },
     "en": {
       "title": "Loose hair in the laboratory",
@@ -355,35 +278,6 @@ const SituationA={
       "multiHint": "Select all safe actions.",
       "replay": "↺ Watch again",
       "reward": "+20 XP",
-      "whatTitle": "① What happened",
-      "what": "A loose braid fell into a beaker. The substance stayed on the hair and could reach the skin.",
-      "whyTitle": "② Why it is dangerous",
-      "why": [
-        "It can burn the scalp and face.",
-        "Hair holds the substance, which can transfer to hands.",
-        "Hair can catch fire near a burner."
-      ],
-      "badTitle": "③ ❌ Never do this",
-      "bad": [
-        "Work with loose hair.",
-        "Lean low over glassware.",
-        "Touch your hair during an experiment."
-      ],
-      "goodTitle": "④ ✅ Work safely",
-      "good": [
-        "Secure hair with a hair tie.",
-        "Wear goggles and a lab coat.",
-        "Stand upright at a safe distance."
-      ],
-      "helpTitle": "⑤ If it happens",
-      "help": "Stop immediately and tell your teacher. With their guidance, rinse hair and skin with plenty of water.",
-      "subtitles": [
-        "Leila starts an experiment… but her braids are loose",
-        "Her braid has fallen into the beaker!",
-        "Foam and vapour appear. Stop the experiment!",
-        "Find the danger and help Leila",
-        "Hair secured — ready to work safely"
-      ],
       "alts": [
         "Leila begins an experiment with loose braids",
         "Leila’s left braid falls into the first beaker",
@@ -411,19 +305,213 @@ const SituationA={
         "Keep your face and hair away from glassware.",
         "Braids can fall forward again. Use a hair tie.",
         "Rushing increases mistakes. Remove the danger first."
-      ]
+      ],
+      "heading": "Practical work 1.1 · Situation A of 4",
+      "situation": "SITUATION A",
+      "next": "Situation B →"
     }
+  },
+  "dangerZone": {
+    "x": 38.5,
+    "y": 39,
+    "w": 7,
+    "h": 33
+  },
+  "focusZone": {
+    "x": 37,
+    "y": 20,
+    "w": 21,
+    "h": 55
+  },
+  "frogLines": {
+    "ru": [
+      "Лейла начинает опыт… но косы у неё распущены Смотри внимательно, что произойдёт…",
+      "Коса опустилась прямо в стакан!",
+      "В стакане появились пена и пар. Останови опыт! Распущенная коса попала в стакан с веществом. Оно осталось на волосах и могло попасть на кожу.",
+      "Нажми на сцене, что здесь опасно",
+      "Вот теперь безопасно! 👍"
+    ],
+    "uz-Latn": [
+      "Laylo tajriba boshlayapti… ammo sochi yig‘ilmagan Nima bo‘lishini diqqat bilan kuzat…",
+      "O‘rim to‘g‘ri stakanga tushdi!",
+      "Stakanda ko‘pik va bug‘ paydo bo‘ldi. To‘xta! Yig‘ilmagan o‘rim stakandagi moddaga tushdi. Modda sochda qolib, teriga tegishi mumkin.",
+      "Sahnadagi xavfni tanla",
+      "Endi xavfsiz! 👍"
+    ],
+    "uz-Cyrl": [
+      "Laylo tajriba boshlayapti… ammo sochi yig‘ilmagan Nima bo‘lishini diqqat bilan kuzat…",
+      "O‘rim to‘g‘ri stakanga tushdi!",
+      "Stakanda ko‘pik va bug‘ paydo bo‘ldi. To‘xta! Yig‘ilmagan o‘rim stakandagi moddaga tushdi. Modda sochda qolib, teriga tegishi mumkin.",
+      "Sahnadagi xavfni tanla",
+      "Endi xavfsiz! 👍"
+    ],
+    "en": [
+      "Leila starts an experiment… but her braids are loose Watch carefully to see what happens…",
+      "Her braid has fallen into the beaker!",
+      "Foam and vapour appear. Stop the experiment! A loose braid fell into a beaker. The substance stayed on the hair and could reach the skin.",
+      "Select what is dangerous in the scene",
+      "Now it is safe! 👍"
+    ]
+  },
+  "explanation": {
+    "ru": [
+      {
+        "kind": "what",
+        "title": "① Что случилось",
+        "body": "Распущенная коса попала в стакан с веществом. Оно осталось на волосах и могло попасть на кожу."
+      },
+      {
+        "kind": "why",
+        "title": "② Почему это опасно",
+        "body": [
+          "Возможен ожог кожи головы и лица.",
+          "Волосы удерживают вещество: оно может попасть на руки.",
+          "Рядом с горелкой волосы могут загореться."
+        ]
+      },
+      {
+        "kind": "bad",
+        "title": "③ ❌ Так делать нельзя",
+        "body": [
+          "Работать с распущенными волосами.",
+          "Наклоняться низко над посудой.",
+          "Трогать волосы руками во время опыта."
+        ]
+      },
+      {
+        "kind": "good",
+        "title": "④ ✅ Как надо",
+        "body": [
+          "Собрать волосы резинкой.",
+          "Надеть защитные очки и халат.",
+          "Стоять прямо, на безопасном расстоянии."
+        ]
+      },
+      {
+        "kind": "help",
+        "title": "⑤ Если всё-таки случилось",
+        "body": "Сразу остановись и скажи учителю. Под его руководством промой волосы и кожу большим количеством воды."
+      }
+    ],
+    "uz-Latn": [
+      {
+        "kind": "what",
+        "title": "① Nima bo‘ldi",
+        "body": "Yig‘ilmagan o‘rim stakandagi moddaga tushdi. Modda sochda qolib, teriga tegishi mumkin."
+      },
+      {
+        "kind": "why",
+        "title": "② Nega xavfli",
+        "body": [
+          "Bosh terisi va yuz kuyishi mumkin.",
+          "Sochdagi modda qo‘llarga o‘tishi mumkin.",
+          "Gorelka yonida soch yonishi mumkin."
+        ]
+      },
+      {
+        "kind": "bad",
+        "title": "③ ❌ Bunday qilma",
+        "body": [
+          "Sochni yig‘masdan ishlama.",
+          "Idishlar ustiga past egilma.",
+          "Tajriba vaqtida sochingga tegma."
+        ]
+      },
+      {
+        "kind": "good",
+        "title": "④ ✅ To‘g‘ri yo‘l",
+        "body": [
+          "Sochni rezinka bilan yig‘.",
+          "Himoya ko‘zoynagi va xalat kiy.",
+          "Tik tur, xavfsiz masofani saqla."
+        ]
+      },
+      {
+        "kind": "help",
+        "title": "⑤ Agar shunday bo‘lsa",
+        "body": "Darhol to‘xta va o‘qituvchiga ayt. Uning ko‘rsatmasi bilan soch va terini ko‘p suvda yuv."
+      }
+    ],
+    "uz-Cyrl": [
+      {
+        "kind": "what",
+        "title": "① Nima bo‘ldi",
+        "body": "Yig‘ilmagan o‘rim stakandagi moddaga tushdi. Modda sochda qolib, teriga tegishi mumkin."
+      },
+      {
+        "kind": "why",
+        "title": "② Nega xavfli",
+        "body": [
+          "Bosh terisi va yuz kuyishi mumkin.",
+          "Sochdagi modda qo‘llarga o‘tishi mumkin.",
+          "Gorelka yonida soch yonishi mumkin."
+        ]
+      },
+      {
+        "kind": "bad",
+        "title": "③ ❌ Bunday qilma",
+        "body": [
+          "Sochni yig‘masdan ishlama.",
+          "Idishlar ustiga past egilma.",
+          "Tajriba vaqtida sochingga tegma."
+        ]
+      },
+      {
+        "kind": "good",
+        "title": "④ ✅ To‘g‘ri yo‘l",
+        "body": [
+          "Sochni rezinka bilan yig‘.",
+          "Himoya ko‘zoynagi va xalat kiy.",
+          "Tik tur, xavfsiz masofani saqla."
+        ]
+      },
+      {
+        "kind": "help",
+        "title": "⑤ Agar shunday bo‘lsa",
+        "body": "Darhol to‘xta va o‘qituvchiga ayt. Uning ko‘rsatmasi bilan soch va terini ko‘p suvda yuv."
+      }
+    ],
+    "en": [
+      {
+        "kind": "what",
+        "title": "① What happened",
+        "body": "A loose braid fell into a beaker. The substance stayed on the hair and could reach the skin."
+      },
+      {
+        "kind": "why",
+        "title": "② Why it is dangerous",
+        "body": [
+          "It can burn the scalp and face.",
+          "Hair holds the substance, which can transfer to hands.",
+          "Hair can catch fire near a burner."
+        ]
+      },
+      {
+        "kind": "bad",
+        "title": "③ ❌ Never do this",
+        "body": [
+          "Work with loose hair.",
+          "Lean low over glassware.",
+          "Touch your hair during an experiment."
+        ]
+      },
+      {
+        "kind": "good",
+        "title": "④ ✅ Work safely",
+        "body": [
+          "Secure hair with a hair tie.",
+          "Wear goggles and a lab coat.",
+          "Stand upright at a safe distance."
+        ]
+      },
+      {
+        "kind": "help",
+        "title": "⑤ If it happens",
+        "body": "Stop immediately and tell your teacher. With their guidance, rinse hair and skin with plenty of water."
+      }
+    ]
   }
 };
-// Keep catalog titles and answer descriptions aligned with the new situation.
-{
- const localized=key=>Object.fromEntries(Object.entries(SituationA.copy).map(([lang,copy])=>[lang,copy[key]]));
- const danger=IntroData.dangers.find(d=>d.id===SituationA.id);
- IntroData.tasks.find(t=>t.id===SituationA.id).title=localized('title');
- danger.title=localized('title');
- CourseData.topics.find(t=>t.id==='intro').steps.experiments.find(e=>e.key===SituationA.id).title=localized('title');
- danger.danger=[0,1,2].map(i=>Object.fromEntries(Object.entries(SituationA.copy).map(([lang,c])=>[lang,c.risks[i]])));
- danger.actions=[2,0,3].map(i=>Object.fromEntries(Object.entries(SituationA.copy).map(([lang,c])=>[lang,c.actions[i]])));
-}
-
 SafetySituations.decorate(SituationA);
+{const title=Object.fromEntries(Object.entries(SituationA.copy).map(([lang,c])=>[lang,c.title]));IntroData.tasks.find(t=>t.id===SituationA.id).title=title;IntroData.dangers.find(d=>d.id===SituationA.id).title=title;CourseData.topics.find(t=>t.id==='intro').steps.experiments.find(e=>e.key===SituationA.id).title=title;}
+{const d=IntroData.dangers.find(d=>d.id===SituationA.id);d.danger=[0,1,2].map(i=>Object.fromEntries(Object.entries(SituationA.copy).map(([lang,t])=>[lang,t.risks[i]])));d.actions=[2,0,3].map(i=>Object.fromEntries(Object.entries(SituationA.copy).map(([lang,t])=>[lang,t.actions[i]])));}
