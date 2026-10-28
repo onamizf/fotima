@@ -71,3 +71,27 @@ body .intro-root .scene-player .sp-panel :is(h2,h3) { text-transform:none; lette
 body .intro-root .scene-player .sp-heading { color:#fff; }
 body .intro-root .scene-player .sp-heading nav span { color:#0b1e4a; }
 body .intro-root .scene-player .sp-heading nav [aria-current=step] { color:#fff; box-shadow:0 0 0 1px #ffffff80; }
+/* B uses the same camera plane, with independently discoverable errors. */
+.sp-flash { position:absolute; inset:0; background:#fff; opacity:0; pointer-events:none; z-index:6; }
+.sp-spot-caption { position:absolute; z-index:5; max-width:min(200px,38%); padding:5px 8px; border-radius:8px; background:#dcfce7; color:#14532d; font:600 11px/1.35 Inter,Arial,sans-serif; pointer-events:none; }
+.sp-spot-caption[hidden] { display:none; }
+body .intro-root .scene-player .sp-hotspot.is-found { opacity:1; border-color:#22c55e!important; box-shadow:0 0 0 2px #ffffff99!important; }
+.sp-found-count { color:#1f6bff; font-weight:700; }
+.sp-goggles-flight { position:absolute; left:0; top:0; z-index:6; width:clamp(28px,4vw,56px); color:#5ac4ef; filter:drop-shadow(0 2px 3px #0b1e4a55); pointer-events:none; }
+.sp-goggles-flight svg { display:block; width:100%; height:auto; }
+.scene-player .sp-heading .is-complete { background:#dcfce7; color:#166534!important; }
+body .intro-root .scene-player .sp-heading button { background:#fff!important; color:#0b1e4a!important; border:1px solid #c9daff!important; padding:8px 12px; text-transform:none; font:600 13px Inter,Arial,sans-serif; }
+.sp-debug-zones { position:absolute; inset:0; z-index:9; pointer-events:none; }
+.sp-debug-zone { position:absolute; box-sizing:border-box; border:2px dashed #f97316; background:#fb923c44; color:#111827; cursor:move; touch-action:none; pointer-events:auto; }
+.sp-debug-zone>span { position:absolute; top:0; left:0; background:#fff5df; padding:2px 4px; max-width:200px; font:600 10px/1.2 Inter,Arial,sans-serif; pointer-events:none; }
+body .intro-root .scene-player .sp-debug-handle { position:absolute; width:12px; height:12px; min-height:12px; min-width:12px; padding:0; margin:0; background:#fff!important; border:2px solid #f97316!important; border-radius:2px!important; transform:none!important; }
+.sp-debug-nw { top:-7px; left:-7px; cursor:nwse-resize; }.sp-debug-ne { top:-7px; right:-7px; cursor:nesw-resize; }.sp-debug-se { bottom:-7px; right:-7px; cursor:nwse-resize; }.sp-debug-sw { bottom:-7px; left:-7px; cursor:nesw-resize; }
+.sp-debug-coordinates { position:absolute; right:8px; top:8px; z-index:10; background:#0b1e4ae8; color:#fff; padding:6px 9px; border-radius:8px; font:500 11px/1.3 monospace; pointer-events:none; }
+.sp-debug-tools { display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:12px; color:inherit; }
+body .intro-root .scene-player .sp-debug-tools button { padding:9px 12px; border:1px solid #c9daff!important; text-transform:none; font-size:13px; }
+.sp-debug-tools textarea { flex-basis:100%; width:100%; min-height:150px; background:#fff; color:#0b1e4a; font:12px monospace; }
+@media(max-width:899px) { .sp-spot-caption { max-width:min(130px,38%); font-size:9px; } .sp-debug-zone>span { font-size:9px; } }
+body .intro-root .scene-player .sp-heading nav .is-complete[aria-current=step] { background:#1f6bff; color:#fff!important; }
+/* Keep the assistant clear of B's glasses hotspot. */
+.sp-scene[data-helper-placement=top-right] .sp-helper { top:12px; bottom:auto; max-width:40%; }
+.sp-debug-zone>span { width:max-content; max-width:180px; }
