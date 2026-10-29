@@ -21,6 +21,7 @@ const IntroModel=(()=>{
   if(id==='signs')return IntroData.signs.every(s=>m[s.id]===s.id);
   if(id==='museum'&&e.equipmentSheet)return typeof Practical12Data!=='undefined'&&Practical12Data.proofValid(e.equipmentSheet);
   if(id==='museum')return mainEquipment.every(id=>Array.isArray(r.visited)&&r.visited.includes(id)&&a[id]===id)&&['neck','body','bottom'].every(id=>m[id]===id);
+  if(id==='assembly'&&e.setupExploded)return typeof Setup12Data!=='undefined'&&Setup12Data.proofValid(e.setupExploded);
   if(id==='assembly')return equal(r.order,assembly)&&e.warmed===true;
   if(id==='evap-labels')return Object.entries(labels).every(([k,v])=>m[k]===v)&&e.crystals===true;
   if(id==='burner-parts')return IntroData.parts.every(p=>m[p.id]===p.id)&&IntroData.functions.every(p=>m['f-'+p.id]===p.id);

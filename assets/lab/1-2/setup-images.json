@@ -1,0 +1,8 @@
+{
+  "setup-bg.jpg": "Generated from the supplied empty-laboratory reference image.",
+  "setup-preview.jpg": "Rendered from the interactive application model, with the background composited in a browser canvas.",
+  "dimensions": [
+    1376,
+    768
+  ]
+}
