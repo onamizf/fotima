@@ -337,7 +337,8 @@ const Practical12Data=(()=>{const content={
  function cover(width,height,positionY=.5){const scale=Math.max(width/1376,height/768);return {scale,width:1376*scale,height:768*scale,left:(width-1376*scale)*.5,top:(height-768*scale)*positionY};}
  function projectZone(zone,width,height,positionY=.5){const p=cover(width,height,positionY),x=p.left+zone.x/100*p.width,y=p.top+zone.y/100*p.height,w=zone.w/100*p.width,h=zone.h/100*p.height;return {x,y,w,h,cx:x+w/2,cy:y+h/2};}
  const blank=()=>({version:1,rows:{},setup:typeof Setup12Data==='undefined'?null:Setup12Data.blank()});
- function sanitize(v){const out=blank();if(v?.version!==1)return out;if(typeof Setup12Data!=='undefined')out.setup=Setup12Data.sanitize(v.setup);for(const item of content.items){const r=v.rows?.[item.id];if(r)out.rows[item.id]={studied:r.studied===true||r.named===true,earned:r.earned===true};}return out;}
+ const readingValid=p=>p?.version===1&&(p.method==='scroll'||p.method==='dwell'&&Number.isFinite(p.seconds)&&p.seconds>=4);
+ function sanitize(v){const out=blank();if(v?.version!==1)return out;if(typeof Setup12Data!=='undefined')out.setup=Setup12Data.sanitize(v.setup);for(const item of content.items){const r=v.rows?.[item.id];if(r)out.rows[item.id]={studied:r.studied===true||r.named===true,earned:r.earned===true,...(readingValid(r.review)?{review:{version:1,method:r.review.method,seconds:r.review.method==='dwell'?4:0}}:{})};}return out;}
  function proofValid(p){return p?.version===2&&content.items.every(i=>p.studied?.includes(i.id))||p?.version===1&&content.items.every(i=>p.rows?.[i.id]?.named===true&&p.rows[i.id].compared===true&&Number.isFinite(p.rows[i.id].points)&&p.rows[i.id].points>=30);}
- return {...content,hotspots:ROOM_HOTSPOTS,cover,projectZone,blank,sanitize,proofValid};
+ return {...content,hotspots:ROOM_HOTSPOTS,cover,projectZone,blank,sanitize,proofValid,readingValid};
 })();
