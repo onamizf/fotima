@@ -12,7 +12,7 @@ with sync_playwright() as p:
  q.add_locator_handler(q.locator('#earnedDialog[open]'),lambda d:d.locator('button').click())
  q.clock.install();register_local(q,BASE,'Chapter Learner');q.goto(BASE+'#topic/ch1');q.wait_for_selector('.book-chapter-tabs')
  assert q.locator('.book-chapter-tabs a').count()==4;assert not q.evaluate("CourseModel.unlocked('states')")
- q.locator('.book-work-list a[href="#topic/ch1/1.1"]').click();q.wait_for_selector('.sp-loader',state='hidden');q.locator('[data-cinema=start]').click()
+ q.locator('.book-work-list a[href="#topic/ch1/1.1"]').click();q.wait_for_selector('[data-safety-lesson]')
  def check():
   if not q.evaluate('IntroModel.done(IntroModel.data().task)'):q.locator('[data-intro-action=check]').click()
  def nxt():
@@ -29,31 +29,12 @@ with sync_playwright() as p:
   el=q.locator('[data-intro-control="'+key+'"]');el.evaluate('(e,v)=>{e.value=v;e.dispatchEvent(new Event("input",{bubbles:true}));e.dispatchEvent(new Event("change",{bubbles:true}));}',str(value))
  def select(key,value):q.locator('label:has([data-intro-answer="'+key+'"]) [data-guide-value="'+value+'"]').click()
  def wait_model(seconds):q.clock.run_for(int(seconds*1000))
- # Situation A now uses a scene hotspot and two question steps.
- q.clock.run_for(9500);assert not q.evaluate("IntroModel.done('danger-a')")
- q.locator('.sp-hotspot').click();q.locator('[data-risk="0"]').click();q.clock.run_for(250)
- for i in [0,1]:q.locator('[data-safe-action="'+str(i)+'"]').check()
- q.locator('[data-sp=check]').click();assert q.evaluate("IntroModel.done('danger-a')")
- q.locator('[data-explanation="4"]').click();q.locator('[data-sp=next]').click()
- q.wait_for_selector('.sp-loader',state='hidden');q.locator('[data-cinema=start]').click();q.clock.run_for(9500)
- for spot in ['goggles','tube']:q.locator('[data-hotspot="'+spot+'"]').click()
- q.locator('[data-risk="0"]').click();q.clock.run_for(250)
- for i in [0,1,2,3]:q.locator('[data-safe-action="'+str(i)+'"]').check()
- q.locator('[data-sp=check]').click();assert q.evaluate("IntroModel.done('danger-b')")
- q.locator('[data-explanation="4"]').click();q.locator('[data-sp=next]').click()
- q.wait_for_selector('.sp-loader',state='hidden');q.locator('[data-cinema=start]').click();q.clock.run_for(9500);q.locator('[data-hotspot=vapour]').click();q.locator('[data-risk="0"]').click();q.clock.run_for(250)
- for target in range(4):
-  while q.locator('[data-order-item]').evaluate_all('(items)=>items.map(e=>Number(e.dataset.orderItem))').index(target)>target:
-   q.locator('[data-order-id="'+str(target)+'"][data-order-move="-1"]').click()
- for i in [0,1]:q.locator('[data-safe-action="'+str(i)+'"]').check()
- q.locator('[data-sp=check]').click();assert q.evaluate("IntroModel.done('danger-c')");q.locator('[data-explanation="4"]').click();q.locator('[data-sp=next]').click()
- q.wait_for_selector('.sp-loader',state='hidden');q.locator('[data-cinema=start]').click();q.clock.run_for(9500);q.locator('[data-hotspot=face-near-beaker]').click();q.locator('[data-risk="0"]').click();q.clock.run_for(250)
- for i in [0,1,2,3]:q.locator('[data-safe-action="'+str(i)+'"]').check()
- q.locator('[data-sp=check]').click();assert q.evaluate("IntroModel.done('danger-d')");q.locator('[data-explanation="4"]').click();q.locator('[data-sp=next]').click();q.wait_for_selector('.safety-summary');assert q.locator('.safety-summary-card').count()==4;q.locator('[data-safety-next]').click();start_work()
- print('Hazards passed',flush=True)
- for _ in range(5):
-  id=q.locator('[data-intro-source]:visible').get_attribute('data-intro-source');drop(id,id)
- check();assert q.evaluate("IntroModel.done('signs')");nxt();start_work()
+ # Lesson 1.1: four autonomous stories, then five GHS connections.
+ for id in ['a','b','c','d']:
+  q.locator('[data-safety-situation="'+id+'"]').first.click();q.wait_for_selector('.sp-loader',state='hidden');q.clock.run_for(15000);q.locator('[data-sp=next-card]').click();q.locator('[data-sp=next-card]').click();q.locator('[data-sp=close]').click()
+ for id in ['irritant','explosive','corrosive','toxic','flammable']:
+  q.locator('[data-safety-sign="'+id+'"]').click();q.locator('[data-safety-description="'+id+'"]').click()
+ assert q.evaluate("IntroModel.workDone('safety')");q.locator('.safety-next').click();q.wait_for_selector('[data-cinema=start]:visible');start_work()
  # Museum: visit all six, identify each, assemble a 3D flask.
  ids=q.evaluate('IntroModel.mainEquipment')
  for id in ids:
