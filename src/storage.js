@@ -1,6 +1,6 @@
 let STORAGE_KEY='fotima.chemistry7.curriculum.v2';
 const LEGACY_STORAGE_KEY='fotima.chemistry7.shell.v1';
-const freshState=()=>({version:2,settings:{language:'ru',sound:false,reduceMotion:false,viewMode:'3d',helper:true,largeText:false},progress:{},lessons:{},propertyTable:{},activeSample:'salt',tableSource:'',investigation:blankInvestigation(),propertyReport:blankReport(),physicalLab:blankPhysicalLab(),chemicalLab:blankChemicalLab(),achievements:blankAchievements(),lastLocation:null,course:CourseModel.blank(),intro:IntroModel.blank(),periodic:PeriodicModel.blank(),notifications:StudentNotices.blank(),game:CourseGame.blank()});
+const freshState=()=>({version:2,settings:{language:'ru',sound:false,reduceMotion:false,viewMode:'3d',helper:true,largeText:false},progress:{},lessons:{},propertyTable:{},activeSample:'salt',tableSource:'',investigation:blankInvestigation(),propertyReport:blankReport(),physicalLab:blankPhysicalLab(),chemicalLab:blankChemicalLab(),achievements:blankAchievements(),lastLocation:null,textbook:TextbookCourse.blank(),course:CourseModel.blank(),intro:IntroModel.blank(),periodic:PeriodicModel.blank(),notifications:StudentNotices.blank(),game:CourseGame.blank()});
 let storageAvailable=true;
 function readState(input){
  const clean=freshState();
@@ -29,10 +29,11 @@ function readState(input){
   clean.lastLocation=sanitiseLocation(value.lastLocation);
   if(sampleIds.includes(value.activeSample))clean.activeSample=value.activeSample;
   if(typeof value.tableSource==='string')clean.tableSource=value.tableSource.slice(0,600);
+  clean.textbook=TextbookCourse.migrate(value.textbook,clean,value);
   return clean;
  }catch{return clean;}
 }
 let state=readState();
-function saveState(){syncAchievements();window.CourseGame?.sync();try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));storageAvailable=true;}catch{storageAvailable=false;}if(window.FotimaCloud)window.FotimaCloud.changed();}
+function saveState(){TextbookCourse.refresh();syncAchievements();window.CourseGame?.sync();try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));storageAvailable=true;}catch{storageAvailable=false;}if(window.FotimaCloud)window.FotimaCloud.changed();}
 saveState();
 window.addEventListener('storage',event=>{if(event.key===STORAGE_KEY){state=readState();render(false);}});

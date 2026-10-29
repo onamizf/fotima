@@ -35,7 +35,7 @@ window.Dropdown=(()=>{
   // События точно такие же, как у прежнего поля; сохранение и проверка ответов остаются в модели.
   if(changed){c.select.dispatchEvent(new Event('input',{bubbles:true}));c.select.dispatchEvent(new Event('change',{bubbles:true}));}
  }
- function enhance(select){if(bySelect.has(select)||select.multiple||select.size>1)return;const id=select.id||'dropdown-source-'+(++serial);select.id=id;const label=purpose(select),wrapper=document.createElement('span');wrapper.className='dropdown';wrapper.dataset.source=id;select.before(wrapper);wrapper.append(select);
+ function enhance(select){if(bySelect.has(select)||select.hidden||select.multiple||select.size>1)return;const id=select.id||'dropdown-source-'+(++serial);select.id=id;const label=purpose(select),wrapper=document.createElement('span');wrapper.className='dropdown';wrapper.dataset.source=id;select.before(wrapper);wrapper.append(select);
   const button=document.createElement('button');button.type='button';button.className='dropdown-trigger';button.id=select.dataset.dropdownButtonId||id+'-trigger';button.setAttribute('role','combobox');button.setAttribute('aria-haspopup','listbox');button.setAttribute('aria-expanded','false');button.setAttribute('aria-label',label);button.innerHTML=`<span class="dropdown-value"></span><span class="dropdown-short"></span><span class="dropdown-chevron" aria-hidden="true">${Icon('chevron-down',20)}</span>`;
   const listId=select.dataset.dropdownListId||id+'-listbox',panel=document.createElement('div');panel.id=listId+'-popover';panel.className='dropdown-panel'+(id==='language'?' header-panel':'');panel.setAttribute('popover','manual');panel.hidden=true;
   panel.innerHTML=`<div class="dropdown-mobile-heading"><span class="dropdown-handle" aria-hidden="true"></span><strong></strong><button type="button" class="dropdown-close">${Icon('x',20)}</button></div><div id="${esc(listId)}" class="dropdown-options" role="listbox" aria-label="${esc(label)}" tabindex="-1"></div>`;button.setAttribute('aria-controls',listId);wrapper.append(button,panel);
@@ -58,3 +58,4 @@ window.Dropdown=(()=>{
  observer.observe(document.body,{childList:true,subtree:true,attributes:true,attributeFilter:['disabled','required','selected','value','aria-invalid','aria-describedby']});
  return {mount,close,refresh:()=>{for(const c of controls)refresh(c);}};
 })();
+
