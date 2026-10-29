@@ -1,0 +1,12 @@
+"""Render transparent general/focus fallback frames from the exact live apparatus geometry."""
+import base64,io,json
+from pathlib import Path
+from PIL import Image
+from playwright.sync_api import sync_playwright
+from browser_auth import register_local
+ROOT=Path('/workspace/fotima/assets/lab/1-2')
+with sync_playwright() as p:
+ b=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--use-gl=angle','--use-angle=swiftshader-webgl','--enable-unsafe-swiftshader']);c=b.new_context(viewport={'width':1440,'height':1000},reduced_motion='reduce');c.route('https://cdnjs.cloudflare.com/**',lambda r:r.abort());c.route('https://cdn.jsdelivr.net/**',lambda r:r.abort());q=c.new_page();register_local(q,'http://127.0.0.1:8051/?debug=1','Detail renderer')
+ result=q.evaluate('''async()=>{const host=document.createElement('div');host.style.cssText='position:fixed;inset:0;width:1376px;height:768px;z-index:9999';document.body.append(host);const control=new AbortController();let debug,anchors={};const viewer=await SetupModel.mount(host,{signal:control.signal,reduced:()=>true,onProgress(){},onAnchors(v){anchors=v},onDebug(v){debug=v}});const wait=ms=>new Promise(r=>setTimeout(r,ms)),frame=()=>new Promise(r=>requestAnimationFrame(r)),capture=()=>host.querySelector('canvas').toDataURL('image/png').split(',')[1];await wait(300);await frame();const images={assembled:capture()};const out=document.createElement('canvas');out.width=1376;out.height=768;const x=out.getContext('2d'),bg=new Image();bg.src='assets/lab/1-2/setup-bg.jpg';await bg.decode();x.drawImage(bg,0,0,1376,768);x.drawImage(host.querySelector('canvas'),0,0);const preview=out.toDataURL('image/jpeg',.93).split(',')[1];viewer.setProgress(1,false);await wait(250);await frame();images.exploded=capture();const generalAnchors=JSON.parse(JSON.stringify(anchors));for(const id of Setup12Data.ids){viewer.focus(id);for(let i=0;i<200;i++){await wait(30);if(debug.focusSettled&&debug.renderedFocused===id)break;}await frame();await frame();images['focus-'+id]=capture();}viewer.dispose();control.abort();host.remove();return {images,preview,anchors:generalAnchors}}''')
+ for name,content in result['images'].items():Image.open(io.BytesIO(base64.b64decode(content))).save(ROOT/('setup-'+name+'.webp'),'WEBP',quality=93,method=6)
+ (ROOT/'setup-preview.jpg').write_bytes(base64.b64decode(result['preview']));(ROOT/'setup-fallback-anchors.json').write_text(json.dumps(result['anchors'],indent=2)+'\n');print('Rendered',len(result['images']),'transparent frames and JPEG preview',flush=True);b.close()

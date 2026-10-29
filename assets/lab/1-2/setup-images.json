@@ -9,9 +9,24 @@
   "setup-exploded.webp": "Transparent render of the actual full-size exploded WebGL model; no drawn outlines.",
   "setup-fallback-anchors.json": "Projected part centres from the same 1376×768 render.",
   "materialsSource": {
-    "commit": "77e0cec5938aef69abff16b4fe1e690480a3d054",
-    "path": "src/setup-model.js",
-    "blob": "3033e3f7cf357f30415a2cf0ade3910198ce0164",
-    "overrides": "Metal color #8E9AA8, roughness .35; hover emissive #1F6BFF at .25. Original geometry dimensions and remaining materials/lights retained."
-  }
+    "builder": "src/setup-equipment.js",
+    "entry": "buildEquipment(id, {context: \"setup\"})",
+    "version": "1.16.0",
+    "materials": "MeshStandardMaterial metalness .7–.85; MeshPhysicalMaterial transmission .95; no outline meshes."
+  },
+  "environmentSource": {
+    "package": "three@0.128.0",
+    "path": "examples/jsm/environments/RoomEnvironment.js",
+    "adapter": "src/equipment-room-environment.js",
+    "license": "assets/vendor/setup-r128/THREE-LICENSE.txt"
+  },
+  "setup-focus-stand.webp": "Transparent render of this isolated, fitted apparatus part, including its contact shadow.",
+  "setup-focus-thermometer.webp": "Transparent render of this isolated, fitted apparatus part, including its contact shadow.",
+  "setup-focus-tube.webp": "Transparent render of this isolated, fitted apparatus part, including its contact shadow.",
+  "setup-focus-alcohol.webp": "Transparent render of this isolated, fitted apparatus part, including its contact shadow.",
+  "setup-focus-beaker.webp": "Transparent render of this isolated, fitted apparatus part, including its contact shadow.",
+  "setup-focus-water.webp": "Transparent render of this isolated, fitted apparatus part, including its contact shadow.",
+  "setup-focus-gauze.webp": "Transparent render of this isolated, fitted apparatus part, including its contact shadow.",
+  "setup-focus-tripod.webp": "Transparent render of this isolated, fitted apparatus part, including its contact shadow.",
+  "setup-focus-burner.webp": "Transparent render of this isolated, fitted apparatus part, including its contact shadow."
 }

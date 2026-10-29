@@ -8,5 +8,8 @@
   "runtimeCDNs": [
     "https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js",
     "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
-  ]
+  ],
+  "adaptedExamples": {
+    "RoomEnvironment": "src/equipment-room-environment.js, adapted from three@0.128.0/examples/jsm/environments/RoomEnvironment.js"
+  }
 }

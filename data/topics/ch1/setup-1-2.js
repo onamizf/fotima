@@ -15,18 +15,16 @@ const Setup12Data=(()=>{const content={
    "studied": "Изучено деталей: {n} / 9",
    "studyHint": "Нажми на деталь, чтобы выдвинуть её вперёд и узнать о ней.",
    "back": "↩ Вернуть на место",
-   "what": "Что это",
-   "why": "Зачем в этой установке",
-   "safe": "Как правильно",
-   "next": "Дальше →",
-   "understood": "Понятно ✓",
    "success": "Установка изучена!",
-   "progressHint": "Разбери установку и прочитай три карточки о каждой из шести деталей.",
+   "progressHint": "Разбери установку и открой карточки деталей. Изучение засчитывается сразу.",
    "completed": "Задание 2 выполнено · +15 XP",
    "zoomIn": "Приблизить",
    "zoomOut": "Отдалить",
    "fullscreen": "На весь экран",
-   "exitFullscreen": "Выйти из полного экрана"
+   "exitFullscreen": "Выйти из полного экрана",
+   "definition": "Что это:",
+   "previousPart": "Предыдущая деталь",
+   "nextPart": "Следующая деталь"
   },
   "en": {
    "instruction": "Explode the apparatus and study at least six parts.",
@@ -42,18 +40,16 @@ const Setup12Data=(()=>{const content={
    "studied": "Parts explored: {n} / 9",
    "studyHint": "Select a part to bring it forward and learn about it.",
    "back": "↩ Return part",
-   "what": "What it is",
-   "why": "Its role in this apparatus",
-   "safe": "Safe use",
-   "next": "Next →",
-   "understood": "Understood ✓",
    "success": "Apparatus studied!",
-   "progressHint": "Explode the apparatus and read three cards for each of six parts.",
+   "progressHint": "Explode the apparatus and open the part cards. Each opened card counts as studied.",
    "completed": "Task 2 completed · +15 XP",
    "zoomIn": "Move closer",
    "zoomOut": "Move away",
    "fullscreen": "Fullscreen",
-   "exitFullscreen": "Exit fullscreen"
+   "exitFullscreen": "Exit fullscreen",
+   "definition": "What it is:",
+   "previousPart": "Previous part",
+   "nextPart": "Next part"
   },
   "uz-Latn": {
    "instruction": "Qurilmani ajratib, kamida oltita qismini o‘rgan.",
@@ -69,18 +65,16 @@ const Setup12Data=(()=>{const content={
    "studied": "O‘rganilgan qismlar: {n} / 9",
    "studyHint": "Qismni oldinga chiqarib o‘rganish uchun bos.",
    "back": "↩ Joyiga qaytarish",
-   "what": "Bu nima",
-   "why": "Qurilmadagi vazifasi",
-   "safe": "To‘g‘ri foydalanish",
-   "next": "Keyingi →",
-   "understood": "Tushunarli ✓",
    "success": "Qurilma o‘rganildi!",
-   "progressHint": "Qurilmani ajrat va oltita qismning uchta kartasini o‘qi.",
+   "progressHint": "Qurilmani ajrat va qismlar kartalarini och. Ochilgan qism darhol o‘rganilgan hisoblanadi.",
    "completed": "2-topshiriq bajarildi · +15 XP",
    "zoomIn": "Yaqinlashtirish",
    "zoomOut": "Uzoqlashtirish",
    "fullscreen": "To‘liq ekran",
-   "exitFullscreen": "To‘liq ekrandan chiqish"
+   "exitFullscreen": "To‘liq ekrandan chiqish",
+   "definition": "Bu nima:",
+   "previousPart": "Oldingi qism",
+   "nextPart": "Keyingi qism"
   },
   "uz-Cyrl": {
    "instruction": "Қурилмани ажратиб, камида олтита қисмини ўрган.",
@@ -96,18 +90,16 @@ const Setup12Data=(()=>{const content={
    "studied": "Ўрганилган қисмлар: {н} / 9",
    "studyHint": "Қисмни олдинга чиқариб ўрганиш учун бос.",
    "back": "↩ Жойига қайтариш",
-   "what": "Бу нима",
-   "why": "Қурилмадаги вазифаси",
-   "safe": "Тўғри фойдаланиш",
-   "next": "Кейинги →",
-   "understood": "Тушунарли ✓",
    "success": "Қурилма ўрганилди!",
-   "progressHint": "Қурилмани ажрат ва олтита қисмнинг учта картасини ўқи.",
+   "progressHint": "Қурилмани ажрат ва қисмлар карталарини оч. Очилган қисм дарҳол ўрганилган ҳисобланади.",
    "completed": "2-топшириқ бажарилди · +15 ХП",
    "zoomIn": "Яқинлаштириш",
    "zoomOut": "Узоқлаштириш",
    "fullscreen": "Тўлиқ экран",
-   "exitFullscreen": "Тўлиқ экрандан чиқиш"
+   "exitFullscreen": "Тўлиқ экрандан чиқиш",
+   "definition": "Бу нима:",
+   "previousPart": "Олдинги қисм",
+   "nextPart": "Кейинги қисм"
   }
  },
  "parts": [
@@ -119,26 +111,24 @@ const Setup12Data=(()=>{const content={
     "uz-Latn": "Termometr",
     "uz-Cyrl": "Термометр"
    },
-   "facts": [
-    {
-     "ru": "Прибор для измерения температуры.",
-     "en": "An instrument for measuring temperature.",
-     "uz-Latn": "Haroratni o‘lchaydigan asbob.",
-     "uz-Cyrl": "Ҳароратни ўлчайдиган асбоб."
-    },
-    {
-     "ru": "Показывает температуру спирта внутри пробирки.",
-     "en": "Measures the temperature of the alcohol inside the tube.",
-     "uz-Latn": "Probirkadagi spirt haroratini ko‘rsatadi.",
-     "uz-Cyrl": "Пробиркадаги спирт ҳароратини кўрсатади."
-    },
-    {
-     "ru": "Резервуар должен быть в жидкости и не касаться стенок и дна пробирки.",
-     "en": "Keep the bulb in the liquid, away from the tube walls and bottom.",
-     "uz-Latn": "Rezervuar suyuqlik ichida bo‘lsin, devor va tubga tegmasin.",
-     "uz-Cyrl": "Резервуар суюқлик ичида бўлсин, девор ва тубга тегмасин."
-    }
-   ]
+   "definition": {
+    "ru": "прибор для измерения температуры.",
+    "en": "an instrument for measuring temperature.",
+    "uz-Latn": "haroratni o‘lchash asbobi.",
+    "uz-Cyrl": "ҳароратни ўлчаш асбоби."
+   },
+   "purpose": {
+    "ru": "показывает, до какой температуры нагрелся спирт.",
+    "en": "shows the temperature reached by the alcohol.",
+    "uz-Latn": "spirt qanday haroratgacha qiziganini ko‘rsatadi.",
+    "uz-Cyrl": "спирт қандай ҳароратгача қизиганини кўрсатади."
+   },
+   "purposeLabel": {
+    "ru": "Для чего нужен:",
+    "en": "Purpose:",
+    "uz-Latn": "Nima uchun kerak:",
+    "uz-Cyrl": "Нима учун керак:"
+   }
   },
   {
    "id": "tube",
@@ -148,26 +138,24 @@ const Setup12Data=(()=>{const content={
     "uz-Latn": "Issiqqa chidamli probirka",
     "uz-Cyrl": "Иссиққа чидамли пробирка"
    },
-   "facts": [
-    {
-     "ru": "Стеклянная пробирка, выдерживающая нагрев.",
-     "en": "A glass test tube designed for heating.",
-     "uz-Latn": "Isitishga chidamli shisha probirka.",
-     "uz-Cyrl": "Иситишга чидамли шиша пробирка."
-    },
-    {
-     "ru": "Содержит спирт и стоит в водяной бане, не касаясь дна стакана.",
-     "en": "Holds alcohol in the water bath without touching the beaker bottom.",
-     "uz-Latn": "Spirtni tutadi; suv hammomida stakan tubiga tegmay turadi.",
-     "uz-Cyrl": "Спиртни тутади; сув ҳаммомида стакан тубига тегмай туради."
-    },
-    {
-     "ru": "Лапка держит верхнюю треть. Отверстие направлено от людей.",
-     "en": "Clamp the upper third and point the opening away from people.",
-     "uz-Latn": "Yuqori uchdan bir qismini qisqich ushlasin; og‘zi odamlardan chetga qarasin.",
-     "uz-Cyrl": "Юқори учдан бир қисмини қисқич ушласин; оғзи одамлардан четга қарасин."
-    }
-   ]
+   "definition": {
+    "ru": "стеклянная трубка с закруглённым дном из стекла, которое выдерживает нагревание.",
+    "en": "a rounded-bottom tube made from glass that withstands heating.",
+    "uz-Latn": "isitishga chidamli shishadan yasalgan, tubi yumaloq nay.",
+    "uz-Cyrl": "иситишга чидамли шишадан ясалган, туби юмалоқ най."
+   },
+   "purpose": {
+    "ru": "в ней нагревают небольшое количество вещества — здесь спирт.",
+    "en": "holds a small amount of substance for heating — alcohol in this experiment.",
+    "uz-Latn": "unda oz miqdordagi modda — bu tajribada spirt isitiladi.",
+    "uz-Cyrl": "унда оз миқдордаги модда — бу тажрибада спирт иситилади."
+   },
+   "purposeLabel": {
+    "ru": "Для чего нужна:",
+    "en": "Purpose:",
+    "uz-Latn": "Nima uchun kerak:",
+    "uz-Cyrl": "Нима учун керак:"
+   }
   },
   {
    "id": "alcohol",
@@ -177,26 +165,24 @@ const Setup12Data=(()=>{const content={
     "uz-Latn": "Spirt",
     "uz-Cyrl": "Спирт"
    },
-   "facts": [
-    {
-     "ru": "Легковоспламеняющаяся жидкость в пробирке.",
-     "en": "A flammable liquid inside the test tube.",
-     "uz-Latn": "Probirkadagi oson yonuvchi suyuqlik.",
-     "uz-Cyrl": "Пробиркадаги осон ёнувчи суюқлик."
-    },
-    {
-     "ru": "Нагревается постепенно за счёт горячей воды вокруг пробирки.",
-     "en": "Warms gradually through the hot water surrounding the tube.",
-     "uz-Latn": "Probirka atrofidagi issiq suv orqali asta isiydi.",
-     "uz-Cyrl": "Пробирка атрофидаги иссиқ сув орқали аста исийди."
-    },
-    {
-     "ru": "Спирт нельзя нагревать прямо на открытом пламени.",
-     "en": "Never heat alcohol directly over an open flame.",
-     "uz-Latn": "Spirtni ochiq alangada bevosita isitma.",
-     "uz-Cyrl": "Спиртни очиқ алангада бевосита иситма."
-    }
-   ]
+   "definition": {
+    "ru": "бесцветная жидкость, которая легко загорается.",
+    "en": "a colourless liquid that catches fire easily.",
+    "uz-Latn": "oson yonadigan rangsiz suyuqlik.",
+    "uz-Cyrl": "осон ёнадиган рангсиз суюқлик."
+   },
+   "purpose": {
+    "ru": "это вещество, которое нагревают в опыте и за температурой которого наблюдают.",
+    "en": "is the substance heated in the experiment while its temperature is observed.",
+    "uz-Latn": "tajribada isitilib, harorati kuzatiladigan modda.",
+    "uz-Cyrl": "тажрибада иситилиб, ҳарорати кузатиладиган модда."
+   },
+   "purposeLabel": {
+    "ru": "Для чего нужен:",
+    "en": "Purpose:",
+    "uz-Latn": "Nima uchun kerak:",
+    "uz-Cyrl": "Нима учун керак:"
+   }
   },
   {
    "id": "beaker",
@@ -206,26 +192,24 @@ const Setup12Data=(()=>{const content={
     "uz-Latn": "Stakan",
     "uz-Cyrl": "Стакан"
    },
-   "facts": [
-    {
-     "ru": "Термостойкий химический стакан.",
-     "en": "A heat-resistant laboratory beaker.",
-     "uz-Latn": "Issiqqa chidamli kimyoviy stakan.",
-     "uz-Cyrl": "Иссиққа чидамли кимёвий стакан."
-    },
-    {
-     "ru": "Вместе с водой образует водяную баню для равномерного нагревания.",
-     "en": "With water, forms a bath for even heating.",
-     "uz-Latn": "Suv bilan birga bir tekis isitadigan suv hammomini hosil qiladi.",
-     "uz-Cyrl": "Сув билан бирга бир текис иситадиган сув ҳаммомини ҳосил қилади."
-    },
-    {
-     "ru": "Ставь на сетку. Не трогай горячее стекло руками.",
-     "en": "Place it on the gauze. Never touch hot glass with bare hands.",
-     "uz-Latn": "To‘r ustiga qo‘y; issiq shishaga qo‘l tekkizma.",
-     "uz-Cyrl": "Тўр устига қўй; иссиқ шишага қўл теккизма."
-    }
-   ]
+   "definition": {
+    "ru": "стеклянный сосуд цилиндрической формы с носиком.",
+    "en": "a cylindrical glass vessel with a spout.",
+    "uz-Latn": "tumshuqchali, silindrsimon shisha idish.",
+    "uz-Cyrl": "тумшуқчали, цилиндрсимон шиша идиш."
+   },
+   "purpose": {
+    "ru": "в нём находится вода для водяной бани.",
+    "en": "holds the water used for the water bath.",
+    "uz-Latn": "unda suv hammomi uchun suv turadi.",
+    "uz-Cyrl": "унда сув ҳаммоми учун сув туради."
+   },
+   "purposeLabel": {
+    "ru": "Для чего нужен:",
+    "en": "Purpose:",
+    "uz-Latn": "Nima uchun kerak:",
+    "uz-Cyrl": "Нима учун керак:"
+   }
   },
   {
    "id": "water",
@@ -235,26 +219,24 @@ const Setup12Data=(()=>{const content={
     "uz-Latn": "Suv",
     "uz-Cyrl": "Сув"
    },
-   "facts": [
-    {
-     "ru": "Жидкость, заполняющая часть стакана.",
-     "en": "The liquid partly filling the beaker.",
-     "uz-Latn": "Stakanning bir qismini to‘ldirgan suyuqlik.",
-     "uz-Cyrl": "Стаканнинг бир қисмини тўлдирган суюқлик."
-    },
-    {
-     "ru": "Передаёт тепло спирту равномерно, без прямого контакта с огнём.",
-     "en": "Transfers heat evenly to the alcohol, without direct flame contact.",
-     "uz-Latn": "Issiqlikni spirtga olovsiz bir tekis uzatadi.",
-     "uz-Cyrl": "Иссиқликни спиртга оловсиз бир текис узатади."
-    },
-    {
-     "ru": "Следи за уровнем воды; не допускай полного выкипания.",
-     "en": "Watch the level and never allow the bath to boil dry.",
-     "uz-Latn": "Suv sathini kuzat; butunlay qaynab tugashiga yo‘l qo‘yma.",
-     "uz-Cyrl": "Сув сатҳини кузат; бутунлай қайнаб тугашига йўл қўйма."
-    }
-   ]
+   "definition": {
+    "ru": "жидкость, которой заполнен стакан.",
+    "en": "the liquid filling the beaker.",
+    "uz-Latn": "stakanga quyilgan suyuqlik.",
+    "uz-Cyrl": "стаканга қуйилган суюқлик."
+   },
+   "purpose": {
+    "ru": "работает как водяная баня — равномерно нагревает пробирку без открытого огня.",
+    "en": "acts as a water bath, heating the test tube evenly without exposing it directly to a flame.",
+    "uz-Latn": "suv hammomi vazifasini bajaradi — probirkani ochiq alangasiz bir tekis isitadi.",
+    "uz-Cyrl": "сув ҳаммоми вазифасини бажаради — пробиркани очиқ алангасиз бир текис иситади."
+   },
+   "purposeLabel": {
+    "ru": "Для чего нужна:",
+    "en": "Purpose:",
+    "uz-Latn": "Nima uchun kerak:",
+    "uz-Cyrl": "Нима учун керак:"
+   }
   },
   {
    "id": "gauze",
@@ -264,26 +246,24 @@ const Setup12Data=(()=>{const content={
     "uz-Latn": "Sim to‘r",
     "uz-Cyrl": "Сим тўр"
    },
-   "facts": [
-    {
-     "ru": "Металлическая сетка с керамической серединой.",
-     "en": "A metal mesh with a ceramic centre.",
-     "uz-Latn": "O‘rtasi keramikali metall to‘r.",
-     "uz-Cyrl": "Ўртаси керамикали металл тўр."
-    },
-    {
-     "ru": "Распределяет тепло, чтобы стакан не лопнул от пламени.",
-     "en": "Spreads heat to protect the beaker from uneven heating.",
-     "uz-Latn": "Issiqlikni tarqatib, stakan yorilishining oldini oladi.",
-     "uz-Cyrl": "Иссиқликни тарқатиб, стакан ёрилишининг олдини олади."
-    },
-    {
-     "ru": "Положи ровно на треножник и дождись остывания после опыта.",
-     "en": "Lay it flat on the tripod and let it cool after the experiment.",
-     "uz-Latn": "Uchoyoqqa tekis qo‘y; tajribadan so‘ng sovishini kut.",
-     "uz-Cyrl": "Учоёққа текис қўй; тажрибадан сўнг совишини кут."
-    }
-   ]
+   "definition": {
+    "ru": "металлическая сетка с керамическим кругом в центре.",
+    "en": "a metal mesh with a ceramic disc in its centre.",
+    "uz-Latn": "markazida sopol doirasi bo‘lgan metall to‘r.",
+    "uz-Cyrl": "марказида сопол доираси бўлган металл тўр."
+   },
+   "purpose": {
+    "ru": "равномерно распределяет тепло пламени по дну стакана, чтобы стекло не лопнуло.",
+    "en": "spreads the flame’s heat evenly across the beaker base to help prevent the glass from cracking.",
+    "uz-Latn": "shisha yorilmasligi uchun alanga issiqligini stakan tubiga bir tekis tarqatadi.",
+    "uz-Cyrl": "шиша ёрилмаслиги учун аланга иссиқлигини стакан тубига бир текис тарқатади."
+   },
+   "purposeLabel": {
+    "ru": "Для чего нужна:",
+    "en": "Purpose:",
+    "uz-Latn": "Nima uchun kerak:",
+    "uz-Cyrl": "Нима учун керак:"
+   }
   },
   {
    "id": "tripod",
@@ -293,26 +273,24 @@ const Setup12Data=(()=>{const content={
     "uz-Latn": "Uchoyoq",
     "uz-Cyrl": "Учоёқ"
    },
-   "facts": [
-    {
-     "ru": "Металлическая подставка на трёх ножках.",
-     "en": "A metal support with three legs.",
-     "uz-Latn": "Uch oyoqli metall taglik.",
-     "uz-Cyrl": "Уч оёқли металл таглик."
-    },
-    {
-     "ru": "Держит сетку и стакан над горелкой.",
-     "en": "Supports the gauze and beaker above the burner.",
-     "uz-Latn": "To‘r va stakanni gorelka ustida ushlab turadi.",
-     "uz-Cyrl": "Тўр ва стаканни горелка устида ушлаб туради."
-    },
-    {
-     "ru": "Поставь устойчиво на ровный стол до начала нагревания.",
-     "en": "Place it firmly on a level bench before heating.",
-     "uz-Latn": "Isitishdan oldin tekis stolga barqaror qo‘y.",
-     "uz-Cyrl": "Иситишдан олдин текис столга барқарор қўй."
-    }
-   ]
+   "definition": {
+    "ru": "металлическая подставка на трёх ножках.",
+    "en": "a metal support with three legs.",
+    "uz-Latn": "uch oyoqli metall taglik.",
+    "uz-Cyrl": "уч оёқли металл таглик."
+   },
+   "purpose": {
+    "ru": "держит сетку со стаканом над пламенем горелки.",
+    "en": "holds the gauze and beaker above the burner flame.",
+    "uz-Latn": "to‘r va stakanni gorelka alangasi ustida ushlab turadi.",
+    "uz-Cyrl": "тўр ва стаканни горелка алангаси устида ушлаб туради."
+   },
+   "purposeLabel": {
+    "ru": "Для чего нужен:",
+    "en": "Purpose:",
+    "uz-Latn": "Nima uchun kerak:",
+    "uz-Cyrl": "Нима учун керак:"
+   }
   },
   {
    "id": "burner",
@@ -322,26 +300,24 @@ const Setup12Data=(()=>{const content={
     "uz-Latn": "Bunzen gorelkasi (gazli)",
     "uz-Cyrl": "Бунзен горелкаси (газли)"
    },
-   "facts": [
-    {
-     "ru": "Лабораторная газовая горелка с голубым пламенем.",
-     "en": "A laboratory gas burner with a blue flame.",
-     "uz-Latn": "Ko‘k alangali laboratoriya gaz gorelkasi.",
-     "uz-Cyrl": "Кўк алангали лаборатория газ горелкаси."
-    },
-    {
-     "ru": "Нагревает воду через сетку и дно стакана.",
-     "en": "Heats the water through the gauze and beaker base.",
-     "uz-Latn": "To‘r va stakan tubi orqali suvni isitadi.",
-     "uz-Cyrl": "Тўр ва стакан туби орқали сувни иситади."
-    },
-    {
-     "ru": "Работай только с учителем. Перед разборкой перекрой газ и дай деталям остыть.",
-     "en": "Work under teacher supervision. Turn off the gas and let parts cool before dismantling.",
-     "uz-Latn": "Faqat o‘qituvchi bilan ishla; ajratishdan oldin gazni yopib, sovishini kut.",
-     "uz-Cyrl": "Фақат ўқитувчи билан ишла; ажратишдан олдин газни ёпиб, совишини кут."
-    }
-   ]
+   "definition": {
+    "ru": "прибор, в котором сгорает газ и образуется пламя.",
+    "en": "a device that burns gas to produce a flame.",
+    "uz-Latn": "gaz yonib, alanga hosil bo‘ladigan asbob.",
+    "uz-Cyrl": "газ ёниб, аланга ҳосил бўладиган асбоб."
+   },
+   "purpose": {
+    "ru": "нагревает воду в стакане.",
+    "en": "heats the water in the beaker.",
+    "uz-Latn": "stakandagi suvni isitadi.",
+    "uz-Cyrl": "стакандаги сувни иситади."
+   },
+   "purposeLabel": {
+    "ru": "Для чего нужна:",
+    "en": "Purpose:",
+    "uz-Latn": "Nima uchun kerak:",
+    "uz-Cyrl": "Нима учун керак:"
+   }
   },
   {
    "id": "stand",
@@ -351,26 +327,24 @@ const Setup12Data=(()=>{const content={
     "uz-Latn": "Qisqichli shtativ",
     "uz-Cyrl": "Қисқичли штатив"
    },
-   "facts": [
-    {
-     "ru": "Основание, стержень и регулируемая лапка.",
-     "en": "A base, upright rod and adjustable clamp.",
-     "uz-Latn": "Taglik, tik sterjen va sozlanadigan qisqich.",
-     "uz-Cyrl": "Таглик, тик стержен ва созланадиган қисқич."
-    },
-    {
-     "ru": "Надёжно удерживает пробирку на нужной высоте.",
-     "en": "Holds the test tube securely at the required height.",
-     "uz-Latn": "Probirkani kerakli balandlikda mahkam tutadi.",
-     "uz-Cyrl": "Пробиркани керакли баландликда маҳкам тутади."
-    },
-    {
-     "ru": "Затяни винт без лишнего усилия, чтобы не раздавить стекло.",
-     "en": "Tighten gently so you do not crush the glass.",
-     "uz-Latn": "Shishani sindirmaslik uchun vintni ortiqcha kuchsiz tort.",
-     "uz-Cyrl": "Шишани синдирмаслик учун винтни ортиқча кучсиз торт."
-    }
-   ]
+   "definition": {
+    "ru": "металлическая стойка с зажимом-лапкой.",
+    "en": "a metal support fitted with a clamp.",
+    "uz-Latn": "qisqich-lapkali metall shtativ.",
+    "uz-Cyrl": "қисқич-лапкали металл штатив."
+   },
+   "purpose": {
+    "ru": "надёжно закрепляет пробирку в нужном положении.",
+    "en": "holds the test tube securely in the required position.",
+    "uz-Latn": "probirkani kerakli holatda ishonchli mahkamlaydi.",
+    "uz-Cyrl": "пробиркани керакли ҳолатда ишончли маҳкамлайди."
+   },
+   "purposeLabel": {
+    "ru": "Для чего нужен:",
+    "en": "Purpose:",
+    "uz-Latn": "Nima uchun kerak:",
+    "uz-Cyrl": "Нима учун керак:"
+   }
   }
  ]
 };

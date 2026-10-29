@@ -1,5 +1,6 @@
 /* Reusable primitive models; pass the Three.js namespace used by the caller. No renderer or camera here. */
-function buildEquipment(name,{T=window.THREE}={}){
+function buildEquipment(name,{T=window.THREE,context='card',lowDetail=false}={}){
+ if(context==='setup')return buildSetupEquipment(name,{T,lowDetail});
  const id=({tube:'test-tube',dish:'evaporating-dish',flask:'conical-flask',cylinder:'measuring-cylinder'})[name]||name,group=new T.Group(),geometries=new Set(),materials=new Set(),textures=new Set(),anchors=[];
  const material=(color,props={})=>{const m=new T.MeshStandardMaterial({color,roughness:.35,envMapIntensity:.25,...props});materials.add(m);return m;};
  const glass=()=>{const m=new T.MeshPhysicalMaterial({color:'#d5f3ff',transparent:true,opacity:.55,roughness:.05,metalness:0,side:T.DoubleSide,depthWrite:false,envMapIntensity:.25});if('transmission' in m)m.transmission=.9;if('ior' in m)m.ior=1.5;if('thickness' in m)m.thickness=.08;materials.add(m);return m;};
