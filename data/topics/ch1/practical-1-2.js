@@ -60,7 +60,7 @@ const Practical12Data=(()=>{const content={
   "ru": {
    "heading": "Лабораторное оборудование",
    "overline": "ГЛАВА 1 · ПРАКТИЧЕСКАЯ РАБОТА 1.2",
-   "goal": "Цель: познакомиться с оборудованием, научиться изображать его и собирать установку по схеме",
+   "goal": "Цель: познакомиться с оборудованием и изучить устройство водяной бани",
    "equipment": "Оборудование и реактивы: стакан, выпарительная чашка, сетка, штатив, горелка Бунзена, раствор сульфата меди (II), вода",
    "skills": "Навыки: коммуникация · наблюдение · идентификация · правильное использование оборудования",
    "welcome": "Добро пожаловать в лабораторию! Нажимай на предметы на столе — я расскажу, что это 🧪",
@@ -68,32 +68,10 @@ const Practical12Data=(()=>{const content={
    "later": "Понадобится в задании 2",
    "resetCamera": "Общий вид",
    "roomAlt": "Химическая лаборатория: шесть приборов на переднем столе и установка на боковом",
-   "instruction": "Изучи оборудование в таблице. Напиши название каждого прибора и нарисуй его схематическое изображение.",
-   "counts": "Названия: {names} / 6 · Схемы: {drawings} / 6",
-   "object": "Оборудование",
-   "scheme": "Схема",
-   "name": "Название:",
-   "placeholder": "Напиши название…",
-   "inspect": "Рассмотреть предмет {n}",
-   "pen": "Карандаш",
-   "eraser": "Ластик",
-   "undo": "Отменить",
-   "clear": "Очистить",
-   "outline": "Подсказка-контур",
-   "compare": "Сравнить",
-   "reference": "Эталонная схема",
-   "drawLabel": "Нарисуй схему предмета {n}",
-   "drawMore": "Нарисуй схему на холсте, затем нажми «Сравнить». Нужна линия не короче 30 точек.",
-   "compared": "Схема сравнена ✓",
-   "praise": "Хорошая работа! Сравни свой рисунок с образцом: важны форма и основные детали.",
-   "correct": "Верно! Название принято ✓",
-   "hint": "Подсказка: начинается с «{letter}». {purpose}",
-   "show": "Показать ответ",
-   "shown": "Ответ показан — без XP. Теперь нарисуй схему.",
-   "download": "Скачать мои схемы",
-   "allDone": "Ты знаешь всё оборудование! Дальше — соберём установку 👇",
+   "instruction": "Нажми на шесть предметов на переднем столе и узнай, для чего они нужны.",
+   "counts": "Изучено: {names} / 6",
+   "allDone": "Все шесть предметов изучены!",
    "soon": "Скоро",
-   "assembly": "Собрать установку по схеме",
    "labels": "Подписать установку",
    "pending": "Это задание появится в следующем обновлении.",
    "nextLocked": "1.3 → После всех заданий работы 1.2",
@@ -102,13 +80,13 @@ const Practical12Data=(()=>{const content={
    "material": "Из чего",
    "safe": "Как пользоваться",
    "loadError": "Не удалось загрузить лабораторию. Повторить загрузку",
-   "saved": "Названия и рисунки сохраняются автоматически.",
+   "saved": "Результаты изучения сохраняются автоматически.",
    "coordinates": "Координаты зоны"
   },
   "en": {
    "heading": "Laboratory equipment",
    "overline": "CHAPTER 1 · PRACTICAL WORK 1.2",
-   "goal": "Goal: identify equipment, draw it and build an apparatus from a diagram",
+   "goal": "Goal: identify laboratory equipment and explore a water bath",
    "equipment": "Equipment and reagents: beaker, evaporating dish, gauze, stand, Bunsen burner, copper(II) sulfate solution, water",
    "skills": "Skills: communication · observation · identification · safe use of equipment",
    "welcome": "Welcome to the laboratory! Tap objects on the table to learn what they do 🧪",
@@ -116,32 +94,10 @@ const Practical12Data=(()=>{const content={
    "later": "You will need this in Task 2",
    "resetCamera": "Room view",
    "roomAlt": "Chemistry laboratory with six instruments on the front bench and apparatus on the side bench",
-   "instruction": "Study the equipment. Write each instrument’s name and draw a simple diagram.",
-   "counts": "Names: {names} / 6 · Diagrams: {drawings} / 6",
-   "object": "Equipment",
-   "scheme": "Diagram",
-   "name": "Name:",
-   "placeholder": "Write the name…",
-   "inspect": "Inspect instrument {n}",
-   "pen": "Pencil",
-   "eraser": "Eraser",
-   "undo": "Undo",
-   "clear": "Clear",
-   "outline": "Outline hint",
-   "compare": "Compare",
-   "reference": "Reference diagram",
-   "drawLabel": "Draw a diagram of instrument {n}",
-   "drawMore": "Draw on the canvas, then choose Compare. Your line needs at least 30 points.",
-   "compared": "Diagram compared ✓",
-   "praise": "Good work! Compare your drawing with the reference: look at the shape and main details.",
-   "correct": "Correct! Name accepted ✓",
-   "hint": "Hint: starts with “{letter}”. {purpose}",
-   "show": "Show answer",
-   "shown": "Answer shown — no XP. Now draw the diagram.",
-   "download": "Download my diagrams",
-   "allDone": "You know all the equipment! Next we will assemble an apparatus 👇",
+   "instruction": "Select the six objects on the front bench to learn their uses.",
+   "counts": "Studied: {names} / 6",
+   "allDone": "All six objects studied!",
    "soon": "Coming soon",
-   "assembly": "Assemble an apparatus from a diagram",
    "labels": "Label the apparatus",
    "pending": "This task will arrive in the next update.",
    "nextLocked": "1.3 → After all tasks in practical work 1.2",
@@ -150,13 +106,13 @@ const Practical12Data=(()=>{const content={
    "material": "Material",
    "safe": "Safe use",
    "loadError": "Could not load the laboratory. Retry",
-   "saved": "Names and drawings are saved automatically.",
+   "saved": "Study progress is saved automatically.",
    "coordinates": "Zone coordinates"
   },
   "uz-Latn": {
    "heading": "Laboratoriya jihozlari",
    "overline": "1-BOB · 1.2-AMALIY ISH",
-   "goal": "Maqsad: jihozlarni tanish, ularning sxemasini chizish va sxema bo‘yicha qurilma yig‘ish",
+   "goal": "Maqsad: laboratoriya jihozlari va suv hammomini o‘rganish",
    "equipment": "Jihoz va reaktivlar: stakan, bug‘latish idishi, to‘r, shtativ, Bunzen gorelkasi, mis(II) sulfat eritmasi, suv",
    "skills": "Ko‘nikmalar: muloqot · kuzatish · aniqlash · jihozlardan to‘g‘ri foydalanish",
    "welcome": "Laboratoriyaga xush kelibsan! Stoldagi jihozlarni bos — nima uchun kerakligini aytaman 🧪",
@@ -164,32 +120,10 @@ const Practical12Data=(()=>{const content={
    "later": "2-topshiriqda kerak bo‘ladi",
    "resetCamera": "Umumiy ko‘rinish",
    "roomAlt": "Old stolda oltita jihoz va yon stolda qurilma turgan kimyo laboratoriyasi",
-   "instruction": "Jadvaldagi jihozlarni o‘rgan. Har birining nomini yoz va sxemasini chiz.",
-   "counts": "Nomlar: {names} / 6 · Sxemalar: {drawings} / 6",
-   "object": "Jihoz",
-   "scheme": "Sxema",
-   "name": "Nomi:",
-   "placeholder": "Nomini yoz…",
-   "inspect": "{n}-jihozni ko‘rish",
-   "pen": "Qalam",
-   "eraser": "O‘chirg‘ich",
-   "undo": "Bekor qilish",
-   "clear": "Tozalash",
-   "outline": "Kontur yordami",
-   "compare": "Taqqoslash",
-   "reference": "Namuna sxema",
-   "drawLabel": "{n}-jihoz sxemasini chiz",
-   "drawMore": "Avval sxemani chiz, so‘ng Taqqoslashni bos. Chiziqda kamida 30 nuqta bo‘lsin.",
-   "compared": "Sxema taqqoslandi ✓",
-   "praise": "Barakalla! Rasmingni namuna bilan solishtir: shakl va asosiy qismlarga qaragin.",
-   "correct": "To‘g‘ri! Nom qabul qilindi ✓",
-   "hint": "Yordam: «{letter}» bilan boshlanadi. {purpose}",
-   "show": "Javobni ko‘rsatish",
-   "shown": "Javob ko‘rsatildi — XP berilmaydi. Endi sxemani chiz.",
-   "download": "Sxemalarimni yuklab olish",
-   "allDone": "Barcha jihozlarni bilasan! Endi qurilma yig‘amiz 👇",
+   "instruction": "Oldingi stoldagi oltita jihozni bosib, vazifasini o‘rgan.",
+   "counts": "O‘rganildi: {names} / 6",
+   "allDone": "Oltita jihoz o‘rganildi!",
    "soon": "Tez kunda",
-   "assembly": "Sxema bo‘yicha qurilma yig‘ish",
    "labels": "Qurilma qismlarini nomlash",
    "pending": "Bu topshiriq keyingi yangilanishda paydo bo‘ladi.",
    "nextLocked": "1.3 → 1.2-amaliy ishning barcha topshiriqlaridan so‘ng",
@@ -198,13 +132,13 @@ const Practical12Data=(()=>{const content={
    "material": "Nimadan yasalgan",
    "safe": "Foydalanish",
    "loadError": "Laboratoriya yuklanmadi. Qayta yuklash",
-   "saved": "Nomlar va rasmlar avtomatik saqlanadi.",
+   "saved": "O‘rganish natijalari avtomatik saqlanadi.",
    "coordinates": "Zona koordinatalari"
   },
   "uz-Cyrl": {
    "heading": "Лаборатория жиҳозлари",
    "overline": "1-БОБ · 1.2-АМАЛИЙ ИСҲ",
-   "goal": "Мақсад: жиҳозларни таниш, уларнинг схемасини чизиш ва схема бўйича қурилма йиғиш",
+   "goal": "Мақсад: лаборатория жиҳозлари ва сув ҳаммомини ўрганиш",
    "equipment": "Жиҳоз ва реактивлар: стакан, буғлатиш идиши, тўр, штатив, Бунзен горелкаси, мис(ИИ) сулфат еритмаси, сув",
    "skills": "Кўникмалар: мулоқот · кузатиш · аниқлаш · жиҳозлардан тўғри фойдаланиш",
    "welcome": "Лабораторияга хуш келибсан! Столдаги жиҳозларни бос — нима учун кераклигини айтаман 🧪",
@@ -212,32 +146,10 @@ const Practical12Data=(()=>{const content={
    "later": "2-топшириқда керак бўлади",
    "resetCamera": "Умумий кўриниш",
    "roomAlt": "Олд столда олтита жиҳоз ва ён столда қурилма турган кимё лабораторияси",
-   "instruction": "Жадвалдаги жиҳозларни ўрган. Ҳар бирининг номини ёз ва схемасини чиз.",
-   "counts": "Номлар: {намес} / 6 · Схемалар: {драwингс} / 6",
-   "object": "Жиҳоз",
-   "scheme": "Схема",
-   "name": "Номи:",
-   "placeholder": "Номини ёз…",
-   "inspect": "{н}-жиҳозни кўриш",
-   "pen": "Қалам",
-   "eraser": "Ўчирғич",
-   "undo": "Бекор қилиш",
-   "clear": "Тозалаш",
-   "outline": "Контур ёрдами",
-   "compare": "Таққослаш",
-   "reference": "Намуна схема",
-   "drawLabel": "{н}-жиҳоз схемасини чиз",
-   "drawMore": "Аввал схемани чиз, сўнг Таққослашни бос. Чизиқда камида 30 нуқта бўлсин.",
-   "compared": "Схема таққосланди ✓",
-   "praise": "Баракалла! Расмингни намуна билан солиштир: шакл ва асосий қисмларга қарагин.",
-   "correct": "Тўғри! Ном қабул қилинди ✓",
-   "hint": "Ёрдам: «{леттер}» билан бошланади. {пурпосе}",
-   "show": "Жавобни кўрсатиш",
-   "shown": "Жавоб кўрсатилди — ХП берилмайди. Енди схемани чиз.",
-   "download": "Схемаларимни юклаб олиш",
-   "allDone": "Барча жиҳозларни биласан! Енди қурилма йиғамиз 👇",
+   "instruction": "Олдинги столдаги олтита жиҳозни босиб, вазифасини ўрган.",
+   "counts": "Ўрганилди: {names} / 6",
+   "allDone": "Олтита жиҳоз ўрганилди!",
    "soon": "Тез кунда",
-   "assembly": "Схема бўйича қурилма йиғиш",
    "labels": "Қурилма қисмларини номлаш",
    "pending": "Бу топшириқ кейинги янгиланишда пайдо бўлади.",
    "nextLocked": "1.3 → 1.2-амалий ишнинг барча топшириқларидан сўнг",
@@ -246,7 +158,7 @@ const Practical12Data=(()=>{const content={
    "material": "Нимадан ясалган",
    "safe": "Фойдаланиш",
    "loadError": "Лаборатория юкланмади. Қайта юклаш",
-   "saved": "Номлар ва расмлар автоматик сақланади.",
+   "saved": "Ўрганиш натижалари автоматик сақланади.",
    "coordinates": "Зона координаталари"
   }
  },
@@ -258,21 +170,6 @@ const Practical12Data=(()=>{const content={
     "en": "Test tube",
     "uz-Latn": "Probirka",
     "uz-Cyrl": "Пробирка"
-   },
-   "aliases": {
-    "ru": [
-     "пробирка"
-    ],
-    "en": [
-     "test tube",
-     "test-tube"
-    ],
-    "uz-Latn": [
-     "probirka"
-    ],
-    "uz-Cyrl": [
-     "пробирка"
-    ]
    },
    "purpose": {
     "ru": "Для опытов с небольшим количеством вещества.",
@@ -292,7 +189,6 @@ const Practical12Data=(()=>{const content={
     "uz-Latn": "Isitishda tutqichdan foydalan, og‘zini odamlardan chetga yo‘naltir.",
     "uz-Cyrl": "Иситишда тутқичдан фойдалан, оғзини одамлардан четга йўналтир."
    },
-   "outline": "<path d=\"M82 32h56M90 33v137q20 33 40 0V33\"/>",
    "image": "assets/lab/1-2/test-tube.webp"
   },
   {
@@ -302,27 +198,6 @@ const Practical12Data=(()=>{const content={
     "en": "Beaker",
     "uz-Latn": "Kimyoviy stakan",
     "uz-Cyrl": "Кимёвий стакан"
-   },
-   "aliases": {
-    "ru": [
-     "стакан",
-     "химический стакан",
-     "лабораторный стакан"
-    ],
-    "en": [
-     "beaker",
-     "laboratory beaker"
-    ],
-    "uz-Latn": [
-     "stakan",
-     "kimyoviy stakan",
-     "laboratoriya stakani"
-    ],
-    "uz-Cyrl": [
-     "стакан",
-     "кимёвий стакан",
-     "лаборатория стакани"
-    ]
    },
    "purpose": {
     "ru": "Для смешивания и нагревания жидкостей.",
@@ -342,7 +217,6 @@ const Practical12Data=(()=>{const content={
     "uz-Latn": "Issiq stakanga qo‘l tekkizma; bo‘linmalar taxminiy hajmni ko‘rsatadi.",
     "uz-Cyrl": "Иссиқ стаканга қўл теккизма; бўлинмалар тахминий ҳажмни кўрсатади."
    },
-   "outline": "<path d=\"M58 48h110l-14 14v123H64V62l-6-14m27 40h22m-22 23h15m-15 23h22\"/>",
    "image": "assets/lab/1-2/beaker.webp"
   },
   {
@@ -352,28 +226,6 @@ const Practical12Data=(()=>{const content={
     "en": "Evaporating dish",
     "uz-Latn": "Bug‘latish idishi",
     "uz-Cyrl": "Буғлатиш идиши"
-   },
-   "aliases": {
-    "ru": [
-     "выпарительная чашка",
-     "фарфоровая чашка",
-     "чашка для выпаривания"
-    ],
-    "en": [
-     "evaporating dish",
-     "porcelain dish",
-     "evaporation dish"
-    ],
-    "uz-Latn": [
-     "chinni idish",
-     "bug‘latish idishi",
-     "buglatish idishi"
-    ],
-    "uz-Cyrl": [
-     "чинни идиш",
-     "буғлатиш идиши",
-     "буглатиш идиши"
-    ]
    },
    "purpose": {
     "ru": "Для выпаривания раствора и получения твёрдого остатка.",
@@ -393,7 +245,6 @@ const Practical12Data=(()=>{const content={
     "uz-Latn": "Asta isit. Issiq idishni qisqich bilan ol.",
     "uz-Cyrl": "Аста исит. Иссиқ идишни қисқич билан ол."
    },
-   "outline": "<path d=\"M35 90h150q-10 80-75 80T35 90Zm0 0q75-24 150 0\"/>",
    "image": "assets/lab/1-2/evaporating-dish.webp"
   },
   {
@@ -403,26 +254,6 @@ const Practical12Data=(()=>{const content={
     "en": "Conical flask",
     "uz-Latn": "Konussimon kolba",
     "uz-Cyrl": "Конуссимон колба"
-   },
-   "aliases": {
-    "ru": [
-     "коническая колба",
-     "колба эрленмейера",
-     "колба"
-    ],
-    "en": [
-     "conical flask",
-     "erlenmeyer flask",
-     "flask"
-    ],
-    "uz-Latn": [
-     "konussimon kolba",
-     "kolba"
-    ],
-    "uz-Cyrl": [
-     "конуссимон колба",
-     "колба"
-    ]
    },
    "purpose": {
     "ru": "Для смешивания растворов круговыми движениями.",
@@ -442,7 +273,6 @@ const Practical12Data=(()=>{const content={
     "uz-Latn": "Bo‘ynidan tut. Yopiq kolbani isitma.",
     "uz-Cyrl": "Бўйнидан тут. Ёпиқ колбани иситма."
    },
-   "outline": "<path d=\"M91 30h38m-32 0v57l-48 100h122L123 87V30\"/>",
    "image": "assets/lab/1-2/conical-flask.webp"
   },
   {
@@ -452,24 +282,6 @@ const Practical12Data=(()=>{const content={
     "en": "Funnel",
     "uz-Latn": "Voronka",
     "uz-Cyrl": "Воронка"
-   },
-   "aliases": {
-    "ru": [
-     "воронка",
-     "химическая воронка"
-    ],
-    "en": [
-     "funnel",
-     "filter funnel"
-    ],
-    "uz-Latn": [
-     "voronka",
-     "kimyoviy voronka"
-    ],
-    "uz-Cyrl": [
-     "воронка",
-     "кимёвий воронка"
-    ]
    },
    "purpose": {
     "ru": "Для переливания жидкостей и фильтрования с бумажным фильтром.",
@@ -489,7 +301,6 @@ const Practical12Data=(()=>{const content={
     "uz-Latn": "Voronkani mahkamla. Filtrni to‘ldirib yubormay, asta quy.",
     "uz-Cyrl": "Воронкани маҳкамла. Филтрни тўлдириб юбормай, аста қуй."
    },
-   "outline": "<path d=\"M40 45h140l-59 78v63H99v-63L40 45Z\"/>",
    "image": "assets/lab/1-2/funnel.webp"
   },
   {
@@ -499,27 +310,6 @@ const Practical12Data=(()=>{const content={
     "en": "Measuring cylinder",
     "uz-Latn": "O‘lchov silindri",
     "uz-Cyrl": "Ўлчов силиндри"
-   },
-   "aliases": {
-    "ru": [
-     "мерный цилиндр",
-     "цилиндр"
-    ],
-    "en": [
-     "measuring cylinder",
-     "graduated cylinder",
-     "cylinder"
-    ],
-    "uz-Latn": [
-     "o‘lchov silindri",
-     "olchov silindri",
-     "silindr"
-    ],
-    "uz-Cyrl": [
-     "ўлчов силиндри",
-     "олчов силиндри",
-     "силиндр"
-    ]
    },
    "purpose": {
     "ru": "Для измерения объёма жидкости.",
@@ -539,18 +329,15 @@ const Practical12Data=(()=>{const content={
     "uz-Latn": "Tekis qo‘y. Meniskning pastki chetini ko‘z balandligida o‘qi. Isitma.",
     "uz-Cyrl": "Текис қўй. Менискнинг пастки четини кўз баландлигида ўқи. Иситма."
    },
-   "outline": "<path d=\"M89 26h45l-6 9v147H92V35l-3-9M71 189h78m-42-140h20m-14 22h14m-20 22h20m-14 22h14m-20 22h20m-14 22h14\"/>",
    "image": "assets/lab/1-2/measuring-cylinder.webp"
   }
  ]
 };
 
- const normalize=s=>String(s??'').normalize('NFKC').toLowerCase().replace(/ё/g,'е').replace(/[‘’ʻʼ`´]/g,"'").replace(/[–-]/g,' ').replace(/\s+/g,' ').trim();
- const accepts=(id,value,language)=>{const item=content.items.find(i=>i.id===id);return !!item&&(item.aliases[language]||item.aliases.ru).some(v=>normalize(v)===normalize(value));};
  function cover(width,height,positionY=.5){const scale=Math.max(width/1376,height/768);return {scale,width:1376*scale,height:768*scale,left:(width-1376*scale)*.5,top:(height-768*scale)*positionY};}
  function projectZone(zone,width,height,positionY=.5){const p=cover(width,height,positionY),x=p.left+zone.x/100*p.width,y=p.top+zone.y/100*p.height,w=zone.w/100*p.width,h=zone.h/100*p.height;return {x,y,w,h,cx:x+w/2,cy:y+h/2};}
  const blank=()=>({version:1,rows:{},setup:typeof Setup12Data==='undefined'?null:Setup12Data.blank()});
- function sanitize(v){const out=blank();if(v?.version!==1)return out;if(typeof Setup12Data!=='undefined')out.setup=Setup12Data.sanitize(v.setup);for(const item of content.items){const r=v.rows?.[item.id];if(!r)continue;let budget=4000;const strokes=Array.isArray(r.strokes)?r.strokes.slice(-100).map(s=>({tool:s.tool==='eraser'?'eraser':'pen',points:Array.isArray(s.points)?s.points.slice(0,Math.max(0,budget)).filter(p=>Array.isArray(p)&&p.length===2&&p.every(n=>Number.isFinite(n)&&n>=0&&n<=220)).map(p=>{budget--;return p;}):[]})):[];out.rows[item.id]={name:typeof r.name==='string'?r.name.slice(0,100):'',named:r.named===true,revealed:r.revealed===true,earned:r.earned===true,errors:Number.isFinite(r.errors)?Math.min(100,Math.max(0,r.errors)):0,strokes,png:typeof r.png==='string'&&r.png.length<150000&&/^data:image\/png;base64,[A-Za-z0-9+/=]+$/.test(r.png)?r.png:'',compared:r.compared===true&&strokes.filter(s=>s.tool==='pen').reduce((n,s)=>n+s.points.length,0)>=30};}return out;}
- function proofValid(p){return p?.version===1&&content.items.every(i=>p.rows?.[i.id]?.named===true&&p.rows[i.id].compared===true&&Number.isFinite(p.rows[i.id].points)&&p.rows[i.id].points>=30);}
- return {...content,hotspots:ROOM_HOTSPOTS,normalize,accepts,cover,projectZone,blank,sanitize,proofValid};
+ function sanitize(v){const out=blank();if(v?.version!==1)return out;if(typeof Setup12Data!=='undefined')out.setup=Setup12Data.sanitize(v.setup);for(const item of content.items){const r=v.rows?.[item.id];if(r)out.rows[item.id]={studied:r.studied===true||r.named===true,earned:r.earned===true};}return out;}
+ function proofValid(p){return p?.version===2&&content.items.every(i=>p.studied?.includes(i.id))||p?.version===1&&content.items.every(i=>p.rows?.[i.id]?.named===true&&p.rows[i.id].compared===true&&Number.isFinite(p.rows[i.id].points)&&p.rows[i.id].points>=30);}
+ return {...content,hotspots:ROOM_HOTSPOTS,cover,projectZone,blank,sanitize,proofValid};
 })();

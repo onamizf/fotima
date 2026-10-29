@@ -747,9 +747,9 @@ const IntroData={
     "en": "1.1 Laboratory safety"
    },
    "goal": {
-    "ru": "Распознавай опасные действия и знаки; выбирай безопасное поведение.",
-    "uz-Latn": "Xavfli harakat va belgilarni top, xavfsiz xatti-harakatni tanla.",
-    "en": "Recognise hazards and signs, and choose safe actions."
+    "ru": "Распознавай опасные действия и выбирай безопасное поведение.",
+    "uz-Latn": "Xavfli harakatlarni top, xavfsiz xatti-harakatni tanla.",
+    "en": "Recognise hazards and choose safe actions."
    },
    "equipment": [
     "tube",
@@ -855,16 +855,6 @@ const IntroData={
     "en": "Face above a boiling beaker"
    },
    "letter": "D"
-  },
-  {
-   "id": "signs",
-   "work": "safety",
-   "type": "match",
-   "title": {
-    "ru": "Знаки опасности",
-    "uz-Latn": "Xavf belgilari",
-    "en": "Hazard signs"
-   }
   },
   {
    "id": "museum",
@@ -1127,48 +1117,6 @@ const IntroData={
     }
    ],
    "correctAction": 1
-  }
- ],
- "signs": [
-  {
-   "id": "irritant",
-   "name": {
-    "ru": "Раздражение и вредное воздействие паров",
-    "uz-Latn": "Ta’sirlantiruvchi va zararli bug‘lar",
-    "en": "Irritation and harmful vapours"
-   }
-  },
-  {
-   "id": "explosive",
-   "name": {
-    "ru": "Взрывоопасные вещества",
-    "uz-Latn": "Portlovchi moddalar",
-    "en": "Explosive substances"
-   }
-  },
-  {
-   "id": "corrosive",
-   "name": {
-    "ru": "Едкие вещества",
-    "uz-Latn": "O‘yuvchi moddalar",
-    "en": "Corrosive substances"
-   }
-  },
-  {
-   "id": "toxic",
-   "name": {
-    "ru": "Ядовитые вещества",
-    "uz-Latn": "Zaharli moddalar",
-    "en": "Toxic substances"
-   }
-  },
-  {
-   "id": "flammable",
-   "name": {
-    "ru": "Легковоспламеняющиеся вещества",
-    "uz-Latn": "Oson yonuvchan moddalar",
-    "en": "Flammable substances"
-   }
   }
  ],
  "equipment": [
@@ -1622,11 +1570,12 @@ const IntroData={
   },
   {
    "title": {
-    "ru": "Знаки опасности",
-    "uz-Latn": "Xavf belgilari",
-    "en": "Hazard signs"
+    "ru": "Сборка установки",
+    "en": "Apparatus assembly",
+    "uz-Latn": "Qurilmani yig‘ish",
+    "uz-Cyrl": "Қурилмани йиғиш"
    },
-   "task": "signs"
+   "task": "assembly"
   },
   {
    "title": {
@@ -1679,7 +1628,7 @@ const SafetySituations=(()=>{
 for(const task of [...IntroData.tasks,...IntroData.dangers])if(SafetySituations.ids.includes(task.id))task.letter=Object.fromEntries(Object.keys(SafetySituations.copy).map(lang=>[lang,SafetySituations.letter(task.id,lang)]));
 
 for(const part of IntroData.parts)part.purpose=IntroData.functions.find(f=>f.id===part.id)?.text||(part.id==='base'?{ru:'Обеспечивает устойчивость прибора.','uz-Latn':'Jihozning barqaror turishini ta’minlaydi.',en:'Keeps the burner stable.'}:{ru:'Проводит газ к горелке.','uz-Latn':'Gazni gorelkaga yetkazadi.',en:'Carries gas to the burner.'});
-IntroData.symbols={irritant:{ru:'Восклицательный знак','uz-Latn':'Undov belgisi',en:'Exclamation mark'},explosive:{ru:'Взрыв','uz-Latn':'Portlash',en:'Exploding bomb'},corrosive:{ru:'Капли на руке и поверхности','uz-Latn':'Qo‘l va yuzaga tomchilar',en:'Drops on a hand and surface'},toxic:{ru:'Череп','uz-Latn':'Bosh suyagi',en:'Skull'},flammable:{ru:'Пламя','uz-Latn':'Alanga',en:'Flame'}};
+
 /* Ответы и критерии урока находятся в данных, а не в модулях отрисовки. */
 IntroData.rules={
  assembly:['stand','tube','beaker','gauze','tripod','burner'],

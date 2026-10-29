@@ -8,9 +8,9 @@ const HomeText=(key,params={})=>CourseModel.text(Object.fromEntries(Object.entri
 
 /* Search presentation copy and the rotating daily example pool. */
 const HomeSearchCopy={
- ru:{placeholder:'Найди вещество, опыт или тему…',find:'Найти',clear:'Очистить поиск',examples:'Например:',show:'Показать:',prefix:'Найди: ',words:['вода','медный купорос','фильтрование','кислород','знаки опасности','соль','железо','сера','раствор','смесь','медь','водород']},
- 'uz-Latn':{placeholder:'Modda, tajriba yoki mavzuni top…',find:'Topish',clear:'Qidiruvni tozalash',examples:'Masalan:',show:'Ko‘rsatish:',prefix:'Top: ',words:['suv','mis kuporosi','filtrlash','kislorod','xavf belgilari','tuz','temir','oltingugurt','eritma','aralashma','mis','vodorod']},
- 'uz-Cyrl':{placeholder:'Модда, тажриба ёки мавзуни топ…',find:'Топиш',clear:'Қидирувни тозалаш',examples:'Масалан:',show:'Кўрсатиш:',prefix:'Топ: ',words:['сув','мис купороси','фильтрлаш','кислород','хавф белгилари','туз','темир','олтингугурт','эритма','аралашма','мис','водород']},
- en:{placeholder:'Find a substance, experiment or topic…',find:'Find',clear:'Clear search',examples:'For example:',show:'Show:',prefix:'Find: ',words:['water','copper sulfate','filtration','oxygen','hazard signs','salt','iron','sulfur','solution','mixture','copper','hydrogen']}
+ ru:{placeholder:'Найди вещество, опыт или тему…',find:'Найти',clear:'Очистить поиск',examples:'Например:',show:'Показать:',prefix:'Найди: ',words:['вода','медный купорос','фильтрование','кислород','лабораторное оборудование','соль','железо','сера','раствор','смесь','медь','водород']},
+ 'uz-Latn':{placeholder:'Modda, tajriba yoki mavzuni top…',find:'Topish',clear:'Qidiruvni tozalash',examples:'Masalan:',show:'Ko‘rsatish:',prefix:'Top: ',words:['suv','mis kuporosi','filtrlash','kislorod','laboratoriya jihozlari','tuz','temir','oltingugurt','eritma','aralashma','mis','vodorod']},
+ 'uz-Cyrl':{placeholder:'Модда, тажриба ёки мавзуни топ…',find:'Топиш',clear:'Қидирувни тозалаш',examples:'Масалан:',show:'Кўрсатиш:',prefix:'Топ: ',words:['сув','мис купороси','фильтрлаш','кислород','лаборатория жиҳозлари','туз','темир','олтингугурт','эритма','аралашма','мис','водород']},
+ en:{placeholder:'Find a substance, experiment or topic…',find:'Find',clear:'Clear search',examples:'For example:',show:'Show:',prefix:'Find: ',words:['water','copper sulfate','filtration','oxygen','laboratory equipment','salt','iron','sulfur','solution','mixture','copper','hydrogen']}
 };
 const HomeSearchText=()=>HomeSearchCopy[state.settings.language]||HomeSearchCopy.ru;

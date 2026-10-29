@@ -139,7 +139,7 @@ const SituationD={
       "summaryXP": "XP за ситуации",
       "summaryBadge": "Безопасность прежде всего",
       "summaryFrog": "Отлично! Теперь ты знаешь главные правила лаборатории 🧪",
-      "summaryNext": "Задание 2: Знаки опасности →",
+      "summaryNext": "1.2 →",
       "summaryRetry": "Пройти ошибки ещё раз",
       "summaryReview": "Повторить ситуацию",
       "summaryRules": [
@@ -187,7 +187,7 @@ const SituationD={
       "summaryXP": "Vaziyatlar uchun XP",
       "summaryBadge": "Avvalo xavfsizlik",
       "summaryFrog": "Ajoyib! Endi laboratoriyaning asosiy xavfsizlik qoidalarini bilasan 🧪",
-      "summaryNext": "2-topshiriq: Xavf belgilari →",
+      "summaryNext": "1.2 →",
       "summaryRetry": "Xatoli vaziyatlarni qayta o‘tish",
       "summaryReview": "Vaziyatni takrorlash",
       "summaryRules": [
@@ -235,7 +235,7 @@ const SituationD={
       "summaryXP": "Вазиятлар учун XP",
       "summaryBadge": "Аввало хавфсизлик",
       "summaryFrog": "Ажойиб! Энди лабораториянинг асосий хавфсизлик қоидаларини биласан 🧪",
-      "summaryNext": "2-топшириқ: Хавф белгилари →",
+      "summaryNext": "1.2 →",
       "summaryRetry": "Хатоли вазиятларни қайта ўтиш",
       "summaryReview": "Вазиятни такрорлаш",
       "summaryRules": [
@@ -283,7 +283,7 @@ const SituationD={
       "summaryXP": "XP for the situations",
       "summaryBadge": "Safety comes first",
       "summaryFrog": "Great! Now you know the main laboratory safety rules 🧪",
-      "summaryNext": "Task 2: Hazard signs →",
+      "summaryNext": "1.2 →",
       "summaryRetry": "Retry situations with mistakes",
       "summaryReview": "Replay situation",
       "summaryRules": [

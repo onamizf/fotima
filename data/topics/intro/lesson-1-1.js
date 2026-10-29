@@ -6,7 +6,7 @@ const SafetyLessonData=(()=>{const content={
    "chapter": "Глава 1. Введение в химию",
    "overline": "ГЛАВА 1 · ПРАКТИЧЕСКАЯ РАБОТА 1.1",
    "heading": "Техника безопасности в химической лаборатории",
-   "goal": "Цель: изучить правила безопасности и знаки опасных веществ",
+   "goal": "Цель: изучить правила безопасности в лаборатории",
    "skills": "Навыки: наблюдение · определение · коммуникация",
    "task": "Задание {n}",
    "progress": "Прогресс работы",
@@ -25,20 +25,8 @@ const SafetyLessonData=(()=>{const content={
    "nextScene": "Следующая ситуация →",
    "what": "Что случилось",
    "safe": "Вот как правильно",
-   "firstDone": "Отлично! Переходим ко второму заданию 👇",
-   "signsInstruction": "Соедини каждый знак с видом опасного вещества.",
-   "signsHint": "Нажми на знак, затем на описание. На компьютере можно тянуть линию от точки. Нажми на зелёную линию, чтобы разъединить пару.",
-   "signs": "Знак",
-   "descriptions": "Вид опасного вещества",
-   "chooseSign": "Сначала выбери знак слева.",
-   "selected": "Выбран знак «{name}». Теперь выбери описание.",
-   "right": "Верно! Пара соединена.",
-   "unmatch": "Разъединить пару: {name}",
-   "unmatched": "Пара разъединена. Можно соединить её снова.",
-   "allMatched": "Отлично! Ты правильно определил знаки химической опасности.",
-   "badge": "Знаток знаков опасности",
    "resultTitle": "Практическая работа 1.1 пройдена! 🎉",
-   "resultText": "Все четыре ситуации разобраны, все пять знаков соединены правильно.",
+   "resultText": "Все четыре ситуации разобраны.",
    "xp": "За эту работу: {n} XP",
    "nextLesson": "Практическая работа 1.2 →",
    "saved": "Прогресс сохраняется автоматически.",
@@ -51,7 +39,7 @@ const SafetyLessonData=(()=>{const content={
    "chapter": "Chapter 1. Introduction to chemistry",
    "overline": "CHAPTER 1 · PRACTICAL WORK 1.1",
    "heading": "Safety in the chemistry laboratory",
-   "goal": "Goal: learn safety rules and chemical hazard signs",
+   "goal": "Goal: learn laboratory safety rules",
    "skills": "Skills: observation · identification · communication",
    "task": "Task {n}",
    "progress": "Work progress",
@@ -70,20 +58,8 @@ const SafetyLessonData=(()=>{const content={
    "nextScene": "Next situation →",
    "what": "What happened",
    "safe": "Here is the safe way",
-   "firstDone": "Great! Let’s move to the second task 👇",
-   "signsInstruction": "Connect each sign to the type of hazardous substance.",
-   "signsHint": "Select a sign, then a description. On a computer, drag from a dot to draw a line. Click a green line to disconnect a pair.",
-   "signs": "Sign",
-   "descriptions": "Type of hazardous substance",
-   "chooseSign": "Choose a sign first.",
-   "selected": "Selected “{name}”. Now choose a description.",
-   "right": "Correct! The pair is connected.",
-   "unmatch": "Disconnect pair: {name}",
-   "unmatched": "Pair disconnected. You can connect it again.",
-   "allMatched": "Excellent! You identified all the chemical hazard signs.",
-   "badge": "Hazard signs expert",
    "resultTitle": "Practical work 1.1 completed! 🎉",
-   "resultText": "All four situations reviewed and all five signs matched correctly.",
+   "resultText": "All four situations have been reviewed.",
    "xp": "For this work: {n} XP",
    "nextLesson": "Practical work 1.2 →",
    "saved": "Progress is saved automatically.",
@@ -96,7 +72,7 @@ const SafetyLessonData=(()=>{const content={
    "chapter": "1-bob. Kimyoga kirish",
    "overline": "1-BOB · 1.1-AMALIY ISH",
    "heading": "Kimyo laboratoriyasida xavfsizlik texnikasi",
-   "goal": "Maqsad: xavfsizlik qoidalari va xavfli moddalar belgilarini o‘rganish",
+   "goal": "Maqsad: laboratoriya xavfsizlik qoidalarini o‘rganish",
    "skills": "Ko‘nikmalar: kuzatish · aniqlash · muloqot",
    "task": "{n}-topshiriq",
    "progress": "Ish jarayoni",
@@ -115,20 +91,8 @@ const SafetyLessonData=(()=>{const content={
    "nextScene": "Keyingi vaziyat →",
    "what": "Nima bo‘ldi",
    "safe": "Mana to‘g‘ri usul",
-   "firstDone": "Ajoyib! Ikkinchi topshiriqqa o‘tamiz 👇",
-   "signsInstruction": "Har bir belgini xavfli modda turiga ulang.",
-   "signsHint": "Belgini, so‘ng tavsifni bosing. Kompyuterda nuqtadan chiziq tortish mumkin. Juftni ajratish uchun yashil chiziqni bosing.",
-   "signs": "Belgi",
-   "descriptions": "Xavfli modda turi",
-   "chooseSign": "Avval belgini tanlang.",
-   "selected": "«{name}» belgisi tanlandi. Endi tavsifni tanlang.",
-   "right": "To‘g‘ri! Juft ulandi.",
-   "unmatch": "Juftni ajratish: {name}",
-   "unmatched": "Juft ajratildi. Uni qayta ulash mumkin.",
-   "allMatched": "Ajoyib! Kimyoviy xavf belgilarini to‘g‘ri aniqlading.",
-   "badge": "Xavf belgilari bilimdoni",
    "resultTitle": "1.1-amaliy ish bajarildi! 🎉",
-   "resultText": "To‘rtta vaziyat tahlil qilindi, beshta belgi to‘g‘ri ulandi.",
+   "resultText": "To‘rtta vaziyat tahlil qilindi.",
    "xp": "Bu ish uchun: {n} XP",
    "nextLesson": "1.2-amaliy ish →",
    "saved": "Natijalar avtomatik saqlanadi.",
@@ -141,13 +105,13 @@ const SafetyLessonData=(()=>{const content={
    "chapter": "1-боб. Кимёга кириш",
    "overline": "1-БОБ · 1.1-АМАЛИЙ ИСҲ",
    "heading": "Кимё лабораториясида хавфсизлик техникаси",
-   "goal": "Мақсад: хавфсизлик қоидалари ва хавфли моддалар белгиларини ўрганиш",
+   "goal": "Мақсад: лаборатория хавфсизлик қоидаларини ўрганиш",
    "skills": "Кўникмалар: кузатиш · аниқлаш · мулоқот",
-   "task": "{н}-топшириқ",
+   "task": "{n}-топшириқ",
    "progress": "Иш жараёни",
-   "count": "{тотал} тадан {н} таси",
+   "count": "{total} тадан {n} таси",
    "analysisInstruction": "Расмларда кимё лабораториясидаги вазиятлар тасвирланган. Ҳар бир вазиятдаги хавф ва зарур еҳтиёт чораларини аниқланг.",
-   "situation": "{леттер} вазият",
+   "situation": "{letter} вазият",
    "risk": "Хавф",
    "precaution": "Еҳтиёт чоралари",
    "locked": "Билиш учун вазиятни томоша қил",
@@ -160,25 +124,13 @@ const SafetyLessonData=(()=>{const content={
    "nextScene": "Кейинги вазият →",
    "what": "Нима бўлди",
    "safe": "Мана тўғри усул",
-   "firstDone": "Ажойиб! Иккинчи топшириққа ўтамиз 👇",
-   "signsInstruction": "Ҳар бир белгини хавфли модда турига уланг.",
-   "signsHint": "Белгини, сўнг тавсифни босинг. Компютерда нуқтадан чизиқ тортиш мумкин. Жуфтни ажратиш учун яшил чизиқни босинг.",
-   "signs": "Белги",
-   "descriptions": "Хавфли модда тури",
-   "chooseSign": "Аввал белгини танланг.",
-   "selected": "«{наме}» белгиси танланди. Енди тавсифни танланг.",
-   "right": "Тўғри! Жуфт уланди.",
-   "unmatch": "Жуфтни ажратиш: {наме}",
-   "unmatched": "Жуфт ажратилди. Уни қайта улаш мумкин.",
-   "allMatched": "Ажойиб! Кимёвий хавф белгиларини тўғри аниқладинг.",
-   "badge": "Хавф белгилари билимдони",
    "resultTitle": "1.1-амалий иш бажарилди! 🎉",
-   "resultText": "Тўртта вазият таҳлил қилинди, бешта белги тўғри уланди.",
-   "xp": "Бу иш учун: {н} ХП",
+   "resultText": "Тўртта вазият таҳлил қилинди.",
+   "xp": "Бу иш учун: {n} ХП",
    "nextLesson": "1.2-амалий иш →",
    "saved": "Натижалар автоматик сақланади.",
    "imageError": "Кадр юкланмади. Қайта юклаш учун вазиятни очинг.",
-   "slide": "{леттер} вазиятни кўрсатиш",
+   "slide": "{letter} вазиятни кўрсатиш",
    "complete": "Бажарилди"
   }
  },
@@ -275,113 +227,6 @@ const SafetyLessonData=(()=>{const content={
     "uz-Cyrl": "Тик туриш. Ён томондан, масофа сақлаб кузатиш. Иссиқ идишга тегмаслик."
    }
   }
- ],
- "hazards": [
-  {
-   "id": "irritant",
-   "name": {
-    "ru": "Восклицательный знак",
-    "en": "Exclamation mark",
-    "uz-Latn": "Undov belgisi",
-    "uz-Cyrl": "Ундов белгиси"
-   },
-   "description": {
-    "ru": "Удушающие и раздражающие вещества — например, хлороформ, пары брома",
-    "en": "Asphyxiating and irritating substances — for example, chloroform and bromine vapour",
-    "uz-Latn": "Bo‘g‘uvchi va ta’sirlantiruvchi moddalar — masalan, xloroform, brom bug‘lari",
-    "uz-Cyrl": "Бўғувчи ва та’сирлантирувчи моддалар — масалан, хлороформ, бром буғлари"
-   },
-   "hint": {
-    "ru": "Восклицательный знак предупреждает о вредном и раздражающем действии.",
-    "en": "The exclamation mark warns of harmful or irritating effects.",
-    "uz-Latn": "Undov belgisi zararli va ta’sirlantiruvchi xususiyat haqida ogohlantiradi.",
-    "uz-Cyrl": "Ундов белгиси зарарли ва та’сирлантирувчи хусусият ҳақида огоҳлантиради."
-   }
-  },
-  {
-   "id": "explosive",
-   "name": {
-    "ru": "Взрыв",
-    "en": "Explosion",
-    "uz-Latn": "Portlash",
-    "uz-Cyrl": "Портлаш"
-   },
-   "description": {
-    "ru": "Взрывоопасные вещества — например, смесь водорода с воздухом",
-    "en": "Explosive substances — for example, hydrogen mixed with air",
-    "uz-Latn": "Portlovchi moddalar — masalan, vodorod va havo aralashmasi",
-    "uz-Cyrl": "Портловчи моддалар — масалан, водород ва ҳаво аралашмаси"
-   },
-   "hint": {
-    "ru": "Взрыв означает опасность взрыва. Найди описание взрывоопасных веществ.",
-    "en": "The exploding bomb warns of an explosion. Find explosive substances.",
-    "uz-Latn": "Portlash belgisi portlash xavfini bildiradi. Portlovchi moddalar tavsifini top.",
-    "uz-Cyrl": "Портлаш белгиси портлаш хавфини билдиради. Портловчи моддалар тавсифини топ."
-   }
-  },
-  {
-   "id": "corrosive",
-   "name": {
-    "ru": "Разъедание",
-    "en": "Corrosion",
-    "uz-Latn": "O‘yuvchanlik",
-    "uz-Cyrl": "Ўювчанлик"
-   },
-   "description": {
-    "ru": "Едкие вещества — например, кислоты и щёлочи",
-    "en": "Corrosive substances — for example, acids and alkalis",
-    "uz-Latn": "O‘yuvchi moddalar — masalan, kislotalar va ishqorlar",
-    "uz-Cyrl": "Ўювчи моддалар — масалан, кислоталар ва ишқорлар"
-   },
-   "hint": {
-    "ru": "Капли на руку и металл — это едкие вещества: они вызывают химические ожоги.",
-    "en": "Drops on a hand and metal indicate corrosive substances that cause chemical burns.",
-    "uz-Latn": "Qo‘l va metallga tomayotgan tomchilar kimyoviy kuyish keltiradigan o‘yuvchi moddalarni bildiradi.",
-    "uz-Cyrl": "Қўл ва металлга томаётган томчилар кимёвий куйиш келтирадиган ўювчи моддаларни билдиради."
-   }
-  },
-  {
-   "id": "toxic",
-   "name": {
-    "ru": "Череп с костями",
-    "en": "Skull and crossbones",
-    "uz-Latn": "Bosh suyagi va suyaklar",
-    "uz-Cyrl": "Бош суяги ва суяклар"
-   },
-   "description": {
-    "ru": "Ядовитые (токсичные) вещества — например, ртуть и хлор",
-    "en": "Poisonous (toxic) substances — for example, mercury and chlorine",
-    "uz-Latn": "Zaharli (toksik) moddalar — masalan, simob va xlor",
-    "uz-Cyrl": "Заҳарли (токсик) моддалар — масалан, симоб ва хлор"
-   },
-   "hint": {
-    "ru": "Череп означает яд — посмотри ещё раз.",
-    "en": "The skull means poison — look again.",
-    "uz-Latn": "Bosh suyagi zaharni bildiradi — yana bir bor ko‘r.",
-    "uz-Cyrl": "Бош суяги заҳарни билдиради — яна бир бор кўр."
-   }
-  },
-  {
-   "id": "flammable",
-   "name": {
-    "ru": "Пламя",
-    "en": "Flame",
-    "uz-Latn": "Alanga",
-    "uz-Cyrl": "Аланга"
-   },
-   "description": {
-    "ru": "Легковоспламеняющиеся вещества — например, бензин и спирт",
-    "en": "Flammable substances — for example, petrol and alcohol",
-    "uz-Latn": "Oson yonuvchi moddalar — masalan, benzin va spirt",
-    "uz-Cyrl": "Осон ёнувчи моддалар — масалан, бензин ва спирт"
-   },
-   "hint": {
-    "ru": "Пламя показывает: вещество легко загорается.",
-    "en": "A flame means the substance catches fire easily.",
-    "uz-Latn": "Alanga moddaning oson yonishini ko‘rsatadi.",
-    "uz-Cyrl": "Аланга модданинг осон ёнишини кўрсатади."
-   }
-  }
  ]
 };
  const normalize=value=>String(value||'').normalize('NFKC').toLowerCase().replace(/ё/g,'е').replace(/[‘’ʻʼ`´]/g,"'").replace(/\s+/g,' ').trim();
@@ -399,11 +244,8 @@ const SafetyLessonData=(()=>{const content={
   return {accepted:danger&&safe,reason:!danger?'uncertainRisk':!safe?'uncertainPrecaution':'accepted'};
  }
 
- const hazardIds=content.hazards.map(h=>h.id);
  function validReview(p){return !!p&&p.version===1&&JSON.stringify(p.stages)==='[0,1,2,3,4]'&&JSON.stringify(p.explanations)==='[0,1,2]';}
- function blank(){return {version:2,reviews:{},matches:[],earnedMatches:[]};}
- function sanitize(value){const out=blank();if(!value||![1,2].includes(value.version))return out;for(const s of content.scenarios){const p=value.reviews?.[s.id];if(validReview(p))out.reviews[s.id]={version:1,stages:[0,1,2,3,4],explanations:[0,1,2]};}const clean=v=>Array.isArray(v)?[...new Set(v.filter(id=>hazardIds.includes(id)))]:[];out.matches=clean(value.matches);out.earnedMatches=clean(value.earnedMatches||value.matches);return out;}
- return {...content,analyze,validReview,blank,sanitize,hazardIds};
+ function blank(){return {version:3,reviews:{}};}
+ function sanitize(value){const out=blank();if(!value||![1,2,3].includes(value.version))return out;for(const s of content.scenarios){const p=value.reviews?.[s.id];if(validReview(p))out.reviews[s.id]={version:1,stages:[0,1,2,3,4],explanations:[0,1,2]};}return out;}
+ return {...content,analyze,validReview,blank,sanitize};
 })();
-
-CourseData.badges.push({id:'safety-signs',title:Object.fromEntries(Object.entries(SafetyLessonData.copy).map(([l,c])=>[l,c.badge])),hint:Object.fromEntries(Object.entries(SafetyLessonData.copy).map(([l,c])=>[l,c.allMatched]))});

@@ -1,10 +1,6 @@
 const {T,createStage}=await import('./core.js'+new URL(import.meta.url).search);
 export function mount(host,options){return createStage(host,options,({k,group,task})=>{
  const id=task.id;
- if(id==='signs'){
-  const boards=options.signs.map((sign,i)=>{const texture=new T.TextureLoader().load('data:image/svg+xml;charset=utf-8,'+encodeURIComponent(options.hazardSVG(sign.id)));texture.colorSpace=T.SRGBColorSpace;const board=k.mesh(group,new T.PlaneGeometry(.7,.7),new T.MeshBasicMaterial({map:texture,transparent:true,side:T.DoubleSide}),(i-2)*.9,.75,0);board.userData.inspect=sign.id;return board;});
-  return {update(s,time){boards.forEach((board,i)=>{board.rotation.y=Math.sin(time*.4+i)*.2;board.material.color.set(s.matches?.[options.signs[i].id]?'#c7ffdc':'#fff');});}};
- }
  const pupil=k.student(id==='danger-a'||id==='danger-c'?'#f4bd9c':'#cfaa80');pupil.position.set(0,.1,-.5);pupil.scale.setScalar(1.15);group.add(pupil);
  const beaker=k.equipment('beaker');beaker.position.set(0,0,.45);group.add(beaker);const tube=k.equipment('tube');tube.position.set(.48,.55,.15);tube.rotation.z=-.5;group.add(tube);const burner=k.burner();burner.group.position.set(-.8,0,.3);burner.group.scale.setScalar(.65);group.add(burner.group);
  const glassOnTable=new T.Group();for(const x of [-.09,.09])k.mesh(glassOnTable,new T.TorusGeometry(.08,.014,8,20),k.mat('#49bdd4'),x,0,0);glassOnTable.position.set(.9,.07,.6);glassOnTable.rotation.x=Math.PI/2;group.add(glassOnTable);

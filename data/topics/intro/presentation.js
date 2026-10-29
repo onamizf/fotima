@@ -11,7 +11,6 @@ const IntroPresentation={
 };
 {
  const prompts={
- signs:['Знаки предупреждают об опасности. Соедини каждый символ с его значением.','Match every hazard symbol to its meaning.','Har bir xavf belgisini uning ma’nosi bilan birlashtir.','Ҳар бир хавф белгисини унинг маъноси билан бирлаштир.'],
  museum:['Рассмотри посуду. Нажми на предмет в сцене — я объясню, для чего он нужен. Затем проверь названия и собери колбу.','Inspect the equipment in the scene, identify its names and construct a flask.','Sahnadagi jihozlarni ko‘r, nomlarini aniqlа va kolba yig‘.','Саҳнадаги жиҳозларни кўр, номларини аниқла ва колба йиғ.'],
  assembly:['Собери установку по схеме. Переноси детали по порядку, а затем запусти учебное нагревание.','Assemble the setup in order, then start the learning demonstration.','Qurilmani tartib bilan yig‘, keyin o‘quv isitishini boshla.','Қурилмани тартиб билан йиғ, кейин ўқув иситишини бошла.'],
  'evap-labels':['Соедини названия с деталями установки. Затем наблюдай выпаривание и дождись остывания.','Match the parts, observe evaporation and wait for cooling.','Qismlarni mosla, bug‘lanishni kuzat va sovishini kut.','Қисмларни мосла, буғланишни кузат ва совишини кут.'],
