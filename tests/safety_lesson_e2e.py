@@ -38,5 +38,5 @@ with sync_playwright() as p:
  q.locator('[data-safety-situation=c]').first.click();q.wait_for_selector('.sp-loader',state='hidden');q.clock.run_for(15000);q.locator('[data-sp=next-card]').click();q.locator('[data-sp=next-card]').click();q.keyboard.press('Escape');assert q.evaluate('CourseGame.safetyLessonXP()')==60
  for lang in ['en','uz-Latn','uz-Cyrl','ru']:
   q.evaluate('(lang)=>{state.settings.language=lang;saveState();render(false)}',lang);assert q.locator('.safety-lesson-heading h1').inner_text()==q.evaluate('SafetyLessonData.copy[state.settings.language].heading');assert q.locator('.safety-situation-letter').all_text_contents()==(['A','B','D','E'] if lang.startswith('uz') else ['A','B','C','D'])
- q.locator('.safety-next').click();q.wait_for_selector('[data-cinema=start]:visible');assert q.evaluate('route().stepId')=='1.2';assert not errors,errors;assert not bad,bad
+ q.locator('.safety-next').click();q.wait_for_selector('[data-equipment-practice]');assert q.evaluate('route().stepId')=='1.2';assert not errors,errors;assert not bad,bad
  print('PASS:', 'phone taps/swipe layout' if PHONE else 'desktop connector drag', '4 stories, no questions, pause/Esc/next, 5 pairs/retry/unlink, 60 XP once, reload, 4 locales, next 1.2, no JS/HTTP errors',flush=True);b.close()

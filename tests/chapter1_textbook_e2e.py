@@ -34,7 +34,9 @@ with sync_playwright() as p:
   q.locator('[data-safety-situation="'+id+'"]').first.click();q.wait_for_selector('.sp-loader',state='hidden');q.clock.run_for(15000);q.locator('[data-sp=next-card]').click();q.locator('[data-sp=next-card]').click();q.locator('[data-sp=close]').click()
  for id in ['irritant','explosive','corrosive','toxic','flammable']:
   q.locator('[data-safety-sign="'+id+'"]').click();q.locator('[data-safety-description="'+id+'"]').click()
- assert q.evaluate("IntroModel.workDone('safety')");q.locator('.safety-next').click();q.wait_for_selector('[data-cinema=start]:visible');start_work()
+ assert q.evaluate("IntroModel.workDone('safety')");q.locator('.safety-next').click();q.wait_for_selector('[data-equipment-practice]');assert q.locator('[data-room-zone]').count()==9
+ # Keep verifying the existing equipment simulators through their legacy route; canonical 1.2 now has the worksheet.
+ q.goto(BASE+'#topic/intro');q.evaluate("IntroModel.openTask('museum');render(false)");start_work()
  # Museum: visit all six, identify each, assemble a 3D flask.
  ids=q.evaluate('IntroModel.mainEquipment')
  for id in ids:
