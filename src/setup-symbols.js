@@ -1,6 +1,0 @@
-/* Original school-style line diagrams, independent of the 3D model. */
-const SetupSymbols=(()=>{
- const paths={stand:'<path d="M25 199h170M57 196V18m0 70h127m-20-15v30m-9-22h25m-25 15h25"/>',tube:'<path d="M81 24h58M89 25v146q21 38 42 0V25"/>',thermometer:'<path d="M101 25q10-16 20 0v134a24 24 0 1 1-20 0V25Zm10 17v136m10-113h15m-15 24h10m-10 24h15m-15 24h10"/>',beaker:'<path d="M48 48h128l-14 16v123H61V64L48 48Zm35 49h27m-27 28h18m-18 28h27"/>',gauze:'<path d="M26 70h168v80H26Zm0 16h168m-168 16h168m-168 16h168m-168 16h168M47 70v80m21-80v80m21-80v80m21-80v80m21-80v80m21-80v80m21-80v80"/><ellipse cx="110" cy="110" rx="32" ry="22" fill="white"/>',tripod:'<ellipse cx="110" cy="60" rx="63" ry="15"/><path d="m55 68-29 130m139-130 29 130M110 75v123"/>',burner:'<path d="M55 190h110M70 180h80V145H70Zm26-35V72h28v73m0 16h56m-76-97q-22-23 7-48 28 26-7 48Z"/>',waterline:'<path d="M20 110q22-20 45 0t45 0t45 0t45 0M20 135q22-20 45 0t45 0t45 0t45 0"/>',alcohol:'<path d="M81 24h58M89 25v146q21 38 42 0V25M90 103q21-12 40 0m-38 25h36m-35 21h34"/>',water:'<path d="M48 48h128l-14 16v123H61V64L48 48ZM63 117q25-17 49 0t49 0m-98 24h98m-98 22h98"/>'};
- const inner=id=>paths[id]||paths.beaker;
- return {inner};
-})();

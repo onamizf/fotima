@@ -4,5 +4,14 @@
   "dimensions": [
     1376,
     768
-  ]
+  ],
+  "setup-assembled.webp": "Transparent render of the actual assembled WebGL model; no drawn outlines.",
+  "setup-exploded.webp": "Transparent render of the actual full-size exploded WebGL model; no drawn outlines.",
+  "setup-fallback-anchors.json": "Projected part centres from the same 1376×768 render.",
+  "materialsSource": {
+    "commit": "77e0cec5938aef69abff16b4fe1e690480a3d054",
+    "path": "src/setup-model.js",
+    "blob": "3033e3f7cf357f30415a2cf0ade3910198ce0164",
+    "overrides": "Metal color #8E9AA8, roughness .35; hover emissive #1F6BFF at .25. Original geometry dimensions and remaining materials/lights retained."
+  }
 }
