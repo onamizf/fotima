@@ -645,6 +645,14 @@ const Practical12AssemblyData=(()=>{const content={
   }
 };
  const ids=content.items.map(i=>i.id),actions=content.steps.map(s=>s.id),limit=(n,max=100000)=>Number.isFinite(n)?Math.max(0,Math.min(max,Math.floor(n))):0;
+ Object.assign(content.copy,{
+ time:{ru:'Время: {n}',en:'Time: {n}','uz-Latn':'Vaqt: {n}','uz-Cyrl':'Вақт: {n}'},
+ trayTitle:{ru:'Приборы (перемешаны) — выбери нужные',en:'Equipment (shuffled) — choose what you need','uz-Latn':'Asboblar (aralash) — keraklisini tanlang','uz-Cyrl':'Асбоблар (аралаш) — кераклисини танланг'},
+ placed:{ru:'Поставлено: {n} / 10',en:'Placed: {n} / 10','uz-Latn':'Joylashtirildi: {n} / 10','uz-Cyrl':'Жойлаштирилди: {n} / 10'},
+ putHere:{ru:'Поставь сюда: {name} ↓',en:'Place here: {name} ↓','uz-Latn':'Shu yerga qo‘ying: {name} ↓','uz-Cyrl':'Шу ерга қўйинг: {name} ↓'},
+ notNeeded:{ru:'Не нужен в этой установке',en:'Not needed in this setup','uz-Latn':'Bu qurilmada kerak emas','uz-Cyrl':'Бу қурилмада керак эмас'},
+ miss:{ru:'Поставь сюда 👇',en:'Place it here 👇','uz-Latn':'Shu yerga qo‘ying 👇','uz-Cyrl':'Шу ерга қўйинг 👇'}
+ });
  function shuffle(){const a=[...ids];for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];}return a;}
  function stars(errors,hints){return Math.max(1,(errors===0&&hints===0?3:errors<=3?2:1)-(hints>2?1:0));}
  const blankRun=(guided=true)=>({actions:[],order:shuffle(),errors:0,hints:0,seconds:0,guided,everGuided:guided,pendingTube:false,tubePercent:80,valveOpen:false,selected:null,done:false,reward:null});
