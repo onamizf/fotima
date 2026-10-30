@@ -11,8 +11,9 @@
   "materialsSource": {
     "builder": "src/setup-equipment.js",
     "entry": "buildEquipment(id, {context: \"setup\"})",
-    "version": "1.16.0",
-    "materials": "MeshStandardMaterial metalness .7–.85; MeshPhysicalMaterial transmission .95; no outline meshes."
+    "version": "1.17.0",
+    "materials": "Shared MeshPhysicalMaterial transmission .55, blue tint, Fresnel window reflections, thick rims; desktop far/near passes and mobile single pass; front-only fading scales.",
+    "glass": "src/equipment-glass.js"
   },
   "environmentSource": {
     "package": "three@0.128.0",
