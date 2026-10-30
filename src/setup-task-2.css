@@ -21,3 +21,11 @@
 .setup-glass-backdrop{position:absolute;z-index:2;left:50%;top:50%;width:auto;height:70%;aspect-ratio:1;transform:translate(-50%,-50%);pointer-events:none;opacity:0;background:radial-gradient(ellipse,rgba(11,30,74,.45) 0,rgba(11,30,74,.25) 35%,transparent 70%);transition:opacity .3s}
 .setup-stage.is-focused .setup-glass-backdrop{opacity:1}
 @media(prefers-reduced-motion:reduce){.setup-glass-backdrop{transition:none}}
+
+/* Reference comparison is debug-only and never affects the camera, learning or pointer targets. */
+@media(min-width:768px){.setup-stage{aspect-ratio:16/9}}
+.setup-reference-overlay{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.5;z-index:6;pointer-events:none}
+.setup-reference-controls{position:absolute;top:8px;right:8px;z-index:9;display:flex;gap:6px;max-width:58%;flex-wrap:wrap;justify-content:end}
+.setup-camera-debug{top:8px;max-width:38%;font-size:10px;line-height:1.35}
+.setup-render-host[data-renderer=fallback]{z-index:auto}.setup-render-host[data-renderer=fallback]>.setup-preview{z-index:1}.setup-render-host[data-renderer=fallback]>.setup-fallback-exploded,.setup-render-host[data-renderer=fallback]>.setup-fallback-focus{z-index:3}.setup-render-host[data-renderer=fallback]>.setup-fallback-parts{z-index:4}
+@media(max-width:767px){.setup-camera-debug{max-width:48%;font-size:8px}.setup-reference-controls{max-width:48%}.equipment-practice .setup-task .setup-reference-controls button{font-size:10px;padding:5px 7px!important;min-height:30px}}

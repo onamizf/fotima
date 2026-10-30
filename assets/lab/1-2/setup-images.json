@@ -11,7 +11,7 @@
   "materialsSource": {
     "builder": "src/setup-equipment.js",
     "entry": "buildEquipment(id, {context: \"setup\"})",
-    "version": "1.17.0",
+    "version": "1.18.0",
     "materials": "Shared MeshPhysicalMaterial transmission .55, blue tint, Fresnel window reflections, thick rims; desktop far/near passes and mobile single pass; front-only fading scales.",
     "glass": "src/equipment-glass.js"
   },
@@ -29,5 +29,12 @@
   "setup-focus-water.webp": "Transparent render of this isolated, fitted apparatus part, including its contact shadow.",
   "setup-focus-gauze.webp": "Transparent render of this isolated, fitted apparatus part, including its contact shadow.",
   "setup-focus-tripod.webp": "Transparent render of this isolated, fitted apparatus part, including its contact shadow.",
-  "setup-focus-burner.webp": "Transparent render of this isolated, fitted apparatus part, including its contact shadow."
+  "setup-focus-burner.webp": "Transparent render of this isolated, fitted apparatus part, including its contact shadow.",
+  "assemblySource": "src/setup-assembly.js",
+  "assemblyGeometry": "Support surfaces use Box3 of physical meshes only; window reflections are excluded. Cartridge rests on plate, beaker on gauze, tube clears inner bottom by 30% H, bulb is centred in alcohol.",
+  "referenceStatus": {
+    "requested": "setup-reference.jpg",
+    "available": false,
+    "note": "The reference is visible in the conversation but its source file is not present. Debug mode supports a local image overlay; generated preview remains labelled as a model render."
+  }
 }
