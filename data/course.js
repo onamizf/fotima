@@ -733,3 +733,65 @@ const TextbookData={
   "mixtures": "ch6"
  }
 };
+
+/* Work dashboards and workspace adapters; reward values remain in CourseGame. */
+TextbookData.practicalWorks=[
+  {
+    "id": "1.2",
+    "chapterId": "ch1",
+    "tasks": [
+      {
+        "id": "task-1",
+        "title": {
+          "ru": "Оборудование лаборатории",
+          "en": "Laboratory equipment",
+          "uz-Latn": "Laboratoriya jihozlari",
+          "uz-Cyrl": "Лаборатория жиҳозлари"
+        },
+        "thumb": "assets/lab/1-2/room.jpg",
+        "duration": 5,
+        "xp": 18,
+        "modes": [
+          "study",
+          "help"
+        ],
+        "workspace": "room-hotspots"
+      },
+      {
+        "id": "task-2",
+        "title": {
+          "ru": "Водяная баня",
+          "en": "Water bath",
+          "uz-Latn": "Suv hammomi",
+          "uz-Cyrl": "Сув ҳаммоми"
+        },
+        "thumb": "assets/lab/1-2/setup-preview.jpg",
+        "duration": 8,
+        "xp": 57,
+        "modes": [
+          "study",
+          "assemble",
+          "help"
+        ],
+        "workspace": "water-bath"
+      },
+      {
+        "id": "task-3",
+        "title": {
+          "ru": "Подписать установку",
+          "en": "Label the apparatus",
+          "uz-Latn": "Qurilma qismlarini belgilang",
+          "uz-Cyrl": "Қурилма қисмларини белгиланг"
+        },
+        "thumb": "assets/lab/1-2/setup-exploded.webp",
+        "duration": 4,
+        "xp": 0,
+        "modes": [
+          "study"
+        ],
+        "soon": true,
+        "workspace": "water-bath"
+      }
+    ]
+  }
+];

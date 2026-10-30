@@ -19,5 +19,5 @@ const EquipmentCard=(()=>{
  function settleReading(){if(!credited&&started&&!document.hidden&&elapsed+performance.now()-started>=4000)credit('dwell');}
  function step(delta){if(current<0||closing)return;settleReading();const index=(current+delta+items().length)%items().length;open(items()[index].id);}
  async function close(advance=false){if(closing||!dialog?.open)return;settleReading();closing=true;const token=++generation,closingDialog=dialog;clearReading();clearTimeout(finishTimer);stopAnimations();const item=items()[current],canvas=dialog.querySelector('canvas');let poster='';try{poster=canvas?.toDataURL('image/png')||dialog.querySelector('.equipment-photo-model')?.src||'';}catch{}const target=options.zoneFor(item.id),rect=target?.getBoundingClientRect();cleanupModel();await flip(rect,true,poster);if(dialog!==closingDialog||token!==generation)return;stopAnimations();dialog.close();document.body.classList.remove('equipment-card-open');closing=false;target?.focus({preventScroll:true});if(advance||pendingAdvance)options.onComplete();pendingAdvance=false;current=-1;dialog.innerHTML='';}
- return {mount,dispose};
+ return {mount,dispose,selection:()=>items()[current]?.id,viewState:()=>viewer?.viewState?.(),command:(action,value)=>{if(action==='close')return close();return viewer?.[action]?.(value);}};
 })();

@@ -1,0 +1,9 @@
+from playwright.sync_api import sync_playwright
+from browser_auth import register_local
+BASE='http://127.0.0.1:8051/'
+with sync_playwright() as p:
+ b=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--disable-webgl']);c=b.new_context(viewport={'width':1280,'height':900},reduced_motion='reduce');q=c.new_page();errors=[];q.on('pageerror',lambda e:errors.append(str(e)));register_local(q,BASE,'Editor navigation');q.evaluate('''()=>{for(const id of ['danger-a','danger-b','danger-c','danger-d']){IntroModel.row(id).evidence.tutorialReview={version:1,stages:[0,1,2,3,4],explanations:[0,1,2]};IntroModel.check(id);}const s=IntroModel.data().lesson12??=Practical12Data.blank();for(const i of Practical12Data.items)s.rows[i.id]={studied:true,earned:true,review:{version:1,method:'dwell',seconds:4}};saveState()}''');q.goto(BASE+'#topic/ch1/1.2');q.wait_for_selector('[data-project-open]');
+ with c.expect_page() as opened:q.locator('[data-project-open]').first.click()
+ lab=opened.value;lab.wait_for_selector('[data-pw-submit]:enabled');lab.locator('[data-pw-submit]').click()
+ with lab.expect_event('close'):lab.locator('[data-pw-return]').click()
+ q.evaluate('window.open=()=>null');q.locator('[data-project-open]').first.click();q.wait_for_selector('[data-workspace-root]');q.locator('[data-pw-submit]').click();q.locator('[data-pw-return]').click();q.wait_for_selector('.project-hub');assert q.url.endswith('#topic/ch1/1.2');q.goto(BASE+'#topic/ch1');q.wait_for_selector('.project-card progress');assert q.locator('.project-card').count()==4;q.goto(BASE+'#topic/ch1/1.1');q.wait_for_selector('.safety-lesson-page');assert not errors,errors;print('PASS popup close, blocked-popup same-tab fallback, direct-tab return fallback, chapter progress cards and existing safety lesson',flush=True);b.close()
