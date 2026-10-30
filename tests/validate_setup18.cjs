@@ -1,7 +1,7 @@
 /* Physical supports and liquid containment, including tests that deliberately break the assembly. */
 const fs=require('fs'),vm=require('vm'),assert=require('node:assert/strict'),T=require('../assets/vendor/setup-r128/three.min.js');
-const draw=new Proxy({createLinearGradient:()=>({addColorStop(){}})},{get:(o,k)=>o[k]||(()=>{})});const ctx=vm.createContext({window:{THREE:T},document:{createElement:()=>({getContext:()=>draw})}});
-for(const f of ['data/topics/ch1/setup-1-2.js','src/equipment-glass.js','src/setup-assembly.js','src/setup-equipment.js','src/equipment-models.js'])vm.runInContext(fs.readFileSync(f,'utf8'),ctx);
+const draw=new Proxy({createLinearGradient:()=>({addColorStop(){}})},{get:(o,k)=>o[k]||(()=>{})});const ctx=vm.createContext({CourseData:{badges:[]},window:{THREE:T},document:{createElement:()=>({getContext:()=>draw})}});
+for(const f of ['data/topics/ch1/practical-1-2-assembly.js','data/topics/ch1/setup-1-2.js','src/equipment-glass.js','src/setup-assembly.js','src/setup-equipment.js','src/equipment-models.js'])vm.runInContext(fs.readFileSync(f,'utf8'),ctx);
 const Assembly=vm.runInContext('SetupAssembly',ctx),ids=Array.from(vm.runInContext('Setup12Data.ids',ctx));
 for(const lowDetail of [false,true]){
  const built={};for(const id of ids){Object.assign(ctx,{id,lowDetail});built[id]=vm.runInContext('buildEquipment(id,{context:"setup",lowDetail})',ctx);}

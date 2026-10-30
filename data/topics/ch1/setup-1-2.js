@@ -2,7 +2,7 @@
 const Setup12Data=(()=>{const content={
   "copy": {
     "ru": {
-      "instruction": "Разбери установку и изучи не менее шести деталей.",
+      "instruction": "Изучи не менее шести деталей, затем собери установку самостоятельно.",
       "welcome": "Перетаскивай установку для поворота. Колесо и + / − приближают приборы.",
       "explode": "🔧 Разобрать",
       "assemble": "🔩 Собрать",
@@ -16,8 +16,8 @@ const Setup12Data=(()=>{const content={
       "studyHint": "Нажми на деталь, чтобы выдвинуть её вперёд и узнать о ней.",
       "back": "↩ Вернуть на место",
       "success": "Установка изучена!",
-      "progressHint": "Разбери установку и открой карточки деталей. Изучение засчитывается сразу.",
-      "completed": "Задание 2 выполнено · +15 XP",
+      "progressHint": "Изучи не менее шести деталей и пройди самостоятельную сборку во второй вкладке.",
+      "completed": "Задание 2 выполнено",
       "zoomIn": "Приблизить",
       "zoomOut": "Отдалить",
       "fullscreen": "На весь экран",
@@ -40,7 +40,7 @@ const Setup12Data=(()=>{const content={
       "clampAtUpperThird": "Лапка на верхней трети пробирки"
     },
     "en": {
-      "instruction": "Explode the apparatus and study at least six parts.",
+      "instruction": "Study at least six parts, then build the apparatus yourself.",
       "welcome": "Drag to rotate the apparatus. Use the wheel or + / − to move it closer.",
       "explode": "🔧 Separate parts",
       "assemble": "🔩 Assemble",
@@ -54,8 +54,8 @@ const Setup12Data=(()=>{const content={
       "studyHint": "Select a part to bring it forward and learn about it.",
       "back": "↩ Return part",
       "success": "Apparatus studied!",
-      "progressHint": "Explode the apparatus and open the part cards. Each opened card counts as studied.",
-      "completed": "Task 2 completed · +15 XP",
+      "progressHint": "Study at least six parts and complete the assembly in the second tab.",
+      "completed": "Task 2 completed",
       "zoomIn": "Move closer",
       "zoomOut": "Move away",
       "fullscreen": "Fullscreen",
@@ -78,7 +78,7 @@ const Setup12Data=(()=>{const content={
       "clampAtUpperThird": "Clamp holds the upper third"
     },
     "uz-Latn": {
-      "instruction": "Qurilmani ajratib, kamida oltita qismini o‘rgan.",
+      "instruction": "Kamida oltita qismni o‘rgan, keyin qurilmani o‘zing yig‘.",
       "welcome": "Burish uchun qurilmani sur. Yaqinlashtirish uchun g‘ildirak yoki + / − ishlat.",
       "explode": "🔧 Qismlarga ajratish",
       "assemble": "🔩 Yig‘ish",
@@ -92,8 +92,8 @@ const Setup12Data=(()=>{const content={
       "studyHint": "Qismni oldinga chiqarib o‘rganish uchun bos.",
       "back": "↩ Joyiga qaytarish",
       "success": "Qurilma o‘rganildi!",
-      "progressHint": "Qurilmani ajrat va qismlar kartalarini och. Ochilgan qism darhol o‘rganilgan hisoblanadi.",
-      "completed": "2-topshiriq bajarildi · +15 XP",
+      "progressHint": "Kamida oltita qismni o‘rganib, ikkinchi varaqda qurilmani yig‘.",
+      "completed": "2-topshiriq bajarildi",
       "zoomIn": "Yaqinlashtirish",
       "zoomOut": "Uzoqlashtirish",
       "fullscreen": "To‘liq ekran",
@@ -116,7 +116,7 @@ const Setup12Data=(()=>{const content={
       "clampAtUpperThird": "Qisqich probirkaning yuqori uchdan birida"
     },
     "uz-Cyrl": {
-      "instruction": "Қурилмани ажратиб, камида олтита қисмини ўрган.",
+      "instruction": "Камида олтита қисмни ўрган, кейин қурилмани ўзинг йиғ.",
       "welcome": "Буриш учун қурилмани сур. Яқинлаштириш учун ғилдирак ёки + / − ишлат.",
       "explode": "🔧 Қисмларга ажратиш",
       "assemble": "🔩 Йиғиш",
@@ -130,8 +130,8 @@ const Setup12Data=(()=>{const content={
       "studyHint": "Қисмни олдинга чиқариб ўрганиш учун бос.",
       "back": "↩ Жойига қайтариш",
       "success": "Қурилма ўрганилди!",
-      "progressHint": "Қурилмани ажрат ва қисмлар карталарини оч. Очилган қисм дарҳол ўрганилган ҳисобланади.",
-      "completed": "2-топшириқ бажарилди · +15 ХП",
+      "progressHint": "Камида олтита қисмни ўрганиб, иккинчи варақда қурилмани йиғ.",
+      "completed": "2-топшириқ бажарилди",
       "zoomIn": "Яқинлаштириш",
       "zoomOut": "Узоқлаштириш",
       "fullscreen": "Тўлиқ экран",
@@ -402,10 +402,10 @@ const Setup12Data=(()=>{const content={
 };
 
  const ids=content.parts.map(p=>p.id);
- const blank=()=>({version:2,progress:0,explodedOnce:false,visited:[],proof:null});
- const proofValid=p=>[1,2].includes(p?.version)&&p.exploded===true&&Array.isArray(p.visited)&&new Set(p.visited.filter(id=>ids.includes(id))).size>=6;
+ const blank=()=>({version:2,progress:0,explodedOnce:false,visited:[],proof:null,tab:'study',workshop:Practical12AssemblyData.blank()});
+ const proofValid=p=>[1,2].includes(p?.version)&&Array.isArray(p.visited)&&new Set(p.visited.filter(id=>ids.includes(id))).size>=6;
  const proof=v=>({version:2,exploded:v.explodedOnce,visited:[...v.visited]});
- function sanitize(v){const out=blank();if(![1,2].includes(v?.version))return out;out.progress=Number.isFinite(v.progress)?Math.max(0,Math.min(1,v.progress)):0;out.explodedOnce=v.explodedOnce===true;out.visited=Array.isArray(v.visited)?[...new Set(v.visited.filter(id=>ids.includes(id)))]:[];if(proofValid(v.proof))out.proof={version:2,exploded:true,visited:[...new Set(v.proof.visited.filter(id=>ids.includes(id)))]};return out;}
+ function sanitize(v){const out=blank();if(![1,2].includes(v?.version))return out;out.workshop=Practical12AssemblyData.sanitize(v.workshop);out.tab=v.tab==='build'&&Array.isArray(v.visited)&&v.visited.length>=6?'build':'study';out.progress=Number.isFinite(v.progress)?Math.max(0,Math.min(1,v.progress)):0;out.explodedOnce=v.explodedOnce===true;out.visited=Array.isArray(v.visited)?[...new Set(v.visited.filter(id=>ids.includes(id)))]:[];if(proofValid(v.proof))out.proof={version:2,exploded:true,visited:[...new Set(v.proof.visited.filter(id=>ids.includes(id)))]};return out;}
  const PREVIEW_ANCHORS={thermometer:{x:50.1,y:8},tube:{x:50.1,y:22},alcohol:{x:50.1,y:40},beaker:{x:46,y:40},water:{x:47.5,y:54},gauze:{x:59.6,y:61},flame:{x:50.6,y:67.5},burner:{x:50.7,y:85},tripod:{x:59,y:83},rod:{x:37.9,y:14},clamp:{x:46.5,y:27.5},plate:{x:40.7,y:91},stand:{x:37.9,y:14}};
  const reference={available:false,url:'assets/lab/1-2/setup-reference.jpg'};
  return {...content,ids,PREVIEW_ANCHORS,reference,blank,proofValid,proof,sanitize};

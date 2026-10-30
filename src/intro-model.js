@@ -18,8 +18,8 @@ const IntroModel=(()=>{
   if(id.startsWith('danger-')){const d=IntroData.dangers.find(d=>d.id===id);return a.danger===d.correctDanger&&a.precaution===d.correctAction;}
   if(id==='museum'&&e.equipmentSheet)return typeof Practical12Data!=='undefined'&&Practical12Data.proofValid(e.equipmentSheet);
   if(id==='museum')return mainEquipment.every(id=>Array.isArray(r.visited)&&r.visited.includes(id)&&a[id]===id)&&['neck','body','bottom'].every(id=>m[id]===id);
-  if(id==='assembly'&&e.setupExploded)return typeof Setup12Data!=='undefined'&&Setup12Data.proofValid(e.setupExploded);
-  if(id==='assembly')return equal(r.order,assembly)&&e.warmed===true;
+  if(id==='assembly'&&e.setupExploded)return typeof Setup12Data!=='undefined'&&Setup12Data.proofValid(e.setupExploded)&&Practical12AssemblyData.validCompletion(e.setupAssembled);
+  if(id==='assembly')return false;
   if(id==='evap-labels')return Object.entries(labels).every(([k,v])=>m[k]===v)&&e.crystals===true;
   if(id==='burner-parts')return IntroData.parts.every(p=>m[p.id]===p.id)&&IntroData.functions.every(p=>m['f-'+p.id]===p.id);
   if(id==='ignition')return equal(e.sequence,[1,2,3,4,5]);
