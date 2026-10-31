@@ -1,4 +1,4 @@
-/* Темы, учебные опыты и переводы новых игровых элементов. */
+/* Учебные темы, опыты, награды и общие переводы. */
 const CourseData={
  "topics": [
   {
@@ -40,21 +40,7 @@ const CourseData={
       "en": "Switch off heating and let equipment cool before changing experiments."
      }
     ],
-    "experiments": [
-     {
-      "id": "safety-audit",
-      "kind": "safety",
-      "key": "safety",
-      "title": {
-       "ru": "Найди нарушение",
-       "uz-Latn": "Qoidabuzarlikni top",
-       "en": "Spot the hazard"
-      },
-      "minutes": 3,
-      "difficulty": 1,
-      "substance": "water"
-     }
-    ],
+    "experiments": [],
     "quiz": [
      {
       "prompt": {
@@ -1054,16 +1040,6 @@ const CourseData={
    "uz-Latn": "Kun fakti",
    "en": "Fact of the day"
   },
-  "challenge": {
-   "ru": "Быстрый вызов",
-   "uz-Latn": "Tezkor sinov",
-   "en": "Quick challenge"
-  },
-  "games": {
-   "ru": "Игры",
-   "uz-Latn": "O‘yinlar",
-   "en": "Games"
-  },
   "collection": {
    "ru": "Моя коллекция веществ",
    "uz-Latn": "Moddalar to‘plamim",
@@ -1174,56 +1150,6 @@ const CourseData={
    "uz-Latn": "Hali olinmagan",
    "en": "Not earned yet"
   },
-  "pure": {
-   "ru": "Чистое вещество",
-   "uz-Latn": "Sof modda",
-   "en": "Pure substance"
-  },
-  "mixture": {
-   "ru": "Смесь",
-   "uz-Latn": "Aralashma",
-   "en": "Mixture"
-  },
-  "physical": {
-   "ru": "Физическое",
-   "uz-Latn": "Fizik",
-   "en": "Physical"
-  },
-  "chemical": {
-   "ru": "Химическое",
-   "uz-Latn": "Kimyoviy",
-   "en": "Chemical"
-  },
-  "safetyGame": {
-   "ru": "Найди нарушение",
-   "uz-Latn": "Qoidabuzarlikni top",
-   "en": "Spot the hazard"
-  },
-  "mixtureGame": {
-   "ru": "Смесь или чистое вещество?",
-   "uz-Latn": "Aralashmami yoki sof modda?",
-   "en": "Mixture or pure substance?"
-  },
-  "sortGame": {
-   "ru": "Физическое или химическое явление?",
-   "uz-Latn": "Fizikmi yoki kimyoviy hodisa?",
-   "en": "Physical or chemical change?"
-  },
-  "gameHint": {
-   "ru": "Выбери ответ кнопкой или смахни карточку",
-   "uz-Latn": "Tugmani tanla yoki kartani sur",
-   "en": "Choose a button or swipe the card"
-  },
-  "sortHint": {
-   "ru": "Перетащи карточку или выбери корзину касанием",
-   "uz-Latn": "Kartani sur yoki savatni bos",
-   "en": "Drag the card or tap a category"
-  },
-  "findHint": {
-   "ru": "Найди 3 нарушения. Их можно выбрать и клавишей Tab.",
-   "uz-Latn": "3 qoidabuzarlikni top. Tab tugmasidan ham foydalan.",
-   "en": "Find 3 hazards. You can also use the Tab key."
-  },
   "correct": {
    "ru": "Верно!",
    "uz-Latn": "To‘g‘ri!",
@@ -1238,11 +1164,6 @@ const CourseData={
    "ru": "Готово!",
    "uz-Latn": "Tayyor!",
    "en": "Done!"
-  },
-  "timeUp": {
-   "ru": "Время вышло",
-   "uz-Latn": "Vaqt tugadi",
-   "en": "Time is up"
   },
   "start": {
    "ru": "Начать",
@@ -1542,19 +1463,6 @@ const CourseData={
    }
   },
   {
-   "id": "mixtures",
-   "title": {
-    "ru": "Знаток смесей",
-    "uz-Latn": "Aralashmalar bilimdoni",
-    "en": "Mixture expert"
-   },
-   "hint": {
-    "ru": "Верно разбери 6 карточек в игре о смесях",
-    "uz-Latn": "Aralashmalar o‘yinidagi 6 kartani to‘g‘ri ajrat",
-    "en": "Classify all 6 mixture cards correctly"
-   }
-  },
-  {
    "id": "perfect",
    "title": {
     "ru": "5/5 в тесте",
@@ -1591,19 +1499,6 @@ const CourseData={
     "ru": "Пройди все 6 тем, включая будущие",
     "uz-Latn": "Kelajakdagi mavzular bilan birga barcha 6 mavzuni yakunla",
     "en": "Complete all six topics, including upcoming ones"
-   }
-  },
-  {
-   "id": "sorter",
-   "title": {
-    "ru": "Знаток явлений",
-    "uz-Latn": "Hodisalar bilimdoni",
-    "en": "Change expert"
-   },
-   "hint": {
-    "ru": "Верно рассортируй 6 явлений в игре",
-    "uz-Latn": "O‘yindagi 6 hodisani to‘g‘ri ajrat",
-    "en": "Sort all six changes correctly"
    }
   },
   {
@@ -1909,124 +1804,5 @@ const CourseData={
     "en": "Calcium carbonate"
    }
   }
- ],
- "games": {
-  "mixtures": [
-   {
-    "title": {
-     "ru": "Дистиллированная вода",
-     "uz-Latn": "Distillangan suv",
-     "en": "Distilled water"
-    },
-    "answer": "pure"
-   },
-   {
-    "title": {
-     "ru": "Воздух",
-     "uz-Latn": "Havo",
-     "en": "Air"
-    },
-    "answer": "mixture"
-   },
-   {
-    "title": {
-     "ru": "Хлорид натрия NaCl",
-     "uz-Latn": "Natriy xlorid NaCl",
-     "en": "Sodium chloride NaCl"
-    },
-    "answer": "pure"
-   },
-   {
-    "title": {
-     "ru": "Морская вода",
-     "uz-Latn": "Dengiz suvi",
-     "en": "Seawater"
-    },
-    "answer": "mixture"
-   },
-   {
-    "title": {
-     "ru": "Кислород O₂",
-     "uz-Latn": "Kislorod O₂",
-     "en": "Oxygen O₂"
-    },
-    "answer": "pure"
-   },
-   {
-    "title": {
-     "ru": "Бронза",
-     "uz-Latn": "Bronza",
-     "en": "Bronze"
-    },
-    "answer": "mixture"
-   }
-  ],
-  "changes": [
-   {
-    "title": {
-     "ru": "Таяние льда",
-     "uz-Latn": "Muzning erishi",
-     "en": "Melting ice"
-    },
-    "answer": "physical"
-   },
-   {
-    "title": {
-     "ru": "Горение бумаги",
-     "uz-Latn": "Qog‘ozning yonishi",
-     "en": "Burning paper"
-    },
-    "answer": "chemical"
-   },
-   {
-    "title": {
-     "ru": "Ржавление железа",
-     "uz-Latn": "Temirning zanglashi",
-     "en": "Rusting iron"
-    },
-    "answer": "chemical"
-   },
-   {
-    "title": {
-     "ru": "Растворение соли",
-     "uz-Latn": "Tuzning erishi",
-     "en": "Dissolving salt"
-    },
-    "answer": "physical"
-   },
-   {
-    "title": {
-     "ru": "Испарение воды",
-     "uz-Latn": "Suvning bug‘lanishi",
-     "en": "Evaporation of water"
-    },
-    "answer": "physical"
-   },
-   {
-    "title": {
-     "ru": "Нагревание меди на воздухе",
-     "uz-Latn": "Misni havoda isitish",
-     "en": "Heating copper in air"
-    },
-    "answer": "chemical"
-   }
-  ],
-  "safety": [
-   {
-    "ru": "Прямое вдыхание неизвестного вещества",
-    "uz-Latn": "Noma’lum moddani bevosita hidlash",
-    "en": "Directly sniffing an unknown substance"
-   },
-   {
-    "ru": "Очки лежат на столе, глаза не защищены",
-    "uz-Latn": "Ko‘zoynak stolda, ko‘zlar himoyasiz",
-    "en": "Goggles are on the bench instead of protecting the eyes"
-   },
-   {
-    "ru": "Бумага рядом с открытым пламенем",
-    "uz-Latn": "Ochiq olov yonida qog‘oz bor",
-    "en": "Paper is too close to an open flame"
-   }
-  ]
- }
+ ]
 };

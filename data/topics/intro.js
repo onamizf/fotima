@@ -443,9 +443,9 @@ const IntroData={
    "en": "Identical dishes, water volume, distance and gas flow. Change only the flame type."
   },
   "time": {
-   "ru": "Время в игре, с",
-   "uz-Latn": "O‘yindagi vaqt, s",
-   "en": "Game time, s"
+   "ru": "Время опыта, с",
+   "uz-Latn": "Tajriba vaqti, s",
+   "en": "Experiment time, s"
   },
   "recordTime": {
    "ru": "Запиши показания секундомера",

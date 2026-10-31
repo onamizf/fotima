@@ -5,7 +5,7 @@ const SpecimenViewer=(()=>{
  function fallback(root){root.dataset.renderer='image';root.querySelectorAll('[data-specimen-camera]').forEach(button=>button.disabled=true);window.specimenViewerInfo={ready:false,sample:root.dataset.studyId||state.activeSample};}
  function mount(){observer?.disconnect();host=null;const root=document.querySelector('[data-specimen-preview]');if(!root)return;
   document.querySelectorAll('[data-specimen-select]').forEach(button=>button.onclick=()=>{state.activeSample=button.dataset.specimenSelect;saveState();render(false);document.querySelector(`[data-specimen-select="${state.activeSample}"]`).focus({preventScroll:true});});
-  document.querySelectorAll('[data-equipment-select]').forEach(button=>button.onclick=()=>{selectedEquipment=button.dataset.equipmentSelect;render(false);document.querySelector(`[data-equipment-select="${selectedEquipment}"]`).focus({preventScroll:true});});
+  document.querySelectorAll('[data-equipment-select]').forEach(button=>button.onclick=()=>{selectedEquipment=button.dataset.equipmentSelect;history.replaceState(null,'','#materials/'+route().topic.id+'?equipment='+selectedEquipment);render(false);document.querySelector(`[data-equipment-select="${selectedEquipment}"]`).focus({preventScroll:true});});
   if(failed||!window.THREE||state.settings.viewMode==='2d'){fallback(root);return;}
   try{
    const th=window.THREE;

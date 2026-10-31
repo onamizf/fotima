@@ -1,8 +1,8 @@
 /* Единый вывод интерфейсных иконок. PNG — только из предоставленного набора.
    Схемы приборов, знаки опасности и модели веществ остаются учебными иллюстрациями. */
 const Icon=(()=>{
- const names=new Set(['start-experiment','home','topics','games','collection','progress','stats','settings','notifications','search','topic-01-intro','topic-02-states','topic-03-substances','topic-04-mixtures','topic-05-physical','topic-06-chemical','topic-07-atoms','exp-filtration','exp-precipitate','periodic-table','dictionary','tests','random','elements','streak','xp','achievements','rank']);
- const aliases={house:'home',levels:'topics','layout-grid':'topics',gamepad:'games','gamepad-2':'games',grid:'periodic-table','table-2':'periodic-table',book:'dictionary','book-open':'dictionary',quiz:'tests','clipboard-check':'tests','settings-2':'settings','chart-no-axes-column':'progress',star:'xp',trophy:'achievements',timer:'random'};
+ const names=new Set(['start-experiment','home','topics','collection','progress','stats','settings','notifications','search','topic-01-intro','topic-02-states','topic-03-substances','topic-04-mixtures','topic-05-physical','topic-06-chemical','topic-07-atoms','exp-filtration','exp-precipitate','periodic-table','dictionary','tests','random','elements','streak','xp','achievements','rank']);
+ const aliases={house:'home',levels:'topics','layout-grid':'topics',grid:'periodic-table','table-2':'periodic-table',book:'dictionary','book-open':'dictionary',quiz:'tests','clipboard-check':'tests','settings-2':'settings','chart-no-axes-column':'progress',star:'xp',trophy:'achievements',timer:'random'};
  function render(name,size=20){
   const key=aliases[name]||name,px=Number.isFinite(Number(size))?Math.max(12,Math.min(134,Number(size))):20;
   if(!names.has(key))return HomeIcon(name,20);

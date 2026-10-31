@@ -9,7 +9,7 @@ const WelcomeInfo=(()=>{
   const convert=value=>typeof value==='string'?CourseModel.text({'uz-Latn':value}):Array.isArray(value)?value.map(convert):Object.fromEntries(Object.entries(value).map(([key,text])=>[key,convert(text)]));
   return convert(WelcomeTranslations['uz-Latn']);
  }
- function stats(){return [CourseData.topics.length,CourseData.topics.reduce((n,t)=>n+t.steps.experiments.length,0),Object.keys(CourseData.games).length];}
+ function stats(){return [CourseData.topics.length,CourseData.topics.reduce((n,t)=>n+t.steps.experiments.length,0)];}
  function countLabel(index,n){const forms=ui().counts[index],language=state.settings.language,rule=new Intl.PluralRules(language==='ru'?'ru':language==='en'?'en':'uz').select(n);return forms[rule==='one'?0:rule==='few'?1:2];}
  function stepIcon(index){return Icon(['user-round','dictionary','start-experiment','tests'][index],32);}
  function steps(){return `<ol class="welcome-steps">${ui().steps.map((step,i)=>`<li><span class="welcome-step-icon" aria-hidden="true">${stepIcon(i)}</span><span>${esc(step)}</span></li>`).join('')}</ol>`;}

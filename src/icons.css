@@ -77,10 +77,9 @@ body:not([data-page=welcome]) #profileMenu.minimal-sidebar[data-compact=true] .s
 .experiment-tile { display:inline-flex; margin-bottom:10px; }
 .course-experiment-card p .site-icon { margin-right:4px; }
 .course-progress-list>a { grid-template-columns:36px minmax(0,1fr) 150px 60px; }
-.course-progress :is(h1,h2),.course-awards h1,.quick-challenge h1 { overflow-wrap:anywhere; }
+.course-progress :is(h1,h2),.course-awards h1{ overflow-wrap:anywhere; }
 .game-badge.unearned>span { filter:none; }
 .game-badge.unearned>span>.site-icon { filter:grayscale(.6) opacity(.6) drop-shadow(0 4px 10px rgba(11,30,74,.18)); }
-.mini-game-catalog a>span,.game-sort-card>span { background:none!important; border:0!important; }
 .periodic-play button { display:inline-flex; align-items:center; justify-content:center; gap:8px; }
 .periodic-search { display:flex; align-items:center; gap:8px; }
 .periodic-search input { min-width:0; flex:1; }

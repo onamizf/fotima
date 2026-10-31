@@ -487,7 +487,7 @@ const TextbookData={
       "uz-Cyrl": "Оддий моддалар, мураккаб моддалар ва аралашмалар",
       "en": "Simple substances, compounds and mixtures"
      },
-     "content": "mixtures",
+     "content": null,
      "kind": "practice"
     },
     {

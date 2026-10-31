@@ -28,7 +28,7 @@ def versioned_entrypoint(source):
         if not path.resolve().is_relative_to(ROOT) or not path.is_file():
             raise ValueError(f'Invalid or missing site file: {relative}')
         digest=hashlib.sha256(path.read_bytes()).hexdigest()[:16]
-        versioned=f'{relative}?v={digest}';versions[relative]=digest
+        versioned=f'{relative}?v={parser.version or "local"}-{digest}';versions[relative]=digest
         source=source.replace('"'+reference+'"','"'+versioned+'"')
     return source,parser,versions
 
