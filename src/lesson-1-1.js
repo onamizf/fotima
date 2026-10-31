@@ -20,5 +20,5 @@ const SafetyLesson=(()=>{
   const cards=root.querySelector('.safety-situations');cards.addEventListener('scroll',()=>{const rect=cards.getBoundingClientRect(),items=[...cards.children],closest=items.reduce((a,b)=>Math.abs(a.getBoundingClientRect().left-rect.left)<Math.abs(b.getBoundingClientRect().left-rect.left)?a:b);root.querySelectorAll('[data-safety-slide]').forEach(dot=>{if(dot.dataset.safetySlide===closest.dataset.safetyCard)dot.setAttribute('aria-current','true');else dot.removeAttribute('aria-current');});},{signal,passive:true});
   update();
  }
- return {view,mount,dispose,counts};
+ return {view,mount,dispose,counts,viewed,data,sync};
 })();

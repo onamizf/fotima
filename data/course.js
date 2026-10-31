@@ -736,6 +736,7 @@ const TextbookData={
 
 /* Work dashboards and workspace adapters; reward values remain in CourseGame. */
 TextbookData.practicalWorks=[
+ {id:'1.1',chapterId:'ch1',tasks:[{id:'task-1',title:{ru:'Опасные ситуации',en:'Dangerous situations','uz-Latn':'Xavfli vaziyatlar','uz-Cyrl':'Хавфли вазиятлар'},thumb:'assets/lab/1-1/a-1-start.webp',duration:8,xp:40,modes:['study'],workspace:'safety-stories'}]},
   {
     "id": "1.2",
     "chapterId": "ch1",
