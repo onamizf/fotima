@@ -53,6 +53,10 @@ body:not([data-page=welcome]) #profileMenu.minimal-sidebar[data-compact=true] .s
 #profileMenu.minimal-sidebar[data-compact=true] .sidebar-link>.service-icon-tile { --icon-size:40px!important; }
 body:not([data-page=welcome]) #profileMenu.minimal-sidebar .sidebar-start { padding:0 8px; gap:10px; }
 body:not([data-page=welcome]) #profileMenu.minimal-sidebar[data-compact=true] .sidebar-start { padding:0; }
+body:not([data-page=welcome]) #profileMenu.minimal-sidebar[data-compact=true] .sidebar-start,
+body:not([data-page=welcome]) #profileMenu.minimal-sidebar[data-compact=true] .sidebar-start:hover {
+ background:transparent; box-shadow:none;
+}
 #profileMenu.minimal-sidebar .sidebar-streak { display:flex; align-items:center; gap:6px; }
 .sidebar-progress-meta :is(span,small) { display:flex; align-items:center; gap:6px; }
 /* Шапка и всплывающие окна. Кнопка сохраняет область касания 44×44. */
