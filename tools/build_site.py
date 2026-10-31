@@ -16,6 +16,7 @@ class Entrypoint(HTMLParser):
         if value:
             url=urlsplit(value);path=unquote(url.path)
             if url.scheme or url.netloc or path.startswith('/') or not path:
+                if tag=='link' and url.scheme=='https' and url.netloc=='fonts.googleapis.com' and path=='/css2':return
                 raise ValueError(f'Entrypoint must use relative local files: {value}')
             self.files.add(path);self.references[value]=path
 

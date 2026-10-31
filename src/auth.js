@@ -18,7 +18,7 @@ window.LocalAuth=(()=>{
  function hex(bytes){return Array.from(bytes,n=>n.toString(16).padStart(2,'0')).join('');}
  function random(){return hex(crypto.getRandomValues(new Uint8Array(32)));}
  async function digest(password,salt){if(!crypto.subtle)throw Error('crypto');return hex(new Uint8Array(await crypto.subtle.digest('SHA-256',new TextEncoder().encode(salt+':'+password))));}
- function errors(values,list){const out={},name=values.name.trim().normalize('NFC');if(length(name)<3)out.username=text.name;else if(length(name)>20)out.username=text.long;else if(!/^[\p{Script=Latin}\p{Script=Cyrillic}0-9_ ]+$/u.test(name))out.username=text.characters;else if(mode==='register'&&list.some(u=>u.canonical===canonical(name)))out.username=text.taken;if(length(values.password)<8)out.password=text.password;if(mode==='register'&&values.repeat!==values.password)out.repeat=text.repeat;return out;}
+ function errors(values,list){const out={},name=values.name.trim().normalize('NFC');if(length(name)<3)out.username=text.name;else if(length(name)>20)out.username=text.long;else if(!/^[\p{Script=Latin}\p{Script=Cyrillic}0-9_'‘’ʻʼ ]+$/u.test(name))out.username=text.characters;else if(mode==='register'&&list.some(u=>u.canonical===canonical(name)))out.username=text.taken;if(length(values.password)<8)out.password=text.password;if(mode==='register'&&values.repeat!==values.password)out.repeat=text.repeat;return out;}
  function readForm(form){return {name:form.elements.username.value,password:form.elements.password.value,repeat:form.elements.repeat?.value||''};}
  function restore(){
   user=null;STORAGE_KEY=ROOT;
@@ -57,6 +57,7 @@ window.LocalAuth=(()=>{
   finally{busy=false;if(form.isConnected)validateVisible?.();}
  }
  function download(){const blob=new Blob([JSON.stringify(state,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='chemistry-progress.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+ function rename(name){name=String(name).trim().normalize('NFC');if(!user||length(name)<3||length(name)>20||!/^([\p{Script=Latin}\p{Script=Cyrillic}0-9_'‘’ʻʼ ])+$/u.test(name))return false;try{const list=users();if(list.some(u=>u.id!==user.id&&u.canonical===canonical(name)))return false;const record=list.find(u=>u.id===user.id);record.name=name;record.canonical=canonical(name);localStorage.setItem(USERS,JSON.stringify({version:1,users:list}));user.name=name;return true;}catch{return false;}}
  function signOut(){saveState();if(!storageAvailable&&!confirm('Прогресс не удалось сохранить. Выйти?'))return;try{localStorage.removeItem(SESSION);}catch{message=text.storage;render(false);return;}user=null;mode='login';STORAGE_KEY=ROOT;state=readState();location.hash='login';render(false);}
  function bind(){validateVisible=null;const form=document.getElementById('accountForm');if(form){const touched=new Set();
    validateVisible=(all=false)=>{let out;try{out=errors(readForm(form),users());}catch(error){message=error.message==='damaged'?text.damaged:text.storage;form.querySelector('#accountMessage').textContent=message;form.querySelector('[type=submit]').disabled=true;return false;}
@@ -72,7 +73,7 @@ window.LocalAuth=(()=>{
  function greeting(){return user?`<span class="user-greeting">${cu().hello}, ${escapeHTML(CourseModel.displayName())}!</span>`:'';}
  window.addEventListener('storage',event=>{if(event.key===SESSION){restore();render(false);}else if(event.key===USERS)validateVisible?.();});
  restore();
- return {view,bind,profile,signOut,changed:()=>{},notice:()=>'',configured:()=>true,gate:()=>!user,signedIn:()=>!!user,greeting,setMode,prepareRegistration:()=>setMode('register'),start:()=>{},mode:()=>mode,currentUser:()=>user?{...user}:null};
+ return {rename,view,bind,profile,signOut,changed:()=>{},notice:()=>'',configured:()=>true,gate:()=>!user,signedIn:()=>!!user,greeting,setMode,prepareRegistration:()=>setMode('register'),start:()=>{},mode:()=>mode,currentUser:()=>user?{...user}:null};
 })();
 // Совместимость с сохранёнными маршрутами и компонентами лаборатории.
 window.FotimaCloud=window.LocalAuth;

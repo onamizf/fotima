@@ -8,7 +8,7 @@ const PeriodicModel=(()=>{
  function text(value){if(typeof value==='string')return value;const lang=state.settings.language;if(lang==='uz-Cyrl')return CourseModel.text({'uz-Latn':value?.uz||value?.['uz-Latn']||value?.ru||''});return value?.[lang]||value?.[lang.startsWith('uz')?'uz':lang]||value?.ru||'';}
  function ui(){const lang=state.settings.language;if(lang!=='uz-Cyrl')return PeriodicLabels[lang.startsWith('uz')?'uz':lang]||PeriodicLabels.ru;const convert=value=>typeof value==='string'?(/^[spdf]-/.test(value)?value[0]+'-'+text({uz:value.slice(2)}):text({uz:value})):Object.fromEntries(Object.entries(value).map(([k,v])=>[k,convert(v)]));return convert(PeriodicLabels.uz);}
  function visit(symbol){if(!LocalAuth.signedIn()||!get(symbol)||data().visited.includes(symbol))return false;data().visited.push(symbol);saveState();return true;}
- function collect(symbol){if(!get(symbol)||!data().visited.includes(symbol))return false;if(!data().collection.includes(symbol)){data().collection.push(symbol);saveState();}return true;}
+ function collect(symbol){return PersonalData.toggle('element',symbol);}
  const categories=COLOR_MODES.categories.colors;
  function color(e,scheme='blocks'){const mode=COLOR_MODES[scheme]||COLOR_MODES.blocks;return mode.colors[e[mode.field]]||'#D9DEF0';}
  function mass(e){return e.atomicMass===null?'['+e.isotopeMassNumber+']':new Intl.NumberFormat(state.settings.language.startsWith('uz')?'uz':state.settings.language,{minimumFractionDigits:3,maximumFractionDigits:3,useGrouping:false}).format(e.atomicMass);}

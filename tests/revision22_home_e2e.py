@@ -1,0 +1,4 @@
+from playwright.sync_api import sync_playwright
+from browser_auth import register_local
+with sync_playwright() as p:
+ b=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--disable-webgl']);q=b.new_page();errors=[];q.on('pageerror',lambda e:errors.append(str(e)));register_local(q,'http://127.0.0.1:8051/','Home twenty two');q.wait_for_selector('.home-hero');assert q.locator('.home-search-key,.home-search-examples,.learning-filters,.home-laboratory').count()==0;assert q.locator('.home-tools a').count()==3;assert q.locator('.minimal-home').evaluate('e=>e.children[1].classList.contains("home-tools")');q.goto('http://127.0.0.1:8051/#resources/tests');q.wait_for_selector('.textbook-route');assert q.url.endswith('#topics');assert not errors,errors;print('PASS parts 1–2: compact home, three tools before topics, removed laboratory/tests, legacy redirect, no errors');b.close()

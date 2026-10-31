@@ -1,6 +1,6 @@
 let STORAGE_KEY='fotima.chemistry7.curriculum.v2';
 const LEGACY_STORAGE_KEY='fotima.chemistry7.shell.v1';
-const freshState=()=>({version:2,settings:{language:'ru',sound:false,reduceMotion:false,viewMode:'3d',helper:true,largeText:false},progress:{},lessons:{},propertyTable:{},activeSample:'salt',tableSource:'',investigation:blankInvestigation(),propertyReport:blankReport(),physicalLab:blankPhysicalLab(),chemicalLab:blankChemicalLab(),achievements:blankAchievements(),lastLocation:null,textbook:TextbookCourse.blank(),course:CourseModel.blank(),intro:IntroModel.blank(),periodic:PeriodicModel.blank(),notifications:StudentNotices.blank(),game:CourseGame.blank()});
+const freshState=()=>({version:2,personal:PersonalData.blank(),settings:{language:'ru',sound:false,reduceMotion:false,viewMode:'3d',helper:true,largeText:false},progress:{},lessons:{},propertyTable:{},activeSample:'salt',tableSource:'',investigation:blankInvestigation(),propertyReport:blankReport(),physicalLab:blankPhysicalLab(),chemicalLab:blankChemicalLab(),achievements:blankAchievements(),lastLocation:null,textbook:TextbookCourse.blank(),course:CourseModel.blank(),intro:IntroModel.blank(),periodic:PeriodicModel.blank(),notifications:StudentNotices.blank(),game:CourseGame.blank()});
 let storageAvailable=true;
 function readState(input){
  const clean=freshState();
@@ -19,6 +19,8 @@ function readState(input){
   clean.notifications=StudentNotices.sanitize(value.notifications);
   clean.course=CourseModel.sanitize(value.course,value);
   clean.game=CourseGame.sanitize(value.game);
+  clean.personal=PersonalData.sanitize(value.personal,value);
+  clean.periodic.collection=clean.personal.collection.filter(i=>i.type==='element').map(i=>i.id);
   if(!value.course){clean.course.legacy=Object.values(clean.lessons).some(l=>l.visited.length>0);clean.course.preservedAccess=['properties','physical','chemical'].filter(id=>value.progress?.[id]==='started'||clean.lessons[id]?.visited.length>0);}
   clean.propertyTable=sanitiseTable(value.propertyTable);
   clean.investigation=sanitiseInvestigation(value.investigation);
