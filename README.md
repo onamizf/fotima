@@ -153,3 +153,7 @@ python tests/release_cache_e2e.py
 
 Проверки: `node tests/validate_wardrobe_layers.cjs`, `python tests/safety_wardrobe_layers_e2e.py`,
 `python tests/safety_wardrobe_package.py`; локальный URL задаёт `FOTIMA_TEST_URL`.
+
+### Гардероб: полные слои одежды — 1.27.0
+
+Добавлены прозрачная база и 40 WebP-слоёв 896×1200 с общим холстом. Старые координаты посадки удалены; калибруется только запасная обувь без WebP. Один предмет на категорию; комплекты кислот и повара приведены к этому правилу. Инструкция: [WARDROBE_FULL_CANVAS_RELEASE.md](WARDROBE_FULL_CANVAS_RELEASE.md).

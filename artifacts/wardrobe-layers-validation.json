@@ -1,5 +1,6 @@
 {
   "status": "passed",
+  "version": "1.27.0",
   "geometry": [
     {
       "width": 1920,
@@ -56,18 +57,221 @@
       "columns": 4
     }
   ],
+  "layers": [
+    {
+      "id": "cap",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "hard-hat",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "fire-helmet",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "miner-helmet",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "chef-hat",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "bee-hat",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "space-helmet",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "goggles",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "sealed-goggles",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "medical-mask",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "respirator",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "face-shield",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "welding-mask",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "fire-breathing",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "lab-coat",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "surgical-gown",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "apron",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "coverall",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "fire-suit",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "hi-vis-vest",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "welder-jacket",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "bee-suit",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "chef-jacket",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "work-overall",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "space-suit",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "nitrile-gloves",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "rubber-gloves",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "heat-gloves",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "work-gloves",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "welding-gauntlets",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "dielectric-gloves",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "bee-gloves",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "space-gloves",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "closed-shoes",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "shoe-covers",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "steel-boots",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "fire-boots",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "dielectric-boots",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "chef-shoes",
+      "w": 896,
+      "h": 1200
+    },
+    {
+      "id": "space-boots",
+      "w": 896,
+      "h": 1200
+    }
+  ],
   "checks": [
-    "physical item layers and coat/apron stacking",
-    "two independently anchored gloves and shoes",
+    "40 decodable 896x1200 WebP layers",
+    "body category replacement",
+    "unchanged full-canvas registration",
+    "alpha hit testing without transparent layers stealing clicks",
     "helmet hide/reveal and shield ordering",
-    "air tank behind base and mask in front",
-    "same-scene rug registration and cover scale",
-    "no document scrolling at desktop sizes",
-    "responsive 5/4 column selection",
-    "shared parallax and reduced motion",
-    "drag, wheel, rotate, clipboard JSON calibration",
-    "flipping and clean exit",
-    "unavailable art fallbacks without changing profession logic"
+    "paired missing-boots fallback",
+    "file appearance picked up automatically",
+    "foot registration on rug",
+    "62 percent viewport height and full visibility",
+    "no document scroll",
+    "fallback-only collapsible calibration and JSON",
+    "no XP for free dress-up"
   ],
   "js_errors": []
 }

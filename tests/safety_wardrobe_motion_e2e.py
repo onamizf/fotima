@@ -6,7 +6,7 @@ from playwright.sync_api import sync_playwright
 BASE=os.environ.get('FOTIMA_TEST_URL','http://127.0.0.1:8051/')
 with sync_playwright() as p:
  b=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox']);q=b.new_page(viewport={'width':1400,'height':1000});q.route('https://fonts.googleapis.com/**',lambda r:r.fulfill(status=200,body=''))
- errors=[];console=[];q.on('pageerror',lambda e:errors.append(str(e)));q.on('console',lambda m:console.append(m.text) if m.type=='error' else None)
+ errors=[];console=[];bad_responses=[];q.on('response',lambda r:bad_responses.append(r.url) if r.status>=400 else None);q.on('pageerror',lambda e:errors.append(str(e)));q.on('console',lambda m:console.append(m.text) if m.type=='error' else None)
  register_local(q,BASE,'Normal motion')
  for route in ['#home','#topics','#resources/glossary','#materials/properties']:
   q.goto(BASE+route);q.wait_for_selector('main');assert q.locator('main').inner_text()
@@ -31,7 +31,7 @@ with sync_playwright() as p:
  # Return via Esc and check lifecycle cleanup.
  q.keyboard.press('Escape');q.wait_for_url('**/#home');q.wait_for_timeout(1000);assert not q.locator('.sw-flying,.sw-confetti').count()
  assert not errors,errors
- unexpected=[e for e in console if 'ERR_FAILED' not in e] # requests intentionally aborted in the fallback scenario
- assert not unexpected,unexpected
+ unexpected=[e for e in console if 'ERR_FAILED' not in e and not ('404' in e and any(url.endswith('/wear/rubber-boots.webp') for url in bad_responses))] # requests intentionally aborted in the fallback scenario
+ assert not unexpected,unexpected;assert not [url for url in bad_responses if not url.endswith('/wear/rubber-boots.webp')],bad_responses
  print('PASS normal animation, friendly feedback, hints, confirmation, image fallbacks, lifecycle, existing routes; no unexpected console errors')
  b.close()
