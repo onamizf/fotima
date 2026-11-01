@@ -1,0 +1,73 @@
+{
+  "status": "passed",
+  "geometry": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "expanded": false,
+      "columns": 5
+    },
+    {
+      "width": 1920,
+      "height": 1080,
+      "expanded": true,
+      "columns": 5
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "expanded": false,
+      "columns": 5
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "expanded": true,
+      "columns": 5
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "expanded": false,
+      "columns": 5
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "expanded": true,
+      "columns": 4
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "expanded": false,
+      "columns": 4
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "expanded": false,
+      "columns": 4
+    },
+    {
+      "width": 320,
+      "height": 640,
+      "expanded": false,
+      "columns": 4
+    }
+  ],
+  "checks": [
+    "physical item layers and coat/apron stacking",
+    "two independently anchored gloves and shoes",
+    "helmet hide/reveal and shield ordering",
+    "air tank behind base and mask in front",
+    "same-scene rug registration and cover scale",
+    "no document scrolling at desktop sizes",
+    "responsive 5/4 column selection",
+    "shared parallax and reduced motion",
+    "drag, wheel, rotate, clipboard JSON calibration",
+    "flipping and clean exit",
+    "unavailable art fallbacks without changing profession logic"
+  ],
+  "js_errors": []
+}

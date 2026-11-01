@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "version": "1.26.0",
+  "checks": [
+    "real build under /fotima/",
+    "41 isolated PNGs and relative source URLs",
+    "base and JPEG background included",
+    "actual wear interaction and image decoding",
+    "desktop viewport fits without document scroll",
+    "content-derived script/style cache keys"
+  ],
+  "js_errors": [],
+  "bad_responses": []
+}

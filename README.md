@@ -142,3 +142,14 @@ python tests/release_cache_e2e.py
 
 Подробности и файлы: [PERIODIC_FILTERS_DROPDOWN_RELEASE.md](PERIODIC_FILTERS_DROPDOWN_RELEASE.md).
 Проверки: `python tests/periodic_filters_e2e.py` и `python tests/dropdown_e2e.py` с `LAB_TEST_BASE` локального сервера.
+
+### Гардероб: комната и бумажная кукла — 1.26.0
+
+Комната, базовый персонаж и 41 прозрачная вещь образуют общую сцену, привязанную к коврику.
+Одежда надевается слоями; перчатки и обувь имеют отдельные левую/правую части.
+Профессии, подсказки, финальные сцены и XP версии 1.25.0 сохранены.
+Режим настройки посадки: `?v=1.26.0&calibrate=1#safety-wardrobe`.
+Инструкция и файлы: [WARDROBE_PAPER_DOLL_RELEASE.md](WARDROBE_PAPER_DOLL_RELEASE.md).
+
+Проверки: `node tests/validate_wardrobe_layers.cjs`, `python tests/safety_wardrobe_layers_e2e.py`,
+`python tests/safety_wardrobe_package.py`; локальный URL задаёт `FOTIMA_TEST_URL`.
