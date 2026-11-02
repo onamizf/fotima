@@ -30,7 +30,7 @@
 - `src/safety-wardrobe.js` — загрузка/кэш, альфа-попадание, проявление и растворение слоёв, управление, калибровка.
 - `src/safety-wardrobe.css` — общий холст, положение персонажа и облачка, адаптивность, эффекты и панель калибровки.
 - `assets/game/frog-base.webp`, `assets/game/wear/*.webp` — прозрачная база и 40 слоёв.
-- `assets/game/frog-base.png` — удалена прежняя неиспользуемая база другого формата.
+- Прежняя неиспользуемая PNG-база удалена.
 - `index.html` — версия 1.27.0 и ключи кэша.
 - `tests/validate_wardrobe_layers.cjs`, `tests/safety_wardrobe_layers_e2e.py`, `tests/safety_wardrobe_full_motion_e2e.py`, `tests/safety_wardrobe_motion_e2e.py`, `tests/safety_wardrobe_package.py` — проверки новых слоёв, сохранности правил, обычной/уменьшенной анимации, сборки Pages.
 - `README.md`, этот файл, `artifacts/wardrobe-*` — инструкция, результаты и скриншоты.

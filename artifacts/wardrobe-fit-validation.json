@@ -1,0 +1,380 @@
+{
+  "status": "passed",
+  "version": "1.28.0",
+  "frames": [
+    {
+      "name": "sw-doll",
+      "x": 384.9296875,
+      "y": 297.671875,
+      "w": 311.078125,
+      "h": 416.625,
+      "transform": "none",
+      "translate": "none",
+      "scale": "none",
+      "rotate": "none",
+      "padding": "0px",
+      "margin": "0px",
+      "outline": "2px"
+    },
+    {
+      "name": "sw-base",
+      "x": 384.9296875,
+      "y": 297.671875,
+      "w": 311.078125,
+      "h": 416.625,
+      "transform": "none",
+      "translate": "none",
+      "scale": "none",
+      "rotate": "none",
+      "padding": "0px",
+      "margin": "0px",
+      "outline": "2px"
+    },
+    {
+      "name": "frog-base feet-hidden",
+      "x": 384.9296875,
+      "y": 297.671875,
+      "w": 311.078125,
+      "h": 416.625,
+      "transform": "none",
+      "translate": "none",
+      "scale": "none",
+      "rotate": "none",
+      "padding": "0px",
+      "margin": "0px",
+      "outline": "2px"
+    },
+    {
+      "name": "sw-wearable sw-full-layer",
+      "x": 384.9296875,
+      "y": 297.671875,
+      "w": 311.078125,
+      "h": 416.625,
+      "transform": "none",
+      "translate": "none",
+      "scale": "none",
+      "rotate": "none",
+      "padding": "0px",
+      "margin": "0px",
+      "outline": "2px"
+    },
+    {
+      "name": "sw-layer-image",
+      "x": 384.9296875,
+      "y": 297.671875,
+      "w": 311.078125,
+      "h": 416.625,
+      "transform": "none",
+      "translate": "none",
+      "scale": "none",
+      "rotate": "none",
+      "padding": "0px",
+      "margin": "0px",
+      "outline": "1px"
+    },
+    {
+      "name": "sw-wearable sw-full-layer",
+      "x": 384.9296875,
+      "y": 297.671875,
+      "w": 311.078125,
+      "h": 416.625,
+      "transform": "none",
+      "translate": "none",
+      "scale": "none",
+      "rotate": "none",
+      "padding": "0px",
+      "margin": "0px",
+      "outline": "2px"
+    },
+    {
+      "name": "sw-layer-image",
+      "x": 384.9296875,
+      "y": 297.671875,
+      "w": 311.078125,
+      "h": 416.625,
+      "transform": "none",
+      "translate": "none",
+      "scale": "none",
+      "rotate": "none",
+      "padding": "0px",
+      "margin": "0px",
+      "outline": "1px"
+    },
+    {
+      "name": "sw-wearable sw-full-layer",
+      "x": 384.9296875,
+      "y": 297.671875,
+      "w": 311.078125,
+      "h": 416.625,
+      "transform": "none",
+      "translate": "none",
+      "scale": "none",
+      "rotate": "none",
+      "padding": "0px",
+      "margin": "0px",
+      "outline": "2px"
+    },
+    {
+      "name": "sw-layer-image",
+      "x": 384.9296875,
+      "y": 297.671875,
+      "w": 311.078125,
+      "h": 416.625,
+      "transform": "none",
+      "translate": "none",
+      "scale": "none",
+      "rotate": "none",
+      "padding": "0px",
+      "margin": "0px",
+      "outline": "1px"
+    },
+    {
+      "name": "sw-wearable sw-full-layer",
+      "x": 384.9296875,
+      "y": 297.671875,
+      "w": 311.078125,
+      "h": 416.625,
+      "transform": "none",
+      "translate": "none",
+      "scale": "none",
+      "rotate": "none",
+      "padding": "0px",
+      "margin": "0px",
+      "outline": "2px"
+    },
+    {
+      "name": "sw-layer-image",
+      "x": 384.9296875,
+      "y": 297.671875,
+      "w": 311.078125,
+      "h": 416.625,
+      "transform": "none",
+      "translate": "none",
+      "scale": "none",
+      "rotate": "none",
+      "padding": "0px",
+      "margin": "0px",
+      "outline": "1px"
+    },
+    {
+      "name": "sw-wearable sw-full-layer",
+      "x": 384.9296875,
+      "y": 297.671875,
+      "w": 311.078125,
+      "h": 416.625,
+      "transform": "none",
+      "translate": "none",
+      "scale": "none",
+      "rotate": "none",
+      "padding": "0px",
+      "margin": "0px",
+      "outline": "2px"
+    },
+    {
+      "name": "sw-layer-image",
+      "x": 384.9296875,
+      "y": 297.671875,
+      "w": 311.078125,
+      "h": 416.625,
+      "transform": "none",
+      "translate": "none",
+      "scale": "none",
+      "rotate": "none",
+      "padding": "0px",
+      "margin": "0px",
+      "outline": "1px"
+    }
+  ],
+  "badge_gaps": [
+    {
+      "width": 1920,
+      "height": 1080,
+      "gap": 52.014843749999955
+    },
+    {
+      "width": 1366,
+      "height": 768,
+      "gap": 17.756875000000036
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "gap": 29.491250000000036
+    }
+  ],
+  "contrasts": {
+    ".sw-dialog h2": {
+      "ratio": 13.619581107785315,
+      "color": "rgb(31, 42, 68)",
+      "bg": [
+        255,
+        249,
+        240
+      ]
+    },
+    ".sw-dialog p": {
+      "ratio": 10.936377944008315,
+      "color": "rgb(46, 58, 79)",
+      "bg": [
+        255,
+        249,
+        240
+      ]
+    },
+    ".sw-dialog-close": {
+      "ratio": 11.486559332144813,
+      "color": "rgb(31, 42, 68)",
+      "bg": [
+        236,
+        230,
+        220
+      ]
+    },
+    ".sw-profession-heading h2": {
+      "ratio": 13.619581107785315,
+      "color": "rgb(31, 42, 68)",
+      "bg": [
+        255,
+        249,
+        240
+      ]
+    },
+    ".sw-profession-heading p": {
+      "ratio": 10.936377944008315,
+      "color": "rgb(46, 58, 79)",
+      "bg": [
+        255,
+        249,
+        240
+      ]
+    },
+    ".sw-profession strong": {
+      "ratio": 14.257412370455627,
+      "color": "rgb(31, 42, 68)",
+      "bg": [
+        255,
+        255,
+        255
+      ]
+    },
+    ".sw-profession small": {
+      "ratio": 5.958175744429756,
+      "color": "rgb(91, 100, 117)",
+      "bg": [
+        255,
+        255,
+        255
+      ]
+    },
+    ".sw-profession-number": {
+      "ratio": 12.707228615909845,
+      "color": "rgb(31, 42, 68)",
+      "bg": [
+        238,
+        242,
+        250
+      ]
+    },
+    ".sw-profession-group": {
+      "ratio": 7.590938239929441,
+      "color": "rgb(32, 83, 58)",
+      "bg": [
+        217,
+        243,
+        230
+      ]
+    },
+    ".sw-profession[data-group=\"0\"] .sw-profession-group": {
+      "ratio": 7.590938239929441,
+      "color": "rgb(32, 83, 58)",
+      "bg": [
+        217,
+        243,
+        230
+      ]
+    },
+    ".sw-profession[data-group=\"1\"] .sw-profession-group": {
+      "ratio": 8.387882240697298,
+      "color": "rgb(36, 68, 105)",
+      "bg": [
+        222,
+        237,
+        255
+      ]
+    },
+    ".sw-profession[data-group=\"2\"] .sw-profession-group": {
+      "ratio": 7.2245225183616775,
+      "color": "rgb(128, 50, 46)",
+      "bg": [
+        255,
+        228,
+        225
+      ]
+    },
+    ".sw-profession[data-group=\"3\"] .sw-profession-group": {
+      "ratio": 7.228217076095543,
+      "color": "rgb(117, 68, 14)",
+      "bg": [
+        255,
+        240,
+        217
+      ]
+    },
+    ".sw-profession[data-group=\"4\"] .sw-profession-group": {
+      "ratio": 7.205097008937694,
+      "color": "rgb(87, 64, 121)",
+      "bg": [
+        238,
+        230,
+        255
+      ]
+    }
+  },
+  "profession_grid": [
+    {
+      "width": 1366,
+      "columns": 4,
+      "card": {
+        "w": 254,
+        "h": 207.390625
+      }
+    },
+    {
+      "width": 768,
+      "columns": 3,
+      "card": {
+        "w": 216,
+        "h": 207.390625
+      }
+    },
+    {
+      "width": 390,
+      "columns": 2,
+      "card": {
+        "w": 161,
+        "h": 219.390625
+      }
+    },
+    {
+      "width": 320,
+      "columns": 2,
+      "card": {
+        "w": 126,
+        "h": 219.390625
+      }
+    }
+  ],
+  "checks": [
+    "seven supplied leg/shoe layers load",
+    "mask only after full shoe load",
+    "mask removed on unequip and absent for fallback",
+    "all full canvases share coordinates and no transforms",
+    "frame toggle in calibration only",
+    "badges below shoe pixels",
+    "readable modal text and close control",
+    "13 cards in one ordered equal grid",
+    "4/3/2 columns and internal scrolling",
+    "completion mark and original 20 XP reward"
+  ],
+  "js_errors": []
+}

@@ -1,0 +1,46 @@
+{
+  "status": "passed",
+  "source": "feet-layers-fix.zip",
+  "checks": [
+    "all seven supplied WebP files copied byte for byte",
+    "profession/item/scene data unchanged",
+    "XP, storage and routing source unchanged"
+  ],
+  "assets": [
+    {
+      "path": "assets/game/wear/space-boots.webp",
+      "sha256": "629d05df23d3602e5e634d27c6d16f40a0a756f97610863fbdbc1fe8c9007ca8",
+      "bytes": 18962
+    },
+    {
+      "path": "assets/game/wear/dielectric-boots.webp",
+      "sha256": "8691aa68121fdd5685548c7ab24aee5af5ce760150e8b1420495a634789ef381",
+      "bytes": 15800
+    },
+    {
+      "path": "assets/game/wear/fire-boots.webp",
+      "sha256": "86ff8b72cbaeafdbe4ac53ab6de52f8e76c1fe294388b67f5bd25e1472c31cee",
+      "bytes": 16440
+    },
+    {
+      "path": "assets/game/wear/steel-boots.webp",
+      "sha256": "b4aefd156e8741c8d4c848dc31aa081c7b8f02c55da9f26256f30a7e533e56b9",
+      "bytes": 15164
+    },
+    {
+      "path": "assets/game/wear/chef-shoes.webp",
+      "sha256": "29d2d3ceaddaa8092e4eccbd093bf18cb4d2f432ed36eeb3df29f4e1ee96baa5",
+      "bytes": 14548
+    },
+    {
+      "path": "assets/game/wear/shoe-covers.webp",
+      "sha256": "d5f912c9e05a75b4f0c99eaa4a215af6caf68fb632068263e69090c25bec8a1e",
+      "bytes": 16102
+    },
+    {
+      "path": "assets/game/wear/closed-shoes.webp",
+      "sha256": "ffb744258edbb0f2622f9435fc39a9c8c575b80caa2e4da507d6beff7e384474",
+      "bytes": 13716
+    }
+  ]
+}

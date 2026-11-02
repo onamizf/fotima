@@ -1060,6 +1060,26 @@ const SafetyWardrobeData = {
       "ru": "Настроить запасные иконки",
       "uz-Latn": "Zaxira belgilarini sozlash",
       "en": "Adjust fallback icons"
+    },
+    "showFrames": {
+      "ru": "Показать рамки",
+      "uz-Latn": "Chegaralarni ko‘rsatish",
+      "en": "Show outlines"
+    },
+    "hideFrames": {
+      "ru": "Скрыть рамки",
+      "uz-Latn": "Chegaralarni yashirish",
+      "en": "Hide outlines"
+    },
+    "professionProgress": {
+      "ru": "Пройдено: {n} / 13",
+      "uz-Latn": "Bajarildi: {n} / 13",
+      "en": "Completed: {n} / 13"
+    },
+    "professionCompleted": {
+      "ru": "Профессия пройдена",
+      "uz-Latn": "Kasb bajarildi",
+      "en": "Profession completed"
     }
   },
   "scene": {

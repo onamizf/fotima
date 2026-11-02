@@ -31,7 +31,7 @@ with sync_playwright() as p:
  # Return via Esc and check lifecycle cleanup.
  q.keyboard.press('Escape');q.wait_for_url('**/#home');q.wait_for_timeout(1000);assert not q.locator('.sw-flying,.sw-confetti').count()
  assert not errors,errors
- unexpected=[e for e in console if 'ERR_FAILED' not in e and not ('404' in e and any(url.endswith('/wear/rubber-boots.webp') for url in bad_responses))] # requests intentionally aborted in the fallback scenario
- assert not unexpected,unexpected;assert not [url for url in bad_responses if not url.endswith('/wear/rubber-boots.webp')],bad_responses
+ unexpected=[e for e in console if 'ERR_FAILED' not in e and not ('404' in e and any(url.split('?')[0].endswith('/wear/rubber-boots.webp') for url in bad_responses))] # requests intentionally aborted in the fallback scenario
+ assert not unexpected,unexpected;assert not [url for url in bad_responses if not url.split('?')[0].endswith('/wear/rubber-boots.webp')],bad_responses
  print('PASS normal animation, friendly feedback, hints, confirmation, image fallbacks, lifecycle, existing routes; no unexpected console errors')
  b.close()
