@@ -69,7 +69,21 @@ const SafetyWardrobeData = {
         "ru": "Защищает голову от падающих предметов."
       },
       "layer": "assets/game/wear/hard-hat.webp",
-      "z": 80
+      "z": 80,
+      "registration": {
+        "source": [
+          0,
+          0,
+          896,
+          1200
+        ],
+        "body": [
+          18,
+          -20,
+          878,
+          916
+        ]
+      }
     },
     {
       "id": "fire-helmet",
@@ -820,6 +834,72 @@ const SafetyWardrobeData = {
       "coverage": {
         "hideShirtSleeves": true,
         "trousersOverBoots": true
+      },
+      "joints": {
+        "cuffs": [
+          {
+            "pins": [
+              {
+                "from": [
+                  174,
+                  712
+                ],
+                "to": [
+                  177,
+                  722
+                ]
+              },
+              {
+                "from": [
+                  239,
+                  733
+                ],
+                "to": [
+                  257,
+                  746
+                ]
+              }
+            ],
+            "opening": {
+              "x": 217,
+              "y": 734,
+              "rx": 35,
+              "ry": 6,
+              "angle": 17
+            }
+          },
+          {
+            "pins": [
+              {
+                "from": [
+                  722,
+                  712
+                ],
+                "to": [
+                  719,
+                  722
+                ]
+              },
+              {
+                "from": [
+                  657,
+                  733
+                ],
+                "to": [
+                  639,
+                  746
+                ]
+              }
+            ],
+            "opening": {
+              "x": 679,
+              "y": 734,
+              "rx": 35,
+              "ry": 6,
+              "angle": -17
+            }
+          }
+        ]
       }
     },
     {

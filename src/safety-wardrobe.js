@@ -75,7 +75,7 @@ const SafetyWardrobe=(()=>{
   if(patches.length&&!entry.fitted)entry.fitted=WardrobeJoints.rasterize(entry.image,r,patches);
   const fitted=patches.length&&entry.fitted;
   const image=`<image href="${fitted||assetURL(i.layer)}" x="${fitted?0:r.x}" y="${fitted?0:r.y}" width="${fitted?896:r.width}" height="${fitted?1200:r.height}" preserveAspectRatio="none"></image>`;
-  const openings=i.joints?[...patches.map(p=>p.opening),...(i.joints.neck.opening?[i.joints.neck.opening]:[])]:[];
+  const openings=i.joints?[...patches.map(p=>p.opening),...(i.joints.neck?.opening?[i.joints.neck.opening]:[])]:[];
   let contents=openings.length?`<defs><clipPath id="${id}-openings"><path clip-rule="evenodd" d="M0 0H896V1200H0Z${openings.map(openingPath).join('')}"></path></clipPath></defs><g clip-path="url(#${id}-openings)">${image}</g>`:image;
   if(connection&&i.id===connection.bodyId){
    const prefix='sw-trousers-'+connection.key;
@@ -105,7 +105,7 @@ const SafetyWardrobe=(()=>{
  function preloadCategory(){d.items.filter(i=>i.category===category).forEach(i=>loadLayer(i.id));}
  function modelAlpha(i,point,connection){
   const connected=connection&&i.id===connection.footId,patches=connected?connection.patches:jointGeometry(i);
-  if(i.joints&&[...patches.map(p=>p.opening),...(i.joints.neck.opening?[i.joints.neck.opening]:[])].some(o=>WardrobeJoints.inOpening(o,...point)))return 0;
+  if(i.joints&&[...patches.map(p=>p.opening),...(i.joints.neck?.opening?[i.joints.neck.opening]:[])].some(o=>WardrobeJoints.inOpening(o,...point)))return 0;
   const [jointX,jointY]=WardrobeJoints.inverse(patches,...point),r=registration(i),x=(jointX-r.x)/r.width,y=(jointY-r.y)/r.height;
   if(x<0||x>1||y<0||y>1)return 0;
   if(!connected&&i.coverage?.clipAbove&&point[1]/12<i.coverage.clipAbove)return 0;

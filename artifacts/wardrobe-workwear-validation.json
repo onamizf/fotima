@@ -1,0 +1,77 @@
+{
+  "status": "passed",
+  "version": "1.32.0",
+  "original_models_unchanged": [
+    "work-overall",
+    "hard-hat"
+  ],
+  "eye_samples": [
+    {
+      "x": 335,
+      "y": 159,
+      "rgb": [
+        157,
+        93,
+        26
+      ]
+    },
+    {
+      "x": 348,
+      "y": 178,
+      "rgb": [
+        19,
+        17,
+        13
+      ]
+    },
+    {
+      "x": 363,
+      "y": 197,
+      "rgb": [
+        29,
+        25,
+        22
+      ]
+    },
+    {
+      "x": 533,
+      "y": 197,
+      "rgb": [
+        29,
+        25,
+        22
+      ]
+    },
+    {
+      "x": 548,
+      "y": 178,
+      "rgb": [
+        17,
+        15,
+        13
+      ]
+    },
+    {
+      "x": 561,
+      "y": 159,
+      "rgb": [
+        119,
+        75,
+        39
+      ]
+    }
+  ],
+  "checks": [
+    "both eyes show the original frog pixels below the brim",
+    "crown and raised brim remain inside full canvas",
+    "two workwear cuff openings reveal actual hands",
+    "cuff holes are not clothing hit targets",
+    "normal and mirrored sleeve removal",
+    "raised helmet uses registered hit coordinates",
+    "boots stay when overalls are removed",
+    "mask and goggles compatibility",
+    "desktop and two phone viewports",
+    "no free-mode XP"
+  ],
+  "js_errors": []
+}

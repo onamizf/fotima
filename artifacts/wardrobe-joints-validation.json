@@ -1,13 +1,14 @@
 {
   "status": "passed",
-  "version": "1.31.0",
+  "version": "1.32.0",
   "original_models_unchanged": [
     "chef-jacket",
     "fire-suit",
     "welder-jacket",
     "space-suit",
     "surgical-gown",
-    "lab-coat"
+    "lab-coat",
+    "work-overall"
   ],
   "samples": [
     {
@@ -161,10 +162,27 @@
       ],
       "neck_samples": [],
       "cached_raster": true
+    },
+    {
+      "item": "work-overall",
+      "cuff_rgb": [
+        [
+          150,
+          157,
+          86
+        ],
+        [
+          177,
+          182,
+          121
+        ]
+      ],
+      "neck_samples": [],
+      "cached_raster": true
     }
   ],
   "checks": [
-    "actual rendered pixels at twelve cuff openings show frog arms",
+    "actual rendered pixels at fourteen cuff openings show frog arms",
     "chef collar joins bare neck without baked T-shirt flap",
     "space collar entry connects neck from above",
     "cached pixel raster without mesh clip seams",

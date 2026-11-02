@@ -18,6 +18,6 @@ for(const item of data.items.filter(i=>i.joints)){
  }
  assert.deepEqual(JSON.parse(JSON.stringify(fit.inverse(patches,0,0))),[0,0]);
 }
-assert.equal(garments,6);const opening=data.items.find(i=>i.id==='space-suit').joints.neck.opening;
+assert.equal(garments,7);const opening=data.items.find(i=>i.id==='space-suit').joints.neck.opening;
 assert.ok(fit.inOpening(opening,448,410));assert.ok(fit.inOpening(opening,448,440));assert.ok(!fit.inOpening(opening,448,480));
 console.log(`PASS ${garments} garments, ${triangles} positive triangles, pinned cuffs, fixed borders and inverse hit coordinates`);
