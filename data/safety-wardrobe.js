@@ -1,4 +1,4 @@
-/* Прежние модели: общая регистрация и отдельная посадка воротников/манжет. */
+/* Прежние модели: анатомические стыки одежды и посадка обуви по штанинам. */
 const SafetyWardrobeData = {
   "categories": [
     {
@@ -1060,6 +1060,23 @@ const SafetyWardrobeData = {
           "opaque": 79.5,
           "hidden": 80
         }
+      },
+      "footwear": {
+        "mode": "covered",
+        "openings": [
+          {
+            "x": 372,
+            "y": 1024,
+            "outer": 45,
+            "ry": 13
+          },
+          {
+            "x": 524,
+            "y": 1024,
+            "outer": 45,
+            "ry": 13
+          }
+        ]
       }
     },
     {
@@ -1090,6 +1107,23 @@ const SafetyWardrobeData = {
       },
       "coverage": {
         "clipAbove": 77.5
+      },
+      "footwear": {
+        "mode": "tucked",
+        "openings": [
+          {
+            "x": 365,
+            "y": 940,
+            "outer": 56,
+            "ry": 11
+          },
+          {
+            "x": 544,
+            "y": 940,
+            "outer": 56,
+            "ry": 11
+          }
+        ]
       }
     },
     {
@@ -1113,6 +1147,23 @@ const SafetyWardrobeData = {
           "opaque": 79.5,
           "hidden": 80
         }
+      },
+      "footwear": {
+        "mode": "covered",
+        "openings": [
+          {
+            "x": 360,
+            "y": 1028,
+            "outer": 52,
+            "ry": 11
+          },
+          {
+            "x": 540,
+            "y": 1028,
+            "outer": 52,
+            "ry": 11
+          }
+        ]
       }
     },
     {
@@ -1126,7 +1177,24 @@ const SafetyWardrobeData = {
         "ru": "Защищают пальцы ног от тяжёлых предметов."
       },
       "layer": "assets/game/wear/steel-boots.webp",
-      "z": 40
+      "z": 40,
+      "footwear": {
+        "mode": "tucked",
+        "openings": [
+          {
+            "x": 365,
+            "y": 864,
+            "outer": 63,
+            "ry": 14
+          },
+          {
+            "x": 533,
+            "y": 864,
+            "outer": 63,
+            "ry": 14
+          }
+        ]
+      }
     },
     {
       "id": "fire-boots",
@@ -1139,7 +1207,24 @@ const SafetyWardrobeData = {
         "ru": "Защищают ноги от жара и опасных поверхностей."
       },
       "layer": "assets/game/wear/fire-boots.webp",
-      "z": 40
+      "z": 40,
+      "footwear": {
+        "mode": "tucked",
+        "openings": [
+          {
+            "x": 364,
+            "y": 895,
+            "outer": 57,
+            "ry": 14
+          },
+          {
+            "x": 536,
+            "y": 895,
+            "outer": 57,
+            "ry": 14
+          }
+        ]
+      }
     },
     {
       "id": "dielectric-boots",
@@ -1152,7 +1237,24 @@ const SafetyWardrobeData = {
         "ru": "Обеспечивают дополнительную защиту от тока."
       },
       "layer": "assets/game/wear/dielectric-boots.webp",
-      "z": 40
+      "z": 40,
+      "footwear": {
+        "mode": "tucked",
+        "openings": [
+          {
+            "x": 362,
+            "y": 863,
+            "outer": 63,
+            "ry": 14
+          },
+          {
+            "x": 535,
+            "y": 863,
+            "outer": 63,
+            "ry": 14
+          }
+        ]
+      }
     },
     {
       "id": "chef-shoes",
@@ -1175,6 +1277,23 @@ const SafetyWardrobeData = {
           "opaque": 79.5,
           "hidden": 80
         }
+      },
+      "footwear": {
+        "mode": "covered",
+        "openings": [
+          {
+            "x": 372,
+            "y": 1000,
+            "outer": 53,
+            "ry": 22
+          },
+          {
+            "x": 525,
+            "y": 1000,
+            "outer": 53,
+            "ry": 22
+          }
+        ]
       }
     },
     {
@@ -1188,7 +1307,24 @@ const SafetyWardrobeData = {
         "ru": "Защищают ноги в составе скафандра."
       },
       "layer": "assets/game/wear/space-boots.webp",
-      "z": 40
+      "z": 40,
+      "footwear": {
+        "mode": "tucked",
+        "openings": [
+          {
+            "x": 365,
+            "y": 912,
+            "outer": 62,
+            "ry": 13
+          },
+          {
+            "x": 532,
+            "y": 912,
+            "outer": 62,
+            "ry": 13
+          }
+        ]
+      }
     }
   ],
   "professions": [

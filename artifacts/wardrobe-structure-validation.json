@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "version": "1.30.0",
+  "version": "1.31.0",
   "original_models_unchanged": [
     "chef-hat",
     "chef-jacket",
@@ -46,7 +46,7 @@
     "source models byte-identical to 1.28.0",
     "anatomical registration in shared canvas",
     "base T-shirt sleeves hidden under garments",
-    "trousers above upper boots and shin inserts",
+    "rear boot lip below trousers and front shaft above",
     "registered alpha hit testing",
     "real full-canvas rubber boots",
     "separate footer including missing-image fallback",

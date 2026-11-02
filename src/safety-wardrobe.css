@@ -336,3 +336,6 @@ body.reduce-motion .sw-world { transform:none!important; will-change:auto; }
 .sw-neck-skin { position:absolute; inset:0; width:100%; height:100%; z-index:21; pointer-events:none; }
 .sw-base.shirt-collar-hidden { clip-path:url(#sw-shirt-collar-cutouts); }
 .sw-layer-image use { pointer-events:none; }
+
+/* Задник сапога скрывается за настоящей голенью, передняя часть охватывает её. */
+.sw-bare-boot-back { position:absolute; inset:0; width:100%; height:100%; z-index:19; pointer-events:none; }

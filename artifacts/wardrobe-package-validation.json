@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "version": "1.30.0",
+  "version": "1.31.0",
   "checks": [
     "real build under /fotima/",
     "41 isolated PNGs and relative source URLs",

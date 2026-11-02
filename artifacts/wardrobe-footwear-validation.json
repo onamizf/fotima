@@ -1,0 +1,1603 @@
+{
+  "status": "passed",
+  "version": "1.31.0",
+  "pairs": [
+    {
+      "body": "coverall",
+      "feet": "closed-shoes",
+      "mode": "covered",
+      "ankles": [
+        {
+          "x": 364,
+          "y": 1024,
+          "rx": 41.5,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1046,
+          "region": [
+            321,
+            407
+          ],
+          "top": 1038
+        },
+        {
+          "x": 534,
+          "y": 1024,
+          "rx": 41.5,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1046,
+          "region": [
+            491,
+            577
+          ],
+          "top": 1038
+        }
+      ]
+    },
+    {
+      "body": "coverall",
+      "feet": "rubber-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 367,
+          "y": 940,
+          "rx": 47.5,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1046,
+          "region": [
+            317,
+            416
+          ],
+          "top": 925
+        },
+        {
+          "x": 531.5,
+          "y": 940,
+          "rx": 47,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1046,
+          "region": [
+            483,
+            581
+          ],
+          "top": 925
+        }
+      ]
+    },
+    {
+      "body": "coverall",
+      "feet": "steel-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 368.5,
+          "y": 864,
+          "rx": 50,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1046,
+          "region": [
+            317,
+            420
+          ],
+          "top": 846
+        },
+        {
+          "x": 529.5,
+          "y": 864,
+          "rx": 50,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1046,
+          "region": [
+            478,
+            581
+          ],
+          "top": 846
+        }
+      ]
+    },
+    {
+      "body": "coverall",
+      "feet": "fire-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 367.5,
+          "y": 895,
+          "rx": 46,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1046,
+          "region": [
+            317,
+            416
+          ],
+          "top": 877
+        },
+        {
+          "x": 531,
+          "y": 895,
+          "rx": 46.5,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1046,
+          "region": [
+            482,
+            581
+          ],
+          "top": 877
+        }
+      ]
+    },
+    {
+      "body": "coverall",
+      "feet": "dielectric-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 368.5,
+          "y": 863,
+          "rx": 50,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1046,
+          "region": [
+            317,
+            420
+          ],
+          "top": 845
+        },
+        {
+          "x": 529.5,
+          "y": 863,
+          "rx": 50,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1046,
+          "region": [
+            478,
+            581
+          ],
+          "top": 845
+        }
+      ]
+    },
+    {
+      "body": "coverall",
+      "feet": "chef-shoes",
+      "mode": "covered",
+      "ankles": [
+        {
+          "x": 364.5,
+          "y": 1000,
+          "rx": 45,
+          "ry": 22,
+          "angle": 0,
+          "hem": 1046,
+          "region": [
+            317,
+            411
+          ],
+          "top": 1038
+        },
+        {
+          "x": 534,
+          "y": 1000,
+          "rx": 44.5,
+          "ry": 22,
+          "angle": 0,
+          "hem": 1046,
+          "region": [
+            487,
+            581
+          ],
+          "top": 1038
+        }
+      ]
+    },
+    {
+      "body": "coverall",
+      "feet": "space-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 367.5,
+          "y": 912,
+          "rx": 47,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1046,
+          "region": [
+            317,
+            416
+          ],
+          "top": 895
+        },
+        {
+          "x": 531.5,
+          "y": 912,
+          "rx": 47,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1046,
+          "region": [
+            482,
+            581
+          ],
+          "top": 895
+        }
+      ]
+    },
+    {
+      "body": "coverall",
+      "feet": "shoe-covers",
+      "mode": "covered",
+      "ankles": [
+        {
+          "x": 364.5,
+          "y": 1028,
+          "rx": 38,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1046,
+          "region": [
+            325,
+            404
+          ],
+          "top": 1038
+        },
+        {
+          "x": 533.5,
+          "y": 1028,
+          "rx": 38,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1046,
+          "region": [
+            494,
+            573
+          ],
+          "top": 1038
+        }
+      ]
+    },
+    {
+      "body": "fire-suit",
+      "feet": "closed-shoes",
+      "mode": "covered",
+      "ankles": [
+        {
+          "x": 363.5,
+          "y": 1024,
+          "rx": 53,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1062,
+          "region": [
+            307,
+            418
+          ],
+          "top": 1054
+        },
+        {
+          "x": 531,
+          "y": 1024,
+          "rx": 53.5,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1063,
+          "region": [
+            476,
+            587
+          ],
+          "top": 1055
+        }
+      ]
+    },
+    {
+      "body": "fire-suit",
+      "feet": "rubber-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 367,
+          "y": 940,
+          "rx": 52.5,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1062,
+          "region": [
+            306,
+            422
+          ],
+          "top": 925
+        },
+        {
+          "x": 526,
+          "y": 940,
+          "rx": 53.5,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1063,
+          "region": [
+            470,
+            587
+          ],
+          "top": 925
+        }
+      ]
+    },
+    {
+      "body": "fire-suit",
+      "feet": "steel-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 369,
+          "y": 864,
+          "rx": 62.5,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1062,
+          "region": [
+            305,
+            433
+          ],
+          "top": 846
+        },
+        {
+          "x": 524,
+          "y": 864,
+          "rx": 63.5,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1063,
+          "region": [
+            459,
+            589
+          ],
+          "top": 846
+        }
+      ]
+    },
+    {
+      "body": "fire-suit",
+      "feet": "fire-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 369.5,
+          "y": 895,
+          "rx": 55,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1062,
+          "region": [
+            306,
+            426
+          ],
+          "top": 877
+        },
+        {
+          "x": 522.5,
+          "y": 895,
+          "rx": 56,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1063,
+          "region": [
+            465,
+            587
+          ],
+          "top": 877
+        }
+      ]
+    },
+    {
+      "body": "fire-suit",
+      "feet": "dielectric-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 369,
+          "y": 863,
+          "rx": 62.5,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1062,
+          "region": [
+            305,
+            433
+          ],
+          "top": 845
+        },
+        {
+          "x": 524,
+          "y": 863,
+          "rx": 63.5,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1063,
+          "region": [
+            459,
+            589
+          ],
+          "top": 845
+        }
+      ]
+    },
+    {
+      "body": "fire-suit",
+      "feet": "chef-shoes",
+      "mode": "covered",
+      "ankles": [
+        {
+          "x": 364.5,
+          "y": 1000,
+          "rx": 54,
+          "ry": 22,
+          "angle": 0,
+          "hem": 1062,
+          "region": [
+            307,
+            420
+          ],
+          "top": 1054
+        },
+        {
+          "x": 529,
+          "y": 1000,
+          "rx": 54.5,
+          "ry": 22,
+          "angle": 0,
+          "hem": 1063,
+          "region": [
+            473,
+            587
+          ],
+          "top": 1055
+        }
+      ]
+    },
+    {
+      "body": "fire-suit",
+      "feet": "space-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 368,
+          "y": 912,
+          "rx": 56.5,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1062,
+          "region": [
+            306,
+            426
+          ],
+          "top": 895
+        },
+        {
+          "x": 524.5,
+          "y": 912,
+          "rx": 57,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1063,
+          "region": [
+            466,
+            587
+          ],
+          "top": 895
+        }
+      ]
+    },
+    {
+      "body": "fire-suit",
+      "feet": "shoe-covers",
+      "mode": "covered",
+      "ankles": [
+        {
+          "x": 363,
+          "y": 1028,
+          "rx": 53.5,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1062,
+          "region": [
+            307,
+            418
+          ],
+          "top": 1054
+        },
+        {
+          "x": 531.5,
+          "y": 1028,
+          "rx": 54,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1063,
+          "region": [
+            476,
+            587
+          ],
+          "top": 1055
+        }
+      ]
+    },
+    {
+      "body": "bee-suit",
+      "feet": "closed-shoes",
+      "mode": "covered",
+      "ankles": [
+        {
+          "x": 361,
+          "y": 1024,
+          "rx": 35.5,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1041,
+          "region": [
+            324,
+            398
+          ],
+          "top": 1033
+        },
+        {
+          "x": 534,
+          "y": 1024,
+          "rx": 35.5,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1041,
+          "region": [
+            497,
+            571
+          ],
+          "top": 1033
+        }
+      ]
+    },
+    {
+      "body": "bee-suit",
+      "feet": "rubber-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 361.5,
+          "y": 940,
+          "rx": 53,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1041,
+          "region": [
+            305,
+            417
+          ],
+          "top": 925
+        },
+        {
+          "x": 533,
+          "y": 940,
+          "rx": 52.5,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1041,
+          "region": [
+            478,
+            589
+          ],
+          "top": 925
+        }
+      ]
+    },
+    {
+      "body": "bee-suit",
+      "feet": "steel-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 364.5,
+          "y": 864,
+          "rx": 55,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1041,
+          "region": [
+            305,
+            421
+          ],
+          "top": 846
+        },
+        {
+          "x": 530,
+          "y": 864,
+          "rx": 55.5,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1041,
+          "region": [
+            473,
+            589
+          ],
+          "top": 846
+        }
+      ]
+    },
+    {
+      "body": "bee-suit",
+      "feet": "fire-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 365.5,
+          "y": 895,
+          "rx": 50,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1041,
+          "region": [
+            305,
+            418
+          ],
+          "top": 877
+        },
+        {
+          "x": 529.5,
+          "y": 895,
+          "rx": 50,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1041,
+          "region": [
+            477,
+            589
+          ],
+          "top": 877
+        }
+      ]
+    },
+    {
+      "body": "bee-suit",
+      "feet": "dielectric-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 365,
+          "y": 863,
+          "rx": 55.5,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1041,
+          "region": [
+            305,
+            422
+          ],
+          "top": 845
+        },
+        {
+          "x": 530,
+          "y": 863,
+          "rx": 55.5,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1041,
+          "region": [
+            473,
+            589
+          ],
+          "top": 845
+        }
+      ]
+    },
+    {
+      "body": "bee-suit",
+      "feet": "chef-shoes",
+      "mode": "covered",
+      "ankles": [
+        {
+          "x": 362,
+          "y": 1000,
+          "rx": 52.5,
+          "ry": 22,
+          "angle": 0,
+          "hem": 1041,
+          "region": [
+            308,
+            416
+          ],
+          "top": 1033
+        },
+        {
+          "x": 533,
+          "y": 1000,
+          "rx": 52.5,
+          "ry": 22,
+          "angle": 0,
+          "hem": 1041,
+          "region": [
+            479,
+            587
+          ],
+          "top": 1033
+        }
+      ]
+    },
+    {
+      "body": "bee-suit",
+      "feet": "space-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 363,
+          "y": 912,
+          "rx": 52.5,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1041,
+          "region": [
+            305,
+            418
+          ],
+          "top": 895
+        },
+        {
+          "x": 531.5,
+          "y": 912,
+          "rx": 52,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1041,
+          "region": [
+            477,
+            589
+          ],
+          "top": 895
+        }
+      ]
+    },
+    {
+      "body": "bee-suit",
+      "feet": "shoe-covers",
+      "mode": "covered",
+      "ankles": [
+        {
+          "x": 361,
+          "y": 1028,
+          "rx": 35.5,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1041,
+          "region": [
+            324,
+            398
+          ],
+          "top": 1033
+        },
+        {
+          "x": 534,
+          "y": 1028,
+          "rx": 35.5,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1041,
+          "region": [
+            497,
+            571
+          ],
+          "top": 1033
+        }
+      ]
+    },
+    {
+      "body": "work-overall",
+      "feet": "closed-shoes",
+      "mode": "covered",
+      "ankles": [
+        {
+          "x": 359,
+          "y": 1024,
+          "rx": 42.5,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1043,
+          "region": [
+            315,
+            404
+          ],
+          "top": 1035
+        },
+        {
+          "x": 537,
+          "y": 1024,
+          "rx": 42.5,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1043,
+          "region": [
+            492,
+            582
+          ],
+          "top": 1035
+        }
+      ]
+    },
+    {
+      "body": "work-overall",
+      "feet": "rubber-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 364.5,
+          "y": 940,
+          "rx": 48,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1043,
+          "region": [
+            310,
+            414
+          ],
+          "top": 925
+        },
+        {
+          "x": 532,
+          "y": 940,
+          "rx": 47.5,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1043,
+          "region": [
+            483,
+            585
+          ],
+          "top": 925
+        }
+      ]
+    },
+    {
+      "body": "work-overall",
+      "feet": "steel-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 367,
+          "y": 864,
+          "rx": 52.5,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1043,
+          "region": [
+            310,
+            421
+          ],
+          "top": 846
+        },
+        {
+          "x": 529.5,
+          "y": 864,
+          "rx": 52,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1043,
+          "region": [
+            476,
+            586
+          ],
+          "top": 846
+        }
+      ]
+    },
+    {
+      "body": "work-overall",
+      "feet": "fire-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 364.5,
+          "y": 895,
+          "rx": 49,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1043,
+          "region": [
+            310,
+            415
+          ],
+          "top": 877
+        },
+        {
+          "x": 531.5,
+          "y": 895,
+          "rx": 49,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1043,
+          "region": [
+            481,
+            586
+          ],
+          "top": 877
+        }
+      ]
+    },
+    {
+      "body": "work-overall",
+      "feet": "dielectric-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 366.5,
+          "y": 863,
+          "rx": 53,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1043,
+          "region": [
+            310,
+            421
+          ],
+          "top": 845
+        },
+        {
+          "x": 530,
+          "y": 863,
+          "rx": 52.5,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1043,
+          "region": [
+            476,
+            586
+          ],
+          "top": 845
+        }
+      ]
+    },
+    {
+      "body": "work-overall",
+      "feet": "chef-shoes",
+      "mode": "covered",
+      "ankles": [
+        {
+          "x": 361,
+          "y": 1000,
+          "rx": 47.5,
+          "ry": 22,
+          "angle": 0,
+          "hem": 1043,
+          "region": [
+            312,
+            410
+          ],
+          "top": 1035
+        },
+        {
+          "x": 535,
+          "y": 1000,
+          "rx": 47.5,
+          "ry": 22,
+          "angle": 0,
+          "hem": 1043,
+          "region": [
+            486,
+            584
+          ],
+          "top": 1035
+        }
+      ]
+    },
+    {
+      "body": "work-overall",
+      "feet": "space-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 361,
+          "y": 912,
+          "rx": 49.5,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1043,
+          "region": [
+            310,
+            414
+          ],
+          "top": 895
+        },
+        {
+          "x": 535,
+          "y": 912,
+          "rx": 49.5,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1043,
+          "region": [
+            482,
+            586
+          ],
+          "top": 895
+        }
+      ]
+    },
+    {
+      "body": "work-overall",
+      "feet": "shoe-covers",
+      "mode": "covered",
+      "ankles": [
+        {
+          "x": 359.5,
+          "y": 1028,
+          "rx": 43,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1043,
+          "region": [
+            315,
+            404
+          ],
+          "top": 1035
+        },
+        {
+          "x": 537,
+          "y": 1028,
+          "rx": 42.5,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1043,
+          "region": [
+            492,
+            582
+          ],
+          "top": 1035
+        }
+      ]
+    },
+    {
+      "body": "space-suit",
+      "feet": "closed-shoes",
+      "mode": "covered",
+      "ankles": [
+        {
+          "x": 361.5,
+          "y": 1024,
+          "rx": 38,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1038,
+          "region": [
+            322,
+            401
+          ],
+          "top": 1030
+        },
+        {
+          "x": 534.5,
+          "y": 1024,
+          "rx": 38,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1038,
+          "region": [
+            495,
+            574
+          ],
+          "top": 1030
+        }
+      ]
+    },
+    {
+      "body": "space-suit",
+      "feet": "rubber-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 360.5,
+          "y": 940,
+          "rx": 51,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1038,
+          "region": [
+            307,
+            415
+          ],
+          "top": 925
+        },
+        {
+          "x": 535.5,
+          "y": 940,
+          "rx": 51,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1038,
+          "region": [
+            481,
+            589
+          ],
+          "top": 925
+        }
+      ]
+    },
+    {
+      "body": "space-suit",
+      "feet": "steel-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 363,
+          "y": 864,
+          "rx": 57.5,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1038,
+          "region": [
+            303,
+            422
+          ],
+          "top": 846
+        },
+        {
+          "x": 532.5,
+          "y": 864,
+          "rx": 57,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1038,
+          "region": [
+            474,
+            591
+          ],
+          "top": 846
+        }
+      ]
+    },
+    {
+      "body": "space-suit",
+      "feet": "fire-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 359,
+          "y": 895,
+          "rx": 54.5,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1038,
+          "region": [
+            303,
+            415
+          ],
+          "top": 877
+        },
+        {
+          "x": 535,
+          "y": 895,
+          "rx": 54.5,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1038,
+          "region": [
+            479,
+            591
+          ],
+          "top": 877
+        }
+      ]
+    },
+    {
+      "body": "space-suit",
+      "feet": "dielectric-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 363,
+          "y": 863,
+          "rx": 57.5,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1038,
+          "region": [
+            303,
+            422
+          ],
+          "top": 845
+        },
+        {
+          "x": 532.5,
+          "y": 863,
+          "rx": 57,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1038,
+          "region": [
+            474,
+            591
+          ],
+          "top": 845
+        }
+      ]
+    },
+    {
+      "body": "space-suit",
+      "feet": "chef-shoes",
+      "mode": "covered",
+      "ankles": [
+        {
+          "x": 360.5,
+          "y": 1000,
+          "rx": 51,
+          "ry": 22,
+          "angle": 0,
+          "hem": 1038,
+          "region": [
+            308,
+            413
+          ],
+          "top": 1030
+        },
+        {
+          "x": 534.5,
+          "y": 1000,
+          "rx": 51,
+          "ry": 22,
+          "angle": 0,
+          "hem": 1038,
+          "region": [
+            482,
+            587
+          ],
+          "top": 1030
+        }
+      ]
+    },
+    {
+      "body": "space-suit",
+      "feet": "space-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 359,
+          "y": 912,
+          "rx": 53.5,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1038,
+          "region": [
+            304,
+            415
+          ],
+          "top": 895
+        },
+        {
+          "x": 536,
+          "y": 912,
+          "rx": 53.5,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1038,
+          "region": [
+            481,
+            591
+          ],
+          "top": 895
+        }
+      ]
+    },
+    {
+      "body": "space-suit",
+      "feet": "shoe-covers",
+      "mode": "covered",
+      "ankles": [
+        {
+          "x": 361.5,
+          "y": 1028,
+          "rx": 38,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1038,
+          "region": [
+            322,
+            401
+          ],
+          "top": 1030
+        },
+        {
+          "x": 534.5,
+          "y": 1028,
+          "rx": 38,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1038,
+          "region": [
+            495,
+            574
+          ],
+          "top": 1030
+        }
+      ]
+    },
+    {
+      "body": "base",
+      "feet": "closed-shoes",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 362,
+          "y": 1024,
+          "rx": 27.5,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1119,
+          "region": [
+            237,
+            400
+          ],
+          "top": 1007
+        },
+        {
+          "x": 532,
+          "y": 1024,
+          "rx": 27.5,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1119,
+          "region": [
+            494,
+            658
+          ],
+          "top": 1007
+        }
+      ]
+    },
+    {
+      "body": "base",
+      "feet": "rubber-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 365.5,
+          "y": 940,
+          "rx": 33,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1119,
+          "region": [
+            237,
+            400
+          ],
+          "top": 925
+        },
+        {
+          "x": 528.5,
+          "y": 940,
+          "rx": 33,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1119,
+          "region": [
+            494,
+            658
+          ],
+          "top": 925
+        }
+      ]
+    },
+    {
+      "body": "base",
+      "feet": "steel-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 364,
+          "y": 864,
+          "rx": 32.5,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1119,
+          "region": [
+            327,
+            404
+          ],
+          "top": 846
+        },
+        {
+          "x": 530.5,
+          "y": 864,
+          "rx": 32,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1119,
+          "region": [
+            491,
+            566
+          ],
+          "top": 846
+        }
+      ]
+    },
+    {
+      "body": "base",
+      "feet": "fire-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 365,
+          "y": 895,
+          "rx": 35.5,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1119,
+          "region": [
+            327,
+            404
+          ],
+          "top": 877
+        },
+        {
+          "x": 529.5,
+          "y": 895,
+          "rx": 35,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1119,
+          "region": [
+            491,
+            566
+          ],
+          "top": 877
+        }
+      ]
+    },
+    {
+      "body": "base",
+      "feet": "dielectric-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 364,
+          "y": 863,
+          "rx": 32.5,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1119,
+          "region": [
+            327,
+            404
+          ],
+          "top": 845
+        },
+        {
+          "x": 530.5,
+          "y": 863,
+          "rx": 32,
+          "ry": 14,
+          "angle": 0,
+          "hem": 1119,
+          "region": [
+            491,
+            566
+          ],
+          "top": 845
+        }
+      ]
+    },
+    {
+      "body": "base",
+      "feet": "chef-shoes",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 363.5,
+          "y": 1000,
+          "rx": 25,
+          "ry": 22,
+          "angle": 0,
+          "hem": 1119,
+          "region": [
+            237,
+            400
+          ],
+          "top": 974
+        },
+        {
+          "x": 530.5,
+          "y": 1000,
+          "rx": 25,
+          "ry": 22,
+          "angle": 0,
+          "hem": 1119,
+          "region": [
+            494,
+            658
+          ],
+          "top": 974
+        }
+      ]
+    },
+    {
+      "body": "base",
+      "feet": "space-boots",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 365.5,
+          "y": 912,
+          "rx": 37,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1119,
+          "region": [
+            327,
+            404
+          ],
+          "top": 895
+        },
+        {
+          "x": 528.5,
+          "y": 912,
+          "rx": 36,
+          "ry": 13,
+          "angle": 0,
+          "hem": 1119,
+          "region": [
+            491,
+            566
+          ],
+          "top": 895
+        }
+      ]
+    },
+    {
+      "body": "base",
+      "feet": "shoe-covers",
+      "mode": "tucked",
+      "ankles": [
+        {
+          "x": 361.5,
+          "y": 1028,
+          "rx": 29,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1119,
+          "region": [
+            237,
+            400
+          ],
+          "top": 1013
+        },
+        {
+          "x": 533,
+          "y": 1028,
+          "rx": 28.5,
+          "ry": 11,
+          "angle": 0,
+          "hem": 1119,
+          "region": [
+            494,
+            658
+          ],
+          "top": 1013
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "40 trouser/shoe pairs and 8 bare-leg pairs",
+    "actual cloth or frog pixels inside both openings",
+    "actual footwear pixels below both openings",
+    "rear/front order and removal including rear lip hits",
+    "switching body and shoes invalidates connection",
+    "mirrored pointer removal",
+    "coat drapes over shaft",
+    "source models unchanged",
+    "mobile viewport",
+    "no free-mode XP"
+  ],
+  "js_errors": []
+}
