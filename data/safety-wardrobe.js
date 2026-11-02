@@ -1,4 +1,4 @@
-/* Данные гардероба: готовые слои 896×1200 не требуют поправок посадки. */
+/* Модели сохранены; регистрация и зоны перекрытия привязывают одежду к телу. */
 const SafetyWardrobeData = {
   "categories": [
     {
@@ -108,7 +108,21 @@ const SafetyWardrobeData = {
         "ru": "Не даёт волосам попасть в пищу."
       },
       "layer": "assets/game/wear/chef-hat.webp",
-      "z": 80
+      "z": 80,
+      "registration": {
+        "source": [
+          228,
+          0,
+          699,
+          187
+        ],
+        "body": [
+          250,
+          6,
+          650,
+          152
+        ]
+      }
     },
     {
       "id": "bee-hat",
@@ -164,7 +178,21 @@ const SafetyWardrobeData = {
         "ru": "Закрывают глаза от брызг со всех сторон."
       },
       "layer": "assets/game/wear/sealed-goggles.webp",
-      "z": 70
+      "z": 70,
+      "registration": {
+        "source": [
+          229,
+          146,
+          669,
+          331
+        ],
+        "body": [
+          255,
+          105,
+          645,
+          252
+        ]
+      }
     },
     {
       "id": "medical-mask",
@@ -246,7 +274,10 @@ const SafetyWardrobeData = {
         "ru": "Защищает одежду и кожу при работе в лаборатории."
       },
       "layer": "assets/game/wear/lab-coat.webp",
-      "z": 30
+      "z": 30,
+      "coverage": {
+        "hideShirtSleeves": true
+      }
     },
     {
       "id": "surgical-gown",
@@ -259,7 +290,10 @@ const SafetyWardrobeData = {
         "ru": "Создаёт защитный барьер в операционной."
       },
       "layer": "assets/game/wear/surgical-gown.webp",
-      "z": 30
+      "z": 30,
+      "coverage": {
+        "hideShirtSleeves": true
+      }
     },
     {
       "id": "apron",
@@ -285,7 +319,11 @@ const SafetyWardrobeData = {
         "ru": "Закрывает тело при работе с опасными веществами."
       },
       "layer": "assets/game/wear/coverall.webp",
-      "z": 30
+      "z": 45,
+      "coverage": {
+        "hideShirtSleeves": true,
+        "trousersOverBoots": true
+      }
     },
     {
       "id": "fire-suit",
@@ -298,7 +336,25 @@ const SafetyWardrobeData = {
         "ru": "Защищает тело от жара."
       },
       "layer": "assets/game/wear/fire-suit.webp",
-      "z": 30
+      "z": 45,
+      "registration": {
+        "source": [
+          161,
+          357,
+          737,
+          1069
+        ],
+        "body": [
+          176,
+          410,
+          720,
+          1065
+        ]
+      },
+      "coverage": {
+        "hideShirtSleeves": true,
+        "trousersOverBoots": true
+      }
     },
     {
       "id": "hi-vis-vest",
@@ -324,7 +380,24 @@ const SafetyWardrobeData = {
         "ru": "Защищает от искр и горячих частиц."
       },
       "layer": "assets/game/wear/welder-jacket.webp",
-      "z": 30
+      "z": 30,
+      "registration": {
+        "source": [
+          144,
+          397,
+          752,
+          791
+        ],
+        "body": [
+          168,
+          412,
+          728,
+          772
+        ]
+      },
+      "coverage": {
+        "hideShirtSleeves": true
+      }
     },
     {
       "id": "bee-suit",
@@ -337,7 +410,11 @@ const SafetyWardrobeData = {
         "ru": "Закрывает тело от укусов пчёл."
       },
       "layer": "assets/game/wear/bee-suit.webp",
-      "z": 30
+      "z": 45,
+      "coverage": {
+        "hideShirtSleeves": true,
+        "trousersOverBoots": true
+      }
     },
     {
       "id": "chef-jacket",
@@ -350,7 +427,24 @@ const SafetyWardrobeData = {
         "ru": "Защищает тело при работе на кухне."
       },
       "layer": "assets/game/wear/chef-jacket.webp",
-      "z": 30
+      "z": 30,
+      "registration": {
+        "source": [
+          206,
+          376,
+          690,
+          720
+        ],
+        "body": [
+          206,
+          410,
+          690,
+          730
+        ]
+      },
+      "coverage": {
+        "hideShirtSleeves": true
+      }
     },
     {
       "id": "work-overall",
@@ -363,7 +457,25 @@ const SafetyWardrobeData = {
         "ru": "Защищает одежду и кожу при работе."
       },
       "layer": "assets/game/wear/work-overall.webp",
-      "z": 30
+      "z": 45,
+      "registration": {
+        "source": [
+          175,
+          374,
+          722,
+          1046
+        ],
+        "body": [
+          174,
+          414,
+          722,
+          1046
+        ]
+      },
+      "coverage": {
+        "hideShirtSleeves": true,
+        "trousersOverBoots": true
+      }
     },
     {
       "id": "space-suit",
@@ -376,7 +488,25 @@ const SafetyWardrobeData = {
         "ru": "Поддерживает безопасную среду в космосе."
       },
       "layer": "assets/game/wear/space-suit.webp",
-      "z": 30
+      "z": 45,
+      "registration": {
+        "source": [
+          177,
+          346,
+          720,
+          1035
+        ],
+        "body": [
+          174,
+          410,
+          722,
+          1040
+        ]
+      },
+      "coverage": {
+        "hideShirtSleeves": true,
+        "trousersOverBoots": true
+      }
     },
     {
       "id": "nitrile-gloves",
@@ -493,7 +623,17 @@ const SafetyWardrobeData = {
         "ru": "Закрывает стопы в лаборатории."
       },
       "layer": "assets/game/wear/closed-shoes.webp",
-      "z": 40
+      "z": 40,
+      "coverage": {
+        "footBlend": {
+          "from": 77.5,
+          "to": 79.5
+        },
+        "baseFeet": {
+          "opaque": 79.5,
+          "hidden": 80
+        }
+      }
     },
     {
       "id": "rubber-boots",
@@ -506,7 +646,24 @@ const SafetyWardrobeData = {
         "ru": "Защищают ноги от влаги и подходящих химикатов."
       },
       "layer": "assets/game/wear/rubber-boots.webp",
-      "z": 40
+      "z": 40,
+      "registration": {
+        "source": [
+          221,
+          875,
+          678,
+          1134
+        ],
+        "body": [
+          225,
+          930,
+          675,
+          1145
+        ]
+      },
+      "coverage": {
+        "clipAbove": 77.5
+      }
     },
     {
       "id": "shoe-covers",
@@ -519,7 +676,17 @@ const SafetyWardrobeData = {
         "ru": "Помогают сохранять чистоту операционной."
       },
       "layer": "assets/game/wear/shoe-covers.webp",
-      "z": 40
+      "z": 40,
+      "coverage": {
+        "footBlend": {
+          "from": 77.5,
+          "to": 79.5
+        },
+        "baseFeet": {
+          "opaque": 79.5,
+          "hidden": 80
+        }
+      }
     },
     {
       "id": "steel-boots",
@@ -571,7 +738,17 @@ const SafetyWardrobeData = {
         "ru": "Помогает не поскользнуться на кухне."
       },
       "layer": "assets/game/wear/chef-shoes.webp",
-      "z": 40
+      "z": 40,
+      "coverage": {
+        "footBlend": {
+          "from": 77.5,
+          "to": 79.5
+        },
+        "baseFeet": {
+          "opaque": 79.5,
+          "hidden": 80
+        }
+      }
     },
     {
       "id": "space-boots",

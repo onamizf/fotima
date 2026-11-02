@@ -42,12 +42,23 @@ const SafetyWardrobe=(()=>{
   return result.sort((a,b)=>a.z-b.z);
  }
 
- function layerStyle(p){return p.full?`z-index:${p.z}`:`left:${p.x}%;top:${p.y}%;width:${p.w}%;--wear-rotate:${p.rotate}deg;z-index:${p.z}`;}
+ function layerStyle(p){const blend=item(p.id).coverage?.footBlend;return p.full?`z-index:${p.z}${blend?`;--sw-foot-blend-from:${blend.from}%;--sw-foot-blend-to:${blend.to}%`:''}`:`left:${p.x}%;top:${p.y}%;width:${p.w}%;--wear-rotate:${p.rotate}deg;z-index:${p.z}`;}
 
+ // Разметка рисунка внутри общего холста привязана к анатомии манекена.
+ // Исходные WebP не меняются: SVG размещает прежнюю модель между опорными границами.
+ function registration(i){
+  const r=i.registration;if(!r)return {x:0,y:0,width:896,height:1200,sx:1,sy:1};
+  const [x1,y1,x2,y2]=r.source,[a1,b1,a2,b2]=r.body,sx=(a2-a1)/(x2-x1),sy=(b2-b1)/(y2-y1);
+  return {x:a1-x1*sx,y:b1-y1*sy,width:896*sx,height:1200*sy,sx,sy};
+ }
+ function registeredImage(i){
+  const r=registration(i);
+  return `<svg class="sw-layer-image ${i.coverage?.footBlend?'sw-foot-blend':''} ${i.coverage?.clipAbove?'sw-foot-top-clip':''}" viewBox="0 0 896 1200" preserveAspectRatio="none" aria-hidden="true" style="${i.coverage?.clipAbove?'--sw-foot-clip-top:'+i.coverage.clipAbove+'%':''}"><image href="${assetURL(i.layer)}" x="${r.x}" y="${r.y}" width="${r.width}" height="${r.height}" preserveAspectRatio="none"></image></svg>`;
+ }
  function layerMarkup(p){
   const i=item(p.id),label=esc(local(i.name));
   if(p.full){
-   return `<span class="sw-wearable sw-full-layer" data-sw-layer="${i.id}" data-sw-key="${p.key}" data-sw-slot="${i.category}" style="${layerStyle(p)}" role="img" aria-label="${label}">${image(i.layer,label,'sw-layer-image',false)}</span>`;
+   return `<span class="sw-wearable sw-full-layer" data-sw-layer="${i.id}" data-sw-key="${p.key}" data-sw-slot="${i.category}" style="${layerStyle(p)}" role="img" aria-label="${label}">${registeredImage(i)}</span>`;
   }
   return `<button type="button" class="sw-wearable sw-fallback-layer ${calibrationKey===p.key?'sw-calibration-selected':''}" data-sw-layer="${i.id}" data-sw-key="${p.key}" data-sw-part="${p.part}" data-sw-slot="${i.category}" style="${layerStyle(p)}" aria-label="${label}"><span class="sw-wear-pose ${p.part!=='icon'?'sw-half sw-half-'+p.part:''}">${sprite(i)}</span><span class="sw-layer-fallback" aria-hidden="true">${d.categories.find(c=>c.id===i.category).emoji}</span></button>`;
  }
@@ -70,14 +81,18 @@ const SafetyWardrobe=(()=>{
   let x=(event.clientX-box.left)/box.width,y=(event.clientY-box.top)/box.height;if(flipped)x=1-x;
   if(x<0||x>1||y<0||y>1)return;
   for(const p of pieces().filter(p=>p.full).reverse()){
+   const i=item(p.id),r=registration(i),sourceX=(x*896-r.x)/r.width,sourceY=(y*1200-r.y)/r.height;
+   if(sourceX<0||sourceX>1||sourceY<0||sourceY>1)continue;
+   if(i.coverage?.clipAbove&&y*100<i.coverage.clipAbove)continue;
+   const blend=i.coverage?.footBlend,opacity=blend?Math.max(0,Math.min(1,(y*100-blend.from)/(blend.to-blend.from))):1;
    const entry=layerCache.get(p.id);
    if(!entry.alpha){
     const canvas=document.createElement('canvas');canvas.width=entry.image.naturalWidth;canvas.height=entry.image.naturalHeight;
     const context=canvas.getContext('2d',{willReadFrequently:true});
     if(!context)continue;context.drawImage(entry.image,0,0);entry.alpha=context.getImageData(0,0,canvas.width,canvas.height).data;
    }
-   const w=entry.image.naturalWidth,h=entry.image.naturalHeight,index=(Math.min(h-1,Math.floor(y*h))*w+Math.min(w-1,Math.floor(x*w)))*4+3;
-   if(entry.alpha[index]>32){toggle(p.id,root.querySelector(`[data-sw-layer="${p.id}"]`));return;}
+   const w=entry.image.naturalWidth,h=entry.image.naturalHeight,index=(Math.min(h-1,Math.floor(sourceY*h))*w+Math.min(w-1,Math.floor(sourceX*w)))*4+3;
+   if(entry.alpha[index]*opacity>32){toggle(p.id,root.querySelector(`[data-sw-layer="${p.id}"]`));return;}
   }
  }
 
@@ -90,7 +105,11 @@ const SafetyWardrobe=(()=>{
  function tabs(){return `<div class="sw-tabs" role="tablist" aria-label="${text('wardrobe')}"><kbd>Q</kbd>${d.categories.map(c=>`<button type="button" role="tab" id="sw-tab-${c.id}" aria-controls="sw-items" aria-label="${esc(local(c.name))}" title="${esc(local(c.name))}" aria-selected="${category===c.id}" tabindex="${category===c.id?0:-1}" data-sw-category="${c.id}" class="${job&&job.required.some(id=>item(id).category===c.id&&!worn().includes(id))?'sw-needed':''}"><span aria-hidden="true">${c.emoji}</span><small class="sw-tab-tooltip">${local(c.name)}</small></button>`).join('')}<kbd>E</kbd></div>`;}
  function cards(){return d.items.filter(i=>i.category===category).map((i,n)=>`<button type="button" class="sw-card ${worn().includes(i.id)?'sw-selected':''}" data-sw-item="${i.id}" aria-pressed="${worn().includes(i.id)}" aria-label="${esc(local(i.name)+'. '+local(i.tip))}" title="${esc(local(i.name)+' — '+local(i.tip))}" style="--delay:${n*30}ms">${art(i)}<span class="sw-item-fallback" aria-hidden="true">${d.categories.find(c=>c.id===i.category).emoji}</span><span class="sw-check" aria-hidden="true">✓</span><span class="sw-tooltip">${local(i.name)}<small>${local(i.tip)}</small></span></button>`).join('');}
  function badges(){const obscure=worn().includes('space-helmet')||worn().includes('welding-mask');return worn().map(id=>{const i=item(id);return `<button type="button" data-sw-remove="${id}" class="sw-worn-icon ${obscure&&(i.category==='eyes'||i.category==='face')&&id!=='welding-mask'?'sw-obscured':''}" aria-label="${esc(local(i.name))}">${art(i)}</button>`;}).join('');}
- function wardrobe(){return `<div class="sw-room"><div class="sw-scene-viewport"><div class="sw-world" data-sw-scene><div class="sw-room-background" style="background-image:url('${d.scene.background}')"></div><div class="sw-character-anchor"><span class="sw-foot-shadow" aria-hidden="true"></span><div class="sw-frog-turn" style="transform:scaleX(${flipped?-1:1})"><div class="sw-frog-bounce"><div class="sw-frog-idle"><div class="sw-doll"><div class="sw-base">${image(d.scene.base,text('frogAlt'),'frog-base',false)}<span class="sw-frog-fallback" aria-hidden="true">🐸</span></div><div class="sw-layers">${layers()}</div></div></div></div></div><span class="sw-sparkles" aria-hidden="true"></span></div></div></div><p class="sw-speech" role="status" aria-live="polite">${job?local(job.greeting):text('freeIntro')}</p><div class="sw-vignette" aria-hidden="true"></div>${top()}<div class="sw-small-controls">${button('left','↶','sw-round',`aria-label="${text('left')}"`)}${button('right','↷','sw-round',`aria-label="${text('right')}"`)}${button('reset','↺','sw-round',`aria-label="${text('reset')}"`)}</div><div class="sw-worn"><span>${text('worn')}</span><div data-sw-worn>${badges()}</div></div><div class="sw-selection">${selection()}</div>${calibrationPanel()}</div>`;}
+ function coverageDefinitions(){
+  // Вычитаем только свободные рукава базовой футболки: ворот и середина остаются под открытой курткой.
+  return `<svg class="sw-coverage-defs" aria-hidden="true"><defs><clipPath id="sw-shirt-sleeve-cutouts" clipPathUnits="objectBoundingBox"><path clip-rule="evenodd" d="M0 0H1V1H0Z M.28 .32L.40 .32L.38 .47L.35 .49L.28 .44Z M.72 .32L.60 .32L.62 .47L.65 .49L.72 .44Z"></path></clipPath></defs></svg>`;
+ }
+ function wardrobe(){return `<div class="sw-room"><div class="sw-scene-viewport"><div class="sw-world" data-sw-scene><div class="sw-room-background" style="background-image:url('${d.scene.background}')"></div><div class="sw-character-anchor"><span class="sw-foot-shadow" aria-hidden="true"></span><div class="sw-frog-turn" style="transform:scaleX(${flipped?-1:1})"><div class="sw-frog-bounce"><div class="sw-frog-idle"><div class="sw-doll">${coverageDefinitions()}<div class="sw-base">${image(d.scene.base,text('frogAlt'),'frog-base',false)}<span class="sw-frog-fallback" aria-hidden="true">🐸</span></div><div class="sw-layers">${layers()}</div></div></div></div></div><span class="sw-sparkles" aria-hidden="true"></span></div></div></div><p class="sw-speech" role="status" aria-live="polite">${job?local(job.greeting):text('freeIntro')}</p><div class="sw-vignette" aria-hidden="true"></div>${top()}<div class="sw-small-controls">${button('left','↶','sw-round',`aria-label="${text('left')}"`)}${button('right','↷','sw-round',`aria-label="${text('right')}"`)}${button('reset','↺','sw-round',`aria-label="${text('reset')}"`)}</div><div class="sw-worn"><span>${text('worn')}</span><div data-sw-worn>${badges()}</div></div><div class="sw-selection">${selection()}</div>${calibrationPanel()}</div>`;}
 
  function selection(){return `${tabs()}<h2 class="sw-sticker">${text('choose',{name:local(d.categories.find(c=>c.id===category).name)})}</h2><div class="sw-grid" id="sw-items" role="tabpanel" aria-labelledby="sw-tab-${category}">${cards()}</div><div class="sw-actions">${button('professions',text('professions')+' 👩‍🔬','sw-blue')}${button('done',text('done'),'sw-green')}</div>${job?button('hint',text('hint'),'sw-hint'):''}`;}
  function layout(){
@@ -143,7 +162,15 @@ const SafetyWardrobe=(()=>{
   }
   for(const id of new Set(desired.map(p=>p.id)))incoming.delete(id);
   // Ступни базы скрываются только при наличии готового слоя обуви, а не запасной PNG.
-  root.querySelector('.frog-base')?.classList.toggle('feet-hidden',desired.some(p=>p.full&&item(p.id).category==='feet'));
+  const body=desired.find(p=>p.full&&item(p.id).category==='body');
+  root.querySelector('.sw-base')?.classList.toggle('shirt-sleeves-hidden',!!body&&!!item(body.id).coverage?.hideShirtSleeves);
+  const base=root.querySelector('.frog-base'),shoe=desired.find(p=>p.full&&item(p.id).category==='feet');
+  if(base){
+   base.classList.toggle('feet-hidden',!!shoe);
+   const edge=shoe?item(shoe.id).coverage?.baseFeet:null;
+   base.style.setProperty('--sw-base-feet-opaque',(edge?.opaque??77.5)+'%');
+   base.style.setProperty('--sw-base-feet-hidden',(edge?.hidden??77.5)+'%');
+  }
   updateCalibration();bindFallbacks();
  }
 

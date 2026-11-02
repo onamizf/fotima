@@ -10,7 +10,7 @@ for(const i of data.items){
  for(const field of ['id','name','tip','category'])assert.deepEqual(json(i[field]),json(previous[field]));
  assert.equal(i.slot,i.category);assert.equal(i.layer,`assets/game/wear/${i.id}.webp`);
  assert.ok(fs.existsSync(`assets/game/items/${i.id}.png`));
- assert.equal(fs.existsSync(i.layer),i.id!=='rubber-boots');
+ assert.ok(fs.existsSync(i.layer));
  assert.ok(!('wear' in i)&&!('sprite' in i)&&!('art' in i));
 }
 for(const p of data.professions){
@@ -30,4 +30,4 @@ assert.equal(data.items.find(i=>i.id==='face-shield').z>data.items.find(i=>i.id=
 assert.equal(data.items.find(i=>i.id==='bee-hat').z>data.items.find(i=>i.id==='medical-mask').z,true);
 for(const id of ['space-helmet','welding-mask'])assert.deepEqual(json(data.items.find(i=>i.id===id).hides),['eyes','face']);
 assert.equal(cp.execFileSync('git',['diff','1f38573','--','src/course-game.js','src/storage.js','src/routes.js'],{encoding:'utf8'}),'');
-console.log('PASS 40 full-canvas layers, 41 icons, one item per category, 13 profession contracts and unchanged XP/storage/routes');
+console.log('PASS 41 full-canvas layers, 41 icons, one item per category, 13 profession contracts and unchanged XP/storage/routes');

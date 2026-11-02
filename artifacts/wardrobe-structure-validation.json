@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "version": "1.29.0",
+  "original_models_unchanged": [
+    "chef-hat",
+    "chef-jacket",
+    "welder-jacket",
+    "fire-suit",
+    "work-overall",
+    "space-suit",
+    "sealed-goggles"
+  ],
+  "outfits": [
+    {
+      "body": "chef-jacket",
+      "feet": "chef-shoes",
+      "trousers_over_boots": false,
+      "footer_gap": 18
+    },
+    {
+      "body": "welder-jacket",
+      "feet": "steel-boots",
+      "trousers_over_boots": false,
+      "footer_gap": 18
+    },
+    {
+      "body": "fire-suit",
+      "feet": "fire-boots",
+      "trousers_over_boots": true,
+      "footer_gap": 18
+    },
+    {
+      "body": "work-overall",
+      "feet": "steel-boots",
+      "trousers_over_boots": true,
+      "footer_gap": 18
+    },
+    {
+      "body": "space-suit",
+      "feet": "space-boots",
+      "trousers_over_boots": true,
+      "footer_gap": 18
+    }
+  ],
+  "checks": [
+    "source models byte-identical to 1.28.0",
+    "anatomical registration in shared canvas",
+    "base T-shirt sleeves hidden under garments",
+    "trousers above upper boots and shin inserts",
+    "registered alpha hit testing",
+    "real full-canvas rubber boots",
+    "separate footer including missing-image fallback",
+    "mobile viewport and no free-mode XP"
+  ],
+  "js_errors": []
+}

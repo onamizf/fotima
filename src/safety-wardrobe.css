@@ -10,7 +10,7 @@ body[data-page=safety-wardrobe] #frogAssistant { display:none!important; }
 :root body #app #main .sw button:focus-visible,:root body #app .sw-dialog button:focus-visible { outline:3px solid #ffe58b!important; outline-offset:4px; }
 :root body #app #main .sw :is(h1,h2,h3),:root body #app .sw-dialog :is(h2,h3) { font-family:Nunito,Inter,sans-serif!important; font-weight:800!important; text-transform:none!important; letter-spacing:normal; color:inherit!important; line-height:1.15!important; }
 .sw-room,.sw-scene-viewport,.sw-cover,.sw-result { position:absolute; inset:0; }
-.sw-scene-viewport { overflow:hidden; background:#ecd2b1; }
+.sw-scene-viewport { overflow:hidden; bottom:60px; background:#ecd2b1; }
 .sw-world { position:absolute; transform:translate(var(--sw-parallax-x),var(--sw-parallax-y)); will-change:transform; }
 .sw-room-background { position:absolute; inset:0; background-size:cover; background-position:center; }
 .sw-vignette { position:absolute; inset:0; pointer-events:none; background:radial-gradient(ellipse at 50% 45%,transparent 55%,rgba(0,0,0,.1) 100%); }
@@ -238,8 +238,8 @@ body.reduce-motion .sw-world { transform:none!important; will-change:auto; }
  transform:none!important; translate:none!important; scale:none!important; rotate:none!important;
 }
 .sw .frog-base.feet-hidden {
- mask-image:linear-gradient(to bottom,#000 77.5%,transparent 77.5%);
- -webkit-mask-image:linear-gradient(to bottom,#000 77.5%,transparent 77.5%);
+ mask-image:linear-gradient(to bottom,#000 var(--sw-base-feet-opaque,77.5%),transparent var(--sw-base-feet-hidden,77.5%));
+ -webkit-mask-image:linear-gradient(to bottom,#000 var(--sw-base-feet-opaque,77.5%),transparent var(--sw-base-feet-hidden,77.5%));
 }
 .sw.sw-debug-frames .sw-doll { outline:2px solid #ce277c; outline-offset:0; }
 .sw.sw-debug-frames :is(.sw-base,.frog-base) { outline:2px solid #0e92b1; outline-offset:0; }
@@ -309,3 +309,25 @@ body.reduce-motion .sw-world { transform:none!important; will-change:auto; }
 @media(max-width:599px) {
  :root body #app #main .sw .sw-dialog .sw-profession>strong { height:60px; -webkit-line-clamp:3; font-size:15px; }
 }
+
+/* Нижняя полоса отделяет управление от любой обуви, включая запасные иконки. */
+.sw-room { background:#dbc2a3; }
+.sw-room:after { content:''; position:absolute; left:0; right:48%; bottom:0; height:60px; background:linear-gradient(transparent,rgba(255,249,240,.3)); pointer-events:none; }
+.sw-worn { z-index:106; }
+.sw[data-layout=stacked] .sw-room:after { display:none; }
+
+/* Мягкое перекрытие голеней у низкой обуви убирает горизонтальный цветовой шов.
+   Координаты, размер и поза полных изображений остаются общими. */
+.sw .sw-layer-image.sw-foot-blend {
+ mask-image:linear-gradient(to bottom,transparent var(--sw-foot-blend-from),#000 var(--sw-foot-blend-to));
+ -webkit-mask-image:linear-gradient(to bottom,transparent var(--sw-foot-blend-from),#000 var(--sw-foot-blend-to));
+}
+
+.sw-layer-image image { pointer-events:none; }
+.sw .sw-layer-image.sw-foot-top-clip {
+ mask-image:linear-gradient(to bottom,transparent var(--sw-foot-clip-top),#000 var(--sw-foot-clip-top));
+ -webkit-mask-image:linear-gradient(to bottom,transparent var(--sw-foot-clip-top),#000 var(--sw-foot-clip-top));
+}
+
+.sw-coverage-defs { position:absolute; width:0; height:0; pointer-events:none; }
+.sw-base.shirt-sleeves-hidden { clip-path:url(#sw-shirt-sleeve-cutouts); }
