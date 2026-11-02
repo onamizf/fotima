@@ -23,12 +23,12 @@ with sync_playwright() as p:
   assert float(f['outline'].removesuffix('px'))>=1,f
  q.screenshot(path=str(ROOT/'artifacts/wardrobe-canvas-frames.png'))
  q.locator('[data-sw=show-frames]').click();q.locator('.sw-calibration summary').click();q.wait_for_timeout(2600);q.screenshot(path=str(ROOT/'artifacts/wardrobe-fit-cook.png'))
- # Badges stay under the complete shoe pixels, centred on the frog.
+ # Badges sit beside the frog; the complete feet and rug remain visible.
  gaps=[]
  for w,h in [(1920,1080),(1366,768),(1024,768)]:
   q.set_viewport_size({'width':w,'height':h});q.wait_for_timeout(70)
   if q.locator('.sw').get_attribute('data-layout')=='stacked':continue
-  frog=q.locator('.sw-doll').bounding_box();row=q.locator('.sw-worn').bounding_box();gap=row['y']-(frog['y']+frog['height']*1148/1200);assert gap>=8,(w,h,gap);assert abs(row['x']+row['width']/2-(frog['x']+frog['width']/2))<1;gaps.append({'width':w,'height':h,'gap':gap})
+  frog=q.locator('.sw-doll').bounding_box();row=q.locator('.sw-worn').bounding_box();gap=row['x']-(frog['x']+frog['width']*.86);assert gap>=0,(w,h,gap);stage=q.locator('.sw-scene-viewport').bounding_box();assert row['y']+row['height']<=stage['y']+stage['height'];gaps.append({'width':w,'height':h,'gap':gap})
  q.set_viewport_size({'width':1366,'height':768});q.locator('[data-sw=help]').click();q.wait_for_selector('.sw-dialog');q.screenshot(path=str(ROOT/'artifacts/wardrobe-help-readable.png'))
  # WCAG contrast against the actual computed flat modal backgrounds.
  def contrast(selector):
@@ -52,4 +52,4 @@ with sync_playwright() as p:
  q.set_viewport_size({'width':1366,'height':768});q.locator('[data-sw=professions]').click();q.locator('[data-job=chemist]').click();xp=q.evaluate('CourseGame.xp()')
  for cat,id in [('body','lab-coat'),('eyes','goggles'),('hands','nitrile-gloves'),('feet','closed-shoes')]:equip(cat,id)
  q.wait_for_selector('.sw-result-copy');assert q.evaluate('CourseGame.xp()')==xp+20;q.locator('.sw-result-copy [data-sw=professions]').click();assert q.locator('[data-job=chemist].sw-profession-completed').count()==1;assert q.locator('[data-job=chemist]').get_attribute('aria-pressed')=='true';assert '1 / 13' in q.locator('.sw-profession-heading p').inner_text()
- assert not errors,errors;(ROOT/'artifacts/wardrobe-fit-validation.json').write_text(json.dumps({'status':'passed','version':q.locator('meta[name=application-version]').get_attribute('content'),'frames':frames,'badge_gaps':gaps,'contrasts':contrasts,'profession_grid':geometry,'checks':['seven supplied leg/shoe layers load','mask only after full shoe load','mask removed on unequip and absent for fallback','all full canvases share coordinates and no transforms','frame toggle in calibration only','badges below shoe pixels','readable modal text and close control','13 cards in one ordered equal grid','4/3/2 columns and internal scrolling','completion mark and original 20 XP reward'],'js_errors':errors},ensure_ascii=False,indent=2));b.close();print('PASS wardrobe fit, foot masking, coincident frames, modal contrast and profession grid')
+ assert not errors,errors;(ROOT/'artifacts/wardrobe-fit-validation.json').write_text(json.dumps({'status':'passed','version':q.locator('meta[name=application-version]').get_attribute('content'),'frames':frames,'badge_gaps':gaps,'contrasts':contrasts,'profession_grid':geometry,'checks':['seven supplied leg/shoe layers load','mask only after full shoe load','mask removed on unequip and absent for fallback','all full canvases share coordinates and no transforms','frame toggle in calibration only','small badges beside shoe pixels','readable modal text and close control','13 cards in one ordered equal grid','4/3/2 columns and internal scrolling','completion mark and original 20 XP reward'],'js_errors':errors},ensure_ascii=False,indent=2));b.close();print('PASS wardrobe fit, foot masking, coincident frames, modal contrast and profession grid')

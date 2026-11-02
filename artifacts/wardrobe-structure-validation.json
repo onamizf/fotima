@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "version": "1.31.0",
+  "version": "1.33.0",
   "original_models_unchanged": [
     "chef-hat",
     "chef-jacket",
@@ -15,31 +15,31 @@
       "body": "chef-jacket",
       "feet": "chef-shoes",
       "trousers_over_boots": false,
-      "footer_gap": 18
+      "side_gap": 23.543125000000032
     },
     {
       "body": "welder-jacket",
       "feet": "steel-boots",
       "trousers_over_boots": false,
-      "footer_gap": 18
+      "side_gap": 23.543125000000032
     },
     {
       "body": "fire-suit",
       "feet": "fire-boots",
       "trousers_over_boots": true,
-      "footer_gap": 18
+      "side_gap": 23.543125000000032
     },
     {
       "body": "work-overall",
       "feet": "steel-boots",
       "trousers_over_boots": true,
-      "footer_gap": 18
+      "side_gap": 23.543125000000032
     },
     {
       "body": "space-suit",
       "feet": "space-boots",
       "trousers_over_boots": true,
-      "footer_gap": 18
+      "side_gap": 23.543125000000032
     }
   ],
   "checks": [
@@ -49,7 +49,7 @@
     "rear boot lip below trousers and front shaft above",
     "registered alpha hit testing",
     "real full-canvas rubber boots",
-    "separate footer including missing-image fallback",
+    "small side badges including missing-image fallback",
     "mobile viewport and no free-mode XP"
   ],
   "js_errors": []

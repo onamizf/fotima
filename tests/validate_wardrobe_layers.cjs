@@ -7,7 +7,8 @@ const json=v=>JSON.parse(JSON.stringify(v));
 assert.equal(data.items.length,41);assert.equal(data.professions.length,13);
 for(const i of data.items){
  const previous=old.items.find(p=>p.id===i.id);assert.ok(previous);
- for(const field of ['id','name','tip','category'])assert.deepEqual(json(i[field]),json(previous[field]));
+ for(const field of ['id','category'])assert.equal(i[field],previous[field]);
+ for(const field of ['name','tip'])for(const [language,value] of Object.entries(previous[field]))assert.equal(i[field][language],value);
  assert.equal(i.slot,i.category);assert.equal(i.layer,`assets/game/wear/${i.id}.webp`);
  assert.ok(fs.existsSync(`assets/game/items/${i.id}.png`));
  assert.ok(fs.existsSync(i.layer));
@@ -15,7 +16,8 @@ for(const i of data.items){
 }
 for(const p of data.professions){
  const previous=old.professions.find(j=>j.id===p.id);
- for(const field of ['id','name','description','greeting','group'])assert.deepEqual(json(p[field]),json(previous[field]));
+ assert.equal(p.id,previous.id);
+ for(const field of ['name','description','greeting','group'])for(const [language,value] of Object.entries(previous[field]))assert.equal(p[field][language],value);
  const expected=previous.required.filter(id=>!(p.id==='acids'&&id==='lab-coat')&&!(p.id==='cook'&&id==='apron'));
  assert.deepEqual(json(p.required),json(expected));
  const categories=p.required.map(id=>data.items.find(i=>i.id===id).category);

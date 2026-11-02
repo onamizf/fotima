@@ -1,0 +1,59 @@
+{
+  "status": "passed",
+  "version": "1.33.0",
+  "languages": [
+    "ru",
+    "uz-Latn",
+    "uz-Cyrl",
+    "en"
+  ],
+  "geometry": [
+    {
+      "width": 1366,
+      "height": 768,
+      "columns": 5,
+      "badge_gap": 23.543125000000032
+    },
+    {
+      "width": 1024,
+      "height": 768,
+      "columns": 5,
+      "badge_gap": 23.543125000000032
+    },
+    {
+      "width": 768,
+      "height": 900,
+      "columns": 5,
+      "badge_gap": 16.375
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "columns": 5,
+      "badge_gap": 16.01875000000001
+    },
+    {
+      "width": 320,
+      "height": 740,
+      "columns": 5,
+      "badge_gap": 14.951250000000016
+    }
+  ],
+  "checks": [
+    "all six category grids have five square columns and safe scroll bounds",
+    "small transparent worn badges beside feet and no footer strip",
+    "face mask icon and working Q/E without badges",
+    "hanger help button and cream rotation controls",
+    "frog portrait start sticker",
+    "13 professions and 360 XP in Uzbek",
+    "live language menu preserves outfit, turn, category, hints, mistakes and result",
+    "translated help, item tips, professions, speech, warnings, stars, rewards and master bonus",
+    "word spaces, two-line result title and compact bottom block",
+    "only close button over the final scene",
+    "language switch during celebration and no duplicate rewards",
+    "Russian fallback validated separately",
+    "five viewport sizes"
+  ],
+  "js_errors": [],
+  "bad_responses": []
+}
