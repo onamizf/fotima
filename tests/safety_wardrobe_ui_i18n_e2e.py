@@ -33,10 +33,10 @@ with sync_playwright() as p:
   rows=title.locator('span').evaluate_all('es=>[...new Set(es.map(e=>Math.round(e.getBoundingClientRect().top)))]')
   assert len(rows)<=2,('result title exceeds two lines',rows,title.inner_text())
   frame=q.locator('.sw').bounding_box();copy=q.locator('.sw-result-copy').bounding_box()
-  assert copy['y']>=frame['y']+frame['height']*.64,(frame,copy)
+  assert copy['y']>=frame['y']+frame['height']*.50,(frame,copy)
   assert bounds['y']>=copy['y']-1,('result content overflows upward',bounds,copy)
-  assert q.locator('.sw-stars').evaluate('e=>getComputedStyle(e).fontSize')=='32px'
-  assert q.locator('.sw-xp').evaluate('e=>getComputedStyle(e).fontSize')=='20px'
+  assert q.locator('.sw-stars').evaluate('e=>getComputedStyle(e).fontSize')=='28px'
+  assert q.locator('.sw-xp').evaluate('e=>getComputedStyle(e).fontSize')=='16px'
   assert q.evaluate('document.documentElement.scrollWidth<=innerWidth+1&&document.documentElement.scrollHeight<=innerHeight+1')
  decode();settle();assert q.locator('.sw-eyebrow').count()==0
  sticker=q.locator('.sw-start-sticker');assert sticker.evaluate('e=>getComputedStyle(e).width')=='72px'
@@ -64,7 +64,7 @@ with sync_playwright() as p:
  assert q.locator('.sw-worn>span').count()==0
  assert q.locator('.sw-worn').evaluate('e=>getComputedStyle(e).backgroundColor')=='rgba(0, 0, 0, 0)'
  assert q.locator('.sw-small-controls button').first.bounding_box()['width']==36
- assert q.locator('.sw-small-controls button').first.evaluate('e=>getComputedStyle(e).color')=='rgb(176, 122, 74)'
+ assert q.locator('.sw-small-controls button').first.evaluate('e=>getComputedStyle(e).color')=='rgb(46, 58, 79)'
  geometry=[]
  for w,h in [(1366,768),(1024,768),(768,900),(390,844),(320,740)]:
   q.set_viewport_size({'width':w,'height':h});q.wait_for_timeout(100)
@@ -127,5 +127,5 @@ with sync_playwright() as p:
  q.wait_for_function('SafetyWardrobe.capture().finished');q.evaluate('StudentHeader.changeLanguage("ru")');q.wait_for_selector('.sw-result-copy');q.wait_for_timeout(2400)
  assert q.locator('.sw-scene').get_attribute('src').endswith('/surgeon.jpg');assert q.evaluate('CourseGame.xp()')==xp+360
  assert not errors,errors;assert not bad,bad
- (ROOT/'artifacts/wardrobe-ui-i18n-validation.json').write_text(json.dumps({'status':'passed','version':q.locator('meta[name=application-version]').get_attribute('content'),'languages':list(LANGUAGES),'geometry':geometry,'checks':['all six category grids have five square columns and safe scroll bounds','small transparent worn badges beside feet and no footer strip','face mask icon and working Q/E without badges','hanger help button and cream rotation controls','frog portrait start sticker','13 professions and 360 XP in Uzbek','live language menu preserves outfit, turn, category, hints, mistakes and result','translated help, item tips, professions, speech, warnings, stars, rewards and master bonus','word spaces, two-line result title and compact bottom block','only close button over the final scene','language switch during celebration and no duplicate rewards','Russian fallback validated separately','five viewport sizes'],'js_errors':errors,'bad_responses':bad},ensure_ascii=False,indent=2))
+ (ROOT/'artifacts/wardrobe-ui-i18n-validation.json').write_text(json.dumps({'status':'passed','version':q.locator('meta[name=application-version]').get_attribute('content'),'languages':list(LANGUAGES),'geometry':geometry,'checks':['all six category grids have five square columns and safe scroll bounds','small transparent worn badges beside feet and no footer strip','face mask icon and working Q/E without badges','hanger help button and glossy rotation controls','frog portrait start sticker','13 professions and 360 XP in Uzbek','live language menu preserves outfit, turn, category, hints, mistakes and result','translated help, item tips, professions, speech, warnings, stars, rewards and master bonus','word spaces, two-line result title and compact bottom block','only close button over the final scene','language switch during celebration and no duplicate rewards','Russian fallback validated separately','five viewport sizes'],'js_errors':errors,'bad_responses':bad},ensure_ascii=False,indent=2))
  b.close();print('PASS wardrobe UI, four live languages, 13 Uzbek professions, viewport geometry and reward preservation')

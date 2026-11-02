@@ -18,4 +18,16 @@ const context={SafetyWardrobeData:data,state:{settings:{language:'unknown'}},esc
 const ui=vm.runInNewContext(fs.readFileSync('src/safety-wardrobe.js','utf8')+';SafetyWardrobe',context);
 assert.equal(ui.text('title'),data.copy.title.ru);
 for(const locale of locales){context.state.settings.language=locale;assert.equal(ui.text('title'),data.copy.title[locale]);assert.equal(ui.text('reward',{n:20}),'+20 XP');}
+const categoryNames={
+ ru:['Головной убор','Защитные очки','Маски для лица','Верхняя одежда','Перчатки','Обувь'],
+ 'uz-Latn':['Bosh kiyim',"Himoya ko'zoynagi",'Yuz niqoblari','Ustki kiyimlar',"Qo'lqoplar",'Oyoq kiyim'],
+ 'uz-Cyrl':['Бош кийим','Ҳимоя кўзойнаги','Юз ниқоблари','Устки кийимлар','Қўлқоплар','Оёқ кийим'],
+ en:['Headwear','Safety glasses','Face masks','Outerwear','Gloves','Footwear']
+};
+for(const locale of locales){
+ context.state.settings.language=locale;
+ assert.deepEqual(Array.from(data.categories,c=>c.name[locale]),categoryNames[locale]);
+ const help=ui.text('help',{categories:categoryNames[locale].join(', ')});
+ for(const name of categoryNames[locale])assert.ok(help.includes(name));
+}
 console.log(`PASS ${strings.length} wardrobe strings in all four site languages, placeholders and Russian fallback`);

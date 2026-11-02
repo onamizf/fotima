@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "version": "1.33.0",
+  "version": "1.34.0",
   "languages": [
     "ru",
     "uz-Latn",
@@ -43,7 +43,7 @@
     "all six category grids have five square columns and safe scroll bounds",
     "small transparent worn badges beside feet and no footer strip",
     "face mask icon and working Q/E without badges",
-    "hanger help button and cream rotation controls",
+    "hanger help button and glossy rotation controls",
     "frog portrait start sticker",
     "13 professions and 360 XP in Uzbek",
     "live language menu preserves outfit, turn, category, hints, mistakes and result",

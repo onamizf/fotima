@@ -4,50 +4,50 @@ const SafetyWardrobeData = {
     {
       "id": "head",
       "name": {
-        "ru": "Голова",
-        "uz-Latn": "Bosh",
-        "uz-Cyrl": "Бош",
-        "en": "Head"
+        "ru": "Головной убор",
+        "uz-Latn": "Bosh kiyim",
+        "uz-Cyrl": "Бош кийим",
+        "en": "Headwear"
       },
       "emoji": "🪖"
     },
     {
       "id": "eyes",
       "name": {
-        "ru": "Глаза",
-        "uz-Latn": "Ko'zlar",
-        "uz-Cyrl": "Кўзлар",
-        "en": "Eyes"
+        "ru": "Защитные очки",
+        "uz-Latn": "Himoya ko'zoynagi",
+        "uz-Cyrl": "Ҳимоя кўзойнаги",
+        "en": "Safety glasses"
       },
       "emoji": "🥽"
     },
     {
       "id": "face",
       "name": {
-        "ru": "Лицо",
-        "uz-Latn": "Yuz",
-        "uz-Cyrl": "Юз",
-        "en": "Face"
+        "ru": "Маски для лица",
+        "uz-Latn": "Yuz niqoblari",
+        "uz-Cyrl": "Юз ниқоблари",
+        "en": "Face masks"
       },
       "emoji": "😷"
     },
     {
       "id": "body",
       "name": {
-        "ru": "Тело",
-        "uz-Latn": "Tana",
-        "uz-Cyrl": "Тана",
-        "en": "Body"
+        "ru": "Верхняя одежда",
+        "uz-Latn": "Ustki kiyimlar",
+        "uz-Cyrl": "Устки кийимлар",
+        "en": "Outerwear"
       },
       "emoji": "🥼"
     },
     {
       "id": "hands",
       "name": {
-        "ru": "Руки",
-        "uz-Latn": "Qo'llar",
-        "uz-Cyrl": "Қўллар",
-        "en": "Hands"
+        "ru": "Перчатки",
+        "uz-Latn": "Qo'lqoplar",
+        "uz-Cyrl": "Қўлқоплар",
+        "en": "Gloves"
       },
       "emoji": "🧤"
     },
@@ -2173,10 +2173,10 @@ const SafetyWardrobeData = {
       "en": "Done"
     },
     "hint": {
-      "ru": "Подсказка 💡",
-      "uz-Latn": "Maslahat 💡",
-      "uz-Cyrl": "Маслаҳат 💡",
-      "en": "Hint 💡"
+      "ru": "Подсказка",
+      "uz-Latn": "Maslahat",
+      "uz-Cyrl": "Маслаҳат",
+      "en": "Hint"
     },
     "exit": {
       "ru": "Выйти",
@@ -2209,10 +2209,10 @@ const SafetyWardrobeData = {
       "en": "Reset outfit"
     },
     "help": {
-      "ru": "Выбирай защиту по категориям. В каждой категории можно надеть один предмет: новый заменит прежний. Повторный клик снимает предмет. Q / E переключают категории. В профессии собери весь комплект и нажми «Готово».",
-      "uz-Latn": "Himoya vositalarini toifalar bo'yicha tanla. Har bir toifadan bitta buyum kiyish mumkin: yangisi eskisini almashtiradi. Yana bossang, buyum yechiladi. Q / E toifalarni almashtiradi. Kasb uchun to'liq kiyim to'plamini yig'ib, «Tayyor»ni bos.",
-      "uz-Cyrl": "Ҳимоя воситаларини тоифалар бўйича танла. Ҳар бир тоифадан битта буюм кийиш мумкин: янгиси эскисини алмаштиради. Яна боссанг, буюм ечилади. Q / E тоифаларни алмаштиради. Касб учун тўлиқ кийим тўпламини йиғиб, «Тайёр»ни бос.",
-      "en": "Choose protection by category. You can wear one item in each category: a new one replaces the previous item. Click again to remove it. Q / E switch categories. For a profession, collect the complete kit and press Done."
+      "ru": "Категории: {categories}. Выбирай защиту по категориям. В каждой категории можно надеть один предмет: новый заменит прежний. Повторный клик снимает предмет. Q / E переключают категории. В профессии собери весь комплект и нажми «Готово».",
+      "uz-Latn": "Toifalar: {categories}. Himoya vositalarini toifalar bo'yicha tanla. Har bir toifadan bitta buyum kiyish mumkin: yangisi eskisini almashtiradi. Yana bossang, buyum yechiladi. Q / E toifalarni almashtiradi. Kasb uchun to'liq kiyim to'plamini yig'ib, «Tayyor»ni bos.",
+      "uz-Cyrl": "Тоифалар: {categories}. Ҳимоя воситаларини тоифалар бўйича танла. Ҳар бир тоифадан битта буюм кийиш мумкин: янгиси эскисини алмаштиради. Яна боссанг, буюм ечилади. Q / E тоифаларни алмаштиради. Касб учун тўлиқ кийим тўпламини йиғиб, «Тайёр»ни бос.",
+      "en": "Categories: {categories}. Choose protection by category. You can wear one item in each category: a new one replaces the previous item. Click again to remove it. Q / E switch categories. For a profession, collect the complete kit and press Done."
     },
     "free": {
       "ru": "Классный образ! А теперь попробуй профессию!",
