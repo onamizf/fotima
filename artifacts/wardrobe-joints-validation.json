@@ -1,0 +1,176 @@
+{
+  "status": "passed",
+  "version": "1.30.0",
+  "original_models_unchanged": [
+    "chef-jacket",
+    "fire-suit",
+    "welder-jacket",
+    "space-suit",
+    "surgical-gown",
+    "lab-coat"
+  ],
+  "samples": [
+    {
+      "item": "chef-jacket",
+      "cuff_rgb": [
+        [
+          139,
+          139,
+          96
+        ],
+        [
+          142,
+          147,
+          73
+        ]
+      ],
+      "neck_samples": [
+        {
+          "y": 440,
+          "rgb": [
+            208,
+            188,
+            144
+          ]
+        },
+        {
+          "y": 450,
+          "rgb": [
+            215,
+            195,
+            154
+          ]
+        },
+        {
+          "y": 460,
+          "rgb": [
+            225,
+            208,
+            170
+          ]
+        }
+      ],
+      "cached_raster": true
+    },
+    {
+      "item": "fire-suit",
+      "cuff_rgb": [
+        [
+          152,
+          159,
+          89
+        ],
+        [
+          177,
+          182,
+          121
+        ]
+      ],
+      "neck_samples": [],
+      "cached_raster": true
+    },
+    {
+      "item": "welder-jacket",
+      "cuff_rgb": [
+        [
+          146,
+          153,
+          83
+        ],
+        [
+          174,
+          180,
+          119
+        ]
+      ],
+      "neck_samples": [],
+      "cached_raster": true
+    },
+    {
+      "item": "space-suit",
+      "cuff_rgb": [
+        [
+          150,
+          157,
+          86
+        ],
+        [
+          177,
+          182,
+          121
+        ]
+      ],
+      "neck_samples": [
+        {
+          "y": 410,
+          "rgb": [
+            196,
+            177,
+            131
+          ]
+        },
+        {
+          "y": 425,
+          "rgb": [
+            203,
+            185,
+            140
+          ]
+        },
+        {
+          "y": 440,
+          "rgb": [
+            215,
+            195,
+            153
+          ]
+        }
+      ],
+      "cached_raster": true
+    },
+    {
+      "item": "surgical-gown",
+      "cuff_rgb": [
+        [
+          185,
+          190,
+          131
+        ],
+        [
+          148,
+          154,
+          86
+        ]
+      ],
+      "neck_samples": [],
+      "cached_raster": true
+    },
+    {
+      "item": "lab-coat",
+      "cuff_rgb": [
+        [
+          161,
+          165,
+          95
+        ],
+        [
+          181,
+          184,
+          123
+        ]
+      ],
+      "neck_samples": [],
+      "cached_raster": true
+    }
+  ],
+  "checks": [
+    "actual rendered pixels at twelve cuff openings show frog arms",
+    "chef collar joins bare neck without baked T-shirt flap",
+    "space collar entry connects neck from above",
+    "cached pixel raster without mesh clip seams",
+    "reset restores original base",
+    "mobile viewport",
+    "no free-mode XP"
+  ],
+  "js_errors": []
+}

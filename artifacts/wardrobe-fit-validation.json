@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "version": "1.29.0",
+  "version": "1.30.0",
   "frames": [
     {
       "name": "sw-doll",
@@ -17,7 +17,7 @@
       "outline": "2px"
     },
     {
-      "name": "sw-base shirt-sleeves-hidden",
+      "name": "sw-base shirt-sleeves-hidden shirt-collar-hidden",
       "x": 398.8125,
       "y": 303.015625,
       "w": 283.3125,

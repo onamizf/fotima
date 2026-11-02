@@ -331,3 +331,8 @@ body.reduce-motion .sw-world { transform:none!important; will-change:auto; }
 
 .sw-coverage-defs { position:absolute; width:0; height:0; pointer-events:none; }
 .sw-base.shirt-sleeves-hidden { clip-path:url(#sw-shirt-sleeve-cutouts); }
+
+/* Шея входит в ворот, а руки видны внутри манжет: тело и передний край одежды рисуются раздельно. */
+.sw-neck-skin { position:absolute; inset:0; width:100%; height:100%; z-index:21; pointer-events:none; }
+.sw-base.shirt-collar-hidden { clip-path:url(#sw-shirt-collar-cutouts); }
+.sw-layer-image use { pointer-events:none; }

@@ -5,6 +5,7 @@ const SafetyWardrobe=(()=>{
  const item=id=>d.items.find(i=>i.id===id),profession=id=>d.professions.find(p=>p.id===id);
  const reduced=()=>state.settings.reduceMotion||matchMedia('(prefers-reduced-motion: reduce)').matches;
  let root,controller,screen='start',category='head',selected={},job=null,mistakes=0,hints=0,finished=false,flipped=false,timers=new Set(),animations=new Set(),dialogOpener,speechVersion=0,resizeObserver,parallaxRAF=0,calibrationKey=null,calibrationDrag=null,calibrationValues={},showFrames=false;
+ const jointCache=new Map(),neckCache=new Map(),neckPending=new WeakSet();
  const layerCache=new Map(),incoming=new Map(),fallbackBound=new WeakSet();
  function later(fn,delay){const id=setTimeout(()=>{timers.delete(id);if(root?.isConnected)fn();},reduced()?0:delay);timers.add(id);return id;}
  function animate(el,frames,options){if(!el||reduced())return;const a=el.animate(frames,options);animations.add(a);a.finished.catch(()=>{}).finally(()=>animations.delete(a));return a;}
@@ -23,7 +24,7 @@ const SafetyWardrobe=(()=>{
 
  function art(i){return `<span class="sw-icon-frame">${sprite(i)}</span>`;}
 
- // Полные WebP занимают весь холст. Геометрия нужна только запасным иконкам.
+ // Полные модели остаются в общем холсте; запасные иконки имеют отдельную геометрию.
  function pieces(){
   const result=[];
   for(const id of worn()){
@@ -51,9 +52,16 @@ const SafetyWardrobe=(()=>{
   const [x1,y1,x2,y2]=r.source,[a1,b1,a2,b2]=r.body,sx=(a2-a1)/(x2-x1),sy=(b2-b1)/(y2-y1);
   return {x:a1-x1*sx,y:b1-y1*sy,width:896*sx,height:1200*sy,sx,sy};
  }
+ function jointGeometry(i){if(!jointCache.has(i.id))jointCache.set(i.id,i.joints?WardrobeJoints.build(i.joints.cuffs):[]);return jointCache.get(i.id);}
+ function openingPath(o){return WardrobeJoints.openingPoints(o).map((p,n)=>(n?'L':'M')+p.join(',')).join('')+'Z';}
  function registeredImage(i){
-  const r=registration(i);
-  return `<svg class="sw-layer-image ${i.coverage?.footBlend?'sw-foot-blend':''} ${i.coverage?.clipAbove?'sw-foot-top-clip':''}" viewBox="0 0 896 1200" preserveAspectRatio="none" aria-hidden="true" style="${i.coverage?.clipAbove?'--sw-foot-clip-top:'+i.coverage.clipAbove+'%':''}"><image href="${assetURL(i.layer)}" x="${r.x}" y="${r.y}" width="${r.width}" height="${r.height}" preserveAspectRatio="none"></image></svg>`;
+  const r=registration(i),patches=jointGeometry(i),id='sw-joints-'+i.id,entry=layerCache.get(i.id);
+  if(patches.length&&!entry.fitted)entry.fitted=WardrobeJoints.rasterize(entry.image,r,patches);
+  const fitted=patches.length&&entry.fitted;
+  const image=`<image href="${fitted||assetURL(i.layer)}" x="${fitted?0:r.x}" y="${fitted?0:r.y}" width="${fitted?896:r.width}" height="${fitted?1200:r.height}" preserveAspectRatio="none"></image>`;
+  const openings=i.joints?[...patches.map(p=>p.opening),...(i.joints.neck.opening?[i.joints.neck.opening]:[])]:[];
+  const contents=openings.length?`<defs><clipPath id="${id}-openings"><path clip-rule="evenodd" d="M0 0H896V1200H0Z${openings.map(openingPath).join('')}"></path></clipPath></defs><g clip-path="url(#${id}-openings)">${image}</g>`:image;
+  return `<svg class="sw-layer-image ${i.coverage?.footBlend?'sw-foot-blend':''} ${i.coverage?.clipAbove?'sw-foot-top-clip':''}" viewBox="0 0 896 1200" preserveAspectRatio="none" aria-hidden="true" style="${i.coverage?.clipAbove?'--sw-foot-clip-top:'+i.coverage.clipAbove+'%':''}">${contents}</svg>`;
  }
  function layerMarkup(p){
   const i=item(p.id),label=esc(local(i.name));
@@ -81,7 +89,9 @@ const SafetyWardrobe=(()=>{
   let x=(event.clientX-box.left)/box.width,y=(event.clientY-box.top)/box.height;if(flipped)x=1-x;
   if(x<0||x>1||y<0||y>1)return;
   for(const p of pieces().filter(p=>p.full).reverse()){
-   const i=item(p.id),r=registration(i),sourceX=(x*896-r.x)/r.width,sourceY=(y*1200-r.y)/r.height;
+   const i=item(p.id),patches=jointGeometry(i),point=[x*896,y*1200];
+   if(i.joints&&[...patches.map(p=>p.opening),...(i.joints.neck.opening?[i.joints.neck.opening]:[])].some(o=>WardrobeJoints.inOpening(o,...point)))continue;
+   const [jointX,jointY]=WardrobeJoints.inverse(patches,...point),r=registration(i),sourceX=(jointX-r.x)/r.width,sourceY=(jointY-r.y)/r.height;
    if(sourceX<0||sourceX>1||sourceY<0||sourceY>1)continue;
    if(i.coverage?.clipAbove&&y*100<i.coverage.clipAbove)continue;
    const blend=i.coverage?.footBlend,opacity=blend?Math.max(0,Math.min(1,(y*100-blend.from)/(blend.to-blend.from))):1;
@@ -107,9 +117,10 @@ const SafetyWardrobe=(()=>{
  function badges(){const obscure=worn().includes('space-helmet')||worn().includes('welding-mask');return worn().map(id=>{const i=item(id);return `<button type="button" data-sw-remove="${id}" class="sw-worn-icon ${obscure&&(i.category==='eyes'||i.category==='face')&&id!=='welding-mask'?'sw-obscured':''}" aria-label="${esc(local(i.name))}">${art(i)}</button>`;}).join('');}
  function coverageDefinitions(){
   // Вычитаем только свободные рукава базовой футболки: ворот и середина остаются под открытой курткой.
-  return `<svg class="sw-coverage-defs" aria-hidden="true"><defs><clipPath id="sw-shirt-sleeve-cutouts" clipPathUnits="objectBoundingBox"><path clip-rule="evenodd" d="M0 0H1V1H0Z M.28 .32L.40 .32L.38 .47L.35 .49L.28 .44Z M.72 .32L.60 .32L.62 .47L.65 .49L.72 .44Z"></path></clipPath></defs></svg>`;
+  return `<svg class="sw-coverage-defs" aria-hidden="true"><defs><clipPath id="sw-shirt-sleeve-cutouts" clipPathUnits="objectBoundingBox"><path clip-rule="evenodd" d="M0 0H1V1H0Z M.28 .32L.40 .32L.38 .47L.35 .49L.28 .44Z M.72 .32L.60 .32L.62 .47L.65 .49L.72 .44Z"></path></clipPath><clipPath id="sw-shirt-collar-cutouts" clipPathUnits="objectBoundingBox"><path clip-rule="evenodd" d="M0 0H1V1H0Z M.28 .32L.44 .32L.44 .38L.38 .47L.35 .49L.28 .44Z M.72 .32L.56 .32L.56 .38L.62 .47L.65 .49L.72 .44Z"></path></clipPath></defs></svg>`;
  }
- function wardrobe(){return `<div class="sw-room"><div class="sw-scene-viewport"><div class="sw-world" data-sw-scene><div class="sw-room-background" style="background-image:url('${d.scene.background}')"></div><div class="sw-character-anchor"><span class="sw-foot-shadow" aria-hidden="true"></span><div class="sw-frog-turn" style="transform:scaleX(${flipped?-1:1})"><div class="sw-frog-bounce"><div class="sw-frog-idle"><div class="sw-doll">${coverageDefinitions()}<div class="sw-base">${image(d.scene.base,text('frogAlt'),'frog-base',false)}<span class="sw-frog-fallback" aria-hidden="true">🐸</span></div><div class="sw-layers">${layers()}</div></div></div></div></div><span class="sw-sparkles" aria-hidden="true"></span></div></div></div><p class="sw-speech" role="status" aria-live="polite">${job?local(job.greeting):text('freeIntro')}</p><div class="sw-vignette" aria-hidden="true"></div>${top()}<div class="sw-small-controls">${button('left','↶','sw-round',`aria-label="${text('left')}"`)}${button('right','↷','sw-round',`aria-label="${text('right')}"`)}${button('reset','↺','sw-round',`aria-label="${text('reset')}"`)}</div><div class="sw-worn"><span>${text('worn')}</span><div data-sw-worn>${badges()}</div></div><div class="sw-selection">${selection()}</div>${calibrationPanel()}</div>`;}
+ function neckSkin(){return `<svg class="sw-neck-skin" viewBox="0 0 896 1200" aria-hidden="true" hidden><image data-sw-neck-skin width="896" height="1200"></image></svg>`;}
+ function wardrobe(){return `<div class="sw-room"><div class="sw-scene-viewport"><div class="sw-world" data-sw-scene><div class="sw-room-background" style="background-image:url('${d.scene.background}')"></div><div class="sw-character-anchor"><span class="sw-foot-shadow" aria-hidden="true"></span><div class="sw-frog-turn" style="transform:scaleX(${flipped?-1:1})"><div class="sw-frog-bounce"><div class="sw-frog-idle"><div class="sw-doll">${coverageDefinitions()}<div class="sw-base">${image(d.scene.base,text('frogAlt'),'frog-base',false)}<span class="sw-frog-fallback" aria-hidden="true">🐸</span></div>${neckSkin()}<div class="sw-layers">${layers()}</div></div></div></div></div><span class="sw-sparkles" aria-hidden="true"></span></div></div></div><p class="sw-speech" role="status" aria-live="polite">${job?local(job.greeting):text('freeIntro')}</p><div class="sw-vignette" aria-hidden="true"></div>${top()}<div class="sw-small-controls">${button('left','↶','sw-round',`aria-label="${text('left')}"`)}${button('right','↷','sw-round',`aria-label="${text('right')}"`)}${button('reset','↺','sw-round',`aria-label="${text('reset')}"`)}</div><div class="sw-worn"><span>${text('worn')}</span><div data-sw-worn>${badges()}</div></div><div class="sw-selection">${selection()}</div>${calibrationPanel()}</div>`;}
 
  function selection(){return `${tabs()}<h2 class="sw-sticker">${text('choose',{name:local(d.categories.find(c=>c.id===category).name)})}</h2><div class="sw-grid" id="sw-items" role="tabpanel" aria-labelledby="sw-tab-${category}">${cards()}</div><div class="sw-actions">${button('professions',text('professions')+' 👩‍🔬','sw-blue')}${button('done',text('done'),'sw-green')}</div>${job?button('hint',text('hint'),'sw-hint'):''}`;}
  function layout(){
@@ -164,6 +175,14 @@ const SafetyWardrobe=(()=>{
   // Ступни базы скрываются только при наличии готового слоя обуви, а не запасной PNG.
   const body=desired.find(p=>p.full&&item(p.id).category==='body');
   root.querySelector('.sw-base')?.classList.toggle('shirt-sleeves-hidden',!!body&&!!item(body.id).coverage?.hideShirtSleeves);
+  const neck=body?item(body.id).joints?.neck:null,skin=root.querySelector('.sw-neck-skin');
+  if(skin){
+   const baseImage=root.querySelector('.frog-base'),ready=!!neck&&baseImage.complete&&baseImage.naturalWidth>0;
+   skin.toggleAttribute('hidden',!ready);
+   if(ready){if(!neckCache.has(neck.extend))neckCache.set(neck.extend,WardrobeJoints.neck(baseImage,neck.extend));const href=neckCache.get(neck.extend);skin.toggleAttribute('hidden',!href);if(href)skin.querySelector('image').setAttribute('href',href);}
+   else if(neck&&!baseImage.complete&&!neckPending.has(baseImage)){neckPending.add(baseImage);baseImage.addEventListener('load',()=>root?.isConnected&&updateLayers(),{once:true,signal:controller.signal});}
+   root.querySelector('.sw-base')?.classList.toggle('shirt-collar-hidden',ready&&!!neckCache.get(neck.extend));
+  }
   const base=root.querySelector('.frog-base'),shoe=desired.find(p=>p.full&&item(p.id).category==='feet');
   if(base){
    base.classList.toggle('feet-hidden',!!shoe);

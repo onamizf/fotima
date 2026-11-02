@@ -1,4 +1,4 @@
-/* Модели сохранены; регистрация и зоны перекрытия привязывают одежду к телу. */
+/* Прежние модели: общая регистрация и отдельная посадка воротников/манжет. */
 const SafetyWardrobeData = {
   "categories": [
     {
@@ -277,6 +277,75 @@ const SafetyWardrobeData = {
       "z": 30,
       "coverage": {
         "hideShirtSleeves": true
+      },
+      "joints": {
+        "cuffs": [
+          {
+            "pins": [
+              {
+                "from": [
+                  189,
+                  694
+                ],
+                "to": [
+                  188,
+                  694
+                ]
+              },
+              {
+                "from": [
+                  256,
+                  715
+                ],
+                "to": [
+                  249,
+                  714
+                ]
+              }
+            ],
+            "opening": {
+              "x": 218,
+              "y": 704,
+              "rx": 27,
+              "ry": 5,
+              "angle": 18
+            }
+          },
+          {
+            "pins": [
+              {
+                "from": [
+                  707,
+                  694
+                ],
+                "to": [
+                  708,
+                  694
+                ]
+              },
+              {
+                "from": [
+                  640,
+                  715
+                ],
+                "to": [
+                  647,
+                  714
+                ]
+              }
+            ],
+            "opening": {
+              "x": 678,
+              "y": 704,
+              "rx": 27,
+              "ry": 5,
+              "angle": -18
+            }
+          }
+        ],
+        "neck": {
+          "extend": 14
+        }
       }
     },
     {
@@ -293,6 +362,75 @@ const SafetyWardrobeData = {
       "z": 30,
       "coverage": {
         "hideShirtSleeves": true
+      },
+      "joints": {
+        "cuffs": [
+          {
+            "pins": [
+              {
+                "from": [
+                  190,
+                  683
+                ],
+                "to": [
+                  195,
+                  681
+                ]
+              },
+              {
+                "from": [
+                  253,
+                  704
+                ],
+                "to": [
+                  253,
+                  700
+                ]
+              }
+            ],
+            "opening": {
+              "x": 224,
+              "y": 691,
+              "rx": 21,
+              "ry": 5,
+              "angle": 18
+            }
+          },
+          {
+            "pins": [
+              {
+                "from": [
+                  706,
+                  683
+                ],
+                "to": [
+                  701,
+                  681
+                ]
+              },
+              {
+                "from": [
+                  643,
+                  704
+                ],
+                "to": [
+                  643,
+                  700
+                ]
+              }
+            ],
+            "opening": {
+              "x": 672,
+              "y": 691,
+              "rx": 21,
+              "ry": 5,
+              "angle": -18
+            }
+          }
+        ],
+        "neck": {
+          "extend": 0
+        }
       }
     },
     {
@@ -354,6 +492,75 @@ const SafetyWardrobeData = {
       "coverage": {
         "hideShirtSleeves": true,
         "trousersOverBoots": true
+      },
+      "joints": {
+        "cuffs": [
+          {
+            "pins": [
+              {
+                "from": [
+                  183,
+                  730
+                ],
+                "to": [
+                  177,
+                  722
+                ]
+              },
+              {
+                "from": [
+                  263,
+                  754
+                ],
+                "to": [
+                  259,
+                  746
+                ]
+              }
+            ],
+            "opening": {
+              "x": 218,
+              "y": 734,
+              "rx": 36,
+              "ry": 7,
+              "angle": 17
+            }
+          },
+          {
+            "pins": [
+              {
+                "from": [
+                  713,
+                  730
+                ],
+                "to": [
+                  719,
+                  722
+                ]
+              },
+              {
+                "from": [
+                  633,
+                  754
+                ],
+                "to": [
+                  637,
+                  746
+                ]
+              }
+            ],
+            "opening": {
+              "x": 678,
+              "y": 734,
+              "rx": 36,
+              "ry": 7,
+              "angle": -17
+            }
+          }
+        ],
+        "neck": {
+          "extend": 14
+        }
       }
     },
     {
@@ -397,6 +604,75 @@ const SafetyWardrobeData = {
       },
       "coverage": {
         "hideShirtSleeves": true
+      },
+      "joints": {
+        "cuffs": [
+          {
+            "pins": [
+              {
+                "from": [
+                  176,
+                  724
+                ],
+                "to": [
+                  178,
+                  721
+                ]
+              },
+              {
+                "from": [
+                  247,
+                  746
+                ],
+                "to": [
+                  257,
+                  745
+                ]
+              }
+            ],
+            "opening": {
+              "x": 217,
+              "y": 733,
+              "rx": 34,
+              "ry": 6,
+              "angle": 17
+            }
+          },
+          {
+            "pins": [
+              {
+                "from": [
+                  720,
+                  724
+                ],
+                "to": [
+                  718,
+                  721
+                ]
+              },
+              {
+                "from": [
+                  649,
+                  746
+                ],
+                "to": [
+                  639,
+                  745
+                ]
+              }
+            ],
+            "opening": {
+              "x": 679,
+              "y": 733,
+              "rx": 34,
+              "ry": 6,
+              "angle": -17
+            }
+          }
+        ],
+        "neck": {
+          "extend": 14
+        }
       }
     },
     {
@@ -444,6 +720,75 @@ const SafetyWardrobeData = {
       },
       "coverage": {
         "hideShirtSleeves": true
+      },
+      "joints": {
+        "cuffs": [
+          {
+            "pins": [
+              {
+                "from": [
+                  213,
+                  630
+                ],
+                "to": [
+                  209,
+                  633
+                ]
+              },
+              {
+                "from": [
+                  290,
+                  657
+                ],
+                "to": [
+                  272,
+                  657
+                ]
+              }
+            ],
+            "opening": {
+              "x": 240,
+              "y": 645,
+              "rx": 27,
+              "ry": 5,
+              "angle": 18
+            }
+          },
+          {
+            "pins": [
+              {
+                "from": [
+                  683,
+                  630
+                ],
+                "to": [
+                  687,
+                  633
+                ]
+              },
+              {
+                "from": [
+                  606,
+                  657
+                ],
+                "to": [
+                  624,
+                  657
+                ]
+              }
+            ],
+            "opening": {
+              "x": 656,
+              "y": 645,
+              "rx": 27,
+              "ry": 5,
+              "angle": -18
+            }
+          }
+        ],
+        "neck": {
+          "extend": 30
+        }
       }
     },
     {
@@ -506,6 +851,88 @@ const SafetyWardrobeData = {
       "coverage": {
         "hideShirtSleeves": true,
         "trousersOverBoots": true
+      },
+      "joints": {
+        "cuffs": [
+          {
+            "pins": [
+              {
+                "from": [
+                  183,
+                  726
+                ],
+                "to": [
+                  177,
+                  722
+                ]
+              },
+              {
+                "from": [
+                  248,
+                  744
+                ],
+                "to": [
+                  257,
+                  746
+                ]
+              }
+            ],
+            "opening": {
+              "x": 217,
+              "y": 734,
+              "rx": 35,
+              "ry": 6,
+              "angle": 17
+            }
+          },
+          {
+            "pins": [
+              {
+                "from": [
+                  713,
+                  726
+                ],
+                "to": [
+                  719,
+                  722
+                ]
+              },
+              {
+                "from": [
+                  648,
+                  744
+                ],
+                "to": [
+                  639,
+                  746
+                ]
+              }
+            ],
+            "opening": {
+              "x": 679,
+              "y": 734,
+              "rx": 35,
+              "ry": 6,
+              "angle": -17
+            }
+          }
+        ],
+        "neck": {
+          "extend": 18,
+          "opening": {
+            "x": 448,
+            "y": 430,
+            "rx": 65,
+            "ry": 18,
+            "angle": 0,
+            "entry": {
+              "left": 368,
+              "right": 528,
+              "top": 350,
+              "shoulder": 410
+            }
+          }
+        }
       }
     },
     {
