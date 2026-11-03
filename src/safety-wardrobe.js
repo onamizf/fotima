@@ -7,6 +7,7 @@ const SafetyWardrobe=(()=>{
  let root,controller,screen='start',category='head',selected={},job=null,mistakes=0,hints=0,finished=false,flipped=false,timers=new Set(),animations=new Set(),dialogOpener,speechVersion=0,resizeObserver,parallaxRAF=0,calibrationKey=null,calibrationDrag=null,calibrationValues={},showFrames=false;
  let speech=null,dialogState=null,sessionOwner=null;
  const jointCache=new Map(),neckCache=new Map(),neckPending=new WeakSet(),legProfiles=new Map(),footConnections=new Map(),footPending=new WeakSet();
+ const armProfiles=new Map(),gloveConnections=new Map(),glovePending=new WeakSet();
  const layerCache=new Map(),incoming=new Map(),fallbackBound=new WeakSet();
  function later(fn,delay){const id=setTimeout(()=>{timers.delete(id);if(root?.isConnected)fn();},reduced()?0:delay);timers.add(id);return id;}
  function animate(el,frames,options){if(!el||reduced())return;const a=el.animate(frames,options);animations.add(a);a.finished.catch(()=>{}).finally(()=>animations.delete(a));return a;}
@@ -39,14 +40,28 @@ const SafetyWardrobe=(()=>{
   if(footConnections.size>6)footConnections.delete(footConnections.keys().next().value);
   return value;
  }
+ function outfitGloves(){
+  const hand=item(selected.hands),body=item(selected.body);
+  if(!hand?.gloveFit||layerCache.get(hand.id)?.status!=='ready')return null;
+  const base=root?.querySelector('.frog-base');
+  if(!base?.naturalWidth){if(base&&!base.complete&&!glovePending.has(base)){glovePending.add(base);base.addEventListener('load',()=>root?.isConnected&&updateLayers(),{once:true,signal:controller.signal});}return null;}
+  const sleeves=body?.coverage?.hideShirtSleeves&&layerCache.get(body.id)?.status==='ready',actor=sleeves?body.id:'base',key=actor+'-'+hand.id;
+  if(gloveConnections.has(key)){const value=gloveConnections.get(key);gloveConnections.delete(key);gloveConnections.set(key,value);return value;}
+  if(!armProfiles.has('base'))armProfiles.set('base',WardrobeGloves.profile(base,{x:0,y:0,width:896,height:1200},[],true));
+  if(sleeves&&!armProfiles.has(actor))armProfiles.set(actor,WardrobeGloves.profile(layerCache.get(body.id).image,registration(body),jointGeometry(body)));
+  const fit=WardrobeGloves.connect(armProfiles.get('base'),sleeves?armProfiles.get(actor):null,layerCache.get(hand.id).image,registration(hand),hand.gloveFit);
+  const value=fit?{...fit,key,bodyId:sleeves?body.id:null,handId:hand.id}:null;gloveConnections.set(key,value);
+  if(gloveConnections.size>8)gloveConnections.delete(gloveConnections.keys().next().value);
+  return value;
+ }
  // Полные модели остаются в общем холсте; запасные иконки имеют отдельную геометрию.
  function pieces(){
-  const result=[],connection=outfitFootwear();
+  const result=[],connection=outfitFootwear(),gloves=outfitGloves();
   for(const id of worn()){
    const i=item(id);
    if(worn().some(other=>other!==id&&item(other).hides?.includes(i.category)))continue;
    const asset=layerCache.get(id);
-   if(asset?.status==='ready'){const connected=connection&&(id===connection.bodyId||id===connection.footId),z=connected&&id===connection.footId?(connection.actor==='base'?(item(selected.body)?item(selected.body).z-1:i.z):connection.mode==='tucked'?item(connection.bodyId).z+1:i.z):i.z;result.push({id,key:id+':layer',paint:connected?connection.key:id,full:true,z});continue;}
+   if(asset?.status==='ready'){const connected=connection&&(id===connection.bodyId||id===connection.footId),gloved=gloves&&(id===gloves.bodyId||id===gloves.handId),z=connected&&id===connection.footId?(connection.actor==='base'?(item(selected.body)?item(selected.body).z-1:i.z):connection.mode==='tucked'?item(connection.bodyId).z+1:i.z):i.z;result.push({id,key:id+':layer',paint:(connected?connection.key:id)+(gloved?'|'+gloves.key:''),full:true,z});continue;}
    if(asset?.status!=='missing')continue;
    const points=d.scene.flightPoints[i.category];
    points.forEach((point,n)=>{
@@ -70,14 +85,16 @@ const SafetyWardrobe=(()=>{
  function jointGeometry(i){if(!jointCache.has(i.id))jointCache.set(i.id,i.joints?WardrobeJoints.build(i.joints.cuffs):[]);return jointCache.get(i.id);}
  function openingPath(o){return WardrobeJoints.openingPoints(o).map((p,n)=>(n?'L':'M')+p.join(',')).join('')+'Z';}
  function registeredImage(i){
-  const connection=outfitFootwear();
+  const connection=outfitFootwear(),gloves=outfitGloves();
   if(connection&&i.id===connection.footId)return `<svg class="sw-layer-image sw-footwear-connected" viewBox="0 0 896 1200" preserveAspectRatio="none" aria-hidden="true" data-sw-foot-mode="${connection.mode}" data-sw-ankles="${esc(JSON.stringify(connection.legs))}">${WardrobeFootwear.graphic(connection,'front','sw-shoe-front-'+connection.key)}</svg>`;
+  if(gloves&&i.id===gloves.handId)return `<svg class="sw-layer-image sw-gloves-connected" viewBox="0 0 896 1200" preserveAspectRatio="none" aria-hidden="true" data-sw-wrists="${esc(JSON.stringify(gloves.arms.map(a=>({...a.opening,v:a.v,u:a.u,cloth:a.cloth}))))}">${WardrobeGloves.graphic(gloves,'front','sw-glove-front-'+gloves.key)}</svg>`;
   const r=registration(i),patches=jointGeometry(i),id='sw-joints-'+i.id,entry=layerCache.get(i.id);
   if(patches.length&&!entry.fitted)entry.fitted=WardrobeJoints.rasterize(entry.image,r,patches);
   const fitted=patches.length&&entry.fitted;
   const image=`<image href="${fitted||assetURL(i.layer)}" x="${fitted?0:r.x}" y="${fitted?0:r.y}" width="${fitted?896:r.width}" height="${fitted?1200:r.height}" preserveAspectRatio="none"></image>`;
   const openings=i.joints?[...patches.map(p=>p.opening),...(i.joints.neck?.opening?[i.joints.neck.opening]:[])]:[];
   let contents=openings.length?`<defs><clipPath id="${id}-openings"><path clip-rule="evenodd" d="M0 0H896V1200H0Z${openings.map(openingPath).join('')}"></path></clipPath></defs><g clip-path="url(#${id}-openings)">${image}</g>`:image;
+  if(gloves&&i.id===gloves.bodyId){const prefix='sw-glove-sleeves-'+gloves.key;contents=`<defs>${WardrobeGloves.clip(gloves,'garment',prefix)}</defs><g data-sw-sleeves="${gloves.handId}" clip-path="url(#${prefix})">${contents}</g>`;}
   if(connection&&i.id===connection.bodyId){
    const prefix='sw-trousers-'+connection.key;
    contents=WardrobeFootwear.graphic(connection,'back','sw-shoe-back-'+connection.key)+`<defs><clipPath id="${prefix}"><path clip-rule="evenodd" d="${WardrobeFootwear.bodyPath(connection)}"></path></clipPath></defs><g data-sw-trousers="${connection.mode}" clip-path="url(#${prefix})">${contents}</g>`;
@@ -104,8 +121,8 @@ const SafetyWardrobe=(()=>{
   return entry.promise;
  }
  function preloadCategory(){d.items.filter(i=>i.category===category).forEach(i=>loadLayer(i.id));}
- function modelAlpha(i,point,connection){
-  const connected=connection&&i.id===connection.footId,patches=connected?connection.patches:jointGeometry(i);
+ function modelAlpha(i,point,connection,gloves){
+  const connected=connection&&i.id===connection.footId,gloved=gloves&&i.id===gloves.handId,patches=connected?connection.patches:gloved?gloves.patches:jointGeometry(i);
   if(i.joints&&[...patches.map(p=>p.opening),...(i.joints.neck?.opening?[i.joints.neck.opening]:[])].some(o=>WardrobeJoints.inOpening(o,...point)))return 0;
   const [jointX,jointY]=WardrobeJoints.inverse(patches,...point),r=registration(i),x=(jointX-r.x)/r.width,y=(jointY-r.y)/r.height;
   if(x<0||x>1||y<0||y>1)return 0;
@@ -117,17 +134,22 @@ const SafetyWardrobe=(()=>{
  function hitLayer(event){
   if(finished||calibrationDrag||event.target.closest('.sw-fallback-layer'))return;
   const box=root.querySelector('.sw-doll').getBoundingClientRect();let x=(event.clientX-box.left)/box.width,y=(event.clientY-box.top)/box.height;if(flipped)x=1-x;if(x<0||x>1||y<0||y>1)return;
-  const point=[x*896,y*1200],connection=outfitFootwear();
+  const point=[x*896,y*1200],connection=outfitFootwear(),gloves=outfitGloves();
   for(const p of pieces().filter(p=>p.full).reverse()){
    const i=item(p.id);
+   if(gloves&&i.id===gloves.handId){if(WardrobeGloves.visible(gloves,'front',...point)&&modelAlpha(i,point,connection,gloves)>32){toggle(i.id,root.querySelector(`[data-sw-layer="${i.id}"]`));return;}continue;}
    if(connection&&i.id===connection.footId){if(WardrobeFootwear.visible(connection,'front',...point)&&modelAlpha(i,point,connection)>32){toggle(i.id,root.querySelector(`[data-sw-layer="${i.id}"]`));return;}continue;}
    const body=connection&&i.id===connection.bodyId;
-   if((!body||WardrobeFootwear.bodyContains(connection,...point))&&modelAlpha(i,point,connection)>32){toggle(i.id,root.querySelector(`[data-sw-layer="${i.id}"]`));return;}
+   if((!body||WardrobeFootwear.bodyContains(connection,...point))&&(!gloves||i.id!==gloves.bodyId||WardrobeGloves.contains(gloves,'garment',...point))&&modelAlpha(i,point,connection)>32){toggle(i.id,root.querySelector(`[data-sw-layer="${i.id}"]`));return;}
    if(body&&WardrobeFootwear.visible(connection,'back',...point)&&modelAlpha(item(connection.footId),point,connection)>32){toggle(connection.footId,root.querySelector(`[data-sw-layer="${connection.footId}"]`));return;}
   }
   if(connection?.actor==='base'&&WardrobeFootwear.visible(connection,'back',...point)){
    const baseVisible=point[1]<connection.baseCutoff*12&&WardrobeFootwear.bodyContains(connection,...point)&&connection.baseAlpha[Math.min(1199,Math.floor(point[1]))*896+Math.min(895,Math.floor(point[0]))]>32;
    if(!baseVisible&&modelAlpha(item(connection.footId),point,connection)>32)toggle(connection.footId,root.querySelector(`[data-sw-layer="${connection.footId}"]`));
+  }
+  if(gloves&&WardrobeGloves.visible(gloves,'back',...point)){
+   const baseVisible=WardrobeGloves.contains(gloves,'base',...point)&&gloves.baseAlpha[Math.min(1199,Math.floor(point[1]))*896+Math.min(895,Math.floor(point[0]))]>32;
+   if(!baseVisible&&modelAlpha(item(gloves.handId),point,connection,gloves)>32)toggle(gloves.handId,root.querySelector(`[data-sw-layer="${gloves.handId}"]`));
   }
  }
 
@@ -156,9 +178,10 @@ const SafetyWardrobe=(()=>{
   // Вычитаем только свободные рукава базовой футболки: ворот и середина остаются под открытой курткой.
   return `<svg class="sw-coverage-defs" aria-hidden="true"><defs><clipPath id="sw-shirt-sleeve-cutouts" clipPathUnits="objectBoundingBox"><path clip-rule="evenodd" d="M0 0H1V1H0Z M.28 .32L.40 .32L.38 .47L.35 .49L.28 .44Z M.72 .32L.60 .32L.62 .47L.65 .49L.72 .44Z"></path></clipPath><clipPath id="sw-shirt-collar-cutouts" clipPathUnits="objectBoundingBox"><path clip-rule="evenodd" d="M0 0H1V1H0Z M.28 .32L.44 .32L.44 .38L.38 .47L.35 .49L.28 .44Z M.72 .32L.56 .32L.56 .38L.62 .47L.65 .49L.72 .44Z"></path></clipPath></defs></svg>`;
  }
+ function gloveBack(){return `<svg class="sw-glove-back" viewBox="0 0 896 1200" aria-hidden="true" hidden></svg>`;}
  function bareBootBack(){return `<svg class="sw-bare-boot-back" viewBox="0 0 896 1200" aria-hidden="true" hidden></svg>`;}
  function neckSkin(){return `<svg class="sw-neck-skin" viewBox="0 0 896 1200" aria-hidden="true" hidden><image data-sw-neck-skin width="896" height="1200"></image></svg>`;}
- function wardrobe(){return `<div class="sw-room"><div class="sw-scene-viewport"><div class="sw-world" data-sw-scene><div class="sw-room-background" style="background-image:url('${d.scene.background}')"></div><div class="sw-character-anchor"><span class="sw-foot-shadow" aria-hidden="true"></span><div class="sw-frog-turn" style="transform:scaleX(${flipped?-1:1})"><div class="sw-frog-bounce"><div class="sw-frog-idle"><div class="sw-doll">${coverageDefinitions()}${bareBootBack()}<div class="sw-base">${image(d.scene.base,text('frogAlt'),'frog-base',false)}<span class="sw-frog-fallback" aria-hidden="true">🐸</span></div>${neckSkin()}<div class="sw-layers">${layers()}</div></div></div></div></div><span class="sw-sparkles" aria-hidden="true"></span></div></div></div><p class="sw-speech" role="status" aria-live="polite">${speech?currentSpeech():job?local(job.greeting):text('freeIntro')}</p><div class="sw-vignette" aria-hidden="true"></div>${top()}<div class="sw-small-controls">${button('left','↶','sw-round',`aria-label="${text('left')}"`)}${button('right','↷','sw-round',`aria-label="${text('right')}"`)}${button('reset','↺','sw-round',`aria-label="${text('reset')}"`)}</div><div class="sw-worn" role="group" aria-label="${text('worn')}"><div data-sw-worn>${badges()}</div></div><div class="sw-selection">${selection()}</div>${calibrationPanel()}</div>`;}
+ function wardrobe(){return `<div class="sw-room"><div class="sw-scene-viewport"><div class="sw-world" data-sw-scene><div class="sw-room-background" style="background-image:url('${d.scene.background}')"></div><div class="sw-character-anchor"><span class="sw-foot-shadow" aria-hidden="true"></span><div class="sw-frog-turn" style="transform:scaleX(${flipped?-1:1})"><div class="sw-frog-bounce"><div class="sw-frog-idle"><div class="sw-doll">${coverageDefinitions()}${bareBootBack()}${gloveBack()}<div class="sw-base"><span class="sw-hand-base">${image(d.scene.base,text('frogAlt'),'frog-base',false)}</span><span class="sw-frog-fallback" aria-hidden="true">🐸</span></div>${neckSkin()}<div class="sw-layers">${layers()}</div></div></div></div></div><span class="sw-sparkles" aria-hidden="true"></span></div></div></div><p class="sw-speech" role="status" aria-live="polite">${speech?currentSpeech():job?local(job.greeting):text('freeIntro')}</p><div class="sw-vignette" aria-hidden="true"></div>${top()}<div class="sw-small-controls">${button('left','↶','sw-round',`aria-label="${text('left')}"`)}${button('right','↷','sw-round',`aria-label="${text('right')}"`)}${button('reset','↺','sw-round',`aria-label="${text('reset')}"`)}</div><div class="sw-worn" role="group" aria-label="${text('worn')}"><div data-sw-worn>${badges()}</div></div><div class="sw-selection">${selection()}</div>${calibrationPanel()}</div>`;}
 
  function selection(){return `${tabs()}<h2 class="sw-sticker">${text('choose',{name:local(d.categories.find(c=>c.id===category).name)})}</h2><div class="sw-grid" id="sw-items" role="tabpanel" aria-labelledby="sw-tab-${category}">${cards()}</div><div class="sw-actions">${button('professions',text('professions'),'sw-blue')}${button('done',text('done'),'sw-green')}</div>${job?button('hint',text('hint'),'sw-hint'):''}`;}
  function fitCategoryRibbon(){
@@ -255,6 +278,12 @@ const SafetyWardrobe=(()=>{
    const edge=connection?.actor==='base'?{opaque:connection.baseCutoff,hidden:connection.baseCutoff}:shoe?item(shoe.id).coverage?.baseFeet:null;
    base.style.setProperty('--sw-base-feet-opaque',(edge?.opaque??77.5)+'%');
    base.style.setProperty('--sw-base-feet-hidden',(edge?.hidden??77.5)+'%');
+  }
+  const gloves=outfitGloves(),handBase=root.querySelector('.sw-hand-base'),gloveRear=root.querySelector('.sw-glove-back');
+  if(handBase&&gloveRear){
+   gloveRear.toggleAttribute('hidden',!gloves);
+   if(gloves){const id='sw-glove-base-'+gloves.key;if(gloveRear.dataset.swPaint!==gloves.key){gloveRear.innerHTML=`<defs>${WardrobeGloves.clip(gloves,'base',id,true)}</defs>`+WardrobeGloves.graphic(gloves,'back','sw-glove-back-'+gloves.key);gloveRear.dataset.swPaint=gloves.key;}handBase.style.clipPath=`url(#${id})`;}
+   else {handBase.style.removeProperty('clip-path');gloveRear.innerHTML='';gloveRear.dataset.swPaint='';}
   }
   updateCalibration();bindFallbacks();positionWorn();
  }

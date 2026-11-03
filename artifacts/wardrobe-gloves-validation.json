@@ -1,0 +1,2710 @@
+{
+  "status": "passed",
+  "version": "1.35.0",
+  "pairs": [
+    {
+      "body": "lab-coat",
+      "hands": "nitrile-gloves",
+      "wrists": [
+        {
+          "x": 229.925675298788,
+          "y": 671.2001993842839,
+          "rx": 42,
+          "ry": 5,
+          "angle": 17,
+          "v": -63.8348497241389,
+          "u": -6,
+          "cloth": true
+        },
+        {
+          "x": 666.5524770791935,
+          "y": 671.0540135319225,
+          "rx": 42.5,
+          "ry": 5,
+          "angle": -17,
+          "v": -63.8348497241389,
+          "u": -6.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 16,
+      "bare_finger_checks": 3
+    },
+    {
+      "body": "lab-coat",
+      "hands": "rubber-gloves",
+      "wrists": [
+        {
+          "x": 246.47071352174078,
+          "y": 635.8954876989017,
+          "rx": 43.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -102.43421444672131,
+          "u": -0.5,
+          "cloth": true
+        },
+        {
+          "x": 650.9637436122038,
+          "y": 635.4569301418176,
+          "rx": 43,
+          "ry": 6,
+          "angle": -17,
+          "v": -102.43421444672131,
+          "u": -2,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 62,
+      "bare_finger_checks": 4
+    },
+    {
+      "body": "lab-coat",
+      "hands": "heat-gloves",
+      "wrists": [
+        {
+          "x": 249.446521843006,
+          "y": 629.5823608790176,
+          "rx": 43.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -109.34152980139048,
+          "u": 0.5,
+          "cloth": true
+        },
+        {
+          "x": 647.9879352909386,
+          "y": 629.1438033219335,
+          "rx": 43,
+          "ry": 7,
+          "angle": -17,
+          "v": -109.34152980139048,
+          "u": -1,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 65,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "lab-coat",
+      "hands": "work-gloves",
+      "wrists": [
+        {
+          "x": 231.80180993544639,
+          "y": 666.7737913052576,
+          "rx": 42.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -68.61637350395408,
+          "u": -5.5,
+          "cloth": true
+        },
+        {
+          "x": 665.1544948205167,
+          "y": 666.4814196005349,
+          "rx": 42.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -68.61637350395408,
+          "u": -6.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 24,
+      "bare_finger_checks": 0
+    },
+    {
+      "body": "lab-coat",
+      "hands": "welding-gauntlets",
+      "wrists": [
+        {
+          "x": 259.1272549482852,
+          "y": 608.1790205122688,
+          "rx": 43.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -132.64001842856433,
+          "u": 3.5,
+          "cloth": true
+        },
+        {
+          "x": 637.8290498076778,
+          "y": 607.8866488075462,
+          "rx": 43.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -132.64001842856433,
+          "u": 2.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 98,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "lab-coat",
+      "hands": "dielectric-gloves",
+      "wrists": [
+        {
+          "x": 253.7392718974588,
+          "y": 620.6718635526626,
+          "rx": 44,
+          "ry": 7,
+          "angle": 17,
+          "v": -119.11775942394874,
+          "u": 2,
+          "cloth": true
+        },
+        {
+          "x": 644.1733376144673,
+          "y": 620.0871201432171,
+          "rx": 43,
+          "ry": 7,
+          "angle": -17,
+          "v": -119.11775942394874,
+          "u": 0,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 81,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "lab-coat",
+      "hands": "bee-gloves",
+      "wrists": [
+        {
+          "x": 270.06704207183077,
+          "y": 586.0778036328938,
+          "rx": 42.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -156.97400145349602,
+          "u": 7.5,
+          "cloth": true
+        },
+        {
+          "x": 627.3674150621138,
+          "y": 585.6392460758098,
+          "rx": 43,
+          "ry": 7,
+          "angle": -17,
+          "v": -156.97400145349602,
+          "u": 6,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 128,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "lab-coat",
+      "hands": "space-gloves",
+      "wrists": [
+        {
+          "x": 250.26215838764418,
+          "y": 626.9145339512565,
+          "rx": 43.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -112.13125442748475,
+          "u": 0.5,
+          "cloth": true
+        },
+        {
+          "x": 646.6941463683189,
+          "y": 626.6221622465339,
+          "rx": 43.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -112.13125442748475,
+          "u": -0.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 76,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "surgical-gown",
+      "hands": "nitrile-gloves",
+      "wrists": [
+        {
+          "x": 228.49121816484347,
+          "y": 670.7616418271998,
+          "rx": 38.5,
+          "ry": 5,
+          "angle": 17,
+          "v": -63.8348497241389,
+          "u": -7.5,
+          "cloth": true
+        },
+        {
+          "x": 667.0306294571751,
+          "y": 670.9078276795611,
+          "rx": 38,
+          "ry": 5,
+          "angle": -17,
+          "v": -63.8348497241389,
+          "u": -7,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 3,
+      "bare_finger_checks": 3
+    },
+    {
+      "body": "surgical-gown",
+      "hands": "rubber-gloves",
+      "wrists": [
+        {
+          "x": 241.2110373639441,
+          "y": 634.2874433229265,
+          "rx": 51,
+          "ry": 6,
+          "angle": 17,
+          "v": -102.43421444672131,
+          "u": -6,
+          "cloth": true
+        },
+        {
+          "x": 653.3545055021114,
+          "y": 634.7260008800106,
+          "rx": 51.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -102.43421444672131,
+          "u": -4.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 47,
+      "bare_finger_checks": 4
+    },
+    {
+      "body": "surgical-gown",
+      "hands": "heat-gloves",
+      "wrists": [
+        {
+          "x": 243.70869330722778,
+          "y": 627.8281306506813,
+          "rx": 51.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -109.34152980139048,
+          "u": -5.5,
+          "cloth": true
+        },
+        {
+          "x": 650.8568495588277,
+          "y": 628.2666882077654,
+          "rx": 51,
+          "ry": 7,
+          "angle": -17,
+          "v": -109.34152980139048,
+          "u": -4,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 55,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "surgical-gown",
+      "hands": "work-gloves",
+      "wrists": [
+        {
+          "x": 231.32365755746486,
+          "y": 666.6276054528963,
+          "rx": 41,
+          "ry": 6,
+          "angle": 17,
+          "v": -68.61637350395408,
+          "u": -6,
+          "cloth": true
+        },
+        {
+          "x": 663.2418853085906,
+          "y": 667.0661630099804,
+          "rx": 40.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -68.61637350395408,
+          "u": -4.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 10,
+      "bare_finger_checks": 0
+    },
+    {
+      "body": "surgical-gown",
+      "hands": "welding-gauntlets",
+      "wrists": [
+        {
+          "x": 254.34573116847002,
+          "y": 606.7171619886551,
+          "rx": 50.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -132.64001842856433,
+          "u": -1.5,
+          "cloth": true
+        },
+        {
+          "x": 641.1761164535485,
+          "y": 606.8633478410165,
+          "rx": 50,
+          "ry": 6,
+          "angle": -17,
+          "v": -132.64001842856433,
+          "u": -1,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 89,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "surgical-gown",
+      "hands": "dielectric-gloves",
+      "wrists": [
+        {
+          "x": 248.4795957396621,
+          "y": 619.0638191766875,
+          "rx": 50.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -119.11775942394874,
+          "u": -3.5,
+          "cloth": true
+        },
+        {
+          "x": 647.0422518823564,
+          "y": 619.210005029049,
+          "rx": 51,
+          "ry": 7,
+          "angle": -17,
+          "v": -119.11775942394874,
+          "u": -3,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 69,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "surgical-gown",
+      "hands": "bee-gloves",
+      "wrists": [
+        {
+          "x": 264.80736591403405,
+          "y": 584.4697592569187,
+          "rx": 49,
+          "ry": 7,
+          "angle": 17,
+          "v": -156.97400145349602,
+          "u": 2,
+          "cloth": true
+        },
+        {
+          "x": 630.236329330003,
+          "y": 584.7621309616416,
+          "rx": 50,
+          "ry": 7,
+          "angle": -17,
+          "v": -156.97400145349602,
+          "u": 3,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 122,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "surgical-gown",
+      "hands": "space-gloves",
+      "wrists": [
+        {
+          "x": 245.480634607829,
+          "y": 625.4526754276428,
+          "rx": 51.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -112.13125442748475,
+          "u": -4.5,
+          "cloth": true
+        },
+        {
+          "x": 650.0412130141895,
+          "y": 625.5988612800043,
+          "rx": 52,
+          "ry": 7,
+          "angle": -17,
+          "v": -112.13125442748475,
+          "u": -4,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 63,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "apron",
+      "hands": "nitrile-gloves",
+      "wrists": [
+        {
+          "x": 228.49121816484347,
+          "y": 670.7616418271998,
+          "rx": 28.5,
+          "ry": 5,
+          "angle": 17,
+          "v": -63.8348497241389,
+          "u": -7.5,
+          "cloth": false
+        },
+        {
+          "x": 666.0743247012119,
+          "y": 671.2001993842839,
+          "rx": 28,
+          "ry": 5,
+          "angle": -17,
+          "v": -63.8348497241389,
+          "u": -6,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 3
+    },
+    {
+      "body": "apron",
+      "hands": "rubber-gloves",
+      "wrists": [
+        {
+          "x": 244.0799516318332,
+          "y": 635.1645584370947,
+          "rx": 33,
+          "ry": 6,
+          "angle": 17,
+          "v": -102.43421444672131,
+          "u": -3,
+          "cloth": false
+        },
+        {
+          "x": 650.4855912342223,
+          "y": 635.6031159941788,
+          "rx": 32.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -102.43421444672131,
+          "u": -1.5,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 4
+    },
+    {
+      "body": "apron",
+      "hands": "heat-gloves",
+      "wrists": [
+        {
+          "x": 247.0557599530984,
+          "y": 628.8514316172109,
+          "rx": 33,
+          "ry": 7,
+          "angle": 17,
+          "v": -109.34152980139048,
+          "u": -2,
+          "cloth": false
+        },
+        {
+          "x": 647.509782912957,
+          "y": 629.289989174295,
+          "rx": 33.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -109.34152980139048,
+          "u": -0.5,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "apron",
+      "hands": "work-gloves",
+      "wrists": [
+        {
+          "x": 229.88920042352032,
+          "y": 666.1890478958122,
+          "rx": 29.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -68.61637350395408,
+          "u": -7.5,
+          "cloth": false
+        },
+        {
+          "x": 664.1981900645536,
+          "y": 666.7737913052576,
+          "rx": 28.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -68.61637350395408,
+          "u": -5.5,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 0
+    },
+    {
+      "body": "apron",
+      "hands": "welding-gauntlets",
+      "wrists": [
+        {
+          "x": 256.2583406803961,
+          "y": 607.3019053981006,
+          "rx": 32.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -132.64001842856433,
+          "u": 0.5,
+          "cloth": false
+        },
+        {
+          "x": 638.3072021856594,
+          "y": 607.7404629551847,
+          "rx": 33,
+          "ry": 6,
+          "angle": -17,
+          "v": -132.64001842856433,
+          "u": 2,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "apron",
+      "hands": "dielectric-gloves",
+      "wrists": [
+        {
+          "x": 250.8703576295697,
+          "y": 619.7947484384944,
+          "rx": 33,
+          "ry": 7,
+          "angle": 17,
+          "v": -119.11775942394874,
+          "u": -1,
+          "cloth": false
+        },
+        {
+          "x": 643.6951852364857,
+          "y": 620.2333059955785,
+          "rx": 33.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -119.11775942394874,
+          "u": 0.5,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "apron",
+      "hands": "bee-gloves",
+      "wrists": [
+        {
+          "x": 266.24182304797864,
+          "y": 584.908316814003,
+          "rx": 30.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -156.97400145349602,
+          "u": 3.5,
+          "cloth": false
+        },
+        {
+          "x": 628.3237198180768,
+          "y": 585.3468743710871,
+          "rx": 31,
+          "ry": 7,
+          "angle": -17,
+          "v": -156.97400145349602,
+          "u": 5,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "apron",
+      "hands": "space-gloves",
+      "wrists": [
+        {
+          "x": 247.87139649773658,
+          "y": 626.1836046894498,
+          "rx": 33,
+          "ry": 7,
+          "angle": 17,
+          "v": -112.13125442748475,
+          "u": -2,
+          "cloth": false
+        },
+        {
+          "x": 646.6941463683189,
+          "y": 626.6221622465339,
+          "rx": 33.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -112.13125442748475,
+          "u": -0.5,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "coverall",
+      "hands": "nitrile-gloves",
+      "wrists": [
+        {
+          "x": 231.83828481071407,
+          "y": 671.7849427937293,
+          "rx": 47,
+          "ry": 5,
+          "angle": 17,
+          "v": -63.8348497241389,
+          "u": -4,
+          "cloth": true
+        },
+        {
+          "x": 665.5961723232305,
+          "y": 671.3463852366452,
+          "rx": 46.5,
+          "ry": 5,
+          "angle": -17,
+          "v": -63.8348497241389,
+          "u": -5.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 14,
+      "bare_finger_checks": 3
+    },
+    {
+      "body": "coverall",
+      "hands": "rubber-gloves",
+      "wrists": [
+        {
+          "x": 247.42701827770384,
+          "y": 636.1878594036243,
+          "rx": 45.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -102.43421444672131,
+          "u": 0.5,
+          "cloth": true
+        },
+        {
+          "x": 649.5292864782592,
+          "y": 635.8954876989017,
+          "rx": 45.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -102.43421444672131,
+          "u": -0.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 63,
+      "bare_finger_checks": 4
+    },
+    {
+      "body": "coverall",
+      "hands": "heat-gloves",
+      "wrists": [
+        {
+          "x": 250.88097897695053,
+          "y": 630.0209184361017,
+          "rx": 46,
+          "ry": 7,
+          "angle": 17,
+          "v": -109.34152980139048,
+          "u": 2,
+          "cloth": true
+        },
+        {
+          "x": 646.5534781569941,
+          "y": 629.5823608790176,
+          "rx": 45.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -109.34152980139048,
+          "u": 0.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 71,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "coverall",
+      "hands": "work-gloves",
+      "wrists": [
+        {
+          "x": 233.71441944737245,
+          "y": 667.3585347147031,
+          "rx": 47.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -68.61637350395408,
+          "u": -3.5,
+          "cloth": true
+        },
+        {
+          "x": 663.2418853085906,
+          "y": 667.0661630099804,
+          "rx": 46.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -68.61637350395408,
+          "u": -4.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 26,
+      "bare_finger_checks": 0
+    },
+    {
+      "body": "coverall",
+      "hands": "welding-gauntlets",
+      "wrists": [
+        {
+          "x": 260.0835597042482,
+          "y": 608.4713922169915,
+          "rx": 45.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -132.64001842856433,
+          "u": 4.5,
+          "cloth": true
+        },
+        {
+          "x": 636.8727450517148,
+          "y": 608.1790205122688,
+          "rx": 45.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -132.64001842856433,
+          "u": 3.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 99,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "coverall",
+      "hands": "dielectric-gloves",
+      "wrists": [
+        {
+          "x": 255.17372903140335,
+          "y": 621.1104211097468,
+          "rx": 45.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -119.11775942394874,
+          "u": 3.5,
+          "cloth": true
+        },
+        {
+          "x": 642.7388804805228,
+          "y": 620.5256777003012,
+          "rx": 45.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -119.11775942394874,
+          "u": 1.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 82,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "coverall",
+      "hands": "bee-gloves",
+      "wrists": [
+        {
+          "x": 271.5014992057753,
+          "y": 586.5163611899779,
+          "rx": 46,
+          "ry": 7,
+          "angle": 17,
+          "v": -156.97400145349602,
+          "u": 9,
+          "cloth": true
+        },
+        {
+          "x": 626.4111103061507,
+          "y": 585.9316177805324,
+          "rx": 45,
+          "ry": 7,
+          "angle": -17,
+          "v": -156.97400145349602,
+          "u": 7,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 133,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "coverall",
+      "hands": "space-gloves",
+      "wrists": [
+        {
+          "x": 252.17476789957024,
+          "y": 627.4992773607021,
+          "rx": 45.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -112.13125442748475,
+          "u": 2.5,
+          "cloth": true
+        },
+        {
+          "x": 644.7815368563928,
+          "y": 627.2069056559792,
+          "rx": 45.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -112.13125442748475,
+          "u": 1.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 79,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "fire-suit",
+      "hands": "nitrile-gloves",
+      "wrists": [
+        {
+          "x": 245.22655139419658,
+          "y": 675.8781466598476,
+          "rx": 52,
+          "ry": 5,
+          "angle": 17,
+          "v": -63.8348497241389,
+          "u": 10,
+          "cloth": true
+        },
+        {
+          "x": 650.7734486058034,
+          "y": 675.8781466598476,
+          "rx": 52,
+          "ry": 5,
+          "angle": -17,
+          "v": -63.8348497241389,
+          "u": 10,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 64,
+      "bare_finger_checks": 3
+    },
+    {
+      "body": "fire-suit",
+      "hands": "rubber-gloves",
+      "wrists": [
+        {
+          "x": 262.7278943731124,
+          "y": 640.8658066791882,
+          "rx": 50.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -102.43421444672131,
+          "u": 16.5,
+          "cloth": true
+        },
+        {
+          "x": 632.7939532489061,
+          "y": 641.0119925315494,
+          "rx": 50,
+          "ry": 6,
+          "angle": -17,
+          "v": -102.43421444672131,
+          "u": 17,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 117,
+      "bare_finger_checks": 4
+    },
+    {
+      "body": "fire-suit",
+      "hands": "heat-gloves",
+      "wrists": [
+        {
+          "x": 265.70370269437757,
+          "y": 634.5526798593042,
+          "rx": 51.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -109.34152980139048,
+          "u": 17.5,
+          "cloth": true
+        },
+        {
+          "x": 630.2962973056224,
+          "y": 634.5526798593042,
+          "rx": 51.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -109.34152980139048,
+          "u": 17.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 120,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "fire-suit",
+      "hands": "work-gloves",
+      "wrists": [
+        {
+          "x": 247.10268603085495,
+          "y": 671.4517385808215,
+          "rx": 51.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -68.61637350395408,
+          "u": 10.5,
+          "cloth": true
+        },
+        {
+          "x": 648.4191615911635,
+          "y": 671.5979244331828,
+          "rx": 52,
+          "ry": 6,
+          "angle": -17,
+          "v": -68.61637350395408,
+          "u": 11,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 68,
+      "bare_finger_checks": 0
+    },
+    {
+      "body": "fire-suit",
+      "hands": "welding-gauntlets",
+      "wrists": [
+        {
+          "x": 275.3844357996568,
+          "y": 613.1493394925553,
+          "rx": 51.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -132.64001842856433,
+          "u": 20.5,
+          "cloth": true
+        },
+        {
+          "x": 608.1836023728238,
+          "y": 616.950171653951,
+          "rx": 63.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -132.64001842856433,
+          "u": 33.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 155,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "fire-suit",
+      "hands": "dielectric-gloves",
+      "wrists": [
+        {
+          "x": 269.0401479928674,
+          "y": 625.3498108282264,
+          "rx": 52,
+          "ry": 7,
+          "angle": 17,
+          "v": -119.11775942394874,
+          "u": 18,
+          "cloth": true
+        },
+        {
+          "x": 626.0035472511696,
+          "y": 625.6421825329492,
+          "rx": 52,
+          "ry": 7,
+          "angle": -17,
+          "v": -119.11775942394874,
+          "u": 19,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 137,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "fire-suit",
+      "hands": "bee-gloves",
+      "wrists": [
+        {
+          "x": 297.7998799947588,
+          "y": 594.5565830698531,
+          "rx": 60.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -156.97400145349602,
+          "u": 36.5,
+          "cloth": true
+        },
+        {
+          "x": 598.2001200052412,
+          "y": 594.5565830698531,
+          "rx": 60.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -156.97400145349602,
+          "u": 36.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 187,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "fire-suit",
+      "hands": "space-gloves",
+      "wrists": [
+        {
+          "x": 266.5193392390158,
+          "y": 631.884852931543,
+          "rx": 51.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -112.13125442748475,
+          "u": 17.5,
+          "cloth": true
+        },
+        {
+          "x": 629.0025083830028,
+          "y": 632.0310387839045,
+          "rx": 52,
+          "ry": 7,
+          "angle": -17,
+          "v": -112.13125442748475,
+          "u": 18,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 127,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "hi-vis-vest",
+      "hands": "nitrile-gloves",
+      "wrists": [
+        {
+          "x": 228.49121816484347,
+          "y": 670.7616418271998,
+          "rx": 28.5,
+          "ry": 5,
+          "angle": 17,
+          "v": -63.8348497241389,
+          "u": -7.5,
+          "cloth": false
+        },
+        {
+          "x": 666.0743247012119,
+          "y": 671.2001993842839,
+          "rx": 28,
+          "ry": 5,
+          "angle": -17,
+          "v": -63.8348497241389,
+          "u": -6,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 3
+    },
+    {
+      "body": "hi-vis-vest",
+      "hands": "rubber-gloves",
+      "wrists": [
+        {
+          "x": 244.0799516318332,
+          "y": 635.1645584370947,
+          "rx": 33,
+          "ry": 6,
+          "angle": 17,
+          "v": -102.43421444672131,
+          "u": -3,
+          "cloth": false
+        },
+        {
+          "x": 650.4855912342223,
+          "y": 635.6031159941788,
+          "rx": 32.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -102.43421444672131,
+          "u": -1.5,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 4
+    },
+    {
+      "body": "hi-vis-vest",
+      "hands": "heat-gloves",
+      "wrists": [
+        {
+          "x": 247.0557599530984,
+          "y": 628.8514316172109,
+          "rx": 33,
+          "ry": 7,
+          "angle": 17,
+          "v": -109.34152980139048,
+          "u": -2,
+          "cloth": false
+        },
+        {
+          "x": 647.509782912957,
+          "y": 629.289989174295,
+          "rx": 33.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -109.34152980139048,
+          "u": -0.5,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "hi-vis-vest",
+      "hands": "work-gloves",
+      "wrists": [
+        {
+          "x": 229.88920042352032,
+          "y": 666.1890478958122,
+          "rx": 29.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -68.61637350395408,
+          "u": -7.5,
+          "cloth": false
+        },
+        {
+          "x": 664.1981900645536,
+          "y": 666.7737913052576,
+          "rx": 28.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -68.61637350395408,
+          "u": -5.5,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 0
+    },
+    {
+      "body": "hi-vis-vest",
+      "hands": "welding-gauntlets",
+      "wrists": [
+        {
+          "x": 256.2583406803961,
+          "y": 607.3019053981006,
+          "rx": 32.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -132.64001842856433,
+          "u": 0.5,
+          "cloth": false
+        },
+        {
+          "x": 638.3072021856594,
+          "y": 607.7404629551847,
+          "rx": 33,
+          "ry": 6,
+          "angle": -17,
+          "v": -132.64001842856433,
+          "u": 2,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "hi-vis-vest",
+      "hands": "dielectric-gloves",
+      "wrists": [
+        {
+          "x": 250.8703576295697,
+          "y": 619.7947484384944,
+          "rx": 33,
+          "ry": 7,
+          "angle": 17,
+          "v": -119.11775942394874,
+          "u": -1,
+          "cloth": false
+        },
+        {
+          "x": 643.6951852364857,
+          "y": 620.2333059955785,
+          "rx": 33.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -119.11775942394874,
+          "u": 0.5,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "hi-vis-vest",
+      "hands": "bee-gloves",
+      "wrists": [
+        {
+          "x": 266.24182304797864,
+          "y": 584.908316814003,
+          "rx": 30.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -156.97400145349602,
+          "u": 3.5,
+          "cloth": false
+        },
+        {
+          "x": 628.3237198180768,
+          "y": 585.3468743710871,
+          "rx": 31,
+          "ry": 7,
+          "angle": -17,
+          "v": -156.97400145349602,
+          "u": 5,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "hi-vis-vest",
+      "hands": "space-gloves",
+      "wrists": [
+        {
+          "x": 247.87139649773658,
+          "y": 626.1836046894498,
+          "rx": 33,
+          "ry": 7,
+          "angle": 17,
+          "v": -112.13125442748475,
+          "u": -2,
+          "cloth": false
+        },
+        {
+          "x": 646.6941463683189,
+          "y": 626.6221622465339,
+          "rx": 33.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -112.13125442748475,
+          "u": -0.5,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "welder-jacket",
+      "hands": "nitrile-gloves",
+      "wrists": [
+        {
+          "x": 238.53241810245532,
+          "y": 673.8315447267885,
+          "rx": 49,
+          "ry": 5,
+          "angle": 17,
+          "v": -63.8348497241389,
+          "u": 3,
+          "cloth": true
+        },
+        {
+          "x": 657.4675818975447,
+          "y": 673.8315447267885,
+          "rx": 51,
+          "ry": 5,
+          "angle": -17,
+          "v": -63.8348497241389,
+          "u": 3,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 58,
+      "bare_finger_checks": 3
+    },
+    {
+      "body": "welder-jacket",
+      "hands": "rubber-gloves",
+      "wrists": [
+        {
+          "x": 256.5119134593526,
+          "y": 638.9653905984903,
+          "rx": 49,
+          "ry": 6,
+          "angle": 17,
+          "v": -102.43421444672131,
+          "u": 10,
+          "cloth": true
+        },
+        {
+          "x": 639.0099341626658,
+          "y": 639.1115764508518,
+          "rx": 50.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -102.43421444672131,
+          "u": 10.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 116,
+      "bare_finger_checks": 4
+    },
+    {
+      "body": "welder-jacket",
+      "hands": "heat-gloves",
+      "wrists": [
+        {
+          "x": 260.44402653658085,
+          "y": 632.9446354833292,
+          "rx": 49,
+          "ry": 7,
+          "angle": 17,
+          "v": -109.34152980139048,
+          "u": 12,
+          "cloth": true
+        },
+        {
+          "x": 635.5559734634191,
+          "y": 632.9446354833292,
+          "rx": 51,
+          "ry": 7,
+          "angle": -17,
+          "v": -109.34152980139048,
+          "u": 12,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 115,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "welder-jacket",
+      "hands": "work-gloves",
+      "wrists": [
+        {
+          "x": 241.36485749507673,
+          "y": 669.697508352485,
+          "rx": 48.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -68.61637350395408,
+          "u": 4.5,
+          "cloth": true
+        },
+        {
+          "x": 655.5914472608863,
+          "y": 669.4051366477623,
+          "rx": 51.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -68.61637350395408,
+          "u": 3.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 62,
+      "bare_finger_checks": 0
+    },
+    {
+      "body": "welder-jacket",
+      "hands": "welding-gauntlets",
+      "wrists": [
+        {
+          "x": 270.1247596418601,
+          "y": 611.5412951165804,
+          "rx": 50,
+          "ry": 6,
+          "angle": 17,
+          "v": -132.64001842856433,
+          "u": 15,
+          "cloth": true
+        },
+        {
+          "x": 626.8315451141029,
+          "y": 611.2489234118575,
+          "rx": 50,
+          "ry": 6,
+          "angle": -17,
+          "v": -132.64001842856433,
+          "u": 14,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 149,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "welder-jacket",
+      "hands": "dielectric-gloves",
+      "wrists": [
+        {
+          "x": 265.21492896901526,
+          "y": 624.1803240093354,
+          "rx": 49,
+          "ry": 7,
+          "angle": 17,
+          "v": -119.11775942394874,
+          "u": 14,
+          "cloth": true
+        },
+        {
+          "x": 631.7413757869479,
+          "y": 623.8879523046127,
+          "rx": 50,
+          "ry": 7,
+          "angle": -17,
+          "v": -119.11775942394874,
+          "u": 13,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 131,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "welder-jacket",
+      "hands": "bee-gloves",
+      "wrists": [
+        {
+          "x": 282.4990038993502,
+          "y": 589.8786357942895,
+          "rx": 48.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -156.97400145349602,
+          "u": 20.5,
+          "cloth": true
+        },
+        {
+          "x": 613.9791484786313,
+          "y": 589.732449941928,
+          "rx": 48,
+          "ry": 7,
+          "angle": -17,
+          "v": -156.97400145349602,
+          "u": 20,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 186,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "welder-jacket",
+      "hands": "space-gloves",
+      "wrists": [
+        {
+          "x": 261.25966308121906,
+          "y": 630.2768085555681,
+          "rx": 49,
+          "ry": 7,
+          "angle": 17,
+          "v": -112.13125442748475,
+          "u": 12,
+          "cloth": true
+        },
+        {
+          "x": 633.7840321628179,
+          "y": 630.5691802602908,
+          "rx": 51,
+          "ry": 7,
+          "angle": -17,
+          "v": -112.13125442748475,
+          "u": 13,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 124,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "bee-suit",
+      "hands": "nitrile-gloves",
+      "wrists": [
+        {
+          "x": 226.10045627493588,
+          "y": 670.030712565393,
+          "rx": 50,
+          "ry": 5,
+          "angle": 17,
+          "v": -63.8348497241389,
+          "u": -10,
+          "cloth": true
+        },
+        {
+          "x": 667.986934213138,
+          "y": 670.6154559748384,
+          "rx": 50,
+          "ry": 5,
+          "angle": -17,
+          "v": -63.8348497241389,
+          "u": -8,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 89,
+      "bare_finger_checks": 0
+    },
+    {
+      "body": "bee-suit",
+      "hands": "rubber-gloves",
+      "wrists": [
+        {
+          "x": 243.12364687587018,
+          "y": 634.872186732372,
+          "rx": 50,
+          "ry": 6,
+          "angle": 17,
+          "v": -102.43421444672131,
+          "u": -4,
+          "cloth": true
+        },
+        {
+          "x": 650.4855912342223,
+          "y": 635.6031159941788,
+          "rx": 50.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -102.43421444672131,
+          "u": -1.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 144,
+      "bare_finger_checks": 0
+    },
+    {
+      "body": "bee-suit",
+      "hands": "heat-gloves",
+      "wrists": [
+        {
+          "x": 245.62130281915384,
+          "y": 628.4128740601267,
+          "rx": 50.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -109.34152980139048,
+          "u": -3.5,
+          "cloth": true
+        },
+        {
+          "x": 647.9879352909386,
+          "y": 629.1438033219335,
+          "rx": 51,
+          "ry": 7,
+          "angle": -17,
+          "v": -109.34152980139048,
+          "u": -1,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 164,
+      "bare_finger_checks": 0
+    },
+    {
+      "body": "bee-suit",
+      "hands": "work-gloves",
+      "wrists": [
+        {
+          "x": 227.97659091159423,
+          "y": 665.6043044863667,
+          "rx": 49.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -68.61637350395408,
+          "u": -9.5,
+          "cloth": true
+        },
+        {
+          "x": 665.6326471984981,
+          "y": 666.3352337481736,
+          "rx": 49,
+          "ry": 6,
+          "angle": -17,
+          "v": -68.61637350395408,
+          "u": -7,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 109,
+      "bare_finger_checks": 0
+    },
+    {
+      "body": "bee-suit",
+      "hands": "welding-gauntlets",
+      "wrists": [
+        {
+          "x": 253.38942641250696,
+          "y": 606.4247902839325,
+          "rx": 50.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -132.64001842856433,
+          "u": -2.5,
+          "cloth": true
+        },
+        {
+          "x": 639.741659319604,
+          "y": 607.3019053981006,
+          "rx": 50.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -132.64001842856433,
+          "u": 0.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 180,
+      "bare_finger_checks": 0
+    },
+    {
+      "body": "bee-suit",
+      "hands": "dielectric-gloves",
+      "wrists": [
+        {
+          "x": 248.4795957396621,
+          "y": 619.0638191766875,
+          "rx": 51.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -119.11775942394874,
+          "u": -3.5,
+          "cloth": true
+        },
+        {
+          "x": 645.1296423704302,
+          "y": 619.7947484384944,
+          "rx": 51,
+          "ry": 7,
+          "angle": -17,
+          "v": -119.11775942394874,
+          "u": -1,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 161,
+      "bare_finger_checks": 0
+    },
+    {
+      "body": "bee-suit",
+      "hands": "bee-gloves",
+      "wrists": [
+        {
+          "x": 261.9384516461449,
+          "y": 583.5926441427505,
+          "rx": 52,
+          "ry": 7,
+          "angle": 17,
+          "v": -156.97400145349602,
+          "u": -1,
+          "cloth": true
+        },
+        {
+          "x": 632.148938841929,
+          "y": 584.177387552196,
+          "rx": 51,
+          "ry": 7,
+          "angle": -17,
+          "v": -156.97400145349602,
+          "u": 1,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 221,
+      "bare_finger_checks": 0
+    },
+    {
+      "body": "bee-suit",
+      "hands": "space-gloves",
+      "wrists": [
+        {
+          "x": 246.43693936379202,
+          "y": 625.7450471323655,
+          "rx": 51.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -112.13125442748475,
+          "u": -3.5,
+          "cloth": true
+        },
+        {
+          "x": 646.6941463683189,
+          "y": 626.6221622465339,
+          "rx": 51.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -112.13125442748475,
+          "u": -0.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 163,
+      "bare_finger_checks": 0
+    },
+    {
+      "body": "chef-jacket",
+      "hands": "nitrile-gloves",
+      "wrists": [
+        {
+          "x": 240.97749431447698,
+          "y": 636.7614800277214,
+          "rx": 42.5,
+          "ry": 5,
+          "angle": 17,
+          "v": -100,
+          "u": -5.5,
+          "cloth": true
+        },
+        {
+          "x": 654.06620092956,
+          "y": 637.0538517324442,
+          "rx": 42.5,
+          "ry": 5,
+          "angle": -17,
+          "v": -100,
+          "u": -4.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 3
+    },
+    {
+      "body": "chef-jacket",
+      "hands": "rubber-gloves",
+      "wrists": [
+        {
+          "x": 242.64549449788865,
+          "y": 634.7260008800106,
+          "rx": 42.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -102.43421444672131,
+          "u": -4.5,
+          "cloth": true
+        },
+        {
+          "x": 652.8763531241298,
+          "y": 634.872186732372,
+          "rx": 43,
+          "ry": 6,
+          "angle": -17,
+          "v": -102.43421444672131,
+          "u": -4,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 4
+    },
+    {
+      "body": "chef-jacket",
+      "hands": "heat-gloves",
+      "wrists": [
+        {
+          "x": 246.57760757511687,
+          "y": 628.7052457648495,
+          "rx": 43.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -109.34152980139048,
+          "u": -2.5,
+          "cloth": true
+        },
+        {
+          "x": 649.4223924248831,
+          "y": 628.7052457648495,
+          "rx": 43.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -109.34152980139048,
+          "u": -2.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 1,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "chef-jacket",
+      "hands": "work-gloves",
+      "wrists": [
+        {
+          "x": 240.97749431447698,
+          "y": 636.7614800277214,
+          "rx": 42.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -100,
+          "u": -5.5,
+          "cloth": true
+        },
+        {
+          "x": 654.06620092956,
+          "y": 637.0538517324442,
+          "rx": 42.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -100,
+          "u": -4.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 0
+    },
+    {
+      "body": "chef-jacket",
+      "hands": "welding-gauntlets",
+      "wrists": [
+        {
+          "x": 255.78018830241456,
+          "y": 607.1557195457392,
+          "rx": 45,
+          "ry": 6,
+          "angle": 17,
+          "v": -132.64001842856433,
+          "u": 0,
+          "cloth": true
+        },
+        {
+          "x": 639.2635069416224,
+          "y": 607.4480912504621,
+          "rx": 44,
+          "ry": 6,
+          "angle": -17,
+          "v": -132.64001842856433,
+          "u": 1,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 28,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "chef-jacket",
+      "hands": "dielectric-gloves",
+      "wrists": [
+        {
+          "x": 253.7392718974588,
+          "y": 620.6718635526626,
+          "rx": 46,
+          "ry": 7,
+          "angle": 17,
+          "v": -119.11775942394874,
+          "u": 2,
+          "cloth": true
+        },
+        {
+          "x": 641.3044233465782,
+          "y": 620.9642352573853,
+          "rx": 46,
+          "ry": 7,
+          "angle": -17,
+          "v": -119.11775942394874,
+          "u": 3,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 12,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "chef-jacket",
+      "hands": "bee-gloves",
+      "wrists": [
+        {
+          "x": 274.37041347366437,
+          "y": 587.3934763041461,
+          "rx": 43,
+          "ry": 7,
+          "angle": 17,
+          "v": -156.97400145349602,
+          "u": 12,
+          "cloth": true
+        },
+        {
+          "x": 622.5858912822987,
+          "y": 587.1011045994235,
+          "rx": 41,
+          "ry": 7,
+          "angle": -17,
+          "v": -156.97400145349602,
+          "u": 11,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 53,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "chef-jacket",
+      "hands": "space-gloves",
+      "wrists": [
+        {
+          "x": 248.82770125369962,
+          "y": 626.4759763941724,
+          "rx": 45,
+          "ry": 7,
+          "angle": 17,
+          "v": -112.13125442748475,
+          "u": -1,
+          "cloth": true
+        },
+        {
+          "x": 647.1722987463004,
+          "y": 626.4759763941724,
+          "rx": 45,
+          "ry": 7,
+          "angle": -17,
+          "v": -112.13125442748475,
+          "u": -1,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 2,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "work-overall",
+      "hands": "nitrile-gloves",
+      "wrists": [
+        {
+          "x": 239.01057048043685,
+          "y": 673.9777305791499,
+          "rx": 41.5,
+          "ry": 5,
+          "angle": 17,
+          "v": -63.8348497241389,
+          "u": 3.5,
+          "cloth": true
+        },
+        {
+          "x": 655.076820007637,
+          "y": 674.5624739885953,
+          "rx": 44.5,
+          "ry": 5,
+          "angle": -17,
+          "v": -63.8348497241389,
+          "u": 5.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 53,
+      "bare_finger_checks": 3
+    },
+    {
+      "body": "work-overall",
+      "hands": "rubber-gloves",
+      "wrists": [
+        {
+          "x": 251.7303896795375,
+          "y": 637.5035320748766,
+          "rx": 41,
+          "ry": 6,
+          "angle": 17,
+          "v": -102.43421444672131,
+          "u": 5,
+          "cloth": true
+        },
+        {
+          "x": 640.9225436745919,
+          "y": 638.5268330414062,
+          "rx": 44.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -102.43421444672131,
+          "u": 8.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 100,
+      "bare_finger_checks": 4
+    },
+    {
+      "body": "work-overall",
+      "hands": "heat-gloves",
+      "wrists": [
+        {
+          "x": 253.74989324483965,
+          "y": 630.89803355027,
+          "rx": 42,
+          "ry": 7,
+          "angle": 17,
+          "v": -109.34152980139048,
+          "u": 5,
+          "cloth": true
+        },
+        {
+          "x": 639.8593448652528,
+          "y": 631.6289628120768,
+          "rx": 44.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -109.34152980139048,
+          "u": 7.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 106,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "work-overall",
+      "hands": "work-gloves",
+      "wrists": [
+        {
+          "x": 240.8867051170952,
+          "y": 669.5513225001237,
+          "rx": 41,
+          "ry": 6,
+          "angle": 17,
+          "v": -68.61637350395408,
+          "u": 4,
+          "cloth": true
+        },
+        {
+          "x": 652.7225329929972,
+          "y": 670.2822517619305,
+          "rx": 44.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -68.61637350395408,
+          "u": 6.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 61,
+      "bare_finger_checks": 0
+    },
+    {
+      "body": "work-overall",
+      "hands": "welding-gauntlets",
+      "wrists": [
+        {
+          "x": 264.3869311060819,
+          "y": 609.787064888244,
+          "rx": 42,
+          "ry": 6,
+          "angle": 17,
+          "v": -132.64001842856433,
+          "u": 9,
+          "cloth": true
+        },
+        {
+          "x": 629.700459381992,
+          "y": 610.3718082976893,
+          "rx": 43,
+          "ry": 6,
+          "angle": -17,
+          "v": -132.64001842856433,
+          "u": 11,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 136,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "work-overall",
+      "hands": "dielectric-gloves",
+      "wrists": [
+        {
+          "x": 257.56449092131095,
+          "y": 621.8413503715535,
+          "rx": 43,
+          "ry": 7,
+          "angle": 17,
+          "v": -119.11775942394874,
+          "u": 6,
+          "cloth": true
+        },
+        {
+          "x": 636.0447471887815,
+          "y": 622.5722796333604,
+          "rx": 44.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -119.11775942394874,
+          "u": 8.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 119,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "work-overall",
+      "hands": "bee-gloves",
+      "wrists": [
+        {
+          "x": 277.717480119535,
+          "y": 588.4167772706758,
+          "rx": 42.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -156.97400145349602,
+          "u": 15.5,
+          "cloth": true
+        },
+        {
+          "x": 618.282519880465,
+          "y": 588.4167772706758,
+          "rx": 42.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -156.97400145349602,
+          "u": 15.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 168,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "work-overall",
+      "hands": "space-gloves",
+      "wrists": [
+        {
+          "x": 255.52183454544087,
+          "y": 628.5225783272315,
+          "rx": 42,
+          "ry": 7,
+          "angle": 17,
+          "v": -112.13125442748475,
+          "u": 6,
+          "cloth": true
+        },
+        {
+          "x": 638.5655559426331,
+          "y": 629.107321736677,
+          "rx": 45,
+          "ry": 7,
+          "angle": -17,
+          "v": -112.13125442748475,
+          "u": 8,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 117,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "space-suit",
+      "hands": "nitrile-gloves",
+      "wrists": [
+        {
+          "x": 238.53241810245532,
+          "y": 673.8315447267885,
+          "rx": 53,
+          "ry": 5,
+          "angle": 17,
+          "v": -63.8348497241389,
+          "u": 3,
+          "cloth": true
+        },
+        {
+          "x": 657.4675818975447,
+          "y": 673.8315447267885,
+          "rx": 55,
+          "ry": 5,
+          "angle": -17,
+          "v": -63.8348497241389,
+          "u": 3,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 66,
+      "bare_finger_checks": 3
+    },
+    {
+      "body": "space-suit",
+      "hands": "rubber-gloves",
+      "wrists": [
+        {
+          "x": 250.77408492357443,
+          "y": 637.211160370154,
+          "rx": 50,
+          "ry": 6,
+          "angle": 17,
+          "v": -102.43421444672131,
+          "u": 4,
+          "cloth": true
+        },
+        {
+          "x": 643.791457942481,
+          "y": 637.649717927238,
+          "rx": 50.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -102.43421444672131,
+          "u": 5.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 125,
+      "bare_finger_checks": 4
+    },
+    {
+      "body": "space-suit",
+      "hands": "heat-gloves",
+      "wrists": [
+        {
+          "x": 254.22804562282116,
+          "y": 631.0442194026314,
+          "rx": 50.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -109.34152980139048,
+          "u": 5.5,
+          "cloth": true
+        },
+        {
+          "x": 640.8156496212158,
+          "y": 631.3365911073541,
+          "rx": 50.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -109.34152980139048,
+          "u": 6.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 129,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "space-suit",
+      "hands": "work-gloves",
+      "wrists": [
+        {
+          "x": 239.45224798315067,
+          "y": 669.1127649430396,
+          "rx": 52.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -68.61637350395408,
+          "u": 2.5,
+          "cloth": true
+        },
+        {
+          "x": 655.5914472608863,
+          "y": 669.4051366477623,
+          "rx": 54.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -68.61637350395408,
+          "u": 3.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 76,
+      "bare_finger_checks": 0
+    },
+    {
+      "body": "space-suit",
+      "hands": "welding-gauntlets",
+      "wrists": [
+        {
+          "x": 265.82138824002647,
+          "y": 610.2256224453281,
+          "rx": 50.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -132.64001842856433,
+          "u": 10.5,
+          "cloth": true
+        },
+        {
+          "x": 629.700459381992,
+          "y": 610.3718082976893,
+          "rx": 50,
+          "ry": 6,
+          "angle": -17,
+          "v": -132.64001842856433,
+          "u": 11,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 164,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "space-suit",
+      "hands": "dielectric-gloves",
+      "wrists": [
+        {
+          "x": 258.9989480552555,
+          "y": 622.2799079286376,
+          "rx": 49.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -119.11775942394874,
+          "u": 7.5,
+          "cloth": true
+        },
+        {
+          "x": 635.0884424328184,
+          "y": 622.8646513380831,
+          "rx": 50.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -119.11775942394874,
+          "u": 9.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 145,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "space-suit",
+      "hands": "bee-gloves",
+      "wrists": [
+        {
+          "x": 293.9746609709066,
+          "y": 593.3870962509623,
+          "rx": 64.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -156.97400145349602,
+          "u": 32.5,
+          "cloth": true
+        },
+        {
+          "x": 601.5471866511118,
+          "y": 593.5332821033237,
+          "rx": 64,
+          "ry": 7,
+          "angle": -17,
+          "v": -156.97400145349602,
+          "u": 33,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 201,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "space-suit",
+      "hands": "space-gloves",
+      "wrists": [
+        {
+          "x": 255.04368216745934,
+          "y": 628.3763924748703,
+          "rx": 50.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -112.13125442748475,
+          "u": 5.5,
+          "cloth": true
+        },
+        {
+          "x": 639.0437083206145,
+          "y": 628.9611358843156,
+          "rx": 49.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -112.13125442748475,
+          "u": 7.5,
+          "cloth": true
+        }
+      ],
+      "sleeve_pixel_checks": 144,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "base",
+      "hands": "nitrile-gloves",
+      "wrists": [
+        {
+          "x": 228.49121816484347,
+          "y": 670.7616418271998,
+          "rx": 28.5,
+          "ry": 5,
+          "angle": 17,
+          "v": -63.8348497241389,
+          "u": -7.5,
+          "cloth": false
+        },
+        {
+          "x": 666.0743247012119,
+          "y": 671.2001993842839,
+          "rx": 28,
+          "ry": 5,
+          "angle": -17,
+          "v": -63.8348497241389,
+          "u": -6,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 3
+    },
+    {
+      "body": "base",
+      "hands": "rubber-gloves",
+      "wrists": [
+        {
+          "x": 244.0799516318332,
+          "y": 635.1645584370947,
+          "rx": 33,
+          "ry": 6,
+          "angle": 17,
+          "v": -102.43421444672131,
+          "u": -3,
+          "cloth": false
+        },
+        {
+          "x": 650.4855912342223,
+          "y": 635.6031159941788,
+          "rx": 32.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -102.43421444672131,
+          "u": -1.5,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 4
+    },
+    {
+      "body": "base",
+      "hands": "heat-gloves",
+      "wrists": [
+        {
+          "x": 247.0557599530984,
+          "y": 628.8514316172109,
+          "rx": 33,
+          "ry": 7,
+          "angle": 17,
+          "v": -109.34152980139048,
+          "u": -2,
+          "cloth": false
+        },
+        {
+          "x": 647.509782912957,
+          "y": 629.289989174295,
+          "rx": 33.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -109.34152980139048,
+          "u": -0.5,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "base",
+      "hands": "work-gloves",
+      "wrists": [
+        {
+          "x": 229.88920042352032,
+          "y": 666.1890478958122,
+          "rx": 29.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -68.61637350395408,
+          "u": -7.5,
+          "cloth": false
+        },
+        {
+          "x": 664.1981900645536,
+          "y": 666.7737913052576,
+          "rx": 28.5,
+          "ry": 6,
+          "angle": -17,
+          "v": -68.61637350395408,
+          "u": -5.5,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 0
+    },
+    {
+      "body": "base",
+      "hands": "welding-gauntlets",
+      "wrists": [
+        {
+          "x": 256.2583406803961,
+          "y": 607.3019053981006,
+          "rx": 32.5,
+          "ry": 6,
+          "angle": 17,
+          "v": -132.64001842856433,
+          "u": 0.5,
+          "cloth": false
+        },
+        {
+          "x": 638.3072021856594,
+          "y": 607.7404629551847,
+          "rx": 33,
+          "ry": 6,
+          "angle": -17,
+          "v": -132.64001842856433,
+          "u": 2,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "base",
+      "hands": "dielectric-gloves",
+      "wrists": [
+        {
+          "x": 250.8703576295697,
+          "y": 619.7947484384944,
+          "rx": 33,
+          "ry": 7,
+          "angle": 17,
+          "v": -119.11775942394874,
+          "u": -1,
+          "cloth": false
+        },
+        {
+          "x": 643.6951852364857,
+          "y": 620.2333059955785,
+          "rx": 33.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -119.11775942394874,
+          "u": 0.5,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 1
+    },
+    {
+      "body": "base",
+      "hands": "bee-gloves",
+      "wrists": [
+        {
+          "x": 266.24182304797864,
+          "y": 584.908316814003,
+          "rx": 30.5,
+          "ry": 7,
+          "angle": 17,
+          "v": -156.97400145349602,
+          "u": 3.5,
+          "cloth": false
+        },
+        {
+          "x": 628.3237198180768,
+          "y": 585.3468743710871,
+          "rx": 31,
+          "ry": 7,
+          "angle": -17,
+          "v": -156.97400145349602,
+          "u": 5,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 2
+    },
+    {
+      "body": "base",
+      "hands": "space-gloves",
+      "wrists": [
+        {
+          "x": 247.87139649773658,
+          "y": 626.1836046894498,
+          "rx": 33,
+          "ry": 7,
+          "angle": 17,
+          "v": -112.13125442748475,
+          "u": -2,
+          "cloth": false
+        },
+        {
+          "x": 646.6941463683189,
+          "y": 626.6221622465339,
+          "rx": 33.5,
+          "ry": 7,
+          "angle": -17,
+          "v": -112.13125442748475,
+          "u": -0.5,
+          "cloth": false
+        }
+      ],
+      "sleeve_pixel_checks": 0,
+      "bare_finger_checks": 1
+    }
+  ],
+  "checks": [
+    "96 outfit/glove combinations",
+    "actual cloth or skin pixels inside both openings",
+    "glove material below both openings",
+    "no old sleeves or bare fingertips protruding below gloves",
+    "finger textures unchanged within decoder precision",
+    "one logical glove item with split rear/front display",
+    "front, rear lip and mirrored removal restore sleeves and base",
+    "cloth inside opening picks the garment independently",
+    "changing garment, boots and live language replaces connection",
+    "footwear stays independent",
+    "mask applied only after full glove image loads and absent for fallback",
+    "phone viewport",
+    "no free-mode XP"
+  ],
+  "js_errors": []
+}

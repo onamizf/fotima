@@ -1200,7 +1200,16 @@ const SafetyWardrobeData = {
         "en": "Create a protective barrier for the hands."
       },
       "layer": "assets/game/wear/nitrile-gloves.webp",
-      "z": 50
+      "z": 50,
+      "gloveFit": {
+        "opening": {
+          "x": 226,
+          "y": 670,
+          "rx": 35,
+          "ry": 5,
+          "angle": 17
+        }
+      }
     },
     {
       "id": "rubber-gloves",
@@ -1219,7 +1228,16 @@ const SafetyWardrobeData = {
         "en": "Protect the hands when handling compatible chemicals."
       },
       "layer": "assets/game/wear/rubber-gloves.webp",
-      "z": 50
+      "z": 50,
+      "gloveFit": {
+        "opening": {
+          "x": 237,
+          "y": 633,
+          "rx": 44,
+          "ry": 6,
+          "angle": 17
+        }
+      }
     },
     {
       "id": "heat-gloves",
@@ -1238,7 +1256,16 @@ const SafetyWardrobeData = {
         "en": "Protect the hands from hot objects."
       },
       "layer": "assets/game/wear/heat-gloves.webp",
-      "z": 50
+      "z": 50,
+      "gloveFit": {
+        "opening": {
+          "x": 241,
+          "y": 627,
+          "rx": 55,
+          "ry": 7,
+          "angle": 17
+        }
+      }
     },
     {
       "id": "work-gloves",
@@ -1257,7 +1284,16 @@ const SafetyWardrobeData = {
         "en": "Protect the hands from mechanical injuries."
       },
       "layer": "assets/game/wear/work-gloves.webp",
-      "z": 50
+      "z": 50,
+      "gloveFit": {
+        "opening": {
+          "x": 226,
+          "y": 665,
+          "rx": 41,
+          "ry": 6,
+          "angle": 17
+        }
+      }
     },
     {
       "id": "welding-gauntlets",
@@ -1276,7 +1312,16 @@ const SafetyWardrobeData = {
         "en": "Protect the hands and wrists from sparks."
       },
       "layer": "assets/game/wear/welding-gauntlets.webp",
-      "z": 50
+      "z": 50,
+      "gloveFit": {
+        "opening": {
+          "x": 252,
+          "y": 606,
+          "rx": 55,
+          "ry": 6,
+          "angle": 17
+        }
+      }
     },
     {
       "id": "dielectric-gloves",
@@ -1295,7 +1340,16 @@ const SafetyWardrobeData = {
         "en": "Tested to protect against electric current."
       },
       "layer": "assets/game/wear/dielectric-gloves.webp",
-      "z": 50
+      "z": 50,
+      "gloveFit": {
+        "opening": {
+          "x": 245,
+          "y": 618,
+          "rx": 62,
+          "ry": 7,
+          "angle": 17
+        }
+      }
     },
     {
       "id": "bee-gloves",
@@ -1314,7 +1368,17 @@ const SafetyWardrobeData = {
         "en": "Long cuffs protect the arms from bees."
       },
       "layer": "assets/game/wear/bee-gloves.webp",
-      "z": 50
+      "z": 50,
+      "gloveFit": {
+        "opening": {
+          "x": 260,
+          "y": 583,
+          "rx": 56,
+          "ry": 7,
+          "angle": 17
+        },
+        "backRise": 20
+      }
     },
     {
       "id": "space-gloves",
@@ -1333,7 +1397,16 @@ const SafetyWardrobeData = {
         "en": "Keep the hands sealed and protected in space."
       },
       "layer": "assets/game/wear/space-gloves.webp",
-      "z": 50
+      "z": 50,
+      "gloveFit": {
+        "opening": {
+          "x": 244,
+          "y": 625,
+          "rx": 60,
+          "ry": 7,
+          "angle": 17
+        }
+      }
     },
     {
       "id": "closed-shoes",
