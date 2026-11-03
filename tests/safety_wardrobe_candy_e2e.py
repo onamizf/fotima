@@ -45,8 +45,8 @@ with sync_playwright() as p:
    const root=im.closest('.sw'),r=root.getBoundingClientRect(),s=getComputedStyle(im),w=r.width,h=r.height;
    const scale=(s.objectFit==='contain'?Math.min:Math.max)(w/im.naturalWidth,h/im.naturalHeight),iw=im.naturalWidth*scale,ih=im.naturalHeight*scale,pos=s.objectPosition.split(' ').map(v=>parseFloat(v)/100),x=(w-iw)*pos[0],y=(h-ih)*pos[1];
    const c=document.createElement('canvas');c.width=Math.round(w);c.height=Math.round(h);const ctx=c.getContext('2d');ctx.drawImage(im,x,y,iw,ih);
-   const excluded=[...root.querySelectorAll('.sw-cover-copy,.sw-result-copy,.sw-top')].map(e=>{const q=e.getBoundingClientRect();return {x:q.left-r.left-32,y:q.top-r.top-32,w:q.width+64,h:q.height+64}});
-   const points=[],left=Math.max(18,x),right=Math.min(w-18,x+iw),top=Math.max(18,y),bottom=Math.min(h-18,y+ih);
+   const excluded=[...root.querySelectorAll('.sw-cover-copy,.sw-result-copy,.sw-top,.sw-stars,.sw-result-banner')].map(e=>{const q=e.getBoundingClientRect();return {x:q.left-r.left-32,y:q.top-r.top-32,w:q.width+64,h:q.height+64}});
+   const points=[],left=Math.max(18,x),right=Math.min(w-18,x+iw),top=Math.max(18,y),bottom=Math.min(im.matches('.sw-scene')?h*.75:h-18,y+ih);
    for(let a=1;a<13;a++)for(let b=1;b<10;b++){
     const px=Math.round(left+(right-left)*a/13),py=Math.round(top+(bottom-top)*b/10);
     if(excluded.some(e=>px>=e.x&&px<=e.x+e.w&&py>=e.y&&py<=e.y+e.h))continue;
@@ -62,8 +62,13 @@ with sync_playwright() as p:
   photos.append({'scene':label,'width':q.viewport_size['width'],'fit':style['fit'],'samples':len(deltas),'median_max_rgb_error':statistics.median(deltas)})
  def card_geometry(selector):
   r=q.locator('.sw').bounding_box();card=q.locator(selector).bounding_box();s=q.locator(selector).evaluate('e=>{const s=getComputedStyle(e);return {background:s.backgroundColor,border:s.borderTopWidth,borderColor:s.borderTopColor,radius:s.borderRadius,padding:s.padding,shadow:s.boxShadow}}')
-  assert s['background']=='rgba(255, 250, 240, 0.92)' and s['border']=='3px' and s['borderColor']=='rgb(255, 255, 255)' and s['radius']=='22px',s
-  assert s['padding']=='16px 24px' and '10px 30px' in s['shadow'],s
+  if selector=='.sw-result-copy':
+   assert s['background']=='rgb(255, 246, 230)' and s['border']=='4px' and s['borderColor']=='rgb(232, 185, 106)' and s['radius']=='26px',s
+   assert '12px 30px' in s['shadow'] and 'inset' in s['shadow'],s
+   assert card['width']<=520.1,(selector,card)
+  else:
+   assert s['background']=='rgba(255, 250, 240, 0.92)' and s['border']=='3px' and s['borderColor']=='rgb(255, 255, 255)' and s['radius']=='22px',s
+   assert s['padding']=='16px 24px' and '10px 30px' in s['shadow'],s
   if q.viewport_size['width']<=767:
    assert abs(card['x']-r['x']-12)<1 and abs(card['width']-r['width']+24)<1,(selector,r,card)
   else:assert card['width']<=560.1,(selector,card)
@@ -126,7 +131,7 @@ with sync_playwright() as p:
   q.wait_for_selector('.sw-result-copy')
   if index==len(cases)-1:
    delays=q.locator('.sw-stars>span').evaluate_all('es=>es.map(e=>{const a=e.getAnimations()[0];return {delay:a.effect.getTiming().delay,duration:a.effect.getTiming().duration,frames:a.effect.getKeyframes().map(k=>k.transform)}})')
-   assert [d['delay'] for d in delays]==[160,320,480] and all(d['duration']==500 for d in delays),delays
+   assert [d['delay'] for d in delays]==[1460,1620,1780] and all(d['duration']==500 for d in delays),delays
    assert all('scale(0)' in d['frames'] and 'scale(1.25)' in d['frames'] and 'scale(1)' in d['frames'] for d in delays)
    assert q.locator('.sw-result-copy').evaluate('e=>getComputedStyle(e).animationDuration')=='0.4s'
    q.wait_for_timeout(1100);q.emulate_media(reduced_motion='reduce')
@@ -134,16 +139,16 @@ with sync_playwright() as p:
   assert q.locator('.sw-rating-star').count()==3
   for w,h in SIZES:
    q.set_viewport_size({'width':w,'height':h});q.wait_for_timeout(80);card_geometry('.sw-result-copy');clear_photo('.sw-scene',id+'-'+lang)
-   assert q.locator('.sw-scene').evaluate('e=>getComputedStyle(e).objectFit')=='contain'
-   assert q.locator('.sw-result h1').evaluate('e=>getComputedStyle(e).fontSize')==('17px' if w<=767 else '20px')
+   assert q.locator('.sw-scene').evaluate('e=>getComputedStyle(e).objectFit')==q.locator('.sw-result-scene').get_attribute('data-fit')
+   assert q.locator('.sw-result h1').evaluate('e=>getComputedStyle(e).fontSize')=='20px'
    assert q.locator('.sw-xp').evaluate('e=>getComputedStyle(e).fontSize')=='16px'
-   assert q.locator('.sw-stars').evaluate('e=>getComputedStyle(e).fontSize')=='28px'
-   assert q.locator('.sw-result-copy').evaluate('e=>getComputedStyle(e).gap')=='8px'
+   assert q.locator('.sw-stars>span').evaluate_all('es=>es.map(e=>e.getBoundingClientRect().width)')==([36,44,36] if w<=767 else [40,52,40])
+   assert q.locator('.sw-result-copy').evaluate('e=>getComputedStyle(e).gap')=='10px'
    candy('.sw-result [data-sw=professions]','blue');candy('.sw-result [data-sw=exit]','green');no_button_emoji()
    if w in [1366,390]:q.screenshot(path=str(ROOT/f'artifacts/wardrobe-candy-result-{id}-{w}.png'))
   results.append({'profession':id,'language':lang,'stars':stars})
   q.set_viewport_size({'width':1366,'height':768})
  assert q.evaluate('CourseGame.xp()')==xp+80
  assert not errors,errors;assert not console,console;assert not bad,bad
- (ROOT/'artifacts/wardrobe-candy-validation.json').write_text(json.dumps({'status':'passed','version':q.locator('meta[name=application-version]').get_attribute('content'),'category_checks':ribbons,'source_pixel_checks':photos,'results':results,'checks':['all 24 category translations in ribbons, tooltips, accessible names and help','72 ribbon sizes without truncation and font never below 15px','exact action gradients, borders, edges, gloss, text, 52/46px heights','hover brightness, pressed 4px/1px edge and white keyboard ring','orange confirm and gray cancel','no emoji in interface buttons','three SVG stars with correct earned/missing states and sequential bounce','20/17px result title, 16px reward, 28px stars, 8px gaps','solid cards with white border, 12px phone margins, 20px final bottom gap','unfiltered, fully opaque original images with no full-scene overlays','rendered uncovered photo pixels match source JPEG on start and four profession scenes','complete profession frame kept visible','no free-mode XP and unchanged 20 XP per profession','no console or loading errors'],'js_errors':errors,'console_errors':console,'bad_responses':bad},ensure_ascii=False,indent=2))
+ (ROOT/'artifacts/wardrobe-candy-validation.json').write_text(json.dumps({'status':'passed','version':q.locator('meta[name=application-version]').get_attribute('content'),'category_checks':ribbons,'source_pixel_checks':photos,'results':results,'checks':['all 24 category translations in ribbons, tooltips, accessible names and help','72 ribbon sizes without truncation and font never below 15px','exact action gradients, borders, edges, gloss, text, 52/46px heights','hover brightness, pressed 4px/1px edge and white keyboard ring','orange confirm and gray cancel','no emoji in interface buttons','three SVG stars with correct earned/missing states and sequential bounce','20px result title, 16px reward, larger middle star, 10px gaps','cream result panel with gold and inner white borders, 12px phone margins, 20px final bottom gap','unfiltered, fully opaque original images with no white fog; bottom 25% dark shade excluded from source pixel sampling','rendered uncovered photo pixels match source JPEG on start and four profession scenes','automatic cover or complete frame over blurred backdrop','no free-mode XP and unchanged 20 XP per profession','no console or loading errors'],'js_errors':errors,'console_errors':console,'bad_responses':bad},ensure_ascii=False,indent=2))
  b.close();print('PASS candy controls, four category locales, clear source pixels, full scenes and star animations')

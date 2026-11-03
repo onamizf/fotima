@@ -2574,6 +2574,18 @@ const SafetyWardrobeData = {
       "uz-Latn": "{name} · {part}: x {x} · y {y} · w {w} · {rotate}°",
       "uz-Cyrl": "{name} · {part}: х {x} · й {y} · w {w} · {rotate}°",
       "en": "{name} · {part}: x {x} · y {y} · w {w} · {rotate}°"
+    },
+    "victory": {
+      "ru": "Ты супер!",
+      "uz-Latn": "Sen zo'rsan!",
+      "uz-Cyrl": "Сен зўрсан!",
+      "en": "You are amazing!"
+    },
+    "rewardAlready": {
+      "ru": "Награда уже получена",
+      "uz-Latn": "Mukofot allaqachon olingan",
+      "uz-Cyrl": "Мукофот аллақачон олинган",
+      "en": "Reward already earned"
     }
   },
   "scene": {

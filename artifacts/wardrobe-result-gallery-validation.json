@@ -1,0 +1,159 @@
+{
+  "status": "passed",
+  "geometry": [
+    {
+      "job": "chemist",
+      "width": 1920,
+      "fit": "cover",
+      "crop": 0.1268666406960135,
+      "card": {
+        "x": 738,
+        "y": 846,
+        "width": 520,
+        "height": 202
+      }
+    },
+    {
+      "job": "chemist",
+      "width": 1366,
+      "fit": "cover",
+      "crop": 0.14112035911343868,
+      "card": {
+        "x": 461,
+        "y": 534,
+        "width": 520,
+        "height": 202
+      }
+    },
+    {
+      "job": "chemist",
+      "width": 390,
+      "fit": "contain",
+      "crop": 0.6858018450650828,
+      "card": {
+        "x": 12,
+        "y": 610,
+        "width": 366,
+        "height": 214
+      }
+    },
+    {
+      "job": "chemist",
+      "width": 320,
+      "fit": "contain",
+      "crop": 0.7020592960420622,
+      "card": {
+        "x": 12,
+        "y": 506,
+        "width": 296,
+        "height": 214
+      }
+    },
+    {
+      "job": "firefighter",
+      "width": 1920,
+      "fit": "cover",
+      "crop": 0.1268666406960135,
+      "card": {
+        "x": 738,
+        "y": 846,
+        "width": 520,
+        "height": 202
+      }
+    },
+    {
+      "job": "firefighter",
+      "width": 1366,
+      "fit": "cover",
+      "crop": 0.14112035911343868,
+      "card": {
+        "x": 461,
+        "y": 534,
+        "width": 520,
+        "height": 202
+      }
+    },
+    {
+      "job": "firefighter",
+      "width": 390,
+      "fit": "contain",
+      "crop": 0.6858018450650828,
+      "card": {
+        "x": 12,
+        "y": 610,
+        "width": 366,
+        "height": 214
+      }
+    },
+    {
+      "job": "firefighter",
+      "width": 320,
+      "fit": "contain",
+      "crop": 0.7020592960420622,
+      "card": {
+        "x": 12,
+        "y": 506,
+        "width": 296,
+        "height": 214
+      }
+    },
+    {
+      "job": "astronaut",
+      "width": 1920,
+      "fit": "cover",
+      "crop": 0.1268666406960135,
+      "card": {
+        "x": 738,
+        "y": 846,
+        "width": 520,
+        "height": 202
+      }
+    },
+    {
+      "job": "astronaut",
+      "width": 1366,
+      "fit": "cover",
+      "crop": 0.14112035911343868,
+      "card": {
+        "x": 461,
+        "y": 534,
+        "width": 520,
+        "height": 202
+      }
+    },
+    {
+      "job": "astronaut",
+      "width": 390,
+      "fit": "contain",
+      "crop": 0.6858018450650828,
+      "card": {
+        "x": 12,
+        "y": 610,
+        "width": 366,
+        "height": 214
+      }
+    },
+    {
+      "job": "astronaut",
+      "width": 320,
+      "fit": "contain",
+      "crop": 0.7020592960420622,
+      "card": {
+        "x": 12,
+        "y": 506,
+        "width": 296,
+        "height": 214
+      }
+    }
+  ],
+  "checks": [
+    "13 supplied pictures decoded",
+    "Russian and Uzbek galleries, five viewport sizes, independent scroll",
+    "three finals at 1920×1080, 1366×768, 390×844 and 320×740",
+    "automatic cover/contain, blurred full-window backdrop, no white fog",
+    "equal buttons and phone star sizes",
+    "missing card scene fallback and next-opening retry",
+    "normal animation timing and unchanged XP"
+  ],
+  "js_errors": []
+}

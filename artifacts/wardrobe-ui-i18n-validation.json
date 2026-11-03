@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "version": "1.35.0",
+  "version": "1.36.0",
   "languages": [
     "ru",
     "uz-Latn",
@@ -48,7 +48,7 @@
     "13 professions and 360 XP in Uzbek",
     "live language menu preserves outfit, turn, category, hints, mistakes and result",
     "translated help, item tips, professions, speech, warnings, stars, rewards and master bonus",
-    "word spaces, two-line result title and compact bottom block",
+    "word spaces, complete result title and compact bottom block",
     "only close button over the final scene",
     "language switch during celebration and no duplicate rewards",
     "Russian fallback validated separately",

@@ -1,6 +1,6 @@
 {
   "status": "passed",
-  "version": "1.34.0",
+  "version": "1.36.0",
   "category_checks": [
     {
       "language": "ru",
@@ -595,8 +595,8 @@
     {
       "scene": "chemist-ru",
       "width": 1366,
-      "fit": "contain",
-      "samples": 78,
+      "fit": "cover",
+      "samples": 84,
       "median_max_rgb_error": 0.0
     },
     {
@@ -611,13 +611,13 @@
       "width": 320,
       "fit": "contain",
       "samples": 108,
-      "median_max_rgb_error": 1.0
+      "median_max_rgb_error": 2.0
     },
     {
       "scene": "firefighter-uz-Latn",
       "width": 1366,
-      "fit": "contain",
-      "samples": 72,
+      "fit": "cover",
+      "samples": 82,
       "median_max_rgb_error": 0.0
     },
     {
@@ -631,14 +631,14 @@
       "scene": "firefighter-uz-Latn",
       "width": 320,
       "fit": "contain",
-      "samples": 108,
-      "median_max_rgb_error": 1.0
+      "samples": 98,
+      "median_max_rgb_error": 2.0
     },
     {
       "scene": "astronaut-en",
       "width": 1366,
-      "fit": "contain",
-      "samples": 78,
+      "fit": "cover",
+      "samples": 84,
       "median_max_rgb_error": 0.0
     },
     {
@@ -658,8 +658,8 @@
     {
       "scene": "surgeon-uz-Cyrl",
       "width": 1366,
-      "fit": "contain",
-      "samples": 72,
+      "fit": "cover",
+      "samples": 82,
       "median_max_rgb_error": 0.0
     },
     {
@@ -667,13 +667,13 @@
       "width": 390,
       "fit": "contain",
       "samples": 108,
-      "median_max_rgb_error": 0.0
+      "median_max_rgb_error": 1.0
     },
     {
       "scene": "surgeon-uz-Cyrl",
       "width": 320,
       "fit": "contain",
-      "samples": 108,
+      "samples": 98,
       "median_max_rgb_error": 1.0
     }
   ],
@@ -707,11 +707,11 @@
     "orange confirm and gray cancel",
     "no emoji in interface buttons",
     "three SVG stars with correct earned/missing states and sequential bounce",
-    "20/17px result title, 16px reward, 28px stars, 8px gaps",
-    "solid cards with white border, 12px phone margins, 20px final bottom gap",
-    "unfiltered, fully opaque original images with no full-scene overlays",
+    "20px result title, 16px reward, larger middle star, 10px gaps",
+    "cream result panel with gold and inner white borders, 12px phone margins, 20px final bottom gap",
+    "unfiltered, fully opaque original images with no white fog; bottom 25% dark shade excluded from source pixel sampling",
     "rendered uncovered photo pixels match source JPEG on start and four profession scenes",
-    "complete profession frame kept visible",
+    "automatic cover or complete frame over blurred backdrop",
     "no free-mode XP and unchanged 20 XP per profession",
     "no console or loading errors"
   ],

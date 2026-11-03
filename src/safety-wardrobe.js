@@ -8,6 +8,7 @@ const SafetyWardrobe=(()=>{
  let speech=null,dialogState=null,sessionOwner=null;
  const jointCache=new Map(),neckCache=new Map(),neckPending=new WeakSet(),legProfiles=new Map(),footConnections=new Map(),footPending=new WeakSet();
  const armProfiles=new Map(),gloveConnections=new Map(),glovePending=new WeakSet();
+ const professionPictures=new Map(),professionPictureBound=new WeakSet(),resultImagePending=new WeakSet();let pictureAttempt=0;
  const layerCache=new Map(),incoming=new Map(),fallbackBound=new WeakSet();
  function later(fn,delay){const id=setTimeout(()=>{timers.delete(id);if(root?.isConnected)fn();},reduced()?0:delay);timers.add(id);return id;}
  function animate(el,frames,options){if(!el||reduced())return;const a=el.animate(frames,options);animations.add(a);a.finished.catch(()=>{}).finally(()=>animations.delete(a));return a;}
@@ -196,6 +197,7 @@ const SafetyWardrobe=(()=>{
   const stacked=root.clientWidth<900;root.dataset.layout=stacked?'stacked':'wide';
   fitCategoryRibbon();
   root.style.setProperty('--sw-scene-split',Math.min(root.clientHeight*.52,Math.max(root.clientHeight*.45,root.clientWidth/d.scene.width*d.scene.height*.85))+'px');
+  if(screen==='result'){layoutResultScene();return;}
   const viewport=root.querySelector('.sw-scene-viewport'),world=root.querySelector('[data-sw-scene]');if(!viewport||!world)return;
   const w=viewport.clientWidth,h=viewport.clientHeight,scale=Math.max(w/d.scene.width,h/d.scene.height)*(stacked?1:1.025);
   world.style.width=d.scene.width*scale+'px';world.style.height=d.scene.height*scale+'px';
@@ -209,6 +211,19 @@ const SafetyWardrobe=(()=>{
   if(calibration){const frame=root.getBoundingClientRect(),frogBox=root.querySelector('.sw-doll').getBoundingClientRect(),left=stacked?52:66;calibration.style.width=Math.max(125,Math.min(260,frogBox.left+frogBox.width*.24-frame.left-left-12))+'px';}
  }
 
+ function layoutResultScene(){
+  const scene=root?.querySelector('[data-sw-result-scene]'),photo=scene?.querySelector('.sw-scene');if(!photo)return;
+  if(!photo.naturalWidth){if(!photo.complete&&!resultImagePending.has(photo)){resultImagePending.add(photo);photo.addEventListener('load',()=>root?.isConnected&&layoutResultScene(),{once:true,signal:controller.signal});}return;}
+  const w=scene.clientWidth,h=scene.clientHeight,scale=Math.max(w/photo.naturalWidth,h/photo.naturalHeight);
+  const crop=Math.max(1-w/(photo.naturalWidth*scale),1-h/(photo.naturalHeight*scale));
+  scene.dataset.fit=crop<.25?'cover':'contain';scene.dataset.crop=String(crop);scene.querySelector('.sw-scene-backdrop').hidden=crop<.25;
+ }
+ function presentResult(){
+  const xp=root?.querySelector('[data-sw-xp]'),gain=Number(root?.dataset.reward)||0;if(!xp||!gain||reduced())return;
+  // Награда уже записана finish(); здесь меняется только число на экране.
+  xp.textContent=text('reward',{n:0});later(()=>{let n=0;const tick=()=>{if(!xp.isConnected)return;xp.textContent=text('reward',{n:++n});if(n<gain)later(tick,30);};tick();},1300);
+ }
+
  function positionWorn(){
   const row=root?.querySelector('.sw-worn'),doll=root?.querySelector('.sw-doll');if(!row||!doll)return;
   const frame=root.getBoundingClientRect(),frog=doll.getBoundingClientRect(),viewport=root.querySelector('.sw-scene-viewport').getBoundingClientRect(),panel=root.querySelector('.sw-selection').getBoundingClientRect(),stacked=root.dataset.layout==='stacked';
@@ -218,9 +233,9 @@ const SafetyWardrobe=(()=>{
   row.style.top=(Math.max(viewport.top+60,Math.min(frog.top+frog.height*.78,viewport.bottom-row.offsetHeight-10))-frame.top)+'px';
  }
 
- function draw(focus){if(!root)return;root.dataset.screen=screen;root.dataset.job=String(!!job);root.classList.toggle('sw-calibrating',calibrating());root.classList.toggle('sw-debug-frames',calibrating()&&showFrames);root.innerHTML=screen==='start'?start():screen==='result'?result():wardrobe();bindFallbacks();if(screen==='wardrobe')updateLayers();layout();if(screen==='wardrobe')preloadCategory();if(focus)root.querySelector(focus)?.focus({preventScroll:true});}
+ function draw(focus){if(!root)return;root.dataset.screen=screen;root.dataset.job=String(!!job);root.classList.toggle('sw-calibrating',calibrating());root.classList.toggle('sw-debug-frames',calibrating()&&showFrames);root.innerHTML=screen==='start'?start():screen==='result'?result():wardrobe();bindFallbacks();if(screen==='wardrobe')updateLayers();layout();if(screen==='result')presentResult();if(screen==='wardrobe')preloadCategory();if(focus)root.querySelector(focus)?.focus({preventScroll:true});}
 
- function bindFallbacks(){root?.querySelectorAll('img').forEach(img=>{if(fallbackBound.has(img))return;fallbackBound.add(img);const fail=()=>{img.hidden=true;img.parentElement.classList.add('sw-image-missing');img.closest('.sw-card,.sw-worn-icon,.sw-fallback-layer,.sw-base,.sw-result,.sw-cover')?.classList.add('sw-image-missing');};img.addEventListener('error',fail,{once:true,signal:controller.signal});if(img.complete&&!img.naturalWidth)fail();});}
+ function bindFallbacks(){root?.querySelectorAll('img').forEach(img=>{if(img.matches('[data-sw-profession-image]'))return;if(fallbackBound.has(img))return;fallbackBound.add(img);const fail=()=>{img.hidden=true;img.parentElement.classList.add('sw-image-missing');img.closest('.sw-card,.sw-worn-icon,.sw-fallback-layer,.sw-base,.sw-result,.sw-cover')?.classList.add('sw-image-missing');};img.addEventListener('error',fail,{once:true,signal:controller.signal});if(img.complete&&!img.naturalWidth)fail();});}
 
  function positionSpeech(){
   const bubble=root?.querySelector('.sw-speech'),doll=root?.querySelector('.sw-doll'),viewport=root?.querySelector('.sw-scene-viewport');if(!bubble||!doll)return;
@@ -344,18 +359,36 @@ const SafetyWardrobe=(()=>{
   const shape='M16 2 20.4 10.8 30 12.2 23 19 24.7 28.7 16 24.1 7.3 28.7 9 19 2 12.2 11.6 10.8Z',id='sw-star-gold-'+n;
   return `<span class="${earned?'sw-star-earned':'sw-star-missing'}" style="--delay:${n*160}ms" aria-hidden="true"><svg class="sw-rating-star" viewBox="0 0 32 32"><defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFE36B"></stop><stop offset="1" stop-color="#FFB21E"></stop></linearGradient></defs><path d="${shape}" fill="${earned?'url(#'+id+')':'#2C3E70'}" stroke="${earned?'#C4770A':'#6C80AC'}" stroke-width="1.6" stroke-linejoin="round"></path>${earned?'<path d="M15.7 5.6 12.3 12.3 5.6 13.3M21.4 19.6l1 5.2" fill="none" stroke="white" stroke-opacity=".65" stroke-width="1.6" stroke-linecap="round"></path>':''}</svg></span>`;
  }
- function result(){const stars=Number(root.dataset.stars)||progress().completed[job.id],gain=root.dataset.reward||'0',master=root.dataset.master==='true';return `${top()}<div class="sw-result">${image('assets/game/scenes/'+job.id+'.jpg',local(job.name),'sw-scene',false)}<div class="sw-scene-fallback" aria-hidden="true">${job.emoji} 🐸</div><div class="sw-result-copy"><h1>${text('ready').split(/\s+/).map((word,n)=>`<span style="--delay:${n*100}ms">${esc(word)}</span>`).join(' ')}</h1><div class="sw-stars" aria-label="${text('stars',{n:stars})}">${[1,2,3].map(n=>ratingStar(n<=stars,n)).join('')}</div><p class="sw-xp" data-sw-xp>${gain==='0'?text('already'):text('reward',{n:gain})}</p>${master?`<h2>${text('master')}</h2><p>${text('bonus')}</p>`:''}<div class="sw-actions">${button('professions',text('another'),'sw-blue')}${button('exit',text('exit'),'sw-green')}</div></div></div>`;}
+ function rewardCoin(){return '<svg class="sw-xp-coin" viewBox="0 0 32 32" aria-hidden="true"><defs><linearGradient id="sw-reward-coin" x2="0" y2="1"><stop stop-color="#FFE36B"></stop><stop offset="1" stop-color="#FFB21E"></stop></linearGradient></defs><circle cx="16" cy="16" r="14" fill="url(#sw-reward-coin)" stroke="#C4770A" stroke-width="2"></circle><path d="m16 7 2.7 5.5 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1-4.4-4.3 6.1-.9Z" fill="#FFF3AD" stroke="#D98A15" stroke-linejoin="round"></path><path d="M6 13a11 11 0 0 1 8-8" fill="none" stroke="#fff" stroke-opacity=".7" stroke-width="2" stroke-linecap="round"></path></svg>';}
+ function result(){
+  const stars=Number(root.dataset.stars)||progress().completed[job.id],gain=root.dataset.reward||'0',master=root.dataset.master==='true',path='assets/game/scenes/'+job.id+'.jpg';
+  return `${top()}<div class="sw-result"><div class="sw-result-scene" data-sw-result-scene data-fit="cover">${image(path,'','sw-scene-backdrop',false)}<div class="sw-scene-camera"><div class="sw-scene-arrival">${image(path,local(job.name),'sw-scene',false)}</div></div></div><div class="sw-result-shade" aria-hidden="true"></div><div class="sw-scene-fallback" aria-hidden="true">${job.emoji} 🐸</div><div class="sw-result-copy"><div class="sw-result-banner">${text('victory')}</div><div class="sw-stars" aria-label="${text('stars',{n:stars})}">${[1,2,3].map(n=>ratingStar(n<=stars,n)).join('')}</div><h1>${text('ready').split(/\s+/).map(word=>`<span>${esc(word)}</span>`).join(' ')}</h1><div class="sw-reward-pill ${gain==='0'?'sw-reward-received':''}">${rewardCoin()}<p class="sw-xp" data-sw-xp>${gain==='0'?text('rewardAlready'):text('reward',{n:gain})}</p></div>${master?`<div class="sw-result-bonus"><h2>${text('master')}</h2><p>${text('bonus')}</p></div>`:''}<div class="sw-actions">${button('professions',text('another'),'sw-blue')}${button('exit',text('exit'),'sw-green')}</div></div></div>`;
+ }
  function finish(){if(finished)return;if(!job){tell('free');confetti();animate(root.querySelector('.sw-frog-turn'),[{rotate:'0deg'},{rotate:'360deg'}],{duration:750});root.querySelector('[data-sw=professions]').classList.add('sw-highlight');return;}
   if(correct()<job.required.length){const missing=item(job.required.find(id=>!worn().includes(id)));speak({key:'missing',category:missing.category});return;}
-  speechVersion++;finished=true;const stars=mistakes+hints===0?3:mistakes+hints<=2?2:1;root.dataset.stars=stars;progress().completed[job.id]=Math.max(stars,progress().completed[job.id]||0);const gain=CourseGame.wardrobeAward(job.id);let master=false;if(count()===13&&!progress().master){progress().master=true;master=CourseGame.wardrobeAward('master');}saveState();root.dataset.reward=gain?'20':'0';root.dataset.master=String(master);const header=document.querySelector('.header-xp');if(header)header.outerHTML=CourseGame.header();tell('great');bounce();confetti();reactions();const banner=document.createElement('div');banner.className='sw-super';banner.textContent=text('great');root.append(banner);animate(root.querySelector('.sw-frog-turn'),[{rotate:'0deg'},{rotate:'360deg'}],{duration:1000});later(()=>{root.classList.add('sw-depart');later(()=>{root.classList.remove('sw-depart');screen='result';draw('[data-sw=professions]');if(master)confetti();const xp=root.querySelector('[data-sw-xp]');if(gain&&!reduced()){let n=0;const tick=()=>{xp.textContent=text('reward',{n:++n});if(n<20)later(tick,30);};tick();}},600);},1500);
+  speechVersion++;finished=true;const stars=mistakes+hints===0?3:mistakes+hints<=2?2:1;root.dataset.stars=stars;progress().completed[job.id]=Math.max(stars,progress().completed[job.id]||0);const gain=CourseGame.wardrobeAward(job.id);let master=false;if(count()===13&&!progress().master){progress().master=true;master=CourseGame.wardrobeAward('master');}saveState();root.dataset.reward=gain?'20':'0';root.dataset.master=String(master);const header=document.querySelector('.header-xp');if(header)header.outerHTML=CourseGame.header();tell('great');bounce();confetti();reactions();const banner=document.createElement('div');banner.className='sw-super';banner.textContent=text('great');root.append(banner);animate(root.querySelector('.sw-frog-turn'),[{rotate:'0deg'},{rotate:'360deg'}],{duration:1000});later(()=>{root.classList.add('sw-depart');later(()=>{root.classList.remove('sw-depart');screen='result';draw('[data-sw=professions]');if(master)confetti();},600);},1500);
  }
  function closeDialog(){const dialog=root.querySelector('dialog');if(!dialog)return;dialogState=null;dialog.close();dialog.remove();dialogOpener?.focus({preventScroll:true});}
- function modal(content,focusSelector='button',descriptor=null){closeDialog();dialogState=descriptor;dialogOpener=document.activeElement;const dialog=document.createElement('dialog');dialog.className='sw-dialog';dialog.innerHTML=button('close-dialog','×','sw-round sw-dialog-close',`aria-label="${text('close')}"`)+`<div class="sw-dialog-body">${content}</div>`;root.append(dialog);dialog.addEventListener('cancel',event=>{event.preventDefault();closeDialog();},{signal:controller.signal});dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeDialog();}},{signal:controller.signal});dialog.showModal();dialog.querySelector(focusSelector)?.focus();}
+ function modal(content,focusSelector='button',descriptor=null){closeDialog();dialogState=descriptor;dialogOpener=document.activeElement;const dialog=document.createElement('dialog');dialog.className='sw-dialog';dialog.innerHTML=button('close-dialog','×','sw-round sw-dialog-close',`aria-label="${text('close')}"`)+`<div class="sw-dialog-body">${content}</div>`;if(descriptor?.kind==='professions'){dialog.classList.add('sw-professions-dialog');const body=dialog.querySelector('.sw-dialog-body'),heading=body.querySelector('.sw-profession-heading');dialog.insertBefore(heading,body);}root.append(dialog);if(descriptor?.kind==='professions')bindProfessionPictures();dialog.addEventListener('cancel',event=>{event.preventDefault();closeDialog();},{signal:controller.signal});dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)closeDialog();}},{signal:controller.signal});dialog.showModal();dialog.querySelector(focusSelector)?.focus();}
+ function professionPicture(p){
+  const version=document.querySelector('meta[name=application-version]')?.content||'local',entry=professionPictures.get(p.id),base='assets/game/cards/card-'+p.id+'.png?v='+encodeURIComponent(version);
+  const src=entry?.status==='missing'?base+'&retry='+(++pictureAttempt):entry?.url||base;
+  return `<span class="sw-profession-art"><img class="sw-profession-image" data-sw-profession-image="${p.id}" src="${src}" alt="${esc(local(p.name))}" loading="lazy" decoding="async"><span class="sw-profession-art-fallback" aria-hidden="true">${uiIcon('profession')}</span></span>`;
+ }
+ function bindProfessionPictures(){
+  root?.querySelectorAll('[data-sw-profession-image]').forEach(img=>{
+   if(professionPictureBound.has(img))return;professionPictureBound.add(img);const id=img.dataset.swProfessionImage;
+   const loaded=()=>{if(!img.dataset.swSceneFallback)professionPictures.set(id,{status:'ready',url:img.getAttribute('src')});};
+   const failed=()=>{if(img.dataset.swSceneFallback){img.hidden=true;img.closest('.sw-profession-art').classList.add('sw-picture-missing');return;}professionPictures.set(id,{status:'missing'});img.dataset.swSceneFallback='true';img.src='assets/game/scenes/'+id+'.jpg';};
+   img.addEventListener('load',loaded,{signal:controller.signal});img.addEventListener('error',failed,{signal:controller.signal});
+   if(img.complete){if(img.naturalWidth)loaded();else failed();}
+  });
+ }
  function professions(){
   const groups=[...new Set(d.professions.map(p=>local(p.group)))];
   modal(`<header class="sw-profession-heading"><h2>${text('chooseProfession')}</h2><p>${text('professionProgress',{n:count()})}</p><progress max="13" value="${count()}" aria-label="${text('professionProgress',{n:count()})}"></progress></header><div class="sw-professions">${d.professions.map((p,n)=>{
    const completed=!!progress().completed[p.id],group=local(p.group).toLocaleLowerCase(),label=group.charAt(0).toLocaleUpperCase()+group.slice(1),index=groups.indexOf(local(p.group));
-   return `<button type="button" data-sw="job" data-job="${p.id}" data-group="${index}" class="sw-profession sw-game-button sw-blue ${completed?'sw-profession-completed':''}" aria-pressed="${job?.id===p.id}" aria-label="${esc(local(p.name)+(completed?'. '+text('professionCompleted'):''))}"><span class="sw-profession-top"><span class="sw-profession-number">${n+1}</span><span class="sw-profession-icon" aria-hidden="true">${uiIcon('profession')}</span></span>${completed?`<span class="sw-profession-check" aria-label="${text('professionCompleted')}">✓</span>`:''}<strong title="${esc(local(p.name))}">${local(p.name)}</strong><small>${local(p.description)}</small><span class="sw-profession-group">${label}</span></button>`;
+   return `<button type="button" data-sw="job" data-job="${p.id}" data-group="${index}" class="sw-profession ${completed?'sw-profession-completed':''}" aria-pressed="${job?.id===p.id}" aria-label="${esc(local(p.name)+(completed?'. '+text('professionCompleted'):''))}">${professionPicture(p)}${completed?`<span class="sw-profession-check" aria-label="${text('professionCompleted')}">✓</span>`:''}<span class="sw-profession-top"><span class="sw-profession-number">${n+1}</span></span><strong title="${esc(local(p.name))}">${local(p.name)}</strong><small>${local(p.description)}</small><span class="sw-profession-group">${label}</span></button>`;
   }).join('')}</div>`,'button',{kind:'professions'});
  }
  function help(){modal(`<h2>${text('instructions')}</h2><p>${text('help',{categories:d.categories.map(c=>local(c.name)).join(', ')})}</p>`,'button',{kind:'help'});}
