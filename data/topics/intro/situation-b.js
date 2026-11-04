@@ -35,6 +35,7 @@ const SituationB={
       "at": 6,
       "frame": 2,
       "zoom": 1.3,
+      "dangerStamp": true,
       "effect": "tube-splash"
     },
     {

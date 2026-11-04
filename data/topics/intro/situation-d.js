@@ -26,6 +26,7 @@ const SituationD={
       "at": 6,
       "frame": 2,
       "zoom": 1.3,
+      "dangerStamp": true,
       "effect": "steam-burst",
       "points": {
         "face": {

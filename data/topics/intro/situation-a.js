@@ -18,6 +18,7 @@ const SituationA={
       "at": 3,
       "frame": 1,
       "zoom": 1.35,
+      "dangerStamp": true,
       "effect": "splash"
     },
     {
