@@ -1,4 +1,5 @@
 const SafetyWorkspaceCopy={
+ dangerStamp:{ru:'ОПАСНО!',en:'DANGER!',uz:'XAVFLI!','uz-Latn':'XAVFLI!','uz-Cyrl':'ХАВФЛИ!'},
  situations:{ru:'Ситуации',en:'Situations','uz-Latn':'Vaziyatlar','uz-Cyrl':'Вазиятлар'},
  restart:{ru:'Сначала',en:'Restart','uz-Latn':'Boshidan','uz-Cyrl':'Бошидан'},
  next:{ru:'Дальше →',en:'Next →','uz-Latn':'Keyingi →','uz-Cyrl':'Кейинги →'},

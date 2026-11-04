@@ -9,7 +9,7 @@ with sync_playwright() as p:
  c=b.new_context(viewport={'width':1440,'height':1000},reduced_motion='reduce');c.route('https://fonts.googleapis.com/**',lambda r:r.fulfill(status=200,body=''));c.route('https://fonts.gstatic.com/**',lambda r:r.fulfill(status=200,body=''))
  q=c.new_page();errors=[];q.on('pageerror',lambda e:errors.append(str(e)));q.on('console',lambda m:errors.append(m.text) if m.type=='error' else None)
  register_local(q,BASE,'Release regression')
- q.goto(BASE+'?v=1.35.0#topic/ch1/1.1');q.wait_for_selector('[data-project-open]');assert '?v=1.37.0' in q.url
+ q.goto(BASE+'?v=1.35.0#topic/ch1/1.1');q.wait_for_selector('[data-project-open]');assert '?v='+q.locator('meta[name=application-version]').get_attribute('content') in q.url
  q.locator('[data-project-open]').click();q.wait_for_selector('.safety-editor');assert len(c.pages)==1;assert '#lab/ch1/1.1/task-1' in q.url
  q.wait_for_function('SafetyWorkspace.debug.player.stage===0');q.wait_for_timeout(500)
  assert q.locator('.pw-canvas .cinema-bubble').count()==0
@@ -57,7 +57,9 @@ with sync_playwright() as p:
  q.locator('[data-pw-tool=zoomIn]').click();assert float(q.locator('.workshop-render').get_attribute('data-pixels-per-cm'))>k
  q.screenshot(path=str(OUT/'equipment-task2.png'))
  q.set_viewport_size({'width':390,'height':844});q.wait_for_timeout(200);assert float(q.locator('.workshop-render').get_attribute('data-pixels-per-cm'))!=k
- q.goto(BASE+'#lab/ch1/1.1/task-1');q.wait_for_selector('.safety-editor');q.wait_for_selector('[data-story-card="2"]')
+ q.goto(BASE+'#lab/ch1/1.1/task-1');q.wait_for_selector('.safety-editor');q.wait_for_function('SafetyWorkspace.debug.player.stage===0')
+ for step in range(7):q.locator('[data-sp=advance-line]').click()
+ q.wait_for_selector('[data-story-card="2"]')
  boxes=[q.locator(s).bounding_box() for s in ['.pw-canvas','.safety-explanation','.safety-scene-tiles']];assert boxes[0]['y']+boxes[0]['height']<=boxes[1]['y']+1;assert boxes[1]['y']+boxes[1]['height']<=boxes[2]['y']+1
  q.screenshot(path=str(OUT/'safety-mobile.png'),full_page=True)
  assert not errors,errors
