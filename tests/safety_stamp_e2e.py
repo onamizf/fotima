@@ -22,7 +22,7 @@ with sync_playwright() as p:
  assert q.evaluate('effectAudio.vibrations.some(x=>JSON.stringify(x)==="[120,60,120]")')
  q.wait_for_selector('.safety-stamp-layer[data-phase=compact]');q.wait_for_timeout(450)
  assert round(q.locator('.safety-stamp-position').bounding_box()['width'])==90
- q.locator('[data-sp=advance-line]').click();q.wait_for_timeout(250);assert q.locator('.safety-stamp-layer').is_hidden()
+ q.locator('[data-sp=advance-line]').click();q.wait_for_timeout(250);assert q.locator('.safety-stamp-layer').is_visible()
  q.locator('[data-sp=back-line]').click();q.wait_for_selector('.safety-stamp-layer[data-phase=large]')
  for index in range(1,4):
   q.locator('.safety-scene-nav [data-sw-scene="'+str(index)+'"]').click()
@@ -32,6 +32,16 @@ with sync_playwright() as p:
   q.wait_for_timeout(250);assert q.locator('.safety-stamp-layer').is_hidden()
   for step in range(4):q.locator('[data-sp=back-line]').click()
   q.wait_for_selector('.safety-stamp-layer[data-phase=large]:not([hidden])')
+ # Every visible What happened frame and the first explanation card retain/replay the stamp.
+ for step in range(7):
+  info=q.evaluate('({stage:SafetyWorkspace.debug.player.stage,card:SafetyWorkspace.debug.player.explanationIndex})')
+  danger=info['card']==0 or info['card']<0 and info['stage']<4
+  q.wait_for_timeout(250)
+  assert q.locator('.safety-stamp-layer').is_visible()==danger,info
+  if info['card']==0:assert q.locator('.sp-scene').get_attribute('data-presentation-frame')=='2'
+  q.locator('[data-sp=advance-line]').click()
+ q.wait_for_timeout(250);assert q.locator('.safety-stamp-layer').is_hidden()
+ q.locator('[data-sp=back-line]').click();q.locator('[data-sp=back-line]').click();q.wait_for_selector('.safety-stamp-layer[data-phase=large]:not([hidden])')
  # An explicit selection of the current situation replays its first danger step.
  q.locator('.safety-scene-nav [data-sw-scene="3"]').click();q.wait_for_selector('.safety-stamp-layer[data-phase=large]')
  q.locator('[data-sw=sound]').click();q.locator('[data-sw=restart]').click();before=q.evaluate('effectAudio.starts');q.wait_for_timeout(700);assert q.evaluate('effectAudio.starts')==before
@@ -47,7 +57,10 @@ with sync_playwright() as p:
  rect=q.locator('.safety-stamp-position').bounding_box();scene=q.locator('.pw-canvas').bounding_box();assert rect['width']<=scene['width'];q.screenshot(path=str(OUT/'stamp-mobile.png'))
  q.wait_for_selector('.safety-stamp-layer[data-phase=compact]')
  for language,label in [('en','DANGER!'),('uz-Latn','XAVFLI!'),('uz-Cyrl','ХАВФЛИ!')]:
-  q.evaluate('(l)=>{state.settings.language=l;saveState()}',language);q.reload();q.wait_for_selector('.safety-stamp-svg text');assert q.locator('.safety-stamp-svg text').text_content()==label
+  q.evaluate('(l)=>{state.settings.language=l;saveState()}',language);q.reload();q.wait_for_selector('.safety-stamp-svg text',state='attached');assert q.locator('.safety-stamp-svg text').text_content()==label
+ q.evaluate("""()=>{window.legacyHost=document.createElement('div');legacyHost.style.cssText='position:fixed;inset:0;z-index:9000';legacyHost.className='intro-root is-cinema';document.body.append(legacyHost);window.legacyPlayer=ScenePlayer.mount(legacyHost,SituationA,{language:'en',reduced:true,sound:false});}""")
+ q.wait_for_selector('body>.intro-root .safety-stamp-layer:not([hidden])');assert q.locator('body>.intro-root .safety-stamp-svg text').text_content()=='DANGER!'
+ q.evaluate('legacyPlayer.dispose();legacyHost.remove()')
  assert not errors,errors
  print('PASS danger A–D, back/forward/reselection/restart, safe-step hide, stamp/dots/mask, compact badge, audio and mute persistence, shared audio, vibration API, reduced motion/mobile and translations; no console errors')
  b.close()
