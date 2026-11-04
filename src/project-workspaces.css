@@ -14,3 +14,28 @@ body.project-hub-page #app,body.project-workspace-page #app{padding-left:0!impor
 .project-card progress{display:block;width:100%;height:5px;accent-color:#22c55e;margin:-10px 0 18px;border:0}.project-card progress::-webkit-progress-bar{background:#eef2f7;border-radius:10px}.project-card progress::-webkit-progress-value{background:#22c55e;border-radius:10px}.project-hub-page #main .project-filters select{flex-basis:160px!important;align-self:center;display:inline-block!important}.pw-editor .pw-toolbar [hidden]{display:none!important}
 .pw-editor[data-mode=study] .pw-panel-aux{display:none!important}.pw-editor .pw-mode-switch button[aria-pressed=true]{outline:0!important}.project-hub-page #main .project-filters button[aria-pressed=true]{outline:0!important}.pw-editor .pw-panel .pw-item[aria-pressed=true]{outline:0!important}
 .project-filters>.dropdown{width:160px!important;min-width:160px!important;max-width:180px!important;flex:0 0 160px!important;margin-left:auto!important}.project-filters>.dropdown .dropdown-trigger{width:100%!important;background:#fff!important;border:1px solid #e6ecf7!important;color:#617087!important;font:500 13px Inter,Arial!important}.pw-category>.dropdown{flex:1;min-width:0;width:auto}.pw-category .dropdown-trigger{border:0!important;padding:5px 8px!important;min-height:30px!important;background:#fff!important;font:600 13px Inter,Arial!important;color:#0b1e4a!important}.pw-toolbar .dropdown{width:150px!important;flex:none}.pw-toolbar .dropdown-trigger{background:white!important;border:1px solid #e6ecf7!important;color:#64748b!important;min-height:36px!important;font-size:12px!important}.pw-panel .dropdown-panel .dropdown-options button{font:500 13px/1.4 Inter,Arial!important}
+/* Topic 1.2 supplied equipment cards and proportional image scenes. */
+.pw-editor .pw-inventory,.pw-editor .pw-inventory .setup-part-list,.pw-editor .pw-inventory .workshop-tray{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:10px!important;grid-auto-rows:1fr;align-items:stretch}
+.pw-editor .pw-panel :is(.pw-item,.workshop-card){display:flex!important;flex-direction:column;justify-content:flex-start;align-items:stretch;width:100%!important;height:100%!important;min-height:0!important;gap:0!important;padding:0!important;overflow:hidden;border-radius:12px!important;opacity:1;filter:none}
+.pw-editor .pw-panel :is(.pw-item>img,.workshop-preview){display:block;width:100%!important;height:auto!important;min-height:0!important;aspect-ratio:1/1;border-radius:11px 11px 0 0!important;background:#f4f6f8;object-fit:cover}
+.pw-editor .pw-panel .workshop-preview img{width:100%;height:100%;object-fit:cover}
+.pw-editor .pw-panel :is(.pw-item,.workshop-card)>span:last-of-type{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;width:100%;max-width:none;height:44px;min-height:44px;padding:4px 2px;font:700 14px/18px Arial,sans-serif!important;color:#1F2A44!important;text-align:center;hyphens:none!important;word-break:normal!important;overflow-wrap:normal!important}
+.pw-editor .pw-panel :is(.pw-item,.workshop-card)>b{position:absolute;top:4px;right:4px;z-index:2}
+.pw-editor .pw-panel :is(.pw-item,.workshop-card)[hidden]{display:none!important}
+.equipment-image-scene,.equipment-image-room{background:linear-gradient(#edf3f7,#f8fafc)!important;overflow:hidden}
+.equipment-image-scene:before,.equipment-image-room:before{content:'';position:absolute;left:0;right:0;top:var(--equipment-table,88%);bottom:0;background:linear-gradient(#c9b69b,#e3d6c3);border-top:3px solid #b29e83;pointer-events:none}
+.equipment-image-layer{position:absolute;inset:0;isolation:isolate}
+.equipment-scene-object{position:absolute;object-fit:fill;max-width:none;cursor:pointer;transform-origin:center;user-select:none}
+.equipment-scene-object[hidden]{display:none}.equipment-image-ghost{z-index:20!important;opacity:.6;pointer-events:none}
+.equipment-image-flame{position:absolute;z-index:3;border-radius:50% 50% 35% 35%;background:linear-gradient(#acb9ff88,#4095ff);filter:blur(1px);pointer-events:none}
+.equipment-image-room .equipment-room-image,.equipment-image-room .equipment-room-zone.is-later{visibility:hidden}
+.equipment-image-room .equipment-room-camera{position:absolute;inset:0;transform:none!important}
+.equipment-image-room .equipment-room-zone .pw-clean-item{display:block;mix-blend-mode:normal}
+.equipment-image-room .equipment-room-zone{border:0!important;background:transparent!important;min-width:0!important;min-height:0!important;padding:0!important;border-radius:0!important}
+.pw-editor .equipment-image-scene{z-index:3}.pw-editor .setup-background{display:none}
+.pw-editor .equipment-practice .setup-task .pw-panel .workshop-card{height:auto!important;min-height:0!important;padding:0!important;gap:0!important}
+.pw-editor .pw-panel :is(.pw-item>img,.workshop-preview){flex-shrink:0!important;flex-basis:auto!important}
+.pw-editor .pw-panel :is(.pw-item,.workshop-card)>span:last-of-type{flex-shrink:0;white-space:normal!important;text-overflow:clip!important}
+@media(min-width:900px){.pw-editor{grid-template-columns:minmax(0,1fr)380px}.pw-panel-collapsed{grid-template-columns:minmax(0,1fr)24px}.pw-panel-collapsed .pw-panel{translate:356px 0}}
+@media(min-width:900px){.pw-editor .pw-panel{width:380px}.pw-panel-collapsed .pw-panel{translate:356px 0}}
+.pw-editor .pw-panel :is(.pw-item,.workshop-card),.pw-editor .equipment-practice .setup-task .pw-panel .workshop-card:is(.is-used,:disabled){opacity:1!important;filter:none!important}

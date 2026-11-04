@@ -1,0 +1,121 @@
+{
+ "alcohol-bottle": {
+  "heightCm": 15,
+  "px": [
+   418,
+   782
+  ]
+ },
+ "alcohol": {
+  "heightCm": 15,
+  "px": [
+   203,
+   1050
+  ]
+ },
+ "beaker": {
+  "heightCm": 9,
+  "px": [
+   544,
+   790
+  ]
+ },
+ "clamp-stand": {
+  "heightCm": 60,
+  "px": [
+   545,
+   1050
+  ]
+ },
+ "conical-flask": {
+  "heightCm": 13,
+  "px": [
+   536,
+   789
+  ]
+ },
+ "crucible-tongs": {
+  "heightCm": 20,
+  "px": [
+   316,
+   811
+  ]
+ },
+ "gas-burner": {
+  "heightCm": 12,
+  "px": [
+   492,
+   802
+  ]
+ },
+ "graduated-cylinder": {
+  "heightCm": 25,
+  "px": [
+   372,
+   852
+  ]
+ },
+ "heat-test-tube": {
+  "heightCm": 15,
+  "px": [
+   250,
+   786
+  ]
+ },
+ "mortar": {
+  "heightCm": 8,
+  "px": [
+   687,
+   734
+  ]
+ },
+ "ring-stand": {
+  "heightCm": 60,
+  "px": [
+   472,
+   857
+  ]
+ },
+ "spirit-lamp": {
+  "heightCm": 10,
+  "px": [
+   759,
+   755
+  ]
+ },
+ "test-tube-holder": {
+  "heightCm": 18,
+  "px": [
+   225,
+   833
+  ]
+ },
+ "thermometer": {
+  "heightCm": 30,
+  "px": [
+   186,
+   1075
+  ]
+ },
+ "tripod": {
+  "heightCm": 20,
+  "px": [
+   556,
+   873
+  ]
+ },
+ "water": {
+  "heightCm": 9,
+  "px": [
+   544,
+   769
+  ]
+ },
+ "wire-gauze": {
+  "widthCm": 15,
+  "px": [
+   874,
+   646
+  ]
+ }
+}
