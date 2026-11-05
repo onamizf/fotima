@@ -247,3 +247,14 @@ body[data-page=home] .minimal-home .home-search-icon svg,
 body[data-page=home] .minimal-home .home-filter-icon svg { stroke:currentColor; }
 body[data-page=home] .minimal-home .home-search-icon svg { width:18px!important; height:18px!important; }
 body[data-page=home] .minimal-home .home-filter-icon svg { width:16px!important; height:16px!important; }
+
+/* The quick-section chips keep their existing shape, spacing and surface. */
+.home-tools [data-home-section]{cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease}
+.home-tools .home-tool-icon{width:24px!important;height:24px!important;min-width:24px;flex:none;object-fit:contain;pointer-events:none;transition:transform .22s cubic-bezier(.2,.8,.2,1);transform-origin:50% 60%}
+.home-tools [data-home-section]:hover{transform:translateY(-2px)}
+.home-tools [data-home-section]:is(:hover,:focus-visible) .home-tool-icon{transform:rotate(-6deg) scale(1.12)}
+.home-tools [data-home-section]:active{transform:translateY(0) scale(.98)}
+.home-tools [data-home-section]:focus-visible{outline:3px solid #fff!important;outline-offset:4px!important}
+.home-tools [data-home-section][aria-current=page]{background:#ffffff30!important;border-color:#fff!important}
+@media(prefers-reduced-motion:reduce){.home-tools [data-home-section],.home-tools .home-tool-icon{transition:none!important;transform:none!important}}
+.reduce-motion .home-tools [data-home-section],.reduce-motion .home-tools .home-tool-icon{transition:none!important;transform:none!important}
