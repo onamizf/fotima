@@ -248,13 +248,22 @@ body[data-page=home] .minimal-home .home-filter-icon svg { stroke:currentColor; 
 body[data-page=home] .minimal-home .home-search-icon svg { width:18px!important; height:18px!important; }
 body[data-page=home] .minimal-home .home-filter-icon svg { width:16px!important; height:16px!important; }
 
-/* The quick-section chips keep their existing shape, spacing and surface. */
-.home-tools [data-home-section]{cursor:pointer;transition:transform .18s ease,background .18s ease,border-color .18s ease}
-.home-tools .home-tool-icon{width:24px!important;height:24px!important;min-width:24px;flex:none;object-fit:contain;pointer-events:none;transition:transform .22s cubic-bezier(.2,.8,.2,1);transform-origin:50% 60%}
-.home-tools [data-home-section]:hover{transform:translateY(-2px)}
-.home-tools [data-home-section]:is(:hover,:focus-visible) .home-tool-icon{transform:rotate(-6deg) scale(1.12)}
+/* Four icon-only quick cards; labels appear without moving the layout. */
+body[data-page=home] .minimal-home .home-tools{display:flex!important;gap:18px!important;flex-wrap:wrap;overflow:visible}
+body[data-page=home] .minimal-home .home-tools [data-home-section]{position:relative;display:flex;align-items:center;justify-content:center;width:112px;height:112px;min-height:112px;flex:0 0 112px;padding:8px!important;border-radius:24px;cursor:pointer;overflow:visible;transition:transform .18s ease,background .18s ease,border-color .18s ease}
+.home-tools .home-tool-icon{width:88px!important;height:88px!important;min-width:0;flex:none;object-fit:contain;pointer-events:none;transition:transform .22s cubic-bezier(.2,.8,.2,1);transform-origin:50% 60%}
+.home-tools .home-tool-label{position:absolute;top:calc(100% + 10px);left:50%;z-index:20;display:block;width:max-content;max-width:220px;padding:8px 12px;border-radius:10px;background:#0b1e4a;color:#fff;font-size:13px;line-height:1.4;text-align:center;white-space:normal;opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,5px);transition:opacity .16s ease,transform .16s ease,visibility .16s}
+.home-tools [data-home-section]:first-child .home-tool-label{left:0;transform:translate(0,5px)}
+.home-tools [data-home-section]:last-child .home-tool-label{left:auto;right:0;transform:translate(0,5px)}
+.home-tools [data-home-section]:is(:hover,:focus-visible){transform:translateY(-3px);z-index:21}
+.home-tools [data-home-section]:is(:hover,:focus-visible) .home-tool-icon{transform:rotate(-6deg) scale(1.08)}
+.home-tools [data-home-section]:is(:hover,:focus-visible) .home-tool-label{opacity:1;visibility:visible;transform:translate(-50%,0)}
+.home-tools [data-home-section]:is(:first-child,:last-child):is(:hover,:focus-visible) .home-tool-label{transform:translate(0,0)}
 .home-tools [data-home-section]:active{transform:translateY(0) scale(.98)}
 .home-tools [data-home-section]:focus-visible{outline:3px solid #fff!important;outline-offset:4px!important}
 .home-tools [data-home-section][aria-current=page]{background:#ffffff30!important;border-color:#fff!important}
-@media(prefers-reduced-motion:reduce){.home-tools [data-home-section],.home-tools .home-tool-icon{transition:none!important;transform:none!important}}
-.reduce-motion .home-tools [data-home-section],.reduce-motion .home-tools .home-tool-icon{transition:none!important;transform:none!important}
+@media(max-width:620px){body[data-page=home] .minimal-home .home-tools{gap:12px!important}body[data-page=home] .minimal-home .home-tools [data-home-section]{width:min(76px,calc((100vw - 68px)/4));height:min(76px,calc((100vw - 68px)/4));min-height:min(76px,calc((100vw - 68px)/4));flex-basis:min(76px,calc((100vw - 68px)/4));border-radius:19px;padding:6px!important}.home-tools .home-tool-icon{width:62px!important;height:62px!important}.home-tools .home-tool-label{max-width:195px;font-size:12px}}
+@media(prefers-reduced-motion:reduce){.home-tools [data-home-section],.home-tools .home-tool-icon,.home-tools .home-tool-label{transition:none!important}.home-tools [data-home-section],.home-tools .home-tool-icon{transform:none!important}}
+.reduce-motion .home-tools [data-home-section],.reduce-motion .home-tools .home-tool-icon,.reduce-motion .home-tools .home-tool-label{transition:none!important}.reduce-motion .home-tools [data-home-section],.reduce-motion .home-tools .home-tool-icon{transform:none!important}
+
+@media(hover:none){.home-tools [data-home-section]:hover .home-tool-label{opacity:0;visibility:hidden}.home-tools [data-home-section]:focus-visible .home-tool-label{opacity:1;visibility:visible}}
