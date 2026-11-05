@@ -744,10 +744,10 @@ TextbookData.practicalWorks=[
       {
         "id": "task-1",
         "title": {
-          "ru": "Изучи оборудование",
-          "en": "Study the equipment",
-          "uz-Latn": "Jihozlarni o‘rgan",
-          "uz-Cyrl": "Жиҳозларни ўрган"
+          "ru": "Оборудование лаборатории",
+          "en": "Laboratory equipment",
+          "uz-Latn": "Laboratoriya jihozlari",
+          "uz-Cyrl": "Лаборатория жиҳозлари"
         },
         "thumb": "assets/lab/equipment/cards/beaker.webp",
         "duration": 5,
@@ -756,7 +756,7 @@ TextbookData.practicalWorks=[
           "study",
           "help"
         ],
-        "workspace": "workbook-study"
+        "workspace": "room-hotspots"
       },
       {
         "id": "task-2",
@@ -774,24 +774,24 @@ TextbookData.practicalWorks=[
           "assemble",
           "help"
         ],
-        "workspace": "workbook-bath"
+        "workspace": "water-bath"
       },
       {
         "id": "task-3",
         "title": {
-          "ru": "Выпаривание раствора",
-          "en": "Evaporating a solution",
-          "uz-Latn": "Eritmani bug‘latish",
-          "uz-Cyrl": "Эритмани буғлатиш"
+          "ru": "Подписать установку",
+          "en": "Label the apparatus",
+          "uz-Latn": "Qurilma qismlarini belgilang",
+          "uz-Cyrl": "Қурилма қисмларини белгиланг"
         },
-        "thumb": "assets/lab/equipment/cards/water.webp",
+        "thumb": "assets/lab/1-2/setup-exploded.webp",
         "duration": 4,
         "xp": 0,
         "modes": [
-          "study", "assemble", "help"
+          "study"
         ],
-        "soon": false,
-        "workspace": "workbook-evap"
+        "soon": true,
+        "workspace": "water-bath"
       }
     ]
   }
