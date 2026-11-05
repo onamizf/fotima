@@ -1,0 +1,7 @@
+const fs=require('fs'),vm=require('vm'),assert=require('node:assert/strict');
+const intro={lesson12:{setup:{visited:['stand','burner','beaker'],progress:.7,explodedOnce:true},collection:{cards:{beaker:{done:true}}}}};
+const c=vm.createContext({IntroModel:{data:()=>intro},Practical12Data:{blank:()=>({})}});vm.runInContext(fs.readFileSync('data/apparatus-progress.js','utf8')+';globalThis.model=ApparatusProgress;',c);const m=c.model;
+const migrated=m.data('water-bath');assert.deepEqual(Array.from(migrated.studied),['stand','gas-burner','beaker']);assert.equal(migrated.progress,.7);assert.equal(intro.lesson12.collection.cards.beaker.done,true);
+let e={version:1,studied:['tripod','gas-burner','wire-gauze','beaker','evaporating-dish'],mode:'labels',assembly:{placed:['tripod','gas-burner','wire-gauze','beaker','evaporating-dish']},labels:{answers:{a:'beaker',b:'tripod',c:'evaporating-dish',d:'gas-burner'},complete:false}};
+assert.equal(m.sanitize({evaporation:e}).evaporation.labels.complete,false,'Check button is required');e.labels.complete=true;assert.equal(m.sanitize({evaporation:e}).evaporation.labels.complete,true);e.labels.answers.a='tripod';assert.equal(m.sanitize({evaporation:e}).evaporation.labels.complete,false);e.assembly.placed=['beaker'];assert.equal(m.sanitize({evaporation:e}).evaporation.assembly.placed.length,0);assert.equal(m.sanitize({evaporation:e}).evaporation.mode,'build');
+console.log('PASS migrated study/view state and retained collection, ordered assembly proof, explicit label check and saved completion validation');

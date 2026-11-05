@@ -1,0 +1,276 @@
+{
+  "id": "water-bath",
+  "title": "title",
+  "full": "assets/equipment/water-bath/full.webp",
+  "fullSize": {
+    "w": 509,
+    "h": 623
+  },
+  "notes": "notes",
+  "parts": [
+    {
+      "id": "stand",
+      "name": "stand.name",
+      "image": "assets/equipment/water-bath/parts/stand.webp",
+      "card": "assets/equipment/water-bath/cards/stand.webp",
+      "assembled": {
+        "x": 0.0,
+        "y": 2.57,
+        "w": 100.0,
+        "h": 97.43,
+        "z": 1
+      },
+      "exploded": {
+        "x": 8,
+        "y": 55
+      },
+      "order": 1,
+      "purpose": "stand.purpose",
+      "characteristics": [
+        "stand.characteristic.0",
+        "stand.characteristic.1",
+        "stand.characteristic.2"
+      ],
+      "safety": "stand.safety"
+    },
+    {
+      "id": "tripod",
+      "name": "tripod.name",
+      "image": "assets/equipment/water-bath/parts/tripod.webp",
+      "card": "assets/equipment/water-bath/cards/tripod.webp",
+      "assembled": {
+        "x": 41.45,
+        "y": 65.17,
+        "w": 40.67,
+        "h": 31.62,
+        "z": 2
+      },
+      "exploded": {
+        "x": 60,
+        "y": 82
+      },
+      "order": 2,
+      "purpose": "tripod.purpose",
+      "characteristics": [
+        "tripod.characteristic.0",
+        "tripod.characteristic.1",
+        "tripod.characteristic.2"
+      ],
+      "safety": "tripod.safety"
+    },
+    {
+      "id": "gas-burner",
+      "name": "gas-burner.name",
+      "image": "assets/equipment/water-bath/parts/gas-burner.webp",
+      "card": "assets/equipment/water-bath/cards/gas-burner.webp",
+      "assembled": {
+        "x": 52.06,
+        "y": 65.17,
+        "w": 19.25,
+        "h": 30.98,
+        "z": 3
+      },
+      "exploded": {
+        "x": 85,
+        "y": 82
+      },
+      "order": 3,
+      "purpose": "gas-burner.purpose",
+      "characteristics": [
+        "gas-burner.characteristic.0",
+        "gas-burner.characteristic.1",
+        "gas-burner.characteristic.2"
+      ],
+      "safety": "gas-burner.safety"
+    },
+    {
+      "id": "wire-gauze",
+      "name": "wire-gauze.name",
+      "image": "assets/equipment/water-bath/parts/wire-gauze.webp",
+      "card": "assets/equipment/water-bath/cards/wire-gauze.webp",
+      "assembled": {
+        "x": 38.9,
+        "y": 53.93,
+        "w": 45.78,
+        "h": 11.72,
+        "z": 4
+      },
+      "exploded": {
+        "x": 35,
+        "y": 78
+      },
+      "order": 4,
+      "purpose": "wire-gauze.purpose",
+      "characteristics": [
+        "wire-gauze.characteristic.0",
+        "wire-gauze.characteristic.1"
+      ],
+      "safety": "wire-gauze.safety"
+    },
+    {
+      "id": "beaker",
+      "name": "beaker.name",
+      "image": "assets/equipment/water-bath/parts/beaker.webp",
+      "card": "assets/equipment/water-bath/cards/beaker.webp",
+      "assembled": {
+        "x": 47.35,
+        "y": 29.86,
+        "w": 33.79,
+        "h": 32.58,
+        "z": 6
+      },
+      "exploded": {
+        "x": 62,
+        "y": 45
+      },
+      "order": 5,
+      "purpose": "beaker.purpose",
+      "characteristics": [
+        "beaker.characteristic.0",
+        "beaker.characteristic.1",
+        "beaker.characteristic.2"
+      ],
+      "safety": "beaker.safety"
+    },
+    {
+      "id": "boss-clamp",
+      "name": "boss-clamp.name",
+      "image": "assets/equipment/water-bath/parts/boss-clamp.webp",
+      "card": "assets/equipment/water-bath/cards/boss-clamp.webp",
+      "assembled": {
+        "x": 11.39,
+        "y": 19.42,
+        "w": 9.23,
+        "h": 6.74,
+        "z": 9
+      },
+      "exploded": {
+        "x": 30,
+        "y": 15
+      },
+      "order": 6,
+      "purpose": "boss-clamp.purpose",
+      "characteristics": [
+        "boss-clamp.characteristic.0",
+        "boss-clamp.characteristic.1"
+      ],
+      "safety": "boss-clamp.safety"
+    },
+    {
+      "id": "clamp-arm",
+      "name": "clamp-arm.name",
+      "image": "assets/equipment/water-bath/parts/clamp-arm.webp",
+      "card": "assets/equipment/water-bath/cards/clamp-arm.webp",
+      "assembled": {
+        "x": 4.13,
+        "y": 21.03,
+        "w": 68.17,
+        "h": 4.01,
+        "z": 9
+      },
+      "exploded": {
+        "x": 55,
+        "y": 12
+      },
+      "order": 7,
+      "purpose": "clamp-arm.purpose",
+      "characteristics": [
+        "clamp-arm.characteristic.0",
+        "clamp-arm.characteristic.1",
+        "clamp-arm.characteristic.2"
+      ],
+      "safety": "clamp-arm.safety"
+    },
+    {
+      "id": "test-tube",
+      "name": "test-tube.name",
+      "image": "assets/equipment/water-bath/parts/test-tube.webp",
+      "card": "assets/equipment/water-bath/cards/test-tube.webp",
+      "assembled": {
+        "x": 58.55,
+        "y": 16.21,
+        "w": 9.23,
+        "h": 38.52,
+        "z": 7
+      },
+      "exploded": {
+        "x": 80,
+        "y": 40
+      },
+      "order": 8,
+      "purpose": "test-tube.purpose",
+      "characteristics": [
+        "test-tube.characteristic.0",
+        "test-tube.characteristic.1",
+        "test-tube.characteristic.2"
+      ],
+      "safety": "test-tube.safety"
+    },
+    {
+      "id": "thermometer",
+      "name": "thermometer.name",
+      "image": "assets/equipment/water-bath/parts/thermometer.webp",
+      "card": "assets/equipment/water-bath/cards/thermometer.webp",
+      "assembled": {
+        "x": 61.49,
+        "y": 0.0,
+        "w": 3.93,
+        "h": 53.13,
+        "z": 8
+      },
+      "exploded": {
+        "x": 92,
+        "y": 40
+      },
+      "order": 9,
+      "purpose": "thermometer.purpose",
+      "characteristics": [
+        "thermometer.characteristic.0",
+        "thermometer.characteristic.1"
+      ],
+      "safety": "thermometer.safety"
+    }
+  ],
+  "substances": [
+    {
+      "id": "alcohol",
+      "name": "alcohol.name",
+      "image": "assets/equipment/water-bath/substances/alcohol.webp",
+      "card": "assets/equipment/water-bath/cards/alcohol.webp",
+      "purpose": "alcohol.purpose",
+      "characteristics": [
+        "alcohol.characteristic.0",
+        "alcohol.characteristic.1"
+      ],
+      "safety": "alcohol.safety"
+    },
+    {
+      "id": "water",
+      "name": "water.name",
+      "image": "assets/equipment/water-bath/substances/water.webp",
+      "card": "assets/equipment/water-bath/cards/water.webp",
+      "purpose": "water.purpose",
+      "characteristics": [
+        "water.characteristic.0",
+        "water.characteristic.1"
+      ],
+      "safety": "water.safety"
+    }
+  ],
+  "backgrounds": {
+    "lab1": {
+      "tasks": [
+        1,
+        2
+      ],
+      "image": "assets/backgrounds/lab1-bg.webp"
+    },
+    "lab2": {
+      "tasks": [
+        1,
+        2
+      ],
+      "image": "assets/backgrounds/lab2-bg.webp"
+    }
+  }
+}

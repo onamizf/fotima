@@ -784,14 +784,14 @@ TextbookData.practicalWorks=[
           "uz-Latn": "Qurilma qismlarini belgilang",
           "uz-Cyrl": "Қурилма қисмларини белгиланг"
         },
-        "thumb": "assets/lab/1-2/setup-exploded.webp",
+        "thumb": "assets/equipment/evaporation/full.webp",
         "duration": 4,
         "xp": 0,
         "modes": [
-          "study"
+          "study", "assemble"
         ],
-        "soon": true,
-        "workspace": "water-bath"
+
+        "workspace": "evaporation"
       }
     ]
   }

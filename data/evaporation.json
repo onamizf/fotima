@@ -1,0 +1,212 @@
+{
+  "id": "evaporation",
+  "title": "evaporation.title",
+  "full": "assets/equipment/evaporation/full.webp",
+  "fullSize": {
+    "w": 332,
+    "h": 652
+  },
+  "notes": "evaporation.notes",
+  "parts": [
+    {
+      "id": "tripod",
+      "name": "tripod.name",
+      "image": "assets/equipment/water-bath/parts/tripod.webp",
+      "card": "assets/equipment/water-bath/cards/tripod.webp",
+      "purpose": "tripod.purpose",
+      "characteristics": [
+        "tripod.characteristic.0",
+        "tripod.characteristic.1",
+        "tripod.characteristic.2"
+      ],
+      "safety": "tripod.safety",
+      "source": "water-bath",
+      "letter": "b",
+      "assembled": {
+        "x": 0.0,
+        "y": 59.05,
+        "w": 100.0,
+        "h": 40.95,
+        "z": 2
+      },
+      "exploded": {
+        "x": 22,
+        "y": 72
+      },
+      "order": 1
+    },
+    {
+      "id": "gas-burner",
+      "name": "gas-burner.name",
+      "image": "assets/equipment/water-bath/parts/gas-burner.webp",
+      "card": "assets/equipment/water-bath/cards/gas-burner.webp",
+      "purpose": "gas-burner.purpose",
+      "characteristics": [
+        "gas-burner.characteristic.0",
+        "gas-burner.characteristic.1",
+        "gas-burner.characteristic.2"
+      ],
+      "safety": "gas-burner.safety",
+      "source": "water-bath",
+      "letter": "d",
+      "assembled": {
+        "x": 29.52,
+        "y": 60.58,
+        "w": 39.76,
+        "h": 34.51,
+        "z": 3
+      },
+      "exploded": {
+        "x": 50,
+        "y": 75
+      },
+      "order": 2
+    },
+    {
+      "id": "wire-gauze",
+      "name": "wire-gauze.name",
+      "image": "assets/equipment/water-bath/parts/wire-gauze.webp",
+      "card": "assets/equipment/water-bath/cards/wire-gauze.webp",
+      "purpose": "wire-gauze.purpose",
+      "characteristics": [
+        "wire-gauze.characteristic.0",
+        "wire-gauze.characteristic.1"
+      ],
+      "safety": "wire-gauze.safety",
+      "source": "water-bath",
+      "letter": null,
+      "assembled": {
+        "x": 5.42,
+        "y": 44.17,
+        "w": 86.45,
+        "h": 16.1,
+        "z": 4
+      },
+      "exploded": {
+        "x": 78,
+        "y": 72
+      },
+      "order": 3
+    },
+    {
+      "id": "beaker",
+      "name": "beaker.name",
+      "image": "assets/equipment/water-bath/parts/beaker.webp",
+      "card": "assets/equipment/water-bath/cards/beaker.webp",
+      "purpose": "evaporation.beaker.purpose",
+      "characteristics": [
+        "beaker.characteristic.0",
+        "beaker.characteristic.1",
+        "beaker.characteristic.2"
+      ],
+      "safety": "beaker.safety",
+      "source": "water-bath",
+      "letter": "a",
+      "assembled": {
+        "x": 12.05,
+        "y": 15.03,
+        "w": 67.17,
+        "h": 40.95,
+        "z": 6
+      },
+      "exploded": {
+        "x": 35,
+        "y": 32
+      },
+      "order": 4
+    },
+    {
+      "id": "evaporating-dish",
+      "name": "evaporation.evaporating-dish.name",
+      "image": "assets/equipment/evaporation/parts/evaporating-dish.webp",
+      "card": "assets/equipment/evaporation/cards/evaporating-dish.webp",
+      "purpose": "evaporation.evaporating-dish.purpose",
+      "characteristics": [
+        "evaporation.evaporating-dish.characteristic.0",
+        "evaporation.evaporating-dish.characteristic.1",
+        "evaporation.evaporating-dish.characteristic.2"
+      ],
+      "safety": "evaporation.evaporating-dish.safety",
+      "letter": "c",
+      "assembled": {
+        "x": 8.43,
+        "y": 0.0,
+        "w": 78.92,
+        "h": 22.24,
+        "z": 7
+      },
+      "exploded": {
+        "x": 68,
+        "y": 25
+      },
+      "order": 5
+    }
+  ],
+  "substances": [
+    {
+      "id": "water",
+      "name": "water.name",
+      "image": "assets/equipment/water-bath/substances/water.webp",
+      "card": "assets/equipment/water-bath/cards/water.webp",
+      "purpose": "water.purpose",
+      "characteristics": [
+        "water.characteristic.0",
+        "water.characteristic.1"
+      ],
+      "safety": "water.safety"
+    },
+    {
+      "id": "copper-sulfate",
+      "name": "evaporation.copper-sulfate.name",
+      "image": "assets/equipment/evaporation/substances/copper-sulfate.webp",
+      "card": "assets/equipment/evaporation/cards/copper-sulfate.webp",
+      "purpose": "evaporation.copper-sulfate.purpose",
+      "characteristics": [
+        "evaporation.copper-sulfate.characteristic.0",
+        "evaporation.copper-sulfate.characteristic.1"
+      ],
+      "safety": "evaporation.copper-sulfate.safety"
+    }
+  ],
+  "labelTask": {
+    "answers": {
+      "a": "beaker",
+      "b": "tripod",
+      "c": "evaporating-dish",
+      "d": "gas-burner"
+    },
+    "given": [
+      {
+        "text": "evaporation.given.0",
+        "target": "evaporating-dish"
+      },
+      {
+        "text": "water.name",
+        "target": "beaker"
+      }
+    ],
+    "distractors": [
+      "thermometer.name",
+      "test-tube.name",
+      "clamp-arm.name"
+    ]
+  },
+  "backgrounds": {
+    "lab1": {
+      "tasks": [
+        1,
+        2,
+        3
+      ],
+      "image": "assets/backgrounds/lab1-bg.webp"
+    },
+    "lab2": {
+      "tasks": [
+        1,
+        2,
+        3
+      ],
+      "image": "assets/backgrounds/lab2-bg.webp"
+    }
+  }
+}

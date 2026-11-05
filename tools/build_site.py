@@ -39,7 +39,7 @@ def build(output):
     if output==ROOT or output in ROOT.parents:
         raise ValueError('Output must not be the project root or its parent.')
     entrypoint,parser,versions=versioned_entrypoint((ROOT/'index.html').read_text())
-    files={'index.html','404.html',*parser.files}
+    files={'index.html','404.html','data/water-bath.json','data/evaporation.json',*parser.files}
     files.update(str(p.relative_to(ROOT)) for p in (ROOT/'assets').rglob('*') if p.is_file())
     files.update(str(p.relative_to(ROOT)) for p in (ROOT/'scenes').glob('*.js') if p.is_file())
     files.update(str(p.relative_to(ROOT)) for p in (ROOT/'icons').glob('*.png') if p.is_file())

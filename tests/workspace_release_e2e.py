@@ -40,9 +40,10 @@ with sync_playwright() as p:
  assert q.locator('.ec-card').count()==6
  assert q.locator('.equipment-image-room').count()==0
  q.screenshot(path=str(OUT/'equipment-task1.png'))
- q.goto(BASE+'#lab/ch1/1.2/task-2');q.wait_for_selector('.setup-render-host[data-renderer=webgl]',timeout=40000)
- for key in ['thermometer','tube','alcohol','beaker','water','gauze']:q.locator('[data-pw-item="'+key+'"]').click()
- q.locator('[data-pw-mode=assemble]').click();q.wait_for_selector('[data-workshop-card=stand]:enabled')
+ q.goto(BASE+'#lab/ch1/1.2/task-2');q.wait_for_selector('.wb-atlas',timeout=40000)
+ for key in ['stand','tripod','gas-burner','wire-gauze','beaker','boss-clamp','clamp-arm','test-tube','thermometer','alcohol','water']:
+  q.locator('[data-wb-card="'+key+'"]').click();q.keyboard.press('Escape')
+ q.locator('[data-wb=build]').first.click();q.wait_for_selector('[data-workshop-card=stand]:enabled')
  for key in ['stand','burner','tripod','gauze','beaker','water-bottle','clamp','tube','alcohol-bottle','thermometer']:
   q.locator('[data-workshop-card="'+key+'"]').click();q.locator('[data-workshop-target]').click()
   if key=='stand':
