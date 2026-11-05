@@ -749,7 +749,7 @@ TextbookData.practicalWorks=[
           "uz-Latn": "Laboratoriya jihozlari",
           "uz-Cyrl": "Лаборатория жиҳозлари"
         },
-        "thumb": "assets/lab/1-2/room.jpg",
+        "thumb": "assets/lab/equipment/cards/beaker.webp",
         "duration": 5,
         "xp": 18,
         "modes": [
@@ -766,7 +766,7 @@ TextbookData.practicalWorks=[
           "uz-Latn": "Suv hammomi",
           "uz-Cyrl": "Сув ҳаммоми"
         },
-        "thumb": "assets/lab/1-2/setup-preview.jpg",
+        "thumb": "assets/lab/equipment/cards/water.webp",
         "duration": 8,
         "xp": 57,
         "modes": [
