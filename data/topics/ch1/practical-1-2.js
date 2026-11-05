@@ -189,7 +189,7 @@ const Practical12Data=(()=>{const content={
     "uz-Latn": "Isitishda tutqichdan foydalan, og‘zini odamlardan chetga yo‘naltir.",
     "uz-Cyrl": "Иситишда тутқичдан фойдалан, оғзини одамлардан четга йўналтир."
    },
-   "image": "assets/lab/equipment/cards/heat-test-tube.webp"
+   "image": "assets/lab/1-2/test-tube.webp"
   },
   {
    "id": "beaker",
@@ -217,7 +217,7 @@ const Practical12Data=(()=>{const content={
     "uz-Latn": "Issiq stakanga qo‘l tekkizma; bo‘linmalar taxminiy hajmni ko‘rsatadi.",
     "uz-Cyrl": "Иссиқ стаканга қўл теккизма; бўлинмалар тахминий ҳажмни кўрсатади."
    },
-   "image": "assets/lab/equipment/cards/beaker.webp"
+   "image": "assets/lab/1-2/beaker.webp"
   },
   {
    "id": "evaporating-dish",
@@ -273,7 +273,7 @@ const Practical12Data=(()=>{const content={
     "uz-Latn": "Bo‘ynidan tut. Yopiq kolbani isitma.",
     "uz-Cyrl": "Бўйнидан тут. Ёпиқ колбани иситма."
    },
-   "image": "assets/lab/equipment/cards/conical-flask.webp"
+   "image": "assets/lab/1-2/conical-flask.webp"
   },
   {
    "id": "funnel",
@@ -329,7 +329,7 @@ const Practical12Data=(()=>{const content={
     "uz-Latn": "Tekis qo‘y. Meniskning pastki chetini ko‘z balandligida o‘qi. Isitma.",
     "uz-Cyrl": "Текис қўй. Менискнинг пастки четини кўз баландлигида ўқи. Иситма."
    },
-   "image": "assets/lab/equipment/cards/graduated-cylinder.webp"
+   "image": "assets/lab/1-2/measuring-cylinder.webp"
   }
  ]
 };

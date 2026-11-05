@@ -5,8 +5,9 @@ from pathlib import Path
 BASE='http://127.0.0.1:8051/'
 OUT=Path('/workspace/work/release137');OUT.mkdir(parents=True,exist_ok=True)
 with sync_playwright() as p:
- b=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--disable-webgl'])
- c=b.new_context(viewport={'width':1440,'height':1000},reduced_motion='reduce');c.route('https://fonts.googleapis.com/**',lambda r:r.fulfill(status=200,body=''));c.route('https://fonts.gstatic.com/**',lambda r:r.fulfill(status=200,body=''))
+ b=p.chromium.launch(executable_path='/usr/bin/chromium',args=['--no-sandbox','--use-gl=angle','--use-angle=swiftshader-webgl','--enable-unsafe-swiftshader'])
+ c=b.new_context(viewport={'width':1440,'height':1000},device_scale_factor=.5,reduced_motion='reduce');c.route('https://fonts.googleapis.com/**',lambda r:r.fulfill(status=200,body=''));c.route('https://fonts.gstatic.com/**',lambda r:r.fulfill(status=200,body=''))
+ c.route('https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js',lambda r:r.fulfill(path='assets/vendor/setup-r128/three.min.js',content_type='application/javascript'));c.route('https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js',lambda r:r.fulfill(path='assets/vendor/setup-r128/gsap.min.js',content_type='application/javascript'))
  q=c.new_page();errors=[];q.on('pageerror',lambda e:errors.append(str(e)));q.on('console',lambda m:errors.append(m.text) if m.type=='error' else None)
  register_local(q,BASE,'Release regression')
  q.goto(BASE+'?v=1.35.0#topic/ch1/1.1');q.wait_for_selector('[data-project-open]');assert '?v='+q.locator('meta[name=application-version]').get_attribute('content') in q.url
@@ -35,11 +36,11 @@ with sync_playwright() as p:
   q.wait_for_selector('[data-story-card="2"]')
  q.wait_for_selector('[data-sw=submit]:enabled')
  assert q.locator('.safety-scene-nav').inner_text().count('✓')==4
- q.goto(BASE+'#topic/ch1/1.2');q.wait_for_selector('[data-project-open]');q.locator('[data-project-open]').first.click();q.wait_for_selector('.equipment-image-room');assert len(c.pages)==1
- assert q.locator('.pw-item img[src*="/cards/"]').count()==4
- assert q.locator('.equipment-room-zone img[src*="/objects/"]').count()==4
+ q.goto(BASE+'#topic/ch1/1.2');q.wait_for_selector('[data-project-open]');q.locator('[data-project-open]').first.click();q.wait_for_selector('.equipment-room-image');assert len(c.pages)==1
+ assert q.locator('.pw-item img[src*="assets/lab/1-2/"]').count()==6
+ assert q.locator('.equipment-image-room').count()==0
  q.screenshot(path=str(OUT/'equipment-task1.png'))
- q.goto(BASE+'#lab/ch1/1.2/task-2');q.wait_for_selector('.equipment-image-scene');q.wait_for_timeout(400)
+ q.goto(BASE+'#lab/ch1/1.2/task-2');q.wait_for_selector('.setup-render-host[data-renderer=webgl]',timeout=40000)
  for key in ['thermometer','tube','alcohol','beaker','water','gauze']:q.locator('[data-pw-item="'+key+'"]').click()
  q.locator('[data-pw-mode=assemble]').click();q.wait_for_selector('[data-workshop-card=stand]:enabled')
  for key in ['stand','burner','tripod','gauze','beaker','water-bottle','clamp','tube','alcohol-bottle','thermometer']:
@@ -48,20 +49,16 @@ with sync_playwright() as p:
    q.locator('[data-pw-tool=undo]').click();q.wait_for_function('state.intro.lesson12.setup.workshop.run.actions.length===0');q.locator('[data-pw-tool=redo]').click();q.wait_for_function('state.intro.lesson12.setup.workshop.run.actions.length===1')
   if key=='tube':q.locator('[data-workshop-depth]').fill('30');q.locator('[data-workshop-secure]').click()
  q.locator('[data-workshop-valve]').click();q.locator('[data-workshop-match]').click();q.locator('[data-workshop-target]').click();q.wait_for_function('state.intro.lesson12.setup.workshop.run.done')
- assert q.locator('.workshop-render img[src*="/water.webp?"]').count()==1;assert q.locator('.workshop-render img[src*="/alcohol.webp?"]').count()==1
- dims=q.evaluate("""()=>{const h=document.querySelector('.workshop-render');return {k:+h.dataset.pixelsPerCm,table:+h.dataset.tableY,objects:[...h.querySelectorAll('[data-equipment-object]')].map(i=>({id:i.dataset.equipmentObject,y:parseFloat(i.style.top),height:parseFloat(i.style.height)}))}}""")
- o={i['id']:i for i in dims['objects']};k=dims['k']
- for key in ['stand','base','tripod','burner']:assert abs(o[key]['y']+o[key]['height']-dims['table'])<.1
- assert abs(o['beaker']['y']+o['beaker']['height']-(dims['table']-20*k))<.1
- for key,cm in [('stand',60),('tripod',20),('burner',12),('tube',15),('beaker',9),('thermometer',30)]:assert abs(o[key]['height']/cm-k)<.01
- q.locator('[data-pw-tool=zoomIn]').click();assert float(q.locator('.workshop-render').get_attribute('data-pixels-per-cm'))>k
+ assert q.locator('.workshop-render canvas').count()==1
+ q.locator('[data-pw-start]').click();q.wait_for_function('document.querySelector("[data-workshop-temperature]").textContent.includes("60")',timeout=15000)
+ q.reload();q.wait_for_selector('[data-workshop-card=stand]',state='attached',timeout=40000);assert q.evaluate('state.intro.lesson12.setup.workshop.run.done')
  q.screenshot(path=str(OUT/'equipment-task2.png'))
- q.set_viewport_size({'width':390,'height':844});q.wait_for_timeout(200);assert float(q.locator('.workshop-render').get_attribute('data-pixels-per-cm'))!=k
+ q.set_viewport_size({'width':390,'height':844});q.wait_for_timeout(200)
  q.goto(BASE+'#lab/ch1/1.1/task-1');q.wait_for_selector('.safety-editor');q.wait_for_function('SafetyWorkspace.debug.player.stage===0')
  for step in range(7):q.locator('[data-sp=advance-line]').click()
  q.wait_for_selector('[data-story-card="2"]')
  boxes=[q.locator(s).bounding_box() for s in ['.pw-canvas','.safety-explanation','.safety-scene-tiles']];assert boxes[0]['y']+boxes[0]['height']<=boxes[1]['y']+1;assert boxes[1]['y']+boxes[1]['height']<=boxes[2]['y']+1
  q.screenshot(path=str(OUT/'safety-mobile.png'),full_page=True)
  assert not errors,errors
- print('PASS: same-tab routing, back/fallback, safety full text and layout, assembly, undo/redo, liquids, proportions, zoom/resize, stale URL update, no console errors')
+ print('PASS: same-tab routing, back/fallback, safety full text and layout, restored 3D assembly, undo/redo, heating and saved completion, stale URL update, no console errors')
  b.close()
