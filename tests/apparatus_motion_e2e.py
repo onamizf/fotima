@@ -10,7 +10,7 @@ with sync_playwright() as p:
  register_local(q,BASE,'Atlas motion')
  q.evaluate('''()=>{for(const s of SafetyLessonData.scenarios){state.intro.lesson11.reviews[s.id]={version:2,stages:[0,1,2],analysis:true,complete:true};}for(const task of ['danger-a','danger-b','danger-c','danger-d']){const r=IntroModel.row(task);r.checked=true;r.evidence.tutorialReview={version:2,stages:[0,1,2],analysis:true,complete:true};r.proof=structuredClone(r);}saveState();}''')
  q.goto(BASE+'#lab/ch1/1.2/task-2');q.wait_for_selector('.wb-atlas');assert q.locator('.wb-first-hint').is_visible()
- q.locator('[data-wb=toggle]').click();assert q.locator('.wb-show-parts').count()==1;q.wait_for_timeout(1450)
+ q.locator('[data-wb=toggle]').click();assert q.locator('.wb-show-parts').count()==1;q.wait_for_timeout(250);assert q.locator('.wb-atlas-lines').evaluate('(e)=>getComputedStyle(e).opacity')=='0';q.wait_for_timeout(1200)
  assert q.locator('.wb-atlas.is-labeled').count()==1
  assert q.locator('.wb-part').evaluate_all('es=>es.every(e=>!e.style.willChange)')
  q.locator('[data-wb-scrub]').fill('50');q.locator('[data-wb-scrub]').dispatch_event('input');q.wait_for_timeout(100);assert q.locator('[data-wb-percent]').inner_text()=='50%'
