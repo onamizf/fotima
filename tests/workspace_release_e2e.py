@@ -36,8 +36,8 @@ with sync_playwright() as p:
   q.wait_for_selector('[data-story-card="2"]')
  q.wait_for_selector('[data-sw=submit]:enabled')
  assert q.locator('.safety-scene-nav').inner_text().count('✓')==4
- q.goto(BASE+'#topic/ch1/1.2');q.wait_for_selector('[data-project-open]');q.locator('[data-project-open]').first.click();q.wait_for_selector('.equipment-room-image');assert len(c.pages)==1
- assert q.locator('.pw-item img[src*="assets/lab/1-2/"]').count()==6
+ q.goto(BASE+'#topic/ch1/1.2');q.wait_for_selector('[data-project-open]');q.locator('[data-project-open]').first.click();q.wait_for_selector('.ec-game');assert len(c.pages)==1
+ assert q.locator('.ec-card').count()==6
  assert q.locator('.equipment-image-room').count()==0
  q.screenshot(path=str(OUT/'equipment-task1.png'))
  q.goto(BASE+'#lab/ch1/1.2/task-2');q.wait_for_selector('.setup-render-host[data-renderer=webgl]',timeout=40000)

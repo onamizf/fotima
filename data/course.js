@@ -744,14 +744,14 @@ TextbookData.practicalWorks=[
       {
         "id": "task-1",
         "title": {
-          "ru": "Оборудование лаборатории",
-          "en": "Laboratory equipment",
-          "uz-Latn": "Laboratoriya jihozlari",
-          "uz-Cyrl": "Лаборатория жиҳозлари"
+          "ru": "Изучи оборудование",
+          "en": "Explore equipment",
+          "uz-Latn": "Jihozlarni o‘rgan",
+          "uz-Cyrl": "Жиҳозларни ўрган"
         },
         "thumb": "assets/lab/1-2/room.jpg",
         "duration": 5,
-        "xp": 18,
+        "xp": 30,
         "modes": [
           "study",
           "help"
