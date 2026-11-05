@@ -52,7 +52,10 @@ def build(output):
         if relative=='index.html':dest.write_text(entrypoint)
         else:shutil.copyfile(ROOT/relative,dest)
     (output/'.nojekyll').write_text('')
-    manifest={'version':parser.version,'revision':os.environ.get('GITHUB_SHA','local'),'bundle':hashlib.sha256(entrypoint.encode()).hexdigest()[:16],'assets':versions}
+    ink=ROOT/'assets/lab/equipment-ink'
+    equipment_ink={kind:sorted(p.stem for p in (ink/kind).glob('*.webp')) for kind in ['cards','objects']}
+    equipment_ink['sizes']=(ink/'sizes.json').is_file()
+    manifest={'equipmentInk':equipment_ink,'sceneBackground':(ROOT/'assets/lab/scene/lab-bg.png').is_file(),'version':parser.version,'revision':os.environ.get('GITHUB_SHA','local'),'bundle':hashlib.sha256(entrypoint.encode()).hexdigest()[:16],'assets':versions}
     (output/'version.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n')
     return sorted([*files,'.nojekyll','version.json'])
 
