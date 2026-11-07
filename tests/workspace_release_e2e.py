@@ -40,19 +40,16 @@ with sync_playwright() as p:
  assert q.locator('.ec-card').count()==6
  assert q.locator('.equipment-image-room').count()==0
  q.screenshot(path=str(OUT/'equipment-task1.png'))
- q.goto(BASE+'#lab/ch1/1.2/task-2');q.wait_for_selector('.wb-atlas',timeout=40000)
- for key in ['stand','tripod','gas-burner','wire-gauze','beaker','boss-clamp','clamp-arm','test-tube','thermometer','alcohol','water']:
+ q.goto(BASE+'#lab/ch1/1.2/task-2');q.wait_for_selector('.wb-atlas')
+ for key in ['stand','tripod','gas-burner','wire-gauze','beaker','boss-clamp','clamp-arm','test-tube','thermometer']:
   q.locator('[data-wb-card="'+key+'"]').click();q.keyboard.press('Escape')
- q.locator('[data-wb=build]').first.click();q.wait_for_selector('[data-workshop-card=stand]:enabled')
- for key in ['stand','burner','tripod','gauze','beaker','water-bottle','clamp','tube','alcohol-bottle','thermometer']:
-  q.locator('[data-workshop-card="'+key+'"]').click();q.locator('[data-workshop-target]').click()
-  if key=='stand':
-   q.locator('[data-pw-tool=undo]').click();q.wait_for_function('state.intro.lesson12.setup.workshop.run.actions.length===0');q.locator('[data-pw-tool=redo]').click();q.wait_for_function('state.intro.lesson12.setup.workshop.run.actions.length===1')
-  if key=='tube':q.locator('[data-workshop-depth]').fill('30');q.locator('[data-workshop-secure]').click()
- q.locator('[data-workshop-valve]').click();q.locator('[data-workshop-match]').click();q.locator('[data-workshop-target]').click();q.wait_for_function('state.intro.lesson12.setup.workshop.run.done')
- assert q.locator('.workshop-render canvas').count()==1
- q.locator('[data-pw-start]').click();q.wait_for_function('document.querySelector("[data-workshop-temperature]").textContent.includes("60")',timeout=15000)
- q.reload();q.wait_for_selector('[data-workshop-card=stand]',state='attached',timeout=40000);assert q.evaluate('state.intro.lesson12.setup.workshop.run.done')
+ q.locator('[data-wb=build]').first.click();q.wait_for_selector('.ag-stage')
+ for key in ['stand','tripod','gas-burner','wire-gauze','beaker','water','boss-clamp','clamp-arm','test-tube','secure-tube','alcohol','thermometer','valve','match']:
+  if key in ['secure-tube','valve','match']:q.locator('[data-ag-action]').click()
+  else:q.locator('[data-ag-part="'+key+'"]').click();q.locator('[data-ag-target]').click()
+ assert q.evaluate('Practical12AssemblyData.validCompletion(state.intro.lesson12.setup.workshop.completion)')
+ q.locator('[data-ag-heat]').click();q.wait_for_function('document.querySelector("[data-ag-temperature]").textContent.includes("60")')
+ xp=q.evaluate('CourseGame.xp()');q.reload();q.wait_for_selector('.ag-stage');assert q.locator('.ag-frame.is-placed').count()==0;assert q.evaluate('CourseGame.xp()')==xp
  q.screenshot(path=str(OUT/'equipment-task2.png'))
  q.set_viewport_size({'width':390,'height':844});q.wait_for_timeout(200)
  q.goto(BASE+'#lab/ch1/1.1/task-1');q.wait_for_selector('.safety-editor');q.wait_for_function('SafetyWorkspace.debug.player.stage===0')
@@ -61,5 +58,5 @@ with sync_playwright() as p:
  boxes=[q.locator(s).bounding_box() for s in ['.pw-canvas','.safety-explanation','.safety-scene-tiles']];assert boxes[0]['y']+boxes[0]['height']<=boxes[1]['y']+1;assert boxes[1]['y']+boxes[1]['height']<=boxes[2]['y']+1
  q.screenshot(path=str(OUT/'safety-mobile.png'),full_page=True)
  assert not errors,errors
- print('PASS: same-tab routing, back/fallback, safety full text and layout, restored 3D assembly, undo/redo, heating and saved completion, stale URL update, no console errors')
+ print('PASS: same-tab routing, back/fallback, safety full text and layout, JSON assembly, undo/redo, heating and saved completion, stale URL update, no console errors')
  b.close()

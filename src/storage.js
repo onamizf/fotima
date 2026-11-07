@@ -37,6 +37,7 @@ function readState(input){
  }catch{return clean;}
 }
 let state=readState();
-function saveState(){TextbookCourse.refresh();syncAchievements();window.CourseGame?.sync();try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));storageAvailable=true;}catch{storageAvailable=false;}if(window.FotimaCloud)window.FotimaCloud.changed();}
+/* Assembly attempts are memory-only; completion, best scores and XP remain durable. */
+function saveState(){TextbookCourse.refresh();syncAchievements();window.CourseGame?.sync();try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state,function(key,value){const lesson=state.intro?.lesson12;if(key==='run'&&this===lesson?.setup?.workshop)return undefined;if(key==='assembly'&&Object.values(lesson?.apparatus||{}).includes(this))return undefined;return value;}));storageAvailable=true;}catch{storageAvailable=false;}if(window.FotimaCloud)window.FotimaCloud.changed();}
 saveState();
 window.addEventListener('storage',event=>{if(event.key===STORAGE_KEY){state=readState();render(false);}});
