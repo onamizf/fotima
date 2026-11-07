@@ -16,3 +16,5 @@
 @media(max-width:767px){.wb-page .al-field{display:block;width:32%;font-size:11px;line-height:1.35;padding:7px 5px}.al-field b{display:block;font-size:15px}.al-field span{display:block;overflow-wrap:normal;word-break:normal;hyphens:none}.al-full{max-width:32%}}
 .ec-game .ec-stage{background-color:#e8f0f7;background-image:url('../assets/backgrounds/lab2-bg.jpg');background-image:image-set(url('../assets/backgrounds/lab2-bg.webp') type('image/webp'),url('../assets/backgrounds/lab2-bg.jpg') type('image/jpeg'));background-size:cover;background-position:center bottom}
 .wb-atlas.wb-moving .wb-atlas-lines{opacity:0!important}
+
+.wb-complete-apparatus{position:absolute;pointer-events:none;z-index:40;aspect-ratio:509/623}.wb-complete-apparatus picture,.wb-complete-apparatus img{display:block;width:100%;height:100%;object-fit:contain}.workshop-render.wb-complete-image canvas{opacity:0}.wb-complete-image .wb-skin-frame{visibility:hidden}.wb-complete-apparatus[hidden]{display:none!important}

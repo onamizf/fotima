@@ -40,17 +40,30 @@ with sync_playwright() as p:
    q.locator('[data-pw-tool=undo]').click();q.wait_for_function('state.intro.lesson12.setup.workshop.run.actions.length===0');q.locator('[data-pw-tool=redo]').click();q.wait_for_function('state.intro.lesson12.setup.workshop.run.actions.length===1')
   if key=='tube':q.locator('[data-workshop-depth]').fill('30');q.locator('[data-workshop-depth]').dispatch_event('input');q.locator('[data-workshop-secure]').click()
  for key in ['alcohol-bottle','thermometer']:q.locator('[data-workshop-card="'+key+'"]').click();q.locator('[data-workshop-target]').click()
- q.locator('[data-workshop-valve]').click();q.locator('[data-workshop-match]').click();q.locator('[data-workshop-target]').click();q.wait_for_function('state.intro.lesson12.setup.workshop.run.done')
- q.wait_for_selector('.wb-skin-frame[data-skin-role=placed]:not([hidden])');q.screenshot(path=str(OUT/'assembly.png'))
+ q.wait_for_selector('.wb-skin-frame[data-skin-role=placed]:not([hidden])',state='attached');q.screenshot(path=str(OUT/'assembly-parts.png'))
  frames=q.locator('.wb-skin-frame[data-skin-role=placed]:not([hidden])').evaluate_all('bs=>bs.map(b=>({id:b.dataset.skinId,before:JSON.parse(b.dataset.frameBefore),after:JSON.parse(b.dataset.frameAfter),r:{width:b.getBoundingClientRect().width,height:b.getBoundingClientRect().height}}))')
  assert len(frames)==8,len(frames)
  for frame in frames:
   for k in ['left','top','width','height']:assert abs(frame['before'][k]-frame['after'][k])<.01,frame
   for k in ['width','height']:assert abs(frame['r'][k]-frame['before'][k])<1,frame
- print('PASS original projected frames unchanged for all 8 replaced parts',flush=True)
+ assert q.locator('.wb-complete-apparatus').is_visible();assert q.locator('.wb-complete-apparatus picture').evaluate('(e)=>e.style.clipPath')!='none'
+ q.locator('[data-workshop-valve]').click();q.locator('[data-workshop-match]').click();q.locator('[data-workshop-target]').click();q.wait_for_function('state.intro.lesson12.setup.workshop.run.done')
+ q.wait_for_selector('.wb-complete-apparatus:not([hidden])');assert q.locator('.wb-complete-apparatus img').evaluate('(e)=>e.currentSrc.includes("/water-bath/full.webp")');assert q.locator('.workshop-render canvas').evaluate('(e)=>getComputedStyle(e).opacity')=='0';q.screenshot(path=str(OUT/'assembly.png'))
+ print('PASS connected apparatus uses the supplied full image',flush=True)
  q.locator('[data-pw-start]').click();q.wait_for_function('document.querySelector("[data-workshop-temperature]").textContent.includes("60")',timeout=15000)
  xp=q.evaluate('CourseGame.xp()');q.locator('[data-pw-mode=study]').click();q.wait_for_selector('.wb-atlas');assert q.locator('.pw-editor').count()==0
  q.reload();q.wait_for_selector('.wb-atlas');assert q.evaluate('state.intro.lesson12.setup.workshop.run.done');assert q.evaluate('CourseGame.xp()')==xp
+ q.locator('[data-wb=build]').first.click();q.wait_for_selector('[data-workshop-card=stand]:enabled',timeout=60000)
+ assert q.evaluate('state.intro.lesson12.setup.workshop.run.actions.length')==0
+ assert q.evaluate('state.intro.lesson12.setup.workshop.run.errors')==0
+ assert q.evaluate('!!state.intro.lesson12.setup.workshop.completion')
+ assert q.evaluate('CourseGame.xp()')==xp
+ q.locator('[data-workshop-card=stand]').click();q.locator('[data-workshop-target]').click();q.wait_for_function('state.intro.lesson12.setup.workshop.run.actions.length===1')
+ q.reload();q.wait_for_selector('[data-workshop-card=stand]:enabled',timeout=60000)
+ assert q.evaluate('state.intro.lesson12.setup.workshop.run.actions.length')==0
+ assert q.locator('[data-pw-submit]').is_disabled()
+ assert q.evaluate('CourseGame.xp()')==xp
+ q.locator('[data-pw-mode=study]').click();q.wait_for_selector('.wb-atlas')
  # Calibration operates on separate JSON rectangles and cannot change assembly dimensions.
  q.goto(BASE+'?debug=1#lab/ch1/1.2/task-2');q.wait_for_selector('.wb-debug');assert q.locator('.wb-atlas-origin picture').evaluate('(e)=>getComputedStyle(e).opacity')=='0.35'
  q.locator('[data-wb-debug-part]').select_option('boss-clamp');q.locator('[data-wb-coordinate=x]').fill('17.5');q.locator('[data-wb-coordinate=x]').dispatch_event('input');q.locator('[data-wb=copy]').click();q.wait_for_selector('[data-wb-json]:not([hidden])');import json
