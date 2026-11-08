@@ -291,8 +291,8 @@ const SituationC={
         "body": [
           "Probirkani yuzdan uzoqda tut.",
           "Kaft bilan havoni sekin o‘zingga yo‘naltir.",
-          "Hidli moddalar bilan tortma shkafda ishlа.",
-          "Hidni faqat o‘qituvchi ruxsati bilan aniqlа."
+          "Hidli moddalar bilan tortma shkafda ishla.",
+          "Hidni faqat o‘qituvchi ruxsati bilan aniqla."
         ],
         "note": "Rasmdagi niqob kimyoviy bug‘lardan himoya qilmaydi va tortma shkaf o‘rnini bosmaydi."
       }

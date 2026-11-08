@@ -197,16 +197,14 @@
         1,
         2,
         3
-      ],
-      "image": "assets/backgrounds/lab1-bg.webp"
+      ]
     },
     "lab2": {
       "tasks": [
         1,
         2,
         3
-      ],
-      "image": "assets/backgrounds/lab2-bg.webp"
+      ]
     }
   }
 }

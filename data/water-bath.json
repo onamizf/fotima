@@ -90,7 +90,7 @@
       "card": "assets/equipment/water-bath/cards/wire-gauze.webp",
       "assembled": {
         "x": 38.9,
-        "y": 53.93,
+        "y": 55.2,
         "w": 45.78,
         "h": 11.72,
         "z": 4
@@ -138,11 +138,12 @@
       "image": "assets/equipment/water-bath/parts/boss-clamp.webp",
       "card": "assets/equipment/water-bath/cards/boss-clamp.webp",
       "assembled": {
-        "x": 11.39,
+        "x": 11.2,
         "y": 19.42,
-        "w": 9.23,
-        "h": 6.74,
-        "z": 9
+        "w": 9.04,
+        "h": 6.42,
+        "z": 10,
+        "fit": "fill"
       },
       "exploded": {
         "x": 30,
@@ -154,7 +155,8 @@
         "boss-clamp.characteristic.0",
         "boss-clamp.characteristic.1"
       ],
-      "safety": "boss-clamp.safety"
+      "safety": "boss-clamp.safety",
+      "assemblyImage": "assets/equipment/water-bath/parts/assembly/boss-clamp.webp"
     },
     {
       "id": "clamp-arm",
@@ -162,11 +164,12 @@
       "image": "assets/equipment/water-bath/parts/clamp-arm.webp",
       "card": "assets/equipment/water-bath/cards/clamp-arm.webp",
       "assembled": {
-        "x": 4.13,
-        "y": 21.03,
-        "w": 68.17,
-        "h": 4.01,
-        "z": 9
+        "x": 4.32,
+        "y": 20.06,
+        "w": 66.8,
+        "h": 5.62,
+        "z": 9,
+        "fit": "fill"
       },
       "exploded": {
         "x": 55,
@@ -179,7 +182,8 @@
         "clamp-arm.characteristic.1",
         "clamp-arm.characteristic.2"
       ],
-      "safety": "clamp-arm.safety"
+      "safety": "clamp-arm.safety",
+      "assemblyImage": "assets/equipment/water-bath/parts/assembly/clamp-arm.webp"
     },
     {
       "id": "test-tube",
@@ -212,9 +216,9 @@
       "image": "assets/equipment/water-bath/parts/thermometer.webp",
       "card": "assets/equipment/water-bath/cards/thermometer.webp",
       "assembled": {
-        "x": 61.49,
+        "x": 60.73,
         "y": 0.0,
-        "w": 3.93,
+        "w": 5.45,
         "h": 53.13,
         "z": 8
       },
