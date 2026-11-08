@@ -51,7 +51,7 @@ with sync_playwright() as p:
   assert abs(tube_y()-moved)<.1
   assert q.locator('[data-ag-frame=test-tube]').evaluate('(e)=>getComputedStyle(e).opacity')=='1'
   assert q.locator('.ag-full').evaluate('(e)=>getComputedStyle(e).opacity')=='0'
-  assert q.locator('[data-ag-step-hint]').is_hidden()
+  assert q.locator('[data-ag-step-hint].is-success').is_visible()
   xp=q.evaluate('CourseGame.xp()');q.reload();q.wait_for_selector('.ag-origin');assert q.evaluate('CourseGame.xp()')==xp
   assert q.locator('.ag-frame.is-placed').count()==0
   assert not errors,errors

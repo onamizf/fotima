@@ -40,6 +40,7 @@ with sync_playwright() as p:
      if model=='water-bath':assert 'run' not in saved['intro']['lesson12']['setup']['workshop']
      click('[data-wb=ag-undo]');assert q.locator('.ag-frame.is-placed').count()==0;click('[data-wb=ag-redo]');assert q.locator('.ag-frame.is-placed').count()==1
    assert q.evaluate('(m)=>ApparatusProgress.data(m).assembly.done',model)
+   assert q.locator('[data-ag-step-hint].is-success').inner_text()==q.evaluate('WaterBathAtlas.t("complete")')
    assert q.locator('.ag-full').evaluate('(e)=>getComputedStyle(e).opacity')=='1'
    if model=='water-bath':
     assert q.evaluate('Practical12AssemblyData.validCompletion(state.intro.lesson12.setup.workshop.completion)')

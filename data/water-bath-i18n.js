@@ -685,10 +685,10 @@ const WaterBathCopy={
     "en": "Place the part inside the highlighted frame."
   },
   "complete": {
-    "ru": "Установка собрана!",
-    "uz-Latn": "Qurilma yig‘ildi!",
-    "uz-Cyrl": "Қурилма йиғилди!",
-    "en": "Apparatus assembled!"
+    "ru": "Установка успешно собрана!",
+    "uz-Latn": "Qurilma muvaffaqiyatli yig‘ildi!",
+    "uz-Cyrl": "Қурилма муваффақиятли йиғилди!",
+    "en": "Apparatus successfully assembled!"
   },
   "undo": {
     "ru": "Отменить",
