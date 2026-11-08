@@ -685,10 +685,10 @@ const WaterBathCopy={
     "en": "Place the part inside the highlighted frame."
   },
   "complete": {
-    "ru": "Установка успешно собрана!",
-    "uz-Latn": "Qurilma muvaffaqiyatli yig‘ildi!",
-    "uz-Cyrl": "Қурилма муваффақиятли йиғилди!",
-    "en": "Apparatus successfully assembled!"
+    "ru": "Оборудование успешно собрано!",
+    "en": "Equipment successfully assembled!",
+    "uz-Latn": "Jihozlar muvaffaqiyatli yig‘ildi!",
+    "uz-Cyrl": "Жиҳозлар муваффақиятли йиғилди!"
   },
   "undo": {
     "ru": "Отменить",
@@ -703,10 +703,10 @@ const WaterBathCopy={
     "en": "Redo"
   },
   "restart": {
-    "ru": "Начать сборку заново",
-    "uz-Latn": "Yig‘ishni boshidan boshlash",
-    "uz-Cyrl": "Йиғишни бошидан бошлаш",
-    "en": "Restart assembly"
+    "ru": "Собрать заново",
+    "en": "Assemble again",
+    "uz-Latn": "Qayta yig‘ish",
+    "uz-Cyrl": "Қайта йиғиш"
   },
   "hintButton": {
     "ru": "Подсказка",
@@ -809,5 +809,53 @@ const WaterBathCopy={
     "en": "Place here",
     "uz-Latn": "Shu yerga qo‘y",
     "uz-Cyrl": "Шу ерга қўй"
+  },
+  "checkAssembly": {
+    "ru": "Проверь расположение и соединение оборудования",
+    "en": "Check the equipment positions and connections",
+    "uz-Latn": "Jihozlarning joylashuvi va ulanishini tekshir",
+    "uz-Cyrl": "Жиҳозларнинг жойлашуви ва уланишини текшир"
+  },
+  "action.copper-sulfate": {
+    "ru": "Налить раствор сульфата меди(II)",
+    "en": "Pour in copper(II) sulfate solution",
+    "uz-Latn": "Mis(II) sulfat eritmasini quyish",
+    "uz-Cyrl": "Мис(II) сулфат эритмасини қуйиш"
+  },
+  "experiment.water-bath": {
+    "ru": "Нагревание спирта в водяной бане",
+    "en": "Heating ethanol in a water bath",
+    "uz-Latn": "Spirtni suv hammomida isitish",
+    "uz-Cyrl": "Спиртни сув ҳаммомида иситиш"
+  },
+  "experiment.water-bath.running": {
+    "ru": "Вода передаёт тепло пробирке. Температура спирта постепенно повышается.",
+    "en": "Water transfers heat to the test tube. The temperature of the ethanol rises gradually.",
+    "uz-Latn": "Suv issiqlikni probirkaga uzatadi. Spirt harorati asta-sekin ko‘tariladi.",
+    "uz-Cyrl": "Сув иссиқликни пробиркага узатади. Спирт ҳарорати аста-секин кўтарилади."
+  },
+  "experiment.water-bath.done": {
+    "ru": "Спирт нагрет до 60 °C в водяной бане.",
+    "en": "The ethanol has warmed to 60 °C in the water bath.",
+    "uz-Latn": "Spirt suv hammomida 60 °C gacha isidi.",
+    "uz-Cyrl": "Спирт сув ҳаммомида 60 °C гача исиди."
+  },
+  "experiment.evaporation": {
+    "ru": "Выпаривание раствора",
+    "en": "Evaporating the solution",
+    "uz-Latn": "Eritmani bug‘latish",
+    "uz-Cyrl": "Эритмани буғлатиш"
+  },
+  "experiment.evaporation.running": {
+    "ru": "Вода испаряется. Раствора становится меньше, появляются голубые кристаллы.",
+    "en": "Water evaporates. The solution decreases and blue crystals appear.",
+    "uz-Latn": "Suv bug‘lanadi. Eritma kamayib, ko‘k kristallar paydo bo‘ladi.",
+    "uz-Cyrl": "Сув буғланади. Эритма камайиб, кўк кристаллар пайдо бўлади."
+  },
+  "experiment.evaporation.done": {
+    "ru": "Вода испарилась. В чашке остались голубые кристаллы сульфата меди(II).",
+    "en": "The water has evaporated, leaving blue copper(II) sulfate crystals in the dish.",
+    "uz-Latn": "Suv bug‘landi. Kosachada mis(II) sulfatning ko‘k kristallari qoldi.",
+    "uz-Cyrl": "Сув буғланди. Косачада мис(II) сулфатнинг кўк кристаллари қолди."
   }
 };

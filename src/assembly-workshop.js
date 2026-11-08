@@ -1,7 +1,7 @@
 /* Resumable learner-controlled water-bath assembly, shared model and support graph. */
 const AssemblyWorkshop=(()=>{
  const d=Practical12AssemblyData,esc=v=>escapeHTML(String(v??''));
- async function mount(root,{getState,onSave,language,reduced,parentSignal,soundEnabled=()=>false,manualHeat=false,paused=()=>false,apparatusData=null,initialState=null,onComplete=()=>{}}){if(apparatusData)return ApparatusAssembly.mount(root,{apparatusData,initialState,getState,onSave,parentSignal,reduced,onComplete});
+ async function mount(root,{getState,onSave,language,reduced,parentSignal,soundEnabled=()=>false,manualHeat=false,paused=()=>false,apparatusData=null,initialState=null,onComplete=()=>{},onReset=()=>{}}){if(apparatusData)return ApparatusAssembly.mount(root,{apparatusData,initialState,getState,onSave,parentSignal,reduced,onComplete,onReset});
   const control=new AbortController(),{signal}=control;parentSignal.addEventListener('abort',()=>dispose(),{once:true});let viewer=null,scene=null,selected=null,busy=true,last=performance.now(),timer,feedback='',rejected=new Set(),danger=false,feedbackTimer,hintTimer,dragging=null,heating=false,disposed=false,targets={},sound=null;
   const state=()=>getState(),run=()=>state().run,local=v=>v?.[language()]||v?.ru||'',t=(key,values={})=>local(d.copy[key]).replace(/\{(\w+)\}/g,(_,k)=>values[k]??''),item=id=>d.items.find(i=>i.id===id),step=()=>d.steps[run().actions.length],used=id=>d.steps.slice(0,run().actions.length).some(s=>s.part===id)||id==='tube'&&run().pendingTube;
   const undoStack=[],redoStack=[];const checkpoint=()=>{undoStack.push(structuredClone(run()));redoStack.length=0;};

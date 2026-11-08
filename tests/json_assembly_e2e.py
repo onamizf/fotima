@@ -28,7 +28,7 @@ with sync_playwright() as p:
    click('[data-ag-part="'+parts[-1]['id']+'"]');click('[data-ag-target]');assert q.evaluate('(m)=>ApparatusProgress.data(m).assembly.errors',model)==1
    click('[data-wb=ag-restart]');assert q.evaluate('(m)=>ApparatusProgress.data(m).assembly.errors',model)==0
    if model=='water-bath':sequence=['stand','tripod','gas-burner','wire-gauze','beaker','water','boss-clamp','clamp-arm','test-tube','secure-tube','alcohol','thermometer','valve','match']
-   else:sequence=[p['id'] for p in parts]
+   else:sequence=['tripod','gas-burner','wire-gauze','beaker','water','evaporating-dish','copper-sulfate','valve','match']
    for i,id in enumerate(sequence):
     if id in ['secure-tube','valve','match']:click('[data-ag-action]')
     else:
@@ -41,7 +41,7 @@ with sync_playwright() as p:
      click('[data-wb=ag-undo]');assert q.locator('.ag-frame.is-placed').count()==0;click('[data-wb=ag-redo]');assert q.locator('.ag-frame.is-placed').count()==1
    assert q.evaluate('(m)=>ApparatusProgress.data(m).assembly.done',model)
    assert q.locator('[data-ag-step-hint].is-success').inner_text()==q.evaluate('WaterBathAtlas.t("complete")')
-   assert q.locator('.ag-full').evaluate('(e)=>getComputedStyle(e).opacity')=='1'
+   assert q.locator('.ag-full').evaluate('(e)=>getComputedStyle(e).opacity')==('1' if model=='water-bath' else '0')
    if model=='water-bath':
     assert q.evaluate('Practical12AssemblyData.validCompletion(state.intro.lesson12.setup.workshop.completion)')
     assert q.evaluate('CourseGame.xp()')-initial==42 # study 15 XP was already awarded

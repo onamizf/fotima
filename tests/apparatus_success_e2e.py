@@ -19,13 +19,13 @@ with sync_playwright() as p:
   for part in parts:click('[data-wb-card="'+part['id']+'"]');click('[data-wb=close]')
   click('.wb-page-header [data-wb=build]');q.wait_for_selector('.ag-origin')
   q.evaluate('window.successBursts=0;document.addEventListener("animationstart",e=>{if(e.animationName==="ag-success-burst")window.successBursts++})')
-  sequence=['stand','tripod','gas-burner','wire-gauze','beaker','water','boss-clamp','clamp-arm','test-tube','secure-tube','alcohol','thermometer','valve','match'] if model=='water-bath' else [part['id'] for part in parts]
+  sequence=['stand','tripod','gas-burner','wire-gauze','beaker','water','boss-clamp','clamp-arm','test-tube','secure-tube','alcohol','thermometer','valve','match'] if model=='water-bath' else ['tripod','gas-burner','wire-gauze','beaker','water','evaporating-dish','copper-sulfate','valve','match']
   for id in sequence:
    if id in ['secure-tube','valve','match']:click('[data-ag-action]')
    else:click('[data-ag-part="'+id+'"]');click('[data-ag-target]')
   q.wait_for_selector('.ag-step-hint.is-success');q.wait_for_function('window.successBursts>0')
   q.wait_for_function('(()=>{const r=document.querySelector(".ag-step-hint").getBoundingClientRect(),h=document.querySelector(".wb-page-header").getBoundingClientRect();return r.top>=h.bottom&&r.bottom<=innerHeight})()')
-  assert q.locator('.ag-step-hint.is-success').inner_text()=='Установка успешно собрана!'
+  assert q.locator('.ag-step-hint.is-success').inner_text()=='Оборудование успешно собрано!'
   q.wait_for_timeout(1400);assert q.locator('.ag-celebrating').count()==0
   xp=q.evaluate('CourseGame.xp()')
   for lang in ['en','uz-Latn','uz-Cyrl','ru']:
