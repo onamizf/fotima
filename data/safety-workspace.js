@@ -1,4 +1,7 @@
 const SafetyWorkspaceCopy={
+ now:{ru:'Сейчас',en:'Now','uz-Latn':'Hozir','uz-Cyrl':'Ҳозир'},
+ stage:{ru:'Ситуация {letter} · Этап {n} из {total}',en:'Situation {letter} · Stage {n} of {total}','uz-Latn':'Vaziyat {letter} · Bosqich {n} / {total}','uz-Cyrl':'Вазият {letter} · Босқич {n} / {total}'},
+ shortStage:{ru:'{letter} · этап {n}/{total}',en:'{letter} · stage {n}/{total}','uz-Latn':'{letter} · bosqich {n}/{total}','uz-Cyrl':'{letter} · босқич {n}/{total}'},
  dangerStamp:{ru:'ОПАСНО!',en:'DANGER!',uz:'XAVFLI!','uz-Latn':'XAVFLI!','uz-Cyrl':'ХАВФЛИ!'},
  situations:{ru:'Ситуации',en:'Situations','uz-Latn':'Vaziyatlar','uz-Cyrl':'Вазиятлар'},
  restart:{ru:'Сначала',en:'Restart','uz-Latn':'Boshidan','uz-Cyrl':'Бошидан'},

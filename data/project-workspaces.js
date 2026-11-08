@@ -48,12 +48,6 @@ const ProjectWorkspaceCopy={
     "uz-Latn": "Ish haqida",
     "uz-Cyrl": "Иш ҳақида"
   },
-  "searchTasks": {
-    "ru": "Поиск по заданиям",
-    "en": "Search tasks",
-    "uz-Latn": "Topshiriqlarni izlash",
-    "uz-Cyrl": "Топшириқларни излаш"
-  },
   "ordered": {
     "ru": "По порядку",
     "en": "In order",

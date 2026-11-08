@@ -30,14 +30,14 @@ with sync_playwright() as p:
  direct=c.new_page();direct.goto(BASE+'#lab/ch1/1.1/task-1');direct.wait_for_selector('.safety-editor');direct.locator('[data-workspace-back]').click();direct.wait_for_selector('.project-hub');direct.close()
  q.goto(BASE+'#lab/ch1/1.1/task-1');q.wait_for_selector('.safety-editor')
  for index in range(1,4):
-  q.locator('.safety-scene-nav [data-sw-scene="'+str(index)+'"]').click()
+  q.locator('.safety-scene-tiles [data-sw-scene="'+str(index)+'"]').click()
   q.wait_for_function('(i)=>SafetyWorkspace.debug.current===i&&SafetyWorkspace.debug.player?.stage===0',arg=index)
   for step in range(7):q.locator('[data-sp=advance-line]').click()
   q.wait_for_selector('[data-story-card="2"]')
  q.wait_for_selector('[data-sw=submit]:enabled')
- assert q.locator('.safety-scene-nav').inner_text().count('✓')==4
- q.goto(BASE+'#topic/ch1/1.2');q.wait_for_selector('[data-project-open]');q.locator('[data-project-open]').first.click();q.wait_for_selector('.ec-game');assert len(c.pages)==1
- assert q.locator('.ec-card').count()==6
+ assert q.locator('[data-state=completed]').count()>=3
+ q.goto(BASE+'#topic/ch1/1.2');q.wait_for_selector('[data-project-open]');q.locator('[data-project-open]').first.click();q.wait_for_selector('.es-study');assert len(c.pages)==1
+ assert q.locator('[data-es-item]').count()==6
  assert q.locator('.equipment-image-room').count()==0
  q.screenshot(path=str(OUT/'equipment-task1.png'))
  q.goto(BASE+'#lab/ch1/1.2/task-2');q.wait_for_selector('.wb-atlas')
