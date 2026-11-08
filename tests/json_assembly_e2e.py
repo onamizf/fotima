@@ -44,7 +44,7 @@ with sync_playwright() as p:
    if model=='water-bath':
     assert q.evaluate('Practical12AssemblyData.validCompletion(state.intro.lesson12.setup.workshop.completion)')
     assert q.evaluate('CourseGame.xp()')-initial==42 # study 15 XP was already awarded
-    click('[data-ag-heat]');q.wait_for_function('document.querySelector("[data-ag-temperature]").textContent.includes("60")')
+    assert q.locator('[data-ag-heat],[data-ag-temperature]').count()==0
    else:assert q.evaluate('CourseGame.xp()')==initial
    earned=q.evaluate('CourseGame.xp()')
    if not touch:

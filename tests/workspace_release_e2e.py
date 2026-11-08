@@ -48,7 +48,7 @@ with sync_playwright() as p:
   if key in ['secure-tube','valve','match']:q.locator('[data-ag-action]').click()
   else:q.locator('[data-ag-part="'+key+'"]').click();q.locator('[data-ag-target]').click()
  assert q.evaluate('Practical12AssemblyData.validCompletion(state.intro.lesson12.setup.workshop.completion)')
- q.locator('[data-ag-heat]').click();q.wait_for_function('document.querySelector("[data-ag-temperature]").textContent.includes("60")')
+ assert q.locator('[data-ag-heat],[data-ag-temperature]').count()==0
  xp=q.evaluate('CourseGame.xp()');q.reload();q.wait_for_selector('.ag-stage');assert q.locator('.ag-frame.is-placed').count()==0;assert q.evaluate('CourseGame.xp()')==xp
  q.screenshot(path=str(OUT/'equipment-task2.png'))
  q.set_viewport_size({'width':390,'height':844});q.wait_for_timeout(200)
