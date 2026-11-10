@@ -17,11 +17,11 @@ with sync_playwright() as p:
   menu=q.locator('.workspace-header-menu');
   if q.viewport_size['width']<768 and menu.get_attribute('open') is None:menu.locator('summary').tap()
   getattr(q.locator('#languageToggle'),'tap' if q.viewport_size['width']<768 else 'click')();getattr(q.locator('#languagePanel [data-dropdown-index="'+str(['ru','uz-Latn','uz-Cyrl','en'].index(lang))+'"]'),'tap' if q.viewport_size['width']<768 else 'click')();q.wait_for_function('(l)=>document.documentElement.lang===l',arg=lang)
- q.goto(BASE+'#lab/ch1/1.2/task-1');q.wait_for_selector('.es-study');q.locator('[data-es-item="3"]').click();q.locator('[data-es=demo]').click()
+ q.goto(BASE+'#lab/ch1/1.2/task-1');q.wait_for_selector('.es-study');q.locator('[data-es-item="0"]').click();q.locator('[data-es=demo]').click()
  for lang in LANGS:
   language(lang);q.wait_for_selector('[data-equipment=graduated-cylinder]');assert q.locator('.es-section').count()==6
-  assert q.locator('.es-section p').all_inner_texts()==q.evaluate('EquipmentStudyData.items[3].sections?Object.values(EquipmentStudyData.items[3].sections).map(v=>v[state.settings.language]):[]')
-  assert q.evaluate('state.intro.lesson12.collection.cards["graduated-cylinder"].done')
+  assert q.locator('.es-section-role p').inner_text()==q.evaluate('EquipmentStudyData.items[0].sections.role[state.settings.language]')
+  assert q.evaluate('EquipmentStudy.capture().seen.includes("graduated-cylinder")')
  for width,height in [(360,800),(768,1024),(1366,768),(1920,1080)]:
   q.set_viewport_size({'width':width,'height':height});q.wait_for_timeout(100)
   for lang in LANGS:

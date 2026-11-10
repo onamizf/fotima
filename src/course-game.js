@@ -30,6 +30,7 @@ window.CourseGame=(()=>{
  let owner='',queueXP=0,queueBadges=[],controller,timer,toastTimer,bubbleTimer,audio,gesture=false;
  function ensureOwner(){const id=window.LocalAuth?.currentUser()?.id||'';if(owner!==id){owner=id;queueXP=0;queueBadges=[];document.getElementById('earnedDialog')?.remove();document.getElementById('gameToast')?.remove();}}
  function award(key){if(game().rewards[key])return false;game().rewards[key]=day();queueXP+=rewardValue(key);return true;}
+ function equipmentStudyEvent(id){if(!LocalAuth.signedIn()||!EquipmentStudyData.items.some(i=>i.id===id))return false;return award('lesson12:collection:'+id);}
  function badgeConditions(){return {'assembly-master':state.intro?.lesson12?.setup?.workshop?.master===true,...PeriodicModel.badgeConditions(),first:m.experiments().some(m.experimentPassed),safe:m.passed('intro'),'chapter-intro':m.passed('intro'),perfect:m.all.some(t=>t.ready&&m.best(t.id)===5),week:longestStreak()>=7,all:TextbookCourse.chapters.every(c=>TextbookCourse.chapterDone(c.id)),collector:PersonalData.data().collection.length>=12};}
  const hash=s=>[...s].reduce((n,c)=>(n*31+c.charCodeAt(0))>>>0,7);
  function dailyExperiment(){const id=game().daily[day()];return m.experiments().find(e=>e.id===id)||m.experiments()[0];}
@@ -39,7 +40,7 @@ window.CourseGame=(()=>{
   for(const e of m.experiments())if(m.experimentPassed(e)){if(!(e.kind==='intro'&&((IntroModel.row(e.key).proof||IntroModel.row(e.key)).evidence?.tutorialReview||(IntroModel.row(e.key).proof||IntroModel.row(e.key)).evidence?.tutorialSigns||(IntroModel.row(e.key).proof||IntroModel.row(e.key)).evidence?.equipmentSheet||(IntroModel.row(e.key).proof||IntroModel.row(e.key)).evidence?.setupExploded)))changed=award('exp:'+e.id)||changed;}
   if(Setup12Data.proofValid(state.intro?.lesson12?.setup?.proof))changed=award('lesson12:setup')||changed;
   const workshop=state.intro?.lesson12?.setup?.workshop;if(workshop){for(const n of workshop.earnedSteps)changed=award('lesson12:assembly-step:'+n)||changed;if(Practical12AssemblyData.validCompletion(workshop.completion))changed=award('lesson12:assembly-first')||changed;for(let i=1;i<=workshop.improvements;i++)changed=award('lesson12:assembly-improve:'+i)||changed;}
-  for(const item of EquipmentStudyData.items)if(state.intro?.lesson12?.collection?.cards?.[item.id]?.awarded)changed=award('lesson12:collection:'+item.id)||changed;
+
   for(const item of Practical12Data.items)if(state.intro?.lesson12?.rows?.[item.id]?.earned)changed=award('lesson12:name:'+item.id)||changed;
   const safety=state.intro?.lesson11;for(const s of SafetyLessonData.scenarios)if(SafetyLessonData.validReview(safety?.reviews?.[s.id])&&!g.rewards['exp:intro-'+s.task])changed=award('lesson11:view:'+s.id)||changed;
   for(const t of m.all.filter(t=>t.ready)){if(m.best(t.id)>=4)changed=award('quiz:'+t.id)||changed;if(m.best(t.id)===5)changed=award('perfect:'+t.id)||changed;}
@@ -80,5 +81,5 @@ window.CourseGame=(()=>{
 
  function safetyLessonXP(){const keys=Object.keys(game().rewards).filter(k=>k.startsWith('lesson11:')||/^exp:intro-(danger-[abcd]|signs)$/.test(k));return keys.reduce((n,k)=>n+rewardValue(k),0);}
  function wardrobeAward(id){if(id!=='master'&&!SafetyWardrobeData.professions.some(p=>p.id===id))return false;return award('wardrobe:'+id);}
- return {wardrobeAward,rewardValue,celebrate:confetti,safetyLessonXP,dashboardSnapshot,flushRewards:showRewards,blank,sanitize,day,sync,enter,xp,rank,streak,header,awards,collection,progress,accountCard,settings,mount,hint,experimentEvent,stepEvent};
+ return {equipmentStudyEvent,wardrobeAward,rewardValue,celebrate:confetti,safetyLessonXP,dashboardSnapshot,flushRewards:showRewards,blank,sanitize,day,sync,enter,xp,rank,streak,header,awards,collection,progress,accountCard,settings,mount,hint,experimentEvent,stepEvent};
 })();
