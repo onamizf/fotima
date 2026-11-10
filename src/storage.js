@@ -1,6 +1,6 @@
 let STORAGE_KEY='fotima.chemistry7.curriculum.v2';
 const LEGACY_STORAGE_KEY='fotima.chemistry7.shell.v1';
-const freshState=()=>({version:2,safetyWardrobe:SafetyWardrobe.blank(),personal:PersonalData.blank(),settings:{language:'ru',sound:false,reduceMotion:false,viewMode:'3d',helper:true,largeText:false},progress:{},lessons:{},propertyTable:{},activeSample:'salt',tableSource:'',investigation:blankInvestigation(),propertyReport:blankReport(),physicalLab:blankPhysicalLab(),chemicalLab:blankChemicalLab(),achievements:blankAchievements(),lastLocation:null,textbook:TextbookCourse.blank(),course:CourseModel.blank(),intro:IntroModel.blank(),periodic:PeriodicModel.blank(),notifications:StudentNotices.blank(),game:CourseGame.blank()});
+const freshState=()=>({version:2,profile:ProfileModel.blank(),safetyWardrobe:SafetyWardrobe.blank(),personal:PersonalData.blank(),settings:{language:'ru',sound:false,reduceMotion:false,viewMode:'3d',helper:true,largeText:false},progress:{},lessons:{},propertyTable:{},activeSample:'salt',tableSource:'',investigation:blankInvestigation(),propertyReport:blankReport(),physicalLab:blankPhysicalLab(),chemicalLab:blankChemicalLab(),achievements:blankAchievements(),lastLocation:null,textbook:TextbookCourse.blank(),course:CourseModel.blank(),intro:IntroModel.blank(),periodic:PeriodicModel.blank(),notifications:StudentNotices.blank(),game:CourseGame.blank()});
 let storageAvailable=true;
 function readState(input){
  const clean=freshState();
@@ -21,6 +21,7 @@ function readState(input){
   clean.game=CourseGame.sanitize(value.game);
   clean.safetyWardrobe=SafetyWardrobe.sanitize(value.safetyWardrobe);
   clean.personal=PersonalData.sanitize(value.personal,value);
+  clean.profile=ProfileModel.sanitize(value.profile);
   clean.periodic.collection=clean.personal.collection.filter(i=>i.type==='element').map(i=>i.id);
   if(!value.course){clean.course.legacy=Object.values(clean.lessons).some(l=>l.visited.length>0);clean.course.preservedAccess=['properties','physical','chemical'].filter(id=>value.progress?.[id]==='started'||clean.lessons[id]?.visited.length>0);}
   clean.propertyTable=sanitiseTable(value.propertyTable);
@@ -38,6 +39,6 @@ function readState(input){
 }
 let state=readState();
 /* Assembly attempts are memory-only; completion, best scores and XP remain durable. */
-function saveState(){TextbookCourse.refresh();syncAchievements();window.CourseGame?.sync();try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state,function(key,value){const lesson=state.intro?.lesson12;if(key==='run'&&this===lesson?.setup?.workshop)return undefined;if(key==='assembly'&&Object.values(lesson?.apparatus||{}).includes(this))return undefined;return value;}));storageAvailable=true;}catch{storageAvailable=false;}if(window.FotimaCloud)window.FotimaCloud.changed();}
+function saveState(){TextbookCourse.refresh();syncAchievements();window.CourseGame?.sync();ProfileModel.sync();try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state,function(key,value){const lesson=state.intro?.lesson12;if(key==='run'&&this===lesson?.setup?.workshop)return undefined;if(key==='assembly'&&Object.values(lesson?.apparatus||{}).includes(this))return undefined;return value;}));storageAvailable=true;}catch{storageAvailable=false;}if(window.FotimaCloud)window.FotimaCloud.changed();if(typeof StudentProfile!=='undefined')queueMicrotask(()=>StudentProfile.flushRewards());}
 saveState();
 window.addEventListener('storage',event=>{if(event.key===STORAGE_KEY){state=readState();render(false);}});
