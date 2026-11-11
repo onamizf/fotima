@@ -52,7 +52,8 @@ with sync_playwright() as p:
      button='[data-ag-target]' if id=='valve' else '[data-ag-action]'
      if id=='valve':
       target=q.locator(button).bounding_box();assert target['width']>=44 and target['height']>=44
-     activate(button,mode)
+     if id=='secure-tube' and width==1366:q.locator(button).dblclick(delay=250)
+     else:activate(button,mode)
      # Repeated events during animation cannot skip the following action.
      if id in ['valve','match']:q.locator(button).dispatch_event('click')
     else:
