@@ -14,11 +14,12 @@
       "image": "assets/equipment/water-bath/parts/stand.webp",
       "card": "assets/equipment/water-bath/cards/stand.webp",
       "assembled": {
-        "x": 0.0,
-        "y": 2.57,
-        "w": 100.0,
-        "h": 97.43,
-        "z": 1
+        "x": -0.37,
+        "y": 1.8,
+        "w": 100.74,
+        "h": 98.96,
+        "z": 1,
+        "fit": "fill"
       },
       "exploded": {
         "x": 8,
@@ -39,11 +40,12 @@
       "image": "assets/equipment/water-bath/parts/tripod.webp",
       "card": "assets/equipment/water-bath/cards/tripod.webp",
       "assembled": {
-        "x": 41.45,
-        "y": 65.17,
-        "w": 40.67,
-        "h": 31.62,
-        "z": 2
+        "x": 43.44,
+        "y": 64.61,
+        "w": 36.69,
+        "h": 32.75,
+        "z": 2,
+        "fit": "fill"
       },
       "exploded": {
         "x": 60,
@@ -64,11 +66,12 @@
       "image": "assets/equipment/water-bath/parts/gas-burner.webp",
       "card": "assets/equipment/water-bath/cards/gas-burner.webp",
       "assembled": {
-        "x": 52.06,
-        "y": 65.17,
-        "w": 19.25,
-        "h": 30.98,
-        "z": 3
+        "x": 52.42,
+        "y": 64.6,
+        "w": 18.52,
+        "h": 32.13,
+        "z": 3,
+        "fit": "fill"
       },
       "exploded": {
         "x": 85,
@@ -89,11 +92,12 @@
       "image": "assets/equipment/water-bath/parts/wire-gauze.webp",
       "card": "assets/equipment/water-bath/cards/wire-gauze.webp",
       "assembled": {
-        "x": 38.9,
-        "y": 55.2,
-        "w": 45.78,
-        "h": 11.72,
-        "z": 4
+        "x": 42.39,
+        "y": 53.65,
+        "w": 38.8,
+        "h": 12.28,
+        "z": 4,
+        "fit": "fill"
       },
       "exploded": {
         "x": 35,
@@ -113,11 +117,12 @@
       "image": "assets/equipment/water-bath/parts/beaker.webp",
       "card": "assets/equipment/water-bath/cards/beaker.webp",
       "assembled": {
-        "x": 47.35,
-        "y": 29.86,
-        "w": 33.79,
-        "h": 32.58,
-        "z": 6
+        "x": 48.18,
+        "y": 29.22,
+        "w": 32.14,
+        "h": 33.86,
+        "z": 6,
+        "fit": "fill"
       },
       "exploded": {
         "x": 62,
@@ -191,11 +196,12 @@
       "image": "assets/equipment/water-bath/parts/test-tube.webp",
       "card": "assets/equipment/water-bath/cards/test-tube.webp",
       "assembled": {
-        "x": 58.55,
-        "y": 16.21,
-        "w": 9.23,
-        "h": 38.52,
-        "z": 7
+        "x": 58.21,
+        "y": 15.48,
+        "w": 9.92,
+        "h": 39.97,
+        "z": 7,
+        "fit": "fill"
       },
       "exploded": {
         "x": 80,
@@ -216,11 +222,12 @@
       "image": "assets/equipment/water-bath/parts/thermometer.webp",
       "card": "assets/equipment/water-bath/cards/thermometer.webp",
       "assembled": {
-        "x": 60.73,
-        "y": 0.0,
-        "w": 5.45,
-        "h": 53.13,
-        "z": 8
+        "x": 60.64,
+        "y": -0.93,
+        "w": 5.63,
+        "h": 55.0,
+        "z": 8,
+        "fit": "fill"
       },
       "exploded": {
         "x": 92,

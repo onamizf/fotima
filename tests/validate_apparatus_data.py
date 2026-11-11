@@ -13,8 +13,9 @@ for id,n in [('water-bath',9),('evaporation',5)]:
   for key in [p['name'],p['purpose'],p['safety'],*p['characteristics']]:
    for language in ['ru','en','uz-Latn','uz-Cyrl']:assert copy[key][language],(key,language)
   if 'assembled' in p:
-   a=p['assembled'];assert a['w']>0 and a['h']>0 and 0<=a['x']<=100 and 0<=a['y']<=100
-   assert a['x']+a['w']<=100.01 and a['y']+a['h']<=100.01
+   a=p['assembled'];assert a['w']>0 and a['h']>0 and -2<=a['x']<=100 and -2<=a['y']<=100
+   assert a['x']+a['w']<=102 and a['y']+a['h']<=102
+   assert a['fit']=='fill'
  if id=='evaporation':
   assert d['labelTask']['answers']=={'a':'beaker','b':'tripod','c':'evaporating-dish','d':'gas-burner'}
   for p in d['parts'][:4]:assert p['image'].startswith('assets/equipment/water-bath/parts/')

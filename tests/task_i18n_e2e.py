@@ -39,7 +39,7 @@ with sync_playwright() as p:
    language(lang);q.wait_for_selector('.ag-origin');q.wait_for_function('document.querySelectorAll(".ag-frame.is-placed").length===2')
    assert q.locator('[data-wb=ag-undo]').is_enabled()
    assert q.evaluate('CourseGame.xp()')==xp
-   assert q.locator('[data-ag-message]').inner_text().startswith(q.evaluate('WaterBathAtlas.t("step")'))
+   assert q.locator('[data-wb-studied]').inner_text()==q.evaluate('WaterBathAtlas.t("assemblyStep").replace("{n}","3").replace("{total}",document.querySelector("[data-wb-generic-build]").dataset.agTotal)')
   q.locator('[data-wb=ag-undo]').click();assert q.locator('.ag-frame.is-placed').count()==1
   q.locator('[data-wb=ag-redo]').click();assert q.locator('.ag-frame.is-placed').count()==2
   print('PASS',model,'partial assembly, timer and undo/redo preserved',flush=True)

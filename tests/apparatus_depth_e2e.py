@@ -1,4 +1,4 @@
-"""The depth slider moves the actual tube, secure commits it, and hints stay clear."""
+"""Depth validates secure placement while the archive frames and final reference stay exact."""
 from pathlib import Path
 from playwright.sync_api import sync_playwright
 from browser_auth import register_local
@@ -21,13 +21,13 @@ with sync_playwright() as p:
    click('[data-ag-part="'+id+'"]');click('[data-ag-target]')
   q.wait_for_selector('[data-ag-depth]:visible');q.wait_for_timeout(100)
   def tube_y():return q.locator('[data-ag-frame=test-tube]').evaluate('(e)=>(e.getBoundingClientRect().top-e.parentElement.getBoundingClientRect().top)/e.parentElement.getBoundingClientRect().height*100')
-  baseline=tube_y();attachments=q.locator('[data-ag-frame=clamp-arm],[data-ag-frame=boss-clamp],[data-ag-frame=thermometer]').evaluate_all('es=>es.map(e=>parseFloat(e.style.top))');slider=q.locator('[data-ag-depth]');slider.focus();q.keyboard.press('Home');assert tube_y()<baseline-5
+  baseline=tube_y();attachments=q.locator('[data-ag-frame=clamp-arm],[data-ag-frame=boss-clamp],[data-ag-frame=thermometer]').evaluate_all('es=>es.map(e=>parseFloat(e.style.top))');slider=q.locator('[data-ag-depth]');slider.focus();q.keyboard.press('Home');assert abs(tube_y()-baseline)<.1
   click('[data-ag-action]');assert not q.evaluate('ApparatusProgress.data("water-bath").assembly.actions.includes("secure-tube")')
   slider.scroll_into_view_if_needed();r=slider.bounding_box();x=8+(r['width']-16)*.4
   if touch:slider.tap(position={'x':x,'y':r['height']/2})
   else:q.mouse.click(r['x']+x,r['y']+r['height']/2)
   value=int(slider.input_value());assert 35<=value<=45,value
-  moved=tube_y();assert moved>baseline+1
+  moved=tube_y();assert abs(moved-baseline)<.1
   after=q.locator('[data-ag-frame=clamp-arm],[data-ag-frame=boss-clamp],[data-ag-frame=thermometer]').evaluate_all('es=>es.map(e=>parseFloat(e.style.top))')
   assert all(abs((y-x)-(moved-baseline))<.1 for x,y in zip(attachments,after))
   assert q.locator('[data-ag-depth-value]').inner_text()==str(value)+'%'
@@ -42,19 +42,19 @@ with sync_playwright() as p:
   for width,height in [(360,800),(768,1024),(1366,768),(1920,1080)]:
    q.set_viewport_size({'width':width,'height':height});q.wait_for_timeout(150)
    hint=q.locator('[data-ag-step-hint]').bounding_box();origin=q.locator('.ag-origin').bounding_box()
-   if width<768:assert hint['y']+hint['height']<=origin['y']+2,(hint,origin)
-   else:assert hint['x']+hint['width']<origin['x']+2,(hint,origin)
+   stage=q.locator('.ag-stage').bounding_box()
+   assert hint['x']>=stage['x'] and hint['y']>=stage['y'] and hint['x']+hint['width']<=stage['x']+stage['width']+1 and hint['y']+hint['height']<=stage['y']+stage['height']+1,(hint,stage)
   q.set_viewport_size({'width':360 if touch else 1366,'height':800 if touch else 768})
   for id in ['alcohol','thermometer']:click('[data-ag-part="'+id+'"]');click('[data-ag-target]')
   for _ in range(2):click('[data-ag-action]')
-  assert q.evaluate('ApparatusProgress.data("water-bath").assembly.done')
+  q.wait_for_function('ApparatusProgress.data("water-bath").assembly.done')
   assert abs(tube_y()-moved)<.1
-  assert q.locator('[data-ag-frame=test-tube]').evaluate('(e)=>getComputedStyle(e).opacity')=='1'
-  assert q.locator('.ag-full').evaluate('(e)=>getComputedStyle(e).opacity')=='0'
-  assert q.locator('[data-ag-step-hint].is-success').is_visible()
+  assert q.locator('[data-ag-frame=test-tube]').evaluate('(e)=>getComputedStyle(e).opacity')=='0'
+  assert q.locator('.ag-full').evaluate('(e)=>getComputedStyle(e).opacity')=='1'
+  assert q.locator('.ag-success-toast').is_visible()
   xp=q.evaluate('CourseGame.xp()');q.reload();q.wait_for_selector('.ag-origin');assert q.evaluate('CourseGame.xp()')==xp
   assert q.locator('.ag-frame.is-placed').count()==0
   assert not errors,errors
-  print('PASS',('touch' if touch else 'mouse'),'live depth/secure/legacy state/undo/language/thermometer/completion/left hint in four viewports/no errors',flush=True)
+  print('PASS',('touch' if touch else 'mouse'),'depth validation/exact frames/secure/legacy state/undo/language/full reference/contained hint in four viewports/no errors',flush=True)
   c.close()
  b.close()

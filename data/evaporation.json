@@ -23,11 +23,12 @@
       "source": "water-bath",
       "letter": "b",
       "assembled": {
-        "x": 0.0,
-        "y": 59.05,
-        "w": 100.0,
-        "h": 40.95,
-        "z": 2
+        "x": 11.88,
+        "y": 58.32,
+        "w": 76.24,
+        "h": 42.41,
+        "z": 2,
+        "fit": "fill"
       },
       "exploded": {
         "x": 22,
@@ -50,11 +51,12 @@
       "source": "water-bath",
       "letter": "d",
       "assembled": {
-        "x": 29.52,
-        "y": 60.58,
-        "w": 39.76,
-        "h": 34.51,
-        "z": 3
+        "x": 32.85,
+        "y": 59.94,
+        "w": 33.1,
+        "h": 35.79,
+        "z": 3,
+        "fit": "fill"
       },
       "exploded": {
         "x": 50,
@@ -76,11 +78,12 @@
       "source": "water-bath",
       "letter": null,
       "assembled": {
-        "x": 5.42,
-        "y": 44.17,
-        "w": 86.45,
-        "h": 16.1,
-        "z": 4
+        "x": 5.88,
+        "y": 43.78,
+        "w": 85.52,
+        "h": 16.88,
+        "z": 4,
+        "fit": "fill"
       },
       "exploded": {
         "x": 78,
@@ -103,11 +106,12 @@
       "source": "water-bath",
       "letter": "a",
       "assembled": {
-        "x": 12.05,
-        "y": 15.03,
-        "w": 67.17,
-        "h": 40.95,
-        "z": 6
+        "x": 13.23,
+        "y": 14.23,
+        "w": 64.81,
+        "h": 42.55,
+        "z": 6,
+        "fit": "fill"
       },
       "exploded": {
         "x": 35,
@@ -129,11 +133,12 @@
       "safety": "evaporation.evaporating-dish.safety",
       "letter": "c",
       "assembled": {
-        "x": 8.43,
-        "y": 0.0,
-        "w": 78.92,
-        "h": 22.24,
-        "z": 7
+        "x": 13.06,
+        "y": -0.65,
+        "w": 69.67,
+        "h": 23.54,
+        "z": 7,
+        "fit": "fill"
       },
       "exploded": {
         "x": 68,

@@ -857,5 +857,95 @@ const WaterBathCopy={
     "en": "The water has evaporated, leaving blue copper(II) sulfate crystals in the dish.",
     "uz-Latn": "Suv bug‘landi. Kosachada mis(II) sulfatning ko‘k kristallari qoldi.",
     "uz-Cyrl": "Сув буғланди. Косачада мис(II) сулфатнинг кўк кристаллари қолди."
+  },
+  "equipmentGroup": {
+    "ru": "Оборудование",
+    "en": "Equipment",
+    "uz-Latn": "Jihozlar",
+    "uz-Cyrl": "Жиҳозлар"
+  },
+  "substancesGroup": {
+    "ru": "Вещества",
+    "en": "Substances",
+    "uz-Latn": "Moddalar",
+    "uz-Cyrl": "Моддалар"
+  },
+  "assembled": {
+    "ru": "Собрано ✓",
+    "en": "Assembled ✓",
+    "uz-Latn": "Yig‘ildi ✓",
+    "uz-Cyrl": "Йиғилди ✓"
+  },
+  "assemblyStep": {
+    "ru": "Шаг {n} из {total}",
+    "en": "Step {n} of {total}",
+    "uz-Latn": "{total} bosqichdan {n}-si",
+    "uz-Cyrl": "{total} босқичдан {n}-си"
+  },
+  "alreadyPlaced": {
+    "ru": "Уже стоит на месте",
+    "en": "Already in place",
+    "uz-Latn": "Allaqachon joyida",
+    "uz-Cyrl": "Аллақачон жойида"
+  },
+  "otherEquipment": {
+    "ru": "Сейчас нужен другой прибор",
+    "en": "A different item is needed now",
+    "uz-Latn": "Hozir boshqa jihoz kerak",
+    "uz-Cyrl": "Ҳозир бошқа жиҳоз керак"
+  },
+  "submitWork": {
+    "ru": "Сдать работу",
+    "en": "Submit work",
+    "uz-Latn": "Ishni topshirish",
+    "uz-Cyrl": "Ишни топшириш"
+  },
+  "extra.funnel": {
+    "ru": "Воронка",
+    "en": "Funnel",
+    "uz-Latn": "Voronka",
+    "uz-Cyrl": "Воронка"
+  },
+  "extra.cylinder": {
+    "ru": "Мерный цилиндр",
+    "en": "Graduated cylinder",
+    "uz-Latn": "O‘lchov silindri",
+    "uz-Cyrl": "Ўлчов цилиндри"
+  },
+  "extra.test-tube": {
+    "ru": "Пробирка",
+    "en": "Test tube",
+    "uz-Latn": "Probirka",
+    "uz-Cyrl": "Пробирка"
+  },
+  "extra.spirit-lamp": {
+    "ru": "Спиртовка",
+    "en": "Spirit lamp",
+    "uz-Latn": "Spirt lampasi",
+    "uz-Cyrl": "Спирт лампаси"
+  },
+  "extra.flask": {
+    "ru": "Коническая колба",
+    "en": "Conical flask",
+    "uz-Latn": "Konussimon kolba",
+    "uz-Cyrl": "Конуссимон колба"
+  },
+  "extra.mortar": {
+    "ru": "Ступка с пестиком",
+    "en": "Mortar and pestle",
+    "uz-Latn": "Hovoncha va dastasi",
+    "uz-Cyrl": "Ҳовонча ва дастаси"
+  },
+  "taskTitle.water-bath": {
+    "ru": "Водяная баня",
+    "en": "Water bath",
+    "uz-Latn": "Suv hammomi",
+    "uz-Cyrl": "Сув ҳаммоми"
+  },
+  "taskTitle.evaporation": {
+    "ru": "Выпаривание",
+    "en": "Evaporation",
+    "uz-Latn": "Bug‘latish",
+    "uz-Cyrl": "Буғлатиш"
   }
 };
