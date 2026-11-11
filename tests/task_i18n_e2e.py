@@ -57,8 +57,8 @@ with sync_playwright() as p:
      assert q.locator('[data-ag-frame="'+part['id']+'"] img').first.evaluate('(e)=>getComputedStyle(e).objectFit')==a.get('fit','contain')
     q.screenshot(path=str(OUT/(model+'-'+str(width)+'-'+lang+'.png')))
  q.set_viewport_size({'width':1366,'height':768});q.goto(BASE+'#lab/ch1/1.1/task-1');q.wait_for_function('SafetyWorkspace.debug.player?.stage===0')
- q.locator('[data-sw-scene="1"]').click();q.wait_for_function('SafetyWorkspace.debug.current===1&&SafetyWorkspace.debug.player?.stage===0')
- q.locator('[data-sp=advance-line]').click();q.locator('[data-sw=pause]').click();before=q.evaluate('SafetyWorkspace.capture()')
+ q.locator('[data-sw-scene="1"]').click();q.wait_for_function('SafetyWorkspace.debug.current===1&&SafetyWorkspace.debug.player?.stage===0');q.wait_for_selector('.sp-loader',state='hidden')
+ q.locator('[data-sp=advance-line]').click();q.wait_for_function('SafetyWorkspace.debug.player?.stage===1');q.locator('[data-sw=pause]').click();before=q.evaluate('SafetyWorkspace.capture()')
  for lang in LANGS:
   language(lang);q.wait_for_function('SafetyWorkspace.debug.current===1&&SafetyWorkspace.debug.player?.stage===1')
   assert q.evaluate('SafetyWorkspace.debug.player.playing')==before['player']['playing']

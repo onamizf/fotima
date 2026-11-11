@@ -775,10 +775,10 @@ TextbookData.practicalWorks=[
       {
         "id": "task-3",
         "title": {
-          "ru": "Подписать установку",
-          "en": "Label the apparatus",
-          "uz-Latn": "Qurilma qismlarini belgilang",
-          "uz-Cyrl": "Қурилма қисмларини белгиланг"
+          "ru": "Выпаривание",
+          "en": "Evaporation",
+          "uz-Latn": "Bug‘latish",
+          "uz-Cyrl": "Буғлатиш"
         },
         "thumb": "assets/equipment/evaporation/full.webp",
         "duration": 4,

@@ -61,5 +61,5 @@ function render(moveFocus=true){StudentProfile.dispose();StudentProfile.flushRew
  CourseGame.mount();PeriodicPage.mount();StudentHeader.mount();Dropdown.mount();PersonalPages.mount();LexiconUI.mount();EquipmentWheel.mount();SafetyWardrobe.mount(wardrobeSession);StudentProfile.mount();
  if(moveFocus){document.getElementById('main').focus();window.scrollTo({top:0,behavior:'instant'});}
 }
-window.addEventListener('hashchange',()=>{if(PeriodicPage.handleRoute())return;investigationFeedback=null;reportFeedback='';physicalFeedback=null;chemicalFeedback=null;render();});render(false);FotimaCloud.start();
+window.addEventListener('hashchange',()=>{if(PeriodicPage.handleRoute())return;investigationFeedback=null;reportFeedback='';physicalFeedback=null;chemicalFeedback=null;render();});function startProfileData(){ProfileModel.load().then(()=>{saveState();render(false);FotimaCloud.start();}).catch(error=>{console.error(error);document.getElementById('app').innerHTML=`<p role="alert">${TaskI18n.key(ProfileCopy,'loadError')}</p><button id="profileDataRetry">${TaskI18n.key(ProfileCopy,'retry')}</button>`;document.getElementById('profileDataRetry').onclick=startProfileData;});}startProfileData();
 

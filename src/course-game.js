@@ -31,7 +31,7 @@ window.CourseGame=(()=>{
  function ensureOwner(){const id=window.LocalAuth?.currentUser()?.id||'';if(owner!==id){owner=id;queueXP=0;queueBadges=[];document.getElementById('earnedDialog')?.remove();document.getElementById('gameToast')?.remove();}}
  function award(key){if(game().rewards[key])return false;game().rewards[key]=day();queueXP+=rewardValue(key);return true;}
  function equipmentStudyEvent(id){if(!LocalAuth.signedIn()||!EquipmentStudyData.items.some(i=>i.id===id))return false;return award('lesson12:collection:'+id);}
- function badgeConditions(){return {'assembly-master':state.intro?.lesson12?.setup?.workshop?.master===true,...PeriodicModel.badgeConditions(),first:m.experiments().some(m.experimentPassed),safe:m.passed('intro'),'chapter-intro':m.passed('intro'),perfect:m.all.some(t=>t.ready&&m.best(t.id)===5),week:longestStreak()>=7,all:TextbookCourse.chapters.every(c=>TextbookCourse.chapterDone(c.id)),collector:PersonalData.data().collection.length>=12};}
+ function badgeConditions(){return {...PeriodicModel.badgeConditions(),'chapter-intro':m.passed('intro'),perfect:m.all.some(t=>t.ready&&m.best(t.id)===5),all:TextbookCourse.chapters.every(c=>TextbookCourse.chapterDone(c.id)),collector:PersonalData.data().collection.length>=12};}
  const hash=s=>[...s].reduce((n,c)=>(n*31+c.charCodeAt(0))>>>0,7);
  function dailyExperiment(){const id=game().daily[day()];return m.experiments().find(e=>e.id===id)||m.experiments()[0];}
  function sync(){if(!window.LocalAuth?.signedIn())return false;ensureOwner();let changed=false;const g=game();

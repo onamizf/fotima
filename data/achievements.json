@@ -1,0 +1,93 @@
+{
+  "version": 1,
+  "achievements": [
+    {
+      "id": "first-step",
+      "name": "badge.first-step",
+      "condition": "condition.first-step",
+      "image": "assets/profile/badges/first-step.webp",
+      "group": "general",
+      "taskId": null,
+      "route": null,
+      "conditionType": "completed-task",
+      "threshold": 1
+    },
+    {
+      "id": "safety",
+      "name": "badge.safety",
+      "condition": "condition.safety",
+      "image": "assets/profile/badges/safety.webp",
+      "group": "1.1",
+      "taskId": "task-1",
+      "route": "#lab/ch1/1.1/task-1",
+      "conditionType": "submitted-safety",
+      "threshold": 4
+    },
+    {
+      "id": "equipment-expert",
+      "name": "badge.equipment-expert",
+      "condition": "condition.equipment-expert",
+      "image": "assets/profile/badges/equipment-expert.webp",
+      "group": "1.2",
+      "taskId": "task-1",
+      "route": "#lab/ch1/1.2/task-1",
+      "conditionType": "studied-equipment",
+      "threshold": 6
+    },
+    {
+      "id": "assembly-master",
+      "name": "badge.assembly-master",
+      "condition": "condition.assembly-master",
+      "image": "assets/profile/badges/assembly-master.webp",
+      "group": "1.2",
+      "taskId": "task-2",
+      "route": "#lab/ch1/1.2/task-2",
+      "conditionType": "submitted-assembly",
+      "threshold": 1
+    },
+    {
+      "id": "evaporator",
+      "name": "badge.evaporator",
+      "condition": "condition.evaporator",
+      "image": "assets/profile/badges/evaporator.webp",
+      "group": "1.2",
+      "taskId": "task-3",
+      "route": "#lab/ch1/1.2/task-3",
+      "conditionType": "assembled-and-labelled",
+      "threshold": 1
+    },
+    {
+      "id": "streak-7",
+      "name": "badge.streak-7",
+      "condition": "condition.streak-7",
+      "image": "assets/profile/badges/streak-7.webp",
+      "group": "general",
+      "taskId": null,
+      "route": null,
+      "conditionType": "active-xp-days",
+      "threshold": 7
+    },
+    {
+      "id": "xp-1000",
+      "name": "badge.xp-1000",
+      "condition": "condition.xp-1000",
+      "image": "assets/profile/badges/xp-1000.webp",
+      "group": "general",
+      "taskId": null,
+      "route": null,
+      "conditionType": "total-xp",
+      "threshold": 1000
+    },
+    {
+      "id": "lab-fashion",
+      "name": "badge.lab-fashion",
+      "condition": "condition.lab-fashion",
+      "image": "assets/profile/badges/lab-fashion.webp",
+      "group": "wardrobe",
+      "taskId": "save-look",
+      "route": "#safety-wardrobe",
+      "conditionType": "saved-outfit",
+      "threshold": 1
+    }
+  ]
+}

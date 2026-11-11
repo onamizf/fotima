@@ -21,6 +21,8 @@ with sync_playwright() as p:
  for i in range(6):q.locator('[data-es-item="'+str(i)+'"]').click();q.locator('[data-es=demo]').click()
  q.wait_for_selector('.es-completion:not([hidden])',timeout=12000)
  assert q.locator('[data-es-review]').count()==6
+ assert q.evaluate('!!ProfileModel.data().achievements["equipment-expert"]')
+ q.wait_for_selector('.es-completion .profile-result-awards');assert q.locator('.es-completion .profile-result-awards img').count()>=1
  assert q.evaluate('Object.keys(state.game.rewards).filter(k=>k.startsWith("lesson12:collection:")).length')==6
  stored=q.evaluate('JSON.parse(localStorage.getItem(STORAGE_KEY)).intro.lesson12')
  assert stored['collection']=={'version':2,'complete':True}

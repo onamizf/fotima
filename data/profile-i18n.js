@@ -156,10 +156,10 @@ const ProfileCopy={
     "uz-Cyrl": "Фаоллик"
   },
   "activityDay": {
-    "ru": "{date}: {xp} XP",
-    "en": "{date}: {xp} XP",
-    "uz-Latn": "{date}: {xp} XP",
-    "uz-Cyrl": "{date}: {xp} XP"
+    "ru": "{date} · {xp} XP",
+    "en": "{date} · {xp} XP",
+    "uz-Latn": "{date} · {xp} XP",
+    "uz-Cyrl": "{date} · {xp} XP"
   },
   "ratio": {
     "ru": "{n} из {total}",
@@ -178,36 +178,6 @@ const ProfileCopy={
     "en": "Open task",
     "uz-Latn": "Topshiriqni ochish",
     "uz-Cyrl": "Топшириқни очиш"
-  },
-  "enable3d": {
-    "ru": "Включить 3D",
-    "en": "Enable 3D",
-    "uz-Latn": "3D ni yoqish",
-    "uz-Cyrl": "3Д ни ёқиш"
-  },
-  "sensorUnavailable": {
-    "ru": "Датчик недоступен. Включено мягкое покачивание.",
-    "en": "Sensor unavailable. Gentle automatic motion is enabled.",
-    "uz-Latn": "Datchik mavjud emas. Yengil avtomatik harakat yoqildi.",
-    "uz-Cyrl": "Датчик мавжуд емас. Енгил автоматик ҳаракат ёқилди."
-  },
-  "sensorOn": {
-    "ru": "3D по наклону устройства включён",
-    "en": "Device tilt enabled",
-    "uz-Latn": "Qurilma qiyaligi bo‘yicha 3D yoqildi",
-    "uz-Cyrl": "Қурилма қиялиги бўйича 3Д ёқилди"
-  },
-  "frog": {
-    "ru": "Лягушка-лаборант",
-    "en": "Frog lab assistant",
-    "uz-Latn": "Qurbaqa-laborant",
-    "uz-Cyrl": "Қурбақа-лаборант"
-  },
-  "wave": {
-    "ru": "Помахать лягушке",
-    "en": "Wave to the frog",
-    "uz-Latn": "Qurbaqaga qo‘l silkitish",
-    "uz-Cyrl": "Қурбақага қўл силкитиш"
   },
   "back": {
     "ru": "Назад",
@@ -336,10 +306,10 @@ const ProfileCopy={
     "uz-Cyrl": "Аввало хавфсизлик"
   },
   "condition.safety": {
-    "ru": "Пройди все ситуации в задании 1.1",
-    "en": "Review all situations in task 1.1",
-    "uz-Latn": "1.1 dagi barcha vaziyatlarni o‘rgan",
-    "uz-Cyrl": "1.1 даги барча вазиятларни ўрган"
+    "ru": "Пройди все ситуации и сдай задание 1.1 · 1",
+    "en": "Complete all situations and submit task 1.1 · 1",
+    "uz-Latn": "Barcha vaziyatlarni ko‘rib, 1.1 · 1-topshiriqni topshir",
+    "uz-Cyrl": "Барча вазиятларни кўриб, 1.1 · 1-топшириқни топшир"
   },
   "badge.equipment-expert": {
     "ru": "Знаток приборов",
@@ -360,10 +330,10 @@ const ProfileCopy={
     "uz-Cyrl": "Йиғиш устаси"
   },
   "condition.assembly-master": {
-    "ru": "Собери водяную баню без ошибок",
-    "en": "Assemble the water bath without errors",
-    "uz-Latn": "Suv hammomini xatosiz yig‘",
-    "uz-Cyrl": "Сув ҳаммомини хатосиз йиғ"
+    "ru": "Собери водяную баню и сдай задание",
+    "en": "Assemble the water bath and submit the task",
+    "uz-Latn": "Suv hammomini yig‘ib, topshiriqni topshir",
+    "uz-Cyrl": "Сув ҳаммомини йиғиб, топшириқни топшир"
   },
   "badge.evaporator": {
     "ru": "Выпариватель",
@@ -372,10 +342,10 @@ const ProfileCopy={
     "uz-Cyrl": "Буғлатиш устаси"
   },
   "condition.evaporator": {
-    "ru": "Выполни задание «Выпаривание»",
-    "en": "Complete the evaporation task",
-    "uz-Latn": "Bug‘latish topshirig‘ini bajar",
-    "uz-Cyrl": "Буғлатиш топшириғини бажар"
+    "ru": "Собери установку для выпаривания и подпиши схему",
+    "en": "Assemble the evaporation apparatus and label its diagram",
+    "uz-Latn": "Bug‘latish qurilmasini yig‘ib, sxemasini nomla",
+    "uz-Cyrl": "Буғлатиш қурилмасини йиғиб, схемасини номла"
   },
   "badge.streak-7": {
     "ru": "Огонёк",
@@ -384,10 +354,10 @@ const ProfileCopy={
     "uz-Cyrl": "Оловча"
   },
   "condition.streak-7": {
-    "ru": "Занимайся 7 дней подряд",
-    "en": "Study for 7 consecutive days",
-    "uz-Latn": "7 kun ketma-ket shug‘ullan",
-    "uz-Cyrl": "7 кун кетма-кет шуғуллан"
+    "ru": "Выполняй учебные действия с XP 7 дней подряд",
+    "en": "Earn XP from learning actions on 7 consecutive days",
+    "uz-Latn": "7 kun ketma-ket o‘quv harakatlari uchun XP ol",
+    "uz-Cyrl": "7 кун кетма-кет ўқув ҳаракатлари учун XP ол"
   },
   "badge.xp-1000": {
     "ru": "1000 XP",
@@ -418,5 +388,95 @@ const ProfileCopy={
     "en": "English",
     "uz-Latn": "O‘zbekcha",
     "uz-Cyrl": "Ўзбекча"
+  },
+  "allLink": {
+    "ru": "Все ›",
+    "en": "All ›",
+    "uz-Latn": "Barchasi ›",
+    "uz-Cyrl": "Барчаси ›"
+  },
+  "avatar": {
+    "ru": "Аватар профиля",
+    "en": "Profile avatar",
+    "uz-Latn": "Profil avatari",
+    "uz-Cyrl": "Профил аватари"
+  },
+  "levelLine": {
+    "ru": "Уровень {level} · {title}",
+    "en": "Level {level} · {title}",
+    "uz-Latn": "{level}-daraja · {title}",
+    "uz-Cyrl": "{level}-даража · {title}"
+  },
+  "nextLevelNumber": {
+    "ru": "{xp} XP до {level} уровня",
+    "en": "{xp} XP to level {level}",
+    "uz-Latn": "{level}-darajagacha {xp} XP",
+    "uz-Cyrl": "{level}-даражагача {xp} XP"
+  },
+  "stat.achievements": {
+    "ru": "Достижения",
+    "en": "Achievements",
+    "uz-Latn": "Yutuqlar",
+    "uz-Cyrl": "Ютуқлар"
+  },
+  "myWorks": {
+    "ru": "Мои работы",
+    "en": "My practical work",
+    "uz-Latn": "Mening ishlarim",
+    "uz-Cyrl": "Менинг ишларим"
+  },
+  "completed": {
+    "ru": "Выполнено",
+    "en": "Completed",
+    "uz-Latn": "Bajarildi",
+    "uz-Cyrl": "Бажарилди"
+  },
+  "general": {
+    "ru": "Общие",
+    "en": "General",
+    "uz-Latn": "Umumiy",
+    "uz-Cyrl": "Умумий"
+  },
+  "sourceTask": {
+    "ru": "Работа {work} · Задание {task}",
+    "en": "Work {work} · Task {task}",
+    "uz-Latn": "{work}-ish · {task}-topshiriq",
+    "uz-Cyrl": "{work}-иш · {task}-топшириқ"
+  },
+  "goTask": {
+    "ru": "Перейти к заданию",
+    "en": "Go to task",
+    "uz-Latn": "Topshiriqqa o‘tish",
+    "uz-Cyrl": "Топшириққа ўтиш"
+  },
+  "bestStreak": {
+    "ru": "Лучшая серия: {days}",
+    "en": "Best streak: {days}",
+    "uz-Latn": "Eng yaxshi ketma-ketlik: {days}",
+    "uz-Cyrl": "Энг яхши кетма-кетлик: {days}"
+  },
+  "days.one": {
+    "ru": "{n} день",
+    "en": "{n} day",
+    "uz-Latn": "{n} kun",
+    "uz-Cyrl": "{n} кун"
+  },
+  "days.few": {
+    "ru": "{n} дня",
+    "en": "{n} days",
+    "uz-Latn": "{n} kun",
+    "uz-Cyrl": "{n} кун"
+  },
+  "days.many": {
+    "ru": "{n} дней",
+    "en": "{n} days",
+    "uz-Latn": "{n} kun",
+    "uz-Cyrl": "{n} кун"
+  },
+  "earnedAchievement": {
+    "ru": "Получено достижение: {name}",
+    "en": "Achievement earned: {name}",
+    "uz-Latn": "Yutuq qo‘lga kiritildi: {name}",
+    "uz-Cyrl": "Ютуқ қўлга киритилди: {name}"
   }
 };

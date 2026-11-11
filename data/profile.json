@@ -4,56 +4,6 @@
     "w": 1792,
     "h": 592
   },
-  "badges": [
-    {
-      "id": "first-step",
-      "name": "badge.first-step",
-      "condition": "condition.first-step",
-      "image": "assets/profile/badges/first-step.webp"
-    },
-    {
-      "id": "safety",
-      "name": "badge.safety",
-      "condition": "condition.safety",
-      "image": "assets/profile/badges/safety.webp"
-    },
-    {
-      "id": "equipment-expert",
-      "name": "badge.equipment-expert",
-      "condition": "condition.equipment-expert",
-      "image": "assets/profile/badges/equipment-expert.webp"
-    },
-    {
-      "id": "assembly-master",
-      "name": "badge.assembly-master",
-      "condition": "condition.assembly-master",
-      "image": "assets/profile/badges/assembly-master.webp"
-    },
-    {
-      "id": "evaporator",
-      "name": "badge.evaporator",
-      "condition": "condition.evaporator",
-      "image": "assets/profile/badges/evaporator.webp"
-    },
-    {
-      "id": "streak-7",
-      "name": "badge.streak-7",
-      "condition": "condition.streak-7",
-      "image": "assets/profile/badges/streak-7.webp"
-    },
-    {
-      "id": "xp-1000",
-      "name": "badge.xp-1000",
-      "condition": "condition.xp-1000",
-      "image": "assets/profile/badges/xp-1000.webp"
-    },
-    {
-      "id": "lab-fashion",
-      "name": "badge.lab-fashion",
-      "condition": "condition.lab-fashion",
-      "image": "assets/profile/badges/lab-fashion.webp"
-    }
-  ],
   "stats": [
     {
       "id": "streak",
@@ -81,53 +31,9 @@
       "icon": "assets/profile/stats/accuracy.webp"
     },
     {
-      "id": "level",
-      "name": "stat.level",
-      "icon": "assets/profile/stats/level.webp"
+      "id": "achievements",
+      "name": "stat.achievements",
+      "icon": "assets/icons/achievements.png"
     }
-  ],
-  "frog": "assets/game/frog-base.webp",
-  "layers": [
-    "assets/game/wear/cap.webp",
-    "assets/game/wear/hard-hat.webp",
-    "assets/game/wear/fire-helmet.webp",
-    "assets/game/wear/miner-helmet.webp",
-    "assets/game/wear/chef-hat.webp",
-    "assets/game/wear/bee-hat.webp",
-    "assets/game/wear/space-helmet.webp",
-    "assets/game/wear/goggles.webp",
-    "assets/game/wear/sealed-goggles.webp",
-    "assets/game/wear/medical-mask.webp",
-    "assets/game/wear/respirator.webp",
-    "assets/game/wear/face-shield.webp",
-    "assets/game/wear/welding-mask.webp",
-    "assets/game/wear/fire-breathing.webp",
-    "assets/game/wear/lab-coat.webp",
-    "assets/game/wear/surgical-gown.webp",
-    "assets/game/wear/apron.webp",
-    "assets/game/wear/coverall.webp",
-    "assets/game/wear/fire-suit.webp",
-    "assets/game/wear/hi-vis-vest.webp",
-    "assets/game/wear/welder-jacket.webp",
-    "assets/game/wear/bee-suit.webp",
-    "assets/game/wear/chef-jacket.webp",
-    "assets/game/wear/work-overall.webp",
-    "assets/game/wear/space-suit.webp",
-    "assets/game/wear/nitrile-gloves.webp",
-    "assets/game/wear/rubber-gloves.webp",
-    "assets/game/wear/heat-gloves.webp",
-    "assets/game/wear/work-gloves.webp",
-    "assets/game/wear/welding-gauntlets.webp",
-    "assets/game/wear/dielectric-gloves.webp",
-    "assets/game/wear/bee-gloves.webp",
-    "assets/game/wear/space-gloves.webp",
-    "assets/game/wear/closed-shoes.webp",
-    "assets/game/wear/rubber-boots.webp",
-    "assets/game/wear/shoe-covers.webp",
-    "assets/game/wear/steel-boots.webp",
-    "assets/game/wear/fire-boots.webp",
-    "assets/game/wear/dielectric-boots.webp",
-    "assets/game/wear/chef-shoes.webp",
-    "assets/game/wear/space-boots.webp"
   ]
 }

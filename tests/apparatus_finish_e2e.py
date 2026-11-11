@@ -12,18 +12,20 @@ with sync_playwright() as p:
   q.goto(BASE+'#lab/ch1/1.2/'+task);q.wait_for_selector('.wb-atlas');d=q.evaluate('(id)=>WaterBathAtlas.load(id)',model)
   for part in d['parts']:q.locator('[data-wb-card="'+part['id']+'"]').tap();q.locator('[data-wb=close]').tap()
   q.locator('.wb-page-header [data-wb=build]').tap();q.wait_for_selector('.ag-origin')
+  if model=='water-bath':q.locator('[data-ag-part=extra-funnel]').tap()
   title=q.locator('.wb-page-header h1');assert title.bounding_box()['height']<=title.evaluate('e=>parseFloat(getComputedStyle(e).lineHeight)*2')+1
   sequence=['stand','tripod','gas-burner','wire-gauze','beaker','water','boss-clamp','clamp-arm','test-tube','secure-tube','alcohol','thermometer','valve','match'] if model=='water-bath' else ['tripod','gas-burner','wire-gauze','beaker','water','evaporating-dish','copper-sulfate','valve','match']
   for n,id in enumerate(sequence):
    if id in ['secure-tube','valve','match']:q.locator('[data-ag-action]').tap()
    else:q.locator('[data-ag-part="'+id+'"]').tap();q.locator('[data-ag-target]').tap()
    q.wait_for_function('([model,n])=>ApparatusProgress.data(model).assembly.actions.length===n',arg=[model,n+1])
+   if id=='valve':q.wait_for_timeout(550)
   before=q.evaluate('CourseGame.xp()')
   if model=='water-bath':
-   q.locator('[data-wb=ag-submit]').tap();q.wait_for_selector('.project-hub');assert q.evaluate('Practical12AssemblyData.validCompletion(state.intro.lesson12.setup.workshop.completion)');assert q.evaluate('CourseGame.xp()')==before
+   assert not q.evaluate('!!ProfileModel.data().achievements["assembly-master"]');q.locator('[data-wb=ag-submit]').tap();q.wait_for_selector('[data-wb-result][open]');assert q.evaluate('!!ProfileModel.data().achievements["assembly-master"]');assert q.evaluate('state.intro.lesson12.setup.workshop.completion.errors')>0;assert q.locator('[data-wb-result] .profile-result-awards').is_visible();q.locator('[data-wb=finish-back]').tap();q.wait_for_selector('.project-hub');assert q.evaluate('Practical12AssemblyData.validCompletion(state.intro.lesson12.setup.workshop.completion)');assert q.evaluate('CourseGame.xp()')==before
   else:
    q.locator('.ag-finish [data-wb=labels]').tap();q.wait_for_selector('.al-scene')
    for letter,id in d['labelTask']['answers'].items():q.locator('[data-al-field="'+letter+'"]').tap();q.locator('[data-al-chip="'+id+'"]').tap()
-   q.locator('[data-wb=al-check]').tap();assert q.evaluate('ApparatusProgress.data("evaporation").labels.complete');q.reload();q.wait_for_selector('.al-scene');assert q.evaluate('ApparatusProgress.data("evaporation").labels.complete');assert q.evaluate('CourseGame.xp()')==before
+   q.locator('[data-wb=al-check]').tap();q.wait_for_selector('.al-actions .profile-result-awards');assert q.evaluate('!!ProfileModel.data().achievements.evaporator');assert q.evaluate('ApparatusProgress.data("evaporation").labels.complete');q.reload();q.wait_for_selector('.al-scene');assert q.evaluate('ApparatusProgress.data("evaporation").labels.complete');assert q.evaluate('CourseGame.xp()')==before
   print('PASS',model,'finish button / original progress proof / rewards / mobile title',flush=True)
  assert not errors,errors;b.close()
